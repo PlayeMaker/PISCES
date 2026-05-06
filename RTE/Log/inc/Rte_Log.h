@@ -7,7 +7,7 @@ extern "C"
 #endif
 
 /************************ Include Files ************************/
-#include "Printf_Handle.h"
+#include "Printf.h"
 /************************ Macro Definitions ************************/
 #define RTE_LOG_PRINTF       Snf_Printf
 /************************ Type Definitions ************************/
