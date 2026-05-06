@@ -1,0 +1,116 @@
+/**
+ * @file    Adc_Irq.c
+ * @version
+ *
+ * @brief   AUTOSAR ADC module interface
+ * @details API implementation for ADC driver
+ *
+ * @addtogroup ADC_MODULE
+ * @{
+ */
+/*==================================================================================================
+ *   Project              : YTMicro AUTOSAR 4.4.0 MCAL
+ *   Platform             : ARM
+ *   Peripheral           : Adc
+ *   Dependencies         : none
+ *
+ *   Autosar Version      : V4.4.0
+ *   Autosar Revision     : ASR_REL_4_4_REV_0000
+ *   Autosar Conf.Variant :
+ *   SW Version           : V0.9.1
+ *
+ *
+ *   (c) Copyright 2020-2025 Yuntu Microelectronics co.,ltd.
+ *   All Rights Reserved.
+==================================================================================================*/
+/*==================================================================================================
+==================================================================================================*/
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+/*
+ * @page misra_violations MISRA-C:2012 violations list
+ * PRQA S 3408 Rule 8.4: A compatible declaration shall be visible when an object or function with
+ *                  external linkage is defined
+ */
+/*=================================================================================================
+ *                                        INCLUDE FILES
+=================================================================================================*/
+#include "Adc_Cfg.h"
+#if (ADC_HW_HIGH_PRIORITY_SEQUENCE == TRUE)
+#include "Adc_Lld_Eadc.h"
+#else
+#include "Adc_Lld_Adc.h"
+#endif /* ADC_HW_HIGH_PRIORITY_SEQUENCE == TRUE */
+#include "OsIf.h"
+
+/*==================================================================================================
+ *                                   FILE VERSION INFORMATION
+==================================================================================================*/
+
+/*==================================================================================================
+ *                                     FILE VERSION CHECKS
+==================================================================================================*/
+
+/*==================================================================================================
+ *                                       DEFINES AND MACROS
+==================================================================================================*/
+
+/*==================================================================================================
+ *                                             ENUMS
+==================================================================================================*/
+
+/*==================================================================================================
+ *                                             TYPEDEF
+==================================================================================================*/
+
+/*==================================================================================================
+ *                                   LOCAL FUNCTION DECLARATION
+==================================================================================================*/
+
+/*==================================================================================================
+ *                                          VARIATES
+==================================================================================================*/
+
+/*==================================================================================================
+                                        GLOBAL FUNCTIONS
+==================================================================================================*/
+ISR(ADC0_IRQHandler);
+#if (ADC_MAX_HW_UNITS>1U)
+ISR(ADC1_IRQHandler);
+#endif /*(ADC_MAX_HW_UNITS>1U)*/
+
+#define ADC_START_SEC_CODE
+#include "Adc_MemMap.h"
+/* MR12 RULE 8.4 VIOLATION: The ADC0_IRQHandler is a interrupt service function, it's not necessary
+ * to be declareation.
+ */
+#if (ADC_HW_HIGH_PRIORITY_SEQUENCE ==TRUE)
+ADC_FUNC ISR(eADC0_IRQHandler)
+#else
+ADC_FUNC ISR(ADC0_IRQHandler) /*PRQA S 3408*/
+#endif
+{
+    Adc_Lld_IrqProcess(0);
+}
+/* MR12 RULE 8.4 VIOLATION: The ADC1_IRQHandler is a interrupt service function, it's not necessary
+ * to be declareation.
+ */
+#if (ADC_MAX_HW_UNITS>1U)
+ADC_FUNC ISR(ADC1_IRQHandler) /*PRQA S 3408*/
+{
+    Adc_Lld_IrqProcess(1);
+}
+#endif
+#define ADC_STOP_SEC_CODE
+#include "Adc_MemMap.h"
+
+#ifdef __cplusplus
+}
+#endif
+
+/** @} */
+
