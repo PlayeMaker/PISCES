@@ -1,5 +1,5 @@
-#ifndef _RTE_ADC_H_
-#define _RTE_ADC_H_
+#ifndef _RTE_PWM_IF_H_
+#define _RTE_PWM_IF_H_
 
 #ifdef __cplusplus
 extern "C"
@@ -7,10 +7,8 @@ extern "C"
 #endif
 
 /************************ Include Files ************************/
-#include "Drv_Adc.h"
+#include "Drv_Pwm.h"
 /************************ Macro Definitions ************************/
-#define RTE_ADC_INIT       Snf_Drv_Adc_Init
-#define RTE_ADC_CONVERSION Snf_Drv_Adc_Conversion
 
 /************************ Type Definitions ************************/
 
@@ -22,4 +20,4 @@ extern "C"
 }
 #endif
 
-#endif /* _RTE_ADC_H_ */
+#endif /* _RTE_PWM_IF_H_ */

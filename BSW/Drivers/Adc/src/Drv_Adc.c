@@ -1,10 +1,12 @@
 /************************ Include Files ************************/
+#include <stdbool.h>
 #include "Drv_Adc.h"
 #include "Mcal.h"
 /************************ Macro Definitions ************************/
 
 /************************ Private Global Variables ************************/
-Adc_ValueGroupType Adc0_Group0_Buf[AdcGroup_0_CHANNEL_NUMBER] = {0};
+Adc_ValueGroupType   Adc0_Group0_Buf[AdcGroup_0_CHANNEL_NUMBER] = {0};
+static volatile bool adc_conversion_flag                        = false;
 /************************ Public Global Variables ************************/
 
 /************************ Private Function Declarations ************************/
@@ -31,7 +33,9 @@ void Snf_Drv_Adc_Init(void)
  */
 void Snf_Drv_Adc_Conversion(void)
 {
+    adc_conversion_flag = false;
     Adc_StartGroupConversion(AdcConf_AdcConfigSet_AdcGroup_0);
+    while (true != adc_conversion_flag);
 }
 
 /**
@@ -65,5 +69,6 @@ void ADC0_Group0CallBack(void)
     {
         /*The group will automatically restart the conversion after read*/
         Adc_ReadGroup(AdcConf_AdcConfigSet_AdcGroup_0, Adc0_Group0_Buf);
+        adc_conversion_flag = true;
     }
 }

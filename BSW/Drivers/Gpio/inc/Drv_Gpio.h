@@ -8,8 +8,10 @@ extern "C"
 
 /************************ Include Files ************************/
 #include <stdint.h>
+#include "Rte_Gpio_Types.h"
 /************************ Macro Definitions ************************/
-#define PORT_PIN_TO_ID(port_index, pin_num) ((port_index) * 32 + (pin_num))
+#define PORT_PIN_TO_PORT_ID(port_index, pin_num) ((port_index) * 32 + (pin_num))
+#define PORT_PIN_TO_DIO_ID(port_index, pin_num)  (((port_index) << 8) + (pin_num))
 /************************ Type Definitions ************************/
 typedef enum
 {
@@ -42,10 +44,13 @@ typedef enum
     DRV_GPIO_PIN_15 = 15U,
     DRV_GPIO_PIN_MAX
 } drv_gpio_pin_e;
+
 /************************ External Variables ************************/
 
 /************************ Function Declarations ************************/
 void Snf_Drv_Gpio_Init(void);
+void Snf_Drv_Gpio_Write(drv_gpio_port_e port, drv_gpio_pin_e pin, rte_gpio_level_e level);
+rte_gpio_level_e Snf_Drv_Gpio_Read(drv_gpio_port_e port, drv_gpio_pin_e pin);
 
 #ifdef __cplusplus
 }

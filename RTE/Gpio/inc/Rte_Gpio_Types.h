@@ -1,5 +1,5 @@
-#ifndef _RTE_ADC_H_
-#define _RTE_ADC_H_
+#ifndef _RTE_GPIO_TYPES_H_
+#define _RTE_GPIO_TYPES_H_
 
 #ifdef __cplusplus
 extern "C"
@@ -7,13 +7,15 @@ extern "C"
 #endif
 
 /************************ Include Files ************************/
-#include "Drv_Adc.h"
+
 /************************ Macro Definitions ************************/
-#define RTE_ADC_INIT       Snf_Drv_Adc_Init
-#define RTE_ADC_CONVERSION Snf_Drv_Adc_Conversion
 
 /************************ Type Definitions ************************/
-
+typedef enum
+{
+    RTE_GPIO_LEVEL_LOW  = 0U,
+    RTE_GPIO_LEVEL_HIGH = 1U,
+} rte_gpio_level_e;
 /************************ External Variables ************************/
 
 /************************ Function Declarations ************************/
@@ -22,4 +24,4 @@ extern "C"
 }
 #endif
 
-#endif /* _RTE_ADC_H_ */
+#endif /* _RTE_GPIO_TYPES_H_ */

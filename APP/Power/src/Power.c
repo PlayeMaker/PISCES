@@ -1,9 +1,12 @@
 /************************ Include Files ************************/
 #include "Power.h"
+#include <stdint.h>
 #include "Rte_Mcu.h"
 #include "Rte_Mcu_Types.h"
 #include "Rte_Wdg.h"
 #include "Rte_Log.h"
+#include "Rte_Adc_If.h"
+#include "Rte_Gpio_If.h"
 #include "Power_Message_Box.h"
 #include "Basic_Config.h"
 /************************ Macro Definitions ************************/
@@ -48,6 +51,7 @@ void Snf_Power_Reset(void)
 void Snf_Power_Task_Init(void)
 {
     _Snf_Power_Get_Response();
+    RTE_GPIO_BAT_VOL_AD_ENABLE();
 }
 
 /**
@@ -57,6 +61,6 @@ void Snf_Power_Task_Init(void)
  */
 void Snf_Power_Task(void)
 {
-    RTE_WDG_REFRESH();
+        RTE_WDG_REFRESH();
     Snf_Power_Message_Box_Handle();
 }
