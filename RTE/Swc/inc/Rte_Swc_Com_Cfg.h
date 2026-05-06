@@ -9,11 +9,12 @@ extern "C"
 /************************ Include Files ************************/
 
 /************************ Macro Definitions ************************/
-#define RTE_SWC_POWER_FIFO_ID       0U
-#define RTE_SWC_POWER_FIFO_MAX_SIZE 32U
+#define RTE_SWC_PRINTF_FIFO_ID       0U
+#define RTE_SWC_PRINTF_FIFO_MAX_SIZE 1024U
 
-#define RTE_SWC_SHELL_PRINT_FIFO_ID       1U
-#define RTE_SWC_SHELL_PRINT_FIFO_MAX_SIZE 1024U
+#define RTE_SWC_POWER_FIFO_ID        1U
+#define RTE_SWC_POWER_FIFO_MAX_SIZE  32U
+
 /************************ Type Definitions ************************/
 
 /************************ External Variables ************************/

@@ -12,7 +12,7 @@ extern "C"
 #define POWER_TASK_PERIOD_MS  5
 #define BUTTON_TASK_PERIOD_MS 5
 #define SYSTEM_TASK_PERIOD_MS 2
-#define SHELL_TASK_PERIOD_MS  1
+#define PRINTF_TASK_PERIOD_MS 10
 /************************ Type Definitions ************************/
 
 /************************ External Variables ************************/

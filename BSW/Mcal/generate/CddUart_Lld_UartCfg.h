@@ -56,7 +56,7 @@ extern "C"{
 #define CDDUART_UART_INSTANCE_COUNT             (3U)
 #endif
 /* @brief Uart has feature DMA enable. */
-#define CDDUART_DMA_USED                        (STD_OFF)
+#define CDDUART_DMA_USED                        (STD_ON)
 /*==================================================================================================
 *                                              ENUMS
 ==================================================================================================*/

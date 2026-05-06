@@ -45,6 +45,8 @@ extern "C"{
 #include "Pwm_PBcfg.h"
 #include "Pwm_Lld_Etmr_PBcfg.h"
 #include "Pwm_Lld_Mpwm_PBcfg.h"
+#include "CddDma.h"
+#include "CddDma_PBcfg.h"
 #include "CddUart.h"
 #include "CddUart_PBcfg.h"
 #include "CddUart_Mld_PBcfg.h"
@@ -73,6 +75,9 @@ PWM_LLD_ETMR_CONFIG_PB
 #endif
 #ifdef PWM_LLD_MPWM_CONFIG_PB
 PWM_LLD_MPWM_CONFIG_PB
+#endif
+#ifdef CDDDMA_CONFIG_PB
+CDDDMA_CONFIG_PB
 #endif
 #ifdef CDDUART_CONFIG_PB
 CDDUART_CONFIG_PB

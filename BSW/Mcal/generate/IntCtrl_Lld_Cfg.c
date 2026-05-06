@@ -50,11 +50,11 @@ extern "C" {
 /* List of configurations for interrupts */
 PLATFORM_CONST static const IntCtrl_Lld_IrqConfigType IrqConfig[] = {
     {   .IrqNumber    = DMA0_IRQn,
-        .IrqEnabled   = (boolean)STD_OFF,
+        .IrqEnabled   = (boolean)STD_ON,
         .IrqPriority = 7,   
     },
     {   .IrqNumber    = DMA1_IRQn,
-        .IrqEnabled   = (boolean)STD_OFF,
+        .IrqEnabled   = (boolean)STD_ON,
         .IrqPriority = 7,   
     },
     {   .IrqNumber    = DMA2_IRQn,

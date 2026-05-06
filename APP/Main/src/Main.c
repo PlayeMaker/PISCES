@@ -3,6 +3,7 @@
 #include "Rte_Platform.h"
 #include "Rte_Os.h"
 #include "Rte_Gpio.h"
+#include "Rte_Dma.h"
 #include "Rte_Uart.h"
 #include "Rte_Adc.h"
 #include "Rte_Pwm.h"
@@ -28,6 +29,7 @@ static void _Snf_Board_Init(void)
     RTE_PLATFORM_INIT();
     RTE_OS_INIT();
     RTE_GPIO_INIT();
+    RTE_DMA_INIT();
     RTE_UART_INIT();
     RTE_ADC_INIT();
     RTE_PWM_INIT();

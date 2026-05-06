@@ -7,15 +7,15 @@
 /************************ Macro Definitions ************************/
 
 /************************ Private Global Variables ************************/
+static uint8_t           rte_swc_fifo_Printf_buf[RTE_SWC_PRINTF_FIFO_MAX_SIZE] = {0};
+static rte_fifo_config_t rte_swc_fifo_Printf = {rte_swc_fifo_Printf_buf, RTE_SWC_PRINTF_FIFO_MAX_SIZE, 0, 0, 0};
+
 static uint8_t           rte_swc_fifo_power_buf[RTE_SWC_POWER_FIFO_MAX_SIZE] = {0};
 static rte_fifo_config_t rte_swc_fifo_power = {rte_swc_fifo_power_buf, RTE_SWC_POWER_FIFO_MAX_SIZE, 0, 0, 0};
 
-static uint8_t           rte_swc_fifo_shell_Print_buf[RTE_SWC_SHELL_PRINT_FIFO_MAX_SIZE] = {0};
-static rte_fifo_config_t rte_swc_fifo_shell_Print = {rte_swc_fifo_shell_Print_buf, RTE_SWC_SHELL_PRINT_FIFO_MAX_SIZE, 0, 0, 0};
-
-static const rte_swc_com_t rte_swc_fifo_list[]    = {
-    {RTE_SWC_POWER_FIFO_ID,       &rte_swc_fifo_power      },
-    {RTE_SWC_SHELL_PRINT_FIFO_ID, &rte_swc_fifo_shell_Print},
+static const rte_swc_com_t rte_swc_fifo_list[] = {
+    {RTE_SWC_PRINTF_FIFO_ID, &rte_swc_fifo_Printf},
+    {RTE_SWC_POWER_FIFO_ID,  &rte_swc_fifo_power },
 };
 
 static const uint8_t rte_swc_fifo_list_size = sizeof(rte_swc_fifo_list) / sizeof(rte_swc_fifo_list[0]);

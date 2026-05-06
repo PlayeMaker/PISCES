@@ -34,6 +34,11 @@ MEMORY
 SECTIONS
 {
 
+    /DISCARD/ : {
+        *(.ARM.exidx*)
+        *(.gnu.linkonce.armexidx.*)
+    }
+
     .IVT  : {
         
         IVT_start = .;

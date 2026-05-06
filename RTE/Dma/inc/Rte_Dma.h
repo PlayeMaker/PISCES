@@ -1,5 +1,5 @@
-#ifndef _RTE_LOG_H_
-#define _RTE_LOG_H_
+#ifndef _RTE_DMA_H_
+#define _RTE_DMA_H_
 
 #ifdef __cplusplus
 extern "C"
@@ -7,9 +7,9 @@ extern "C"
 #endif
 
 /************************ Include Files ************************/
-#include "Printf_Handle.h"
+#include "Drv_Dma.h"
 /************************ Macro Definitions ************************/
-#define RTE_LOG_PRINTF       Snf_Printf
+#define RTE_DMA_INIT       Snf_Drv_Dma_Init
 /************************ Type Definitions ************************/
 
 /************************ External Variables ************************/
@@ -20,4 +20,4 @@ extern "C"
 }
 #endif
 
-#endif /* _RTE_LOG_H_ */
+#endif /* _RTE_DMA_H_ */

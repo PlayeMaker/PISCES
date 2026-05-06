@@ -78,12 +78,12 @@ CDDUART_CONST const Uart_UartUserConfigType CddUart_Ip_HwConfig_0 =
     .ParityType = UART_PARITY_DISABLED, /*!< always 0/always 1/even/odd */
     .StopBitsCount = UART_ONE_STOP_BIT, /*!< number of stop bits, 1 stop bit (default) or 2 stop bits */
     .WordLength = UART_8_BITS_PER_CHAR, /*!< number of bits per transmitted/received word */
-    .TxTransferType = UART_USING_INTERRUPTS, /*!< Type of UART tx transfer (interrupt/dma based) */
-    .RxTransferType = UART_USING_INTERRUPTS, /*!< Type of UART rx transfer (interrupt/dma based) */
+    .TxTransferType = UART_USING_DMA, /*!< Type of UART tx transfer (interrupt/dma based) */
+    .RxTransferType = UART_USING_DMA, /*!< Type of UART rx transfer (interrupt/dma based) */
     .ComplexCallback = Uart_Callbcak, /*!< Callback to invoke for data transitions */
     .LogicChannel = 0, /*!< Logical channel number for the UART instance */
-    .RxDMAChannel = 0, /*!< Channel number for DMA rx channel.*/
-    .TxDMAChannel = 0, /*!< Channel number for DMA tx channel.If DMA mode is not used this field will be ignored. */
+    .RxDMAChannel = CddDmaConf_CddDmaConfig_dmaLogicChannel_Type_1, /*!< Channel number for DMA rx channel.*/
+    .TxDMAChannel = CddDmaConf_CddDmaConfig_dmaLogicChannel_Type_0, /*!< Channel number for DMA tx channel.If DMA mode is not used this field will be ignored. */
     .IdleErrorIntEnable = TRUE, /*!< Enable/Disable Idle line error interrupt */
     .LinIdleDetectSize = UART_LINE_IDLE_SIZE_8_CHAR, /*!< Idle line detection Bytes size */
 };
