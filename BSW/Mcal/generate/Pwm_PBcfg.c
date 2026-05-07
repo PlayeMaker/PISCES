@@ -43,7 +43,7 @@ extern "C" {
  */
 PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNELS_COUNT] = 
 {
-/* PwmChannel_0 */
+/* PwmChannel_YT2_EN */
     {
         .ChannelId = 0U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -59,7 +59,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_1 */
+/* PwmChannel_AM1_EN */
     {
         .ChannelId = 1U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -75,7 +75,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_2 */
+/* PwmChannel_AM8_EN */
     {
         .ChannelId = 2U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -91,7 +91,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_3 */
+/* PwmChannel_AM9_EN */
     {
         .ChannelId = 3U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -107,7 +107,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_4 */
+/* PwmChannel_AM10_EN */
     {
         .ChannelId = 4U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -123,7 +123,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_5 */
+/* PwmChannel_YT1_EN */
     {
         .ChannelId = 5U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -139,7 +139,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_6 */
+/* PwmChannel_AM3_EN */
     {
         .ChannelId = 6U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -155,7 +155,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_7 */
+/* PwmChannel_RNR1_EN */
     {
         .ChannelId = 7U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -171,7 +171,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_8 */
+/* PwmChannel_RN1_EN */
     {
         .ChannelId = 8U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -187,7 +187,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_9 */
+/* PwmChannel_PUMP_EN */
     {
         .ChannelId = 9U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -203,7 +203,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_10 */
+/* PwmChannel_AM13_EN */
     {
         .ChannelId = 10U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -219,7 +219,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_11 */
+/* PwmChannel_AM14_EN */
     {
         .ChannelId = 11U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -235,7 +235,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_12 */
+/* PwmChannel_YLR1_EN */
     {
         .ChannelId = 12U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -251,7 +251,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_13 */
+/* PwmChannel_YL1_EN */
     {
         .ChannelId = 13U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -267,7 +267,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_14 */
+/* PwmChannel_AM4_EN */
     {
         .ChannelId = 14U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -283,7 +283,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_15 */
+/* PwmChannel_AM5_EN */
     {
         .ChannelId = 15U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -299,7 +299,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_16 */
+/* PwmChannel_AM6_EN */
     {
         .ChannelId = 16U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -315,7 +315,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_17 */
+/* PwmChannel_RN2_EN */
     {
         .ChannelId = 17U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -331,7 +331,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_18 */
+/* PwmChannel_AM7_EN */
     {
         .ChannelId = 18U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -347,7 +347,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_19 */
+/* PwmChannel_RNR2_EN */
     {
         .ChannelId = 19U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -363,7 +363,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_20 */
+/* PwmChannel_AM2_EN */
     {
         .ChannelId = 20U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -379,7 +379,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_21 */
+/* PwmChannel_YTR1_EN */
     {
         .ChannelId = 21U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -395,7 +395,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_22 */
+/* PwmChannel_YTR2_EN */
     {
         .ChannelId = 22U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -411,7 +411,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_23 */
+/* PwmChannel_AM11_EN */
     {
         .ChannelId = 23U,
         .ChannelClass = PWM_VARIABLE_PERIOD,
@@ -427,7 +427,7 @@ PWM_CONST static const Pwm_ChannelConfigType Pwm_ChannelConfigs[PWM_PBCFG_CHANNE
         .ChannelNotification = NULL_PTR
 #endif
     },
-/* PwmChannel_24 */
+/* PwmChannel_AM12_EN */
     {
         .ChannelId = 24U,
         .ChannelClass = PWM_VARIABLE_PERIOD,

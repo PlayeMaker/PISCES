@@ -61,6 +61,6 @@ void Snf_Power_Task_Init(void)
  */
 void Snf_Power_Task(void)
 {
-        RTE_WDG_REFRESH();
+    RTE_WDG_REFRESH();
     Snf_Power_Message_Box_Handle();
 }
