@@ -60,7 +60,7 @@ uint8_t Button_Io_Det_Check_Text(void)
  */
 void Button_Io_Press_Event_Text(void)
 {
-    Rte_Call_Sync_C_Button_S_Power_Reset();
+
 }
 /**
  * @brief  Event function for IO button long press, this function will be called when a long press event is detected
@@ -69,8 +69,7 @@ void Button_Io_Press_Event_Text(void)
  */
 void Button_Io_Long_Press_Event_Text(void)
 {
-    uint8_t data[] = "Power Reset from Long Press";
-    Rte_Call_Async_C_Button_S_Power_Reset(data, sizeof(data));
+
 }
 /**
  * @brief  Loop to check the IO button

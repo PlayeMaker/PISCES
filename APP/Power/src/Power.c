@@ -16,12 +16,14 @@
 #define POWER_PRINTF(...)
 #endif
 /************************ Private Global Variables ************************/
-static power_bat_status_e power_bat_status = POWER_BAT_STATUS_NORMAL;
+static power_bat_status_e  power_bat_status  = POWER_BAT_STATUS_NORMAL;
+static power_load_status_e power_load_status = POWER_LOAD_STATUS_NORMAL;
 /************************ Public Global Variables ************************/
 
 /************************ Private Function Declarations ************************/
 static void _Snf_Power_Get_Response(void);
 static void _Snf_Power_Voltage_Detection(void);
+static void _Snf_Power_Load_Detection(void);
 /************************ Private Function Implementations ************************/
 /**
  * @brief  Get MCU reset reason
@@ -40,8 +42,7 @@ static void _Snf_Power_Get_Response(void)
  */
 static void _Snf_Power_Voltage_Detection(void)
 {
-    uint16_t           bat_ad     = RTE_ADC_GET_BAT_VOL();
-    uint16_t           bat_vol    = POWER_BAT_AD_TO_VOLT(bat_ad);
+    uint16_t           bat_vol    = Snf_Power_Get_Bat_Voltage();
     power_bat_status_e bat_status = POWER_BAT_STATUS_NORMAL;
 
     if (POWER_BAT_UNDER_VOLT > bat_vol)
@@ -68,7 +69,64 @@ static void _Snf_Power_Voltage_Detection(void)
         }
     }
 }
+/**
+ * @brief  Detect load status
+ * @param  None
+ * @return None
+ */
+static void _Snf_Power_Load_Detection(void)
+{
+    uint16_t            vol         = RTE_ADC_GET_PUMP_VALVE_IS();
+    uint16_t            ics         = (uint16_t)POWER_PUMP_VALVE_AD_TO_VCS(vol);
+    power_load_status_e load_status = POWER_LOAD_STATUS_NORMAL;
+
+    if (POWER_PUMP_OPEN_CIRCUIT > ics)
+    {
+        load_status = POWER_LOAD_STATUS_PUMP_OPEN_CIRCUIT;
+    }
+    else if (POWER_VALVE_CLOSE_CIRCUIT < ics)
+    {
+        load_status = POWER_LOAD_STATUS_VALVE_CLOSE_CIRCUIT;
+    }
+    else if (POWER_PUMP_CLOSE_CIRCUIT < ics)
+    {
+        load_status = POWER_LOAD_STATUS_PUMP_CLOSE_CIRCUIT;
+    }
+
+    if (power_load_status != load_status)
+    {
+        power_load_status = load_status;
+        POWER_PRINTF("Battery voltage: %d\r\n", ics);
+
+        if (POWER_LOAD_STATUS_NORMAL == power_load_status)
+        {
+            // Handle normal voltage status
+        }
+        else if (POWER_LOAD_STATUS_PUMP_OPEN_CIRCUIT == power_load_status ||
+                 POWER_LOAD_STATUS_VALVE_OPEN_CIRCUIT == power_load_status)
+        {
+            // Handle open circuit status
+        }
+        else if (POWER_LOAD_STATUS_PUMP_CLOSE_CIRCUIT == power_load_status ||
+                 POWER_LOAD_STATUS_VALVE_CLOSE_CIRCUIT == power_load_status)
+        {
+            // Handle close circuit status
+        }
+    }
+}
 /************************ Public Function Implementations ************************/
+/**
+ * @brief  Get battery voltage
+ * @param  None
+ * @return Battery voltage in millivolts
+ */
+uint16_t Snf_Power_Get_Bat_Voltage(void)
+{
+    uint16_t bat_ad  = RTE_ADC_GET_BAT_VOL();
+    uint16_t bat_vol = POWER_BAT_AD_TO_VOLT(bat_ad);
+    return bat_vol;
+}
+
 /**
  * @brief  Reset MCU
  * @param  None
@@ -99,5 +157,6 @@ void Snf_Power_Task(void)
 {
     RTE_WDG_REFRESH();
     _Snf_Power_Voltage_Detection();
+    _Snf_Power_Load_Detection();
     Snf_Power_Message_Box_Handle();
 }
