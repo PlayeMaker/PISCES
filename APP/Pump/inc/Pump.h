@@ -1,5 +1,5 @@
-#ifndef _APP_TASK_CFG_H_
-#define _APP_TASK_CFG_H_
+#ifndef _PUMP_H_
+#define _PUMP_H_
 
 #ifdef __cplusplus
 extern "C"
@@ -9,20 +9,22 @@ extern "C"
 /************************ Include Files ************************/
 
 /************************ Macro Definitions ************************/
-#define POWER_TASK_PERIOD_MS  5
-#define BUTTON_TASK_PERIOD_MS 5
-#define LUMBAR_TASK_PERIOD_MS 4
-#define PUMP_TASK_PERIOD_MS   5
-#define SYSTEM_TASK_PERIOD_MS 2
-#define PRINTF_TASK_PERIOD_MS 10
+#define PUMP_CONSTANT_VOLTAGE_MIN            12000U
+#define PUMP_CONSTANT_VOLTAGE_DUTY_CYCLE_MAX 100U
 /************************ Type Definitions ************************/
-
+typedef enum
+{
+    PUMP_STATE_IDLE          = 0U,  // 气泵空闲状态
+    PUMP_STATE_AIR_INFLATION = 1U,  // 气泵充气
+    PUMP_STATE_AIR_DEFLATION = 2U,  // 气泵抽气
+} pump_state_e;
 /************************ External Variables ************************/
 
 /************************ Function Declarations ************************/
+void Snf_Pump_Task(void);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* _APP_TASK_CFG_H_ */
+#endif /* _PUMP_H_ */

@@ -5,6 +5,8 @@
 #include "Button_Com.h"
 #include "Power.h"
 #include "System.h"
+#include "Pump.h"
+#include "Lumbar.h"
 #include "Printf.h"
 #include "Rte_Os.h"
 
@@ -15,6 +17,8 @@ static scheduler_t schedu_list[] = {
     {Snf_Power_Task_Init,            Snf_Power_Task,            POWER_TASK_PERIOD_MS,  TRUE, TRUE, 0},
     {Snf_Button_Detection_Task_Init, Snf_Button_Detection_Task, BUTTON_TASK_PERIOD_MS, TRUE, TRUE, 0},
     {NULL,                           Snf_System_Task,           SYSTEM_TASK_PERIOD_MS, TRUE, TRUE, 0},
+    {NULL,                           Snf_Pump_Task,             PUMP_TASK_PERIOD_MS,   TRUE, TRUE, 0},
+    {NULL,                           Snf_Lumbar_Task,           LUMBAR_TASK_PERIOD_MS, TRUE, TRUE, 0},
     {NULL,                           Snf_Printf_Task,           PRINTF_TASK_PERIOD_MS, TRUE, TRUE, 0},
 };
 
