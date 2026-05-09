@@ -12,6 +12,9 @@ extern "C"
 /************************ Macro Definitions ************************/
 
 /************************ Type Definitions ************************/
+#define RTE_PWM_DUTY_MAX                     100
+#define RTE_PWM_DUTY_MIN                     0
+
 #define RTE_PWM_SET_DUTY_YT2_EN(duty_cycle)  Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_YT2_EN, duty_cycle)
 #define RTE_PWM_SET_DUTY_AM1_EN(duty_cycle)  Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_AM1_EN, duty_cycle)
 #define RTE_PWM_SET_DUTY_AM8_EN(duty_cycle)  Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_AM8_EN, duty_cycle)
@@ -38,9 +41,9 @@ extern "C"
 #define RTE_PWM_SET_DUTY_AM11_EN(duty_cycle) Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_AM11_EN, duty cycle)
 #define RTE_PWM_SET_DUTY_AM12_EN(duty_cycle) Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_AM12_EN, duty cycle)
 
-/************************ External Variables ************************/
+    /************************ External Variables ************************/
 
-/************************ Function Declarations ************************/
+    /************************ Function Declarations ************************/
 
 #ifdef __cplusplus
 }

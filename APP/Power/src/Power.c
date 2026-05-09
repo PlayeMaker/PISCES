@@ -7,6 +7,7 @@
 #include "Rte_Log.h"
 #include "Rte_Adc_If.h"
 #include "Rte_Gpio_If.h"
+#include "Rte_Pwm_If.h"
 #include "Power_Message_Box.h"
 #include "Basic_Config.h"
 /************************ Macro Definitions ************************/
@@ -84,13 +85,13 @@ static void _Snf_Power_Load_Detection(void)
     {
         load_status = POWER_LOAD_STATUS_PUMP_OPEN_CIRCUIT;
     }
-    else if (POWER_VALVE_CLOSE_CIRCUIT < ics)
+    else if (POWER_VALVE_SHORT_CIRCUIT < ics)
     {
-        load_status = POWER_LOAD_STATUS_VALVE_CLOSE_CIRCUIT;
+        load_status = POWER_LOAD_STATUS_VALVE_SHORT_CIRCUIT;
     }
-    else if (POWER_PUMP_CLOSE_CIRCUIT < ics)
+    else if (POWER_PUMP_SHORT_CIRCUIT < ics)
     {
-        load_status = POWER_LOAD_STATUS_PUMP_CLOSE_CIRCUIT;
+        load_status = POWER_LOAD_STATUS_PUMP_SHORT_CIRCUIT;
     }
 
     if (power_load_status != load_status)
@@ -105,12 +106,12 @@ static void _Snf_Power_Load_Detection(void)
         else if (POWER_LOAD_STATUS_PUMP_OPEN_CIRCUIT == power_load_status ||
                  POWER_LOAD_STATUS_VALVE_OPEN_CIRCUIT == power_load_status)
         {
-            // Handle open circuit status
+            RTE_PWM_SET_DUTY_PUMP_EN(RTE_PWM_DUTY_MIN);
         }
-        else if (POWER_LOAD_STATUS_PUMP_CLOSE_CIRCUIT == power_load_status ||
-                 POWER_LOAD_STATUS_VALVE_CLOSE_CIRCUIT == power_load_status)
+        else if (POWER_LOAD_STATUS_PUMP_SHORT_CIRCUIT == power_load_status ||
+                 POWER_LOAD_STATUS_VALVE_SHORT_CIRCUIT == power_load_status)
         {
-            // Handle close circuit status
+            RTE_PWM_SET_DUTY_PUMP_EN(RTE_PWM_DUTY_MIN);
         }
     }
 }

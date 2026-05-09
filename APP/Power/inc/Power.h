@@ -16,8 +16,8 @@ extern "C"
 #define POWER_VCS_K                          5450U
 #define POWER_PUMP_VALVE_AD_TO_VCS(ad_value) ((ad_value) * POWER_VCS_K / 6800)
 #define POWER_PUMP_OPEN_CIRCUIT              10    // 泵开路电流对应的AD值，单位为mA
-#define POWER_PUMP_CLOSE_CIRCUIT             1200  // 泵短路电流对应的AD值，单位为mA
-#define POWER_VALVE_CLOSE_CIRCUIT            2000  // 阀短路电流对应的AD值，单位为mA
+#define POWER_PUMP_SHORT_CIRCUIT             1200  // 泵短路电流对应的AD值，单位为mA
+#define POWER_VALVE_SHORT_CIRCUIT            2000  // 阀短路电流对应的AD值，单位为mA
 /************************ Type Definitions ************************/
 typedef enum
 {
@@ -30,9 +30,9 @@ typedef enum
 {
     POWER_LOAD_STATUS_NORMAL,
     POWER_LOAD_STATUS_PUMP_OPEN_CIRCUIT,
-    POWER_LOAD_STATUS_PUMP_CLOSE_CIRCUIT,
+    POWER_LOAD_STATUS_PUMP_SHORT_CIRCUIT,
     POWER_LOAD_STATUS_VALVE_OPEN_CIRCUIT,
-    POWER_LOAD_STATUS_VALVE_CLOSE_CIRCUIT,
+    POWER_LOAD_STATUS_VALVE_SHORT_CIRCUIT,
 } power_load_status_e;
 
 /************************ External Variables ************************/
