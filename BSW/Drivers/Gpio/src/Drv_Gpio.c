@@ -27,7 +27,7 @@ void Snf_Drv_Gpio_Init(void)
  * @param  None
  * @return None
  */
-void Snf_Drv_Gpio_Write(drv_gpio_port_e port, drv_gpio_pin_e pin, rte_gpio_level_e level)
+void Snf_Drv_Gpio_Write(drv_gpio_port_e port, drv_gpio_pin_e pin, drv_gpio_level_e level)
 {
     Dio_ChannelType channel = (Dio_ChannelType)PORT_PIN_TO_DIO_ID(port, pin);
     Dio_WriteChannel(channel, level);
@@ -38,9 +38,9 @@ void Snf_Drv_Gpio_Write(drv_gpio_port_e port, drv_gpio_pin_e pin, rte_gpio_level
  * @param  None
  * @return None
  */
-rte_gpio_level_e Snf_Drv_Gpio_Read(drv_gpio_port_e port, drv_gpio_pin_e pin)
+drv_gpio_level_e Snf_Drv_Gpio_Read(drv_gpio_port_e port, drv_gpio_pin_e pin)
 {
     Dio_ChannelType channel = (Dio_ChannelType)PORT_PIN_TO_DIO_ID(port, pin);
     Dio_LevelType level = Dio_ReadChannel(channel);
-    return (rte_gpio_level_e)level;
+    return (drv_gpio_level_e)level;
 }

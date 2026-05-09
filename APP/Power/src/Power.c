@@ -2,7 +2,6 @@
 #include "Power.h"
 #include <stdint.h>
 #include "Rte_Mcu.h"
-#include "Rte_Mcu_Types.h"
 #include "Rte_Wdg.h"
 #include "Rte_Log.h"
 #include "Rte_Adc_If.h"

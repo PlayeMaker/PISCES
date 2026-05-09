@@ -44,33 +44,33 @@ void Snf_Drv_Mcu_Reset(void)
  * @param  None
  * @return None
  */
-rte_mcu_reset_reason_e Snf_Drv_Mcu_Get_Reset_Reason(void)
+drv_mcu_reset_reason_e Snf_Drv_Mcu_Get_Reset_Reason(void)
 {
     Mcu_ResetType          reset_reason = Mcu_GetResetReason();
-    rte_mcu_reset_reason_e reset_reason_mapped; /* 映射后的复位原因 */
+    drv_mcu_reset_reason_e reset_reason_mapped; /* 映射后的复位原因 */
 
     switch (reset_reason)
     {
         case MCU_POR_BOR_RESET:
-            reset_reason_mapped = RTE_MCU_RESET_POWER_ON_RESET; /* 映射为RTE_MCU_RESET_POWER_ON_RESET */
+            reset_reason_mapped = DRV_MCU_RESET_POWER_ON_RESET; /* 映射为DRV_MCU_RESET_POWER_ON_RESET */
             break;
         case MCU_RESETB_RESET:
-            reset_reason_mapped = RTE_MCU_RESET_EXTERNAL_RESET;
+            reset_reason_mapped = DRV_MCU_RESET_EXTERNAL_RESET;
             break;
         case MCU_SW_RESET:
-            reset_reason_mapped = RTE_MCU_RESET_SOFTWARE_RESET;
+            reset_reason_mapped = DRV_MCU_RESET_SOFTWARE_RESET;
             break;
         case MCU_WATCHDOG_RESET:
-            reset_reason_mapped = RTE_MCU_RESET_SWT_RESET; /* 将所有SWT复位原因映射为一个统一的值 */
+            reset_reason_mapped = DRV_MCU_RESET_SWT_RESET; /* 将所有SWT复位原因映射为一个统一的值 */
             break;
         case MCU_DEBUG_RESET:
-            reset_reason_mapped = RTE_MCU_RESET_DEBUG_RESET;
+            reset_reason_mapped = DRV_MCU_RESET_DEBUG_RESET;
             break;
         case MCU_LVD_RESET:
-            reset_reason_mapped = RTE_MCU_RESET_LOW_VOLTAGE_RESET;
+            reset_reason_mapped = DRV_MCU_RESET_LOW_VOLTAGE_RESET;
             break;
         default:
-            reset_reason_mapped = RTE_MCU_RESET_UNKNOWN_RESET; /* 未知复位原因 */
+            reset_reason_mapped = DRV_MCU_RESET_UNKNOWN_RESET; /* 未知复位原因 */
             break;
     }
 
