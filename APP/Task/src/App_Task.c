@@ -7,6 +7,7 @@
 #include "System.h"
 #include "Pump.h"
 #include "Lumbar.h"
+#include "Massage.h"
 #include "Printf.h"
 #include "Rte_Os.h"
 
@@ -14,12 +15,13 @@
 
 /************************ Private Global Variables ************************/
 static scheduler_t schedu_list[] = {
-    {Snf_Power_Task_Init,            Snf_Power_Task,            POWER_TASK_PERIOD_MS,  TRUE, TRUE, 0},
-    {Snf_Button_Detection_Task_Init, Snf_Button_Detection_Task, BUTTON_TASK_PERIOD_MS, TRUE, TRUE, 0},
-    {NULL,                           Snf_System_Task,           SYSTEM_TASK_PERIOD_MS, TRUE, TRUE, 0},
-    {NULL,                           Snf_Pump_Task,             PUMP_TASK_PERIOD_MS,   TRUE, TRUE, 0},
-    {NULL,                           Snf_Lumbar_Task,           LUMBAR_TASK_PERIOD_MS, TRUE, TRUE, 0},
-    {NULL,                           Snf_Printf_Task,           PRINTF_TASK_PERIOD_MS, TRUE, TRUE, 0},
+    {Snf_Power_Task_Init,            Snf_Power_Task,            POWER_TASK_PERIOD_MS,   TRUE, TRUE, 0},
+    {NULL,                           Snf_System_Task,           SYSTEM_TASK_PERIOD_MS,  TRUE, TRUE, 0},
+    {Snf_Button_Detection_Task_Init, Snf_Button_Detection_Task, BUTTON_TASK_PERIOD_MS,  TRUE, TRUE, 0},
+    {Snf_Massage_Task_Init,          Snf_Massage_Task,          MASSAGE_TASK_PERIOD_MS, TRUE, TRUE, 0},
+    {Snf_Pump_Task_Init,             Snf_Pump_Task,             PUMP_TASK_PERIOD_MS,    TRUE, TRUE, 0},
+    {NULL,                           Snf_Lumbar_Task,           LUMBAR_TASK_PERIOD_MS,  TRUE, TRUE, 0},
+    {NULL,                           Snf_Printf_Task,           PRINTF_TASK_PERIOD_MS,  TRUE, TRUE, 0},
 };
 
 static const uint8_t schedu_list_size = sizeof(schedu_list) / sizeof(schedu_list[0]);

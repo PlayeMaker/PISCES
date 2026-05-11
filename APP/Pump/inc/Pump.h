@@ -9,6 +9,7 @@ extern "C"
 /************************ Include Files ************************/
 
 /************************ Macro Definitions ************************/
+#define PUMP_CONSTANT_PUMP_UPDATE_CYCLE      100U    // 气泵恒压更新周期,单位ms
 #define PUMP_CONSTANT_PUMP_TARGET_VOLTAGE    12000U  // 气泵目标电压,单位mV
 #define PUMP_CONSTANT_VOLTAGE_DUTY_CYCLE_MAX 100     // 气泵目标电压对应的最大占空比
 #define PUMP_DUTY_FOR_CONST_VOLTAGE(vbat)                                               \
@@ -27,6 +28,7 @@ typedef enum
 /************************ External Variables ************************/
 
 /************************ Function Declarations ************************/
+void Snf_Pump_Task_Init(void);
 void Snf_Pump_Task(void);
 
 #ifdef __cplusplus

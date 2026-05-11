@@ -1,7 +1,14 @@
 /************************ Include Files ************************/
+#include "Basic_Config.h"
 #include "Rte_Adc.h"
 #include "Rte_Wdg.h"
+#include "Rte_Log.h"
 /************************ Macro Definitions ************************/
+#ifdef SYSTEM_PRINTF_ENABLE
+#define SYSTEM_PRINTF RTE_LOG_PRINTF
+#else
+#define SYSTEM_PRINTF(...)
+#endif
 
 /************************ Private Global Variables ************************/
 
