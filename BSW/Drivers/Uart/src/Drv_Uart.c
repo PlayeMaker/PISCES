@@ -6,7 +6,7 @@
 /************************ Macro Definitions ************************/
 
 /************************ Private Global Variables ************************/
-static drv_uart_rx_state uart_rx_state[UART_MAX_CHANNEL] = {0};
+static drv_uart_rx_state uart_rx_state[DRV_UART_MAX_CHANNEL] = {0};
 /************************ Public Global Variables ************************/
 
 /************************ Private Function Declarations ************************/
@@ -33,7 +33,7 @@ void Snf_Drv_Uart_Init(void)
  */
 void Snf_Drv_Uart_Send(uint8_t channel, uint8_t* data, uint16_t len)
 {
-    if (channel >= UART_MAX_CHANNEL || NULL_PTR == data || 0 == len)
+    if (channel >= DRV_UART_MAX_CHANNEL || NULL_PTR == data || 0 == len)
     {
         return;
     }
@@ -49,7 +49,7 @@ void Snf_Drv_Uart_Send(uint8_t channel, uint8_t* data, uint16_t len)
  */
 void Snf_Drv_Uart_Start_Receive(uint8_t channel, uint8_t* data, uint16_t len)
 {
-    if (channel >= UART_MAX_CHANNEL || NULL_PTR == data || 0 == len)
+    if (channel >= DRV_UART_MAX_CHANNEL || NULL_PTR == data || 0 == len)
     {
         return;
     }
@@ -70,7 +70,7 @@ drv_uart_state_e Snf_Drv_Uart_Get_Send_State(uint8_t channel)
     drv_uart_state_e   state = DRV_UART_STATE_ERROR;
     CddUart_StatusType TransmitStatus;
 
-    if (channel >= UART_MAX_CHANNEL)
+    if (channel >= DRV_UART_MAX_CHANNEL)
     {
         return DRV_UART_STATE_ERROR;
     }
@@ -94,7 +94,7 @@ drv_uart_state_e Snf_Drv_Uart_Get_Receive_State(uint8_t channel, uint32_t* bytes
 {
     drv_uart_state_e state = DRV_UART_STATE_ERROR;
 
-    if (channel >= UART_MAX_CHANNEL)
+    if (channel >= DRV_UART_MAX_CHANNEL)
     {
         return state;
     }

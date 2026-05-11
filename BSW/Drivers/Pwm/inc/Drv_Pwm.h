@@ -11,8 +11,9 @@ extern "C"
 /************************ Macro Definitions ************************/
 
 /************************ Type Definitions ************************/
-#define PWM_DUTY_CYCLE_TICK_MAX      (32768U)
-#define PWM_DUTY_CYCLE_TO_TICK(duty) ((duty) * PWM_DUTY_CYCLE_TICK_MAX / 100U)
+#define DRV_PWM_DUTY_CYCLE_MAX           (100U)
+#define DRV_PWM_DUTY_CYCLE_TICK_MAX      (32768U)
+#define DRV_PWM_DUTY_CYCLE_TO_TICK(duty) ((duty) * DRV_PWM_DUTY_CYCLE_TICK_MAX / 100U)
 /************************ External Variables ************************/
 
 /************************ Function Declarations ************************/

@@ -9,8 +9,10 @@ extern "C"
 /************************ Include Files ************************/
 #include <stdint.h>
 /************************ Macro Definitions ************************/
-#define DRV_ADC_VREF                 5U                                         /* ADC参考电压，单位V */
-#define DRV_ADC_CONVERT_TO_MV(value) (((value) * (DRV_ADC_VREF) * 1000) / 4095) /* 将ADC值转换为mv */
+#define DRV_ADC_VREF       5U  /* ADC参考电压，单位V */
+#define DRV_ADC_RESOLUTION 12U /* ADC分辨率 */
+#define DRV_ADC_CONVERT_TO_MV(value) \
+    (((value) * (DRV_ADC_VREF) * 1000) / ((1U << DRV_ADC_RESOLUTION) - 1)) /* 将ADC值转换为mv */
 /************************ Type Definitions ************************/
 typedef enum
 {
@@ -46,8 +48,8 @@ typedef enum
 /************************ External Variables ************************/
 
 /************************ Function Declarations ************************/
-void Snf_Drv_Adc_Init(void);
-void Snf_Drv_Adc_Conversion(void);
+void     Snf_Drv_Adc_Init(void);
+void     Snf_Drv_Adc_Conversion(void);
 uint16_t Snf_Drv_Adc_Get_Value(uint8_t instance, uint8_t channel);
 
 #ifdef __cplusplus

@@ -10,8 +10,8 @@ extern "C"
 #include <stdint.h>
 #include "CddUart_Cfg.h"
 /************************ Macro Definitions ************************/
-#define UART_MAX_CHANNEL CDDUART_CH_MAX_CONFIG
-#define UART_CHANNEL_0   CddUartConf_UartChannel_UartChannel_0
+#define DRV_UART_MAX_CHANNEL CDDUART_CH_MAX_CONFIG
+#define DRV_UART_CHANNEL_0   CddUartConf_UartChannel_UartChannel_0
 /************************ Type Definitions ************************/
 
 /************************ External Variables ************************/

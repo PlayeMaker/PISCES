@@ -33,13 +33,13 @@ extern "C"
 #define RTE_PWM_SET_DUTY_AM5_EN(duty_cycle)  Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_AM5_EN, duty_cycle)
 #define RTE_PWM_SET_DUTY_AM6_EN(duty_cycle)  Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_AM6_EN, duty_cycle)
 #define RTE_PWM_SET_DUTY_RN2_EN(duty_cycle)  Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_RN2_EN, duty_cycle)
-#define RTE_PWM_SET_DUTY_AM7_EN(duty_cycle)  Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_AM7_EN, duty cycle)
-#define RTE_PWM_SET_DUTY_RNR2_EN(duty_cycle) Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_RNR2_EN, duty cycle)
-#define RTE_PWM_SET_DUTY_AM2_EN(duty_cycle)  Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_AM2_EN, duty cycle)
-#define RTE_PWM_SET_DUTY_YTR1_EN(duty_cycle) Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_YTR1_EN, duty cycle)
-#define RTE_PWM_SET_DUTY_YTR2_EN(duty_cycle) Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_YTR2_EN, duty cycle)
-#define RTE_PWM_SET_DUTY_AM11_EN(duty_cycle) Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_AM11_EN, duty cycle)
-#define RTE_PWM_SET_DUTY_AM12_EN(duty_cycle) Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_AM12_EN, duty cycle)
+#define RTE_PWM_SET_DUTY_AM7_EN(duty_cycle)  Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_AM7_EN, duty_cycle)
+#define RTE_PWM_SET_DUTY_RNR2_EN(duty_cycle) Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_RNR2_EN, duty_cycle)
+#define RTE_PWM_SET_DUTY_AM2_EN(duty_cycle)  Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_AM2_EN, duty_cycle)
+#define RTE_PWM_SET_DUTY_YTR1_EN(duty_cycle) Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_YTR1_EN, duty_cycle)
+#define RTE_PWM_SET_DUTY_YTR2_EN(duty_cycle) Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_YTR2_EN, duty_cycle)
+#define RTE_PWM_SET_DUTY_AM11_EN(duty_cycle) Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_AM11_EN, duty_cycle)
+#define RTE_PWM_SET_DUTY_AM12_EN(duty_cycle) Snf_Drv_Pwm_Set_Duty(PwmConf_PwmChannel_PwmChannel_AM12_EN, duty_cycle)
 
     /************************ External Variables ************************/
 
