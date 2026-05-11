@@ -7,8 +7,8 @@ extern "C"
 #endif
 
 /************************ Include Files ************************/
-#include "Basic_Types.h"
-
+#include <stdint.h>
+#include <stdbool.h>
 /************************ Macro Definitions ************************/
 #define DRV_OS_SYSTEM_CORE_CLOCK 80000000U
 #define DRV_OS_MAX_TICK          0xFFFFFFFFU

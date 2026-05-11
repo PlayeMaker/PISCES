@@ -37,7 +37,7 @@ uint32_t Snf_Os_Get_Tick(void)
  * @brief  Check if a timeout has occurred
  * @param  last_tick: Last tick count
  * @param  timeout: Timeout value
- * @return TRUE if timeout has occurred, FALSE otherwise
+ * @return true if timeout has occurred, false otherwise
  */
 bool Snf_Os_Is_Timeout(uint32_t last_tick, uint32_t timeout)
 {
@@ -47,18 +47,18 @@ bool Snf_Os_Is_Timeout(uint32_t last_tick, uint32_t timeout)
         /* 处理tick计数器溢出的情况 */
         if ((DRV_OS_MAX_TICK - last_tick + current_tick) >= timeout)
         {
-            return TRUE;
+            return true;
         }
     }
     else
     {
         if (current_tick - last_tick >= timeout)
         {
-            return TRUE;
+            return true;
         }
     }
 
-    return FALSE;
+    return false;
 }
 
 /**

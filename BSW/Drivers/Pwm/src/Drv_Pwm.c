@@ -28,7 +28,7 @@ void Snf_Drv_Pwm_Init(void)
  * @param  duty_cycle - Duty cycle value
  * @return None
  */
-void Snf_Drv_Pwm_Set_Duty(uint8_t channel, uint16_t duty_cycle)
+void Snf_Drv_Pwm_Set_Duty(uint8_t channel, uint8_t duty_cycle)
 {
     uint16_t tick = PWM_DUTY_CYCLE_TO_TICK(duty_cycle);
     Pwm_SetDutyCycle(channel, tick);

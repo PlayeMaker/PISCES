@@ -116,7 +116,6 @@ drv_uart_state_e Snf_Drv_Uart_Get_Receive_State(uint8_t channel, uint32_t* bytes
  */
 void Uart_Callbcak(uint8 Channel, CddUart_General_EventType Event)
 {
-    (void)Channel;
     switch (Event)
     {
         case UART_EVENT_RX_FULL:

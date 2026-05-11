@@ -22,12 +22,11 @@ static void _Snf_Pump_Air_Deflation(void);
  */
 static void _Snf_Pump_Constant_Voltage(void)
 {
-    uint16_t voltage = Rte_Call_Sync_C_Pump_S_Power_Get_Voltage();
+    uint8_t  duty_cycle = 0;
+    uint16_t voltage    = Rte_Call_Sync_C_Pump_S_Power_Get_Voltage();
 
-    if (voltage < PUMP_CONSTANT_VOLTAGE_MIN)
-    {
-        RTE_PWM_SET_DUTY_PUMP_EN(PUMP_CONSTANT_VOLTAGE_DUTY_CYCLE_MAX);
-    }
+    duty_cycle = (uint8_t)PUMP_DUTY_FOR_CONST_VOLTAGE(voltage);
+    RTE_PWM_SET_DUTY_PUMP_EN(duty_cycle);
 }
 /**
  * @brief  Air inflation control for pump
@@ -36,7 +35,7 @@ static void _Snf_Pump_Constant_Voltage(void)
  */
 static void _Snf_Pump_Air_Inflation(void)
 {
-    if(PUMP_STATE_AIR_INFLATION == pump_state)
+    if (PUMP_STATE_AIR_INFLATION == pump_state)
     {
         return;
     }
@@ -51,7 +50,7 @@ static void _Snf_Pump_Air_Inflation(void)
  */
 static void _Snf_Pump_Air_Deflation(void)
 {
-    if(PUMP_STATE_AIR_DEFLATION == pump_state)
+    if (PUMP_STATE_AIR_DEFLATION == pump_state)
     {
         return;
     }
@@ -66,7 +65,7 @@ static void _Snf_Pump_Air_Deflation(void)
  */
 static void _Snf_Pump_Air_Stop(void)
 {
-    if(PUMP_STATE_IDLE == pump_state)
+    if (PUMP_STATE_IDLE == pump_state)
     {
         return;
     }

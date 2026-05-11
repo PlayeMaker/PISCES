@@ -17,7 +17,7 @@ extern "C"
 
 /************************ Function Declarations ************************/
 void Snf_Drv_Pwm_Init(void);
-void Snf_Drv_Pwm_Set_Duty(uint8_t channel, uint16_t duty_cycle);
+void Snf_Drv_Pwm_Set_Duty(uint8_t channel, uint8_t duty_cycle);
 
 #ifdef __cplusplus
 }

@@ -1,8 +1,6 @@
 /************************ Include Files ************************/
 #include "Power.h"
-#include <stdint.h>
 #include "Rte_Mcu.h"
-#include "Rte_Wdg.h"
 #include "Rte_Log.h"
 #include "Rte_Adc_If.h"
 #include "Rte_Gpio_If.h"
@@ -155,7 +153,6 @@ void Snf_Power_Task_Init(void)
  */
 void Snf_Power_Task(void)
 {
-    RTE_WDG_REFRESH();
     _Snf_Power_Voltage_Detection();
     _Snf_Power_Load_Detection();
     Snf_Power_Message_Box_Handle();

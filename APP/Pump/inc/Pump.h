@@ -9,9 +9,15 @@ extern "C"
 /************************ Include Files ************************/
 
 /************************ Macro Definitions ************************/
-#define PUMP_CONSTANT_VOLTAGE_MIN            12000U
+#define PUMP_CONSTANT_PUMP_TARGET_VOLTAGE    12000U
 #define PUMP_CONSTANT_VOLTAGE_DUTY_CYCLE_MAX 100U
+#define PUMP_DUTY_FOR_CONST_VOLTAGE(vbat)                                               \
+    ((vbat) <= PUMP_CONSTANT_PUMP_TARGET_VOLTAGE ? PUMP_CONSTANT_VOLTAGE_DUTY_CYCLE_MAX \
+                                                 : (PUMP_CONSTANT_PUMP_TARGET_VOLTAGE / (vbat) * 100U))
 /************************ Type Definitions ************************/
+/**
+* @brief 气泵状态枚举
+*/
 typedef enum
 {
     PUMP_STATE_IDLE          = 0U,  // 气泵空闲状态
