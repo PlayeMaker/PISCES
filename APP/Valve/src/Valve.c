@@ -136,13 +136,7 @@ void Snf_Valve_Task_Init(void)
  * @param  None
  * @return None
  */
-static volatile uint8_t avalve = 0;
-void                    Snf_Valve_Task(void)
+void Snf_Valve_Task(void)
 {
-    if (1 == avalve)
-    {
-        avalve = 0;
-        Snf_Valve_Set_Config(0, POWER_VALVE_STATE_RAMP_UP);
-    }
     _Snf_Valve_Process_Ramp();
 }
