@@ -38,9 +38,3 @@ void Rte_Call_Sync_C_Main_S_App_Task_Scheduler(void)
     /* 直接调用对应的同步函数 */
     Snf_App_Task_Scheduler_Handle();
 }
-
-uint16_t Rte_Call_Sync_C_Pump_S_Power_Get_Voltage(void)
-{
-    /* 直接调用对应的同步函数 */
-    return Snf_Power_Get_Bat_Voltage();
-}

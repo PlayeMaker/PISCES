@@ -1,5 +1,5 @@
-#ifndef _APP_TASK_CFG_H_
-#define _APP_TASK_CFG_H_
+#ifndef _AIR_BAG_H_
+#define _AIR_BAG_H_
 
 #ifdef __cplusplus
 extern "C"
@@ -9,21 +9,17 @@ extern "C"
 /************************ Include Files ************************/
 
 /************************ Macro Definitions ************************/
-#define POWER_TASK_PERIOD_MS   5
-#define BUTTON_TASK_PERIOD_MS  5
-#define LUMBAR_TASK_PERIOD_MS  4
-#define AIR_BAG_TASK_PERIOD_MS 5
-#define MASSAGE_TASK_PERIOD_MS 5
-#define SYSTEM_TASK_PERIOD_MS  2
-#define PRINTF_TASK_PERIOD_MS  10
+
 /************************ Type Definitions ************************/
 
 /************************ External Variables ************************/
 
 /************************ Function Declarations ************************/
+void Snf_Air_Bag_Task_Init(void);
+void Snf_Air_Bag_Task(void);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* _APP_TASK_CFG_H_ */
+#endif /* _AIR_BAG_H_ */

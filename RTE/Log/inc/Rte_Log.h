@@ -8,8 +8,13 @@ extern "C"
 
 /************************ Include Files ************************/
 #include "Printf.h"
+#include "Basic_Config.h"
 /************************ Macro Definitions ************************/
-#define RTE_LOG_PRINTF       Snf_Printf
+#ifdef DEBUG_PRINTF_ENABLE
+#define RTE_LOG_PRINTF Snf_Printf
+#else
+#define RTE_LOG_PRINTF(...)
+#endif
 /************************ Type Definitions ************************/
 
 /************************ External Variables ************************/

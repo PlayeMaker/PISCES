@@ -10,6 +10,7 @@ extern "C"
 #include "Drv_Pwm.h"
 /************************ Macro Definitions ************************/
 #define RTE_PWM_INIT       Snf_Drv_Pwm_Init
+#define RTE_PWM_SET_DUTY   Snf_Drv_Pwm_Set_Duty
 /************************ Type Definitions ************************/
 
 /************************ External Variables ************************/

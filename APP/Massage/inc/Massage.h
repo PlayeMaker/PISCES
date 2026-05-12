@@ -30,7 +30,6 @@ typedef enum
 typedef enum
 {
     MASSAGE_INTENSITY_HIGH,    //高强度
-    MASSAGE_INTENSITY_MEDIUM,  //中强度
     MASSAGE_INTENSITY_LOW,     //低强度
 } massage_intensity_e;
 
