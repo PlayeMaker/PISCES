@@ -7,7 +7,7 @@ extern "C"
 #endif
 
 /************************ Include Files ************************/
-
+#include <stdint.h>
 /************************ Macro Definitions ************************/
 #define PUMP_CONSTANT_PUMP_UPDATE_CYCLE      100U    // 气泵恒压更新周期,单位ms
 #define PUMP_CONSTANT_PUMP_TARGET_VOLTAGE    12000U  // 气泵目标电压,单位mV

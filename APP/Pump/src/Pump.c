@@ -1,6 +1,5 @@
 /************************ Include Files ************************/
 #include "Pump.h"
-#include <stdint.h>
 #include "Basic_Config.h"
 #include "Rte_Gpio_If.h"
 #include "Rte_Pwm.h"

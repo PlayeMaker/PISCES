@@ -95,8 +95,7 @@ static void _Snf_Power_Load_Detection(void)
     power_load_status_e load_status = POWER_LOAD_STATUS_NORMAL;
 
     // 周期100mS检查负载故障状态
-    if (POWER_BAT_STATUS_NORMAL != power_bat_status ||
-        false == RTE_OS_IS_TIMEOUT(power_load_det_last_update_time, POWER_LOAD_DETECTION_UPDATE_CYCLE))
+    if (false == RTE_OS_IS_TIMEOUT(power_load_det_last_update_time, POWER_LOAD_DETECTION_UPDATE_CYCLE))
     {
         return;
     }
