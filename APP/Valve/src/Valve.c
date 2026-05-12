@@ -26,7 +26,7 @@ static const valve_ramp_step_t valve_ramp_down_step[] = {
 };
 static const uint8_t valve_ramp_down_step_size = sizeof(valve_ramp_down_step) / sizeof(valve_ramp_down_step[0]);
 
-valve_ramp_group_t valve_ramp_group[VALVE_RAMP_MEMBER_NUM] = { 0 };
+static valve_ramp_group_t valve_ramp_group[VALVE_RAMP_MEMBER_NUM] = { 0 };
 /************************ Public Global Variables ************************/
 
 /************************ Private Function Declarations ************************/
