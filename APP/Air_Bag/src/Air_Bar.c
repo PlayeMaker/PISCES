@@ -12,16 +12,16 @@
 #else
 #define AIR_BAG_PRINTF(...)
 #endif
-// /************************ Private Global Variables ************************/
+/************************ Private Global Variables ************************/
 // static pump_state_e pump_state       = PUMP_STATE_IDLE;
 // static uint32_t     last_update_time = 0;
-// /************************ Public Global Variables ************************/
+/************************ Public Global Variables ************************/
 
-// /************************ Private Function Declarations ************************/
+/************************ Private Function Declarations ************************/
 // static void _Snf_Pump_Constant_Voltage(void);
 // static void _Snf_Pump_Air_Inflation(void);
 // static void _Snf_Pump_Air_Deflation(void);
-// /************************ Private Function Implementations ************************/
+/************************ Private Function Implementations ************************/
 // /**
 //  * @brief  Constant voltage control for pump
 //  * @details This function is used to control the pump at a constant voltage by adjusting the PWM

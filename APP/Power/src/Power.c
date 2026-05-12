@@ -1,4 +1,5 @@
 /************************ Include Files ************************/
+#include <stddef.h>
 #include "Basic_Config.h"
 #include "Power.h"
 #include "Power_Message_Box.h"
@@ -16,17 +17,17 @@
 #define POWER_PRINTF(...)
 #endif
 /************************ Private Global Variables ************************/
-static power_bat_status_e  power_bat_status            = POWER_BAT_STATUS_NORMAL;
-static power_load_status_e power_load_status           = POWER_LOAD_STATUS_NORMAL;
-static uint32_t            power_pump_last_update_time = 0;
+static power_bat_status_e  power_bat_status                = POWER_BAT_STATUS_NORMAL;
+static power_load_status_e power_load_status               = POWER_LOAD_STATUS_NORMAL;
+static uint32_t            power_bat_det_last_update_time  = 0;
+static uint32_t            power_load_det_last_update_time = 0;
+
 /************************ Public Global Variables ************************/
 
 /************************ Private Function Declarations ************************/
-static void     _Snf_Power_Get_Response(void);
-static uint16_t _Snf_Power_Get_Bat_Voltage(void);
-static void     _Snf_Power_Voltage_Detection(void);
-static void     _Snf_Power_Load_Detection(void);
-static void     _Snf_Pump_Constant_Voltage(void);
+static void _Snf_Power_Get_Response(void);
+static void _Snf_Power_Voltage_Detection(void);
+static void _Snf_Power_Load_Detection(void);
 /************************ Private Function Implementations ************************/
 /**
  * @brief  Get MCU reset reason
@@ -40,26 +41,23 @@ static void _Snf_Power_Get_Response(void)
 }
 
 /**
- * @brief  Get battery voltage
- * @param  None
- * @return Battery voltage in millivolts
- */
-static uint16_t _Snf_Power_Get_Bat_Voltage(void)
-{
-    uint16_t bat_ad  = RTE_ADC_GET_BAT_VOL();
-    uint16_t bat_vol = POWER_BAT_AD_TO_VOLT(bat_ad);
-    return bat_vol;
-}
-
-/**
  * @brief  Detect Bat voltage levels
  * @param  None
  * @return None
  */
 static void _Snf_Power_Voltage_Detection(void)
 {
-    uint16_t           bat_vol    = _Snf_Power_Get_Bat_Voltage();
+    uint16_t           bat_vol    = 0;
     power_bat_status_e bat_status = POWER_BAT_STATUS_NORMAL;
+
+    // 周期100mS检查电源状态
+    if (false == RTE_OS_IS_TIMEOUT(power_bat_det_last_update_time, POWER_BAT_DETECTION_UPDATE_CYCLE))
+    {
+        return;
+    }
+
+    power_bat_det_last_update_time = RTE_OS_GET_TICK();
+    bat_vol                        = Snf_Power_Get_Bat_Voltage();
 
     if (POWER_BAT_UNDER_VOLT > bat_vol)
     {
@@ -92,14 +90,20 @@ static void _Snf_Power_Voltage_Detection(void)
  */
 static void _Snf_Power_Load_Detection(void)
 {
-    uint16_t            vol         = RTE_ADC_GET_PUMP_VALVE_IS();
-    uint16_t            ics         = (uint16_t)POWER_PUMP_VALVE_AD_TO_VCS(vol);
+    uint16_t            vol         = 0;
+    uint16_t            ics         = 0;
     power_load_status_e load_status = POWER_LOAD_STATUS_NORMAL;
 
-    if (POWER_BAT_STATUS_NORMAL != power_bat_status)
+    // 周期100mS检查负载故障状态
+    if (POWER_BAT_STATUS_NORMAL != power_bat_status ||
+        false == RTE_OS_IS_TIMEOUT(power_load_det_last_update_time, POWER_LOAD_DETECTION_UPDATE_CYCLE))
     {
         return;
     }
+
+    power_load_det_last_update_time = RTE_OS_GET_TICK();
+    vol                             = RTE_ADC_GET_PUMP_VALVE_IS();
+    ics                             = (uint16_t)POWER_PUMP_VALVE_AD_TO_VCS(vol);
 
     if (POWER_PUMP_OPEN_CIRCUIT > ics)
     {
@@ -117,7 +121,7 @@ static void _Snf_Power_Load_Detection(void)
     if (power_load_status != load_status)
     {
         power_load_status = load_status;
-        POWER_PRINTF("Battery voltage: %d\r\n", ics);
+        POWER_PRINTF("Load status: %d, ics:%d\r\n", load_status, ics);
 
         if (POWER_LOAD_STATUS_NORMAL == power_load_status)
         {
@@ -135,31 +139,18 @@ static void _Snf_Power_Load_Detection(void)
         }
     }
 }
-/**
- * @brief  Constant voltage control for pump
- * @details This function is used to control the pump at a constant voltage by adjusting the PWM
- * @param  None
- * @return None
- */
-static void _Snf_Pump_Constant_Voltage(void)
-{
-    uint8_t  duty_cycle = 0;
-    uint16_t voltage    = 0;
-
-    if (POWER_LOAD_STATUS_NORMAL != power_load_status || POWER_BAT_STATUS_NORMAL != power_bat_status)
-    {
-        return;
-    }
-    // 100mS更新一次气泵恒压PWM占空比
-    if (RTE_OS_IS_TIMEOUT(power_pump_last_update_time, POWER_PUMP_CONSTANT_PUMP_UPDATE_CYCLE))
-    {
-        power_pump_last_update_time = RTE_OS_GET_TICK();
-        voltage                     = _Snf_Power_Get_Bat_Voltage();
-        duty_cycle                  = (uint8_t)POWER_PUMP_DUTY_FOR_CONST_VOLTAGE(voltage);
-        RTE_PWM_SET_DUTY(RTE_PWM_CHANNEL_PUMP, duty_cycle);
-    }
-}
 /************************ Public Function Implementations ************************/
+/**
+ * @brief  Get battery voltage
+ * @param  None
+ * @return Battery voltage in millivolts
+ */
+uint16_t Snf_Power_Get_Bat_Voltage(void)
+{
+    uint16_t bat_ad  = RTE_ADC_GET_BAT_VOL();
+    uint16_t bat_vol = POWER_BAT_AD_TO_VOLT(bat_ad);
+    return bat_vol;
+}
 
 /**
  * @brief  Reset MCU
@@ -179,8 +170,9 @@ void Snf_Power_Reset(void)
 void Snf_Power_Task_Init(void)
 {
     _Snf_Power_Get_Response();
-    power_pump_last_update_time = RTE_OS_GET_TICK();
     RTE_GPIO_BAT_VOL_AD_ENABLE();
+    power_bat_det_last_update_time  = RTE_OS_GET_TICK();
+    power_load_det_last_update_time = RTE_OS_GET_TICK();
 }
 
 /**
@@ -192,6 +184,5 @@ void Snf_Power_Task(void)
 {
     _Snf_Power_Voltage_Detection();
     _Snf_Power_Load_Detection();
-    _Snf_Pump_Constant_Voltage();
     Snf_Power_Message_Box_Handle();
 }

@@ -1,12 +1,14 @@
 BasedOnStyle: Google
 Language: C
 BreakBeforeBraces: Allman
+AllowShortBlocksOnASingleLine: false
+Cpp11BracedListStyle: false
 IndentWidth: 4
 TabWidth: 4
 ColumnLimit: 128
 UseTab: Never
 ContinuationIndentWidth: 4
-AlignAfterOpenBracket: true
+AlignAfterOpenBracket: Align
 AllowAllArgumentsOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: false
 BinPackParameters: true
@@ -19,3 +21,4 @@ AllowShortFunctionsOnASingleLine: None
 AlignConsecutiveAssignments: true
 # 连续声明时，对齐所有声明的变量名
 AlignConsecutiveDeclarations: true
+IndentExternBlock: NoIndent

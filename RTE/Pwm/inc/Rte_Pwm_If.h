@@ -12,6 +12,8 @@ extern "C"
 /************************ Macro Definitions ************************/
 
 /************************ Type Definitions ************************/
+#define RTE_PWM_CHANNEL_NUM PWM_LOGIC_CHANNEL_NUM
+
 #define RTE_PWM_DUTY_MAX 100
 #define RTE_PWM_DUTY_MIN 0
 
@@ -35,7 +37,7 @@ extern "C"
 #define RTE_PWM_CHANNEL_RN2  PwmConf_PwmChannel_PwmChannel_RN2_EN   //对应气路图通道2
 #define RTE_PWM_CHANNEL_AM7  PwmConf_PwmChannel_PwmChannel_AM7_EN   //对应气路图通道1
 #define RTE_PWM_CHANNEL_RNR2 PwmConf_PwmChannel_PwmChannel_RNR2_EN  //对应气路图通道2-1
-#define RTE_PWM_CHANNEL_AM2  PwmConf_PwmChannel_PwmChannel_AM2      //对应气路图通道7
+#define RTE_PWM_CHANNEL_AM2  PwmConf_PwmChannel_PwmChannel_AM2_EN   //对应气路图通道7
 #define RTE_PWM_CHANNEL_YTR1 PwmConf_PwmChannel_PwmChannel_YTR1_EN  //对应气路图通道15-1
 #define RTE_PWM_CHANNEL_YTR2 PwmConf_PwmChannel_PwmChannel_YTR2_EN  //对应气路图通道16-1
 #define RTE_PWM_CHANNEL_AM11 PwmConf_PwmChannel_PwmChannel_AM11_EN  //对应气路图通道17
