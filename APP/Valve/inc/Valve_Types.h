@@ -1,5 +1,5 @@
-#ifndef _RTE_SWC_H_
-#define _RTE_SWC_H_
+#ifndef _VALVE_TYPES_H_
+#define _VALVE_TYPES_H_
 
 #ifdef __cplusplus
 extern "C"
@@ -7,24 +7,22 @@ extern "C"
 #endif
 
 /************************ Include Files ************************/
-#include <stdint.h>
-#include <stdbool.h>
-#include "Rte_Swc_Types.h"
-#include "Valve_Types.h"
+
 /************************ Macro Definitions ************************/
 
 /************************ Type Definitions ************************/
+typedef enum
+{
+    POWER_VALVE_STATE_RAMP_UP,
+    POWER_VALVE_STATE_RAMP_DOWN,
+} valve_state_e;
 
 /************************ External Variables ************************/
 
 /************************ Function Declarations ************************/
-void Rte_Call_Sync_C_Main_S_App_Task_Init(void);
-void Rte_Call_Sync_C_Main_S_App_Task_Scheduler(void);
-uint16_t Rte_Call_Sync_C_Pump_S_Power_Get_Voltage(void);
-bool Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(uint8_t index, valve_state_e state);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* _RTE_SWC_H_ */
+#endif /* _VALVE_TYPES_H_ */

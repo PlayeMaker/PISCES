@@ -100,20 +100,18 @@ bool Snf_Valve_Set_Config(uint8_t index, valve_state_e state)
         ramp_group_ptr->state         = state;
         ramp_group_ptr->step_index    = 0;
         ramp_group_ptr->last_timer_ms = RTE_OS_GET_TICK();
-        if (POWER_VALVE_STATE_IDLE != ramp_group_ptr->state)
+
+        if (POWER_VALVE_STATE_RAMP_UP == ramp_group_ptr->state)
         {
-            if (POWER_VALVE_STATE_RAMP_UP == ramp_group_ptr->state)
-            {
-                ramp_config_ptr = (valve_ramp_step_t*)valve_ramp_up_step;
-            }
-            else if (POWER_VALVE_STATE_RAMP_DOWN == ramp_group_ptr->state)
-            {
-                ramp_config_ptr = (valve_ramp_step_t*)valve_ramp_down_step;
-            }
-            vol        = ramp_config_ptr[ramp_group_ptr->step_index].voltage;
-            duty_cycle = VALVE_RAMP_STEP_VOLTAGE_TO_DUTY_CYCLE(vol);
-            RTE_PWM_SET_DUTY(index, duty_cycle);
+            ramp_config_ptr = (valve_ramp_step_t*)valve_ramp_up_step;
         }
+        else if (POWER_VALVE_STATE_RAMP_DOWN == ramp_group_ptr->state)
+        {
+            ramp_config_ptr = (valve_ramp_step_t*)valve_ramp_down_step;
+        }
+        vol        = ramp_config_ptr[ramp_group_ptr->step_index].voltage;
+        duty_cycle = VALVE_RAMP_STEP_VOLTAGE_TO_DUTY_CYCLE(vol);
+        RTE_PWM_SET_DUTY(index, duty_cycle);
     }
     return true;
 }
@@ -125,9 +123,11 @@ bool Snf_Valve_Set_Config(uint8_t index, valve_state_e state)
  */
 void Snf_Valve_Task_Init(void)
 {
+    valve_ramp_group_t* ramp_group_ptr = NULL;
     for (uint8_t i = 0; i < VALVE_RAMP_MEMBER_NUM; i++)
     {
-        Snf_Valve_Set_Config(i, POWER_VALVE_STATE_IDLE);
+        ramp_group_ptr        = &valve_ramp_group[i];
+        ramp_group_ptr->state = POWER_VALVE_STATE_RAMP_DOWN;
     }
 }
 

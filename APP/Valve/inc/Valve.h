@@ -10,6 +10,7 @@ extern "C"
 #include <stddef.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include "Valve_Types.h"
 #include "Rte_Pwm_If.h"
 /************************ Macro Definitions ************************/
 // 缓升缓降控制相关参数
@@ -17,13 +18,6 @@ extern "C"
 #define VALVE_OPERATING_VOLT                       14400U                              // 电压,单位mV
 #define VALVE_RAMP_STEP_VOLTAGE_TO_DUTY_CYCLE(vol) (vol * 100 / VALVE_OPERATING_VOLT)  // 电压对应的占空比
 /************************ Type Definitions ************************/
-typedef enum
-{
-    POWER_VALVE_STATE_IDLE,
-    POWER_VALVE_STATE_RAMP_UP,
-    POWER_VALVE_STATE_RAMP_DOWN,
-} valve_state_e;
-
 typedef struct
 {
     const uint16_t voltage;       // 电压,单位mV

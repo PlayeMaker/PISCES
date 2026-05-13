@@ -1,9 +1,11 @@
 /************************ Include Files ************************/
 #include "Basic_Config.h"
 #include "Lumbar.h"
+#include "Rte_Swc.h"
 #include "Rte_Pwm.h"
 #include "Rte_Pwm_If.h"
 #include "Rte_Log.h"
+#include "Valve_Types.h"
 /************************ Macro Definitions ************************/
 #ifdef LUMBAR_PRINTF_ENABLE
 #define LUMBAR_PRINTF RTE_LOG_PRINTF
@@ -12,8 +14,8 @@
 #endif
 /************************ Private Global Variables ************************/
 static lumbar_config_t lumbar_config[] = {
-    {LUMBAR_POSITION_TOP,    LUMBAR_MODE_IDLE, RTE_PWM_CHANNEL_YT1, RTE_PWM_CHANNEL_YTR1},
-    {LUMBAR_POSITION_BOTTOM, LUMBAR_MODE_IDLE, RTE_PWM_CHANNEL_YT2, RTE_PWM_CHANNEL_YTR2},
+    { LUMBAR_POSITION_TOP,    LUMBAR_MODE_IDLE, RTE_PWM_CHANNEL_YT1, RTE_PWM_CHANNEL_YTR1 },
+    { LUMBAR_POSITION_BOTTOM, LUMBAR_MODE_IDLE, RTE_PWM_CHANNEL_YT2, RTE_PWM_CHANNEL_YTR2 },
 };
 
 static const uint8_t lumbar_config_size = sizeof(lumbar_config) / sizeof(lumbar_config[0]);
@@ -42,8 +44,8 @@ static void _Snf_Lumbar_Inflation(lumbar_position_e position)
         return;
     }
     config_ptr->mode = LUMBAR_MODE_INFLATION;
-    RTE_PWM_SET_DUTY(config_ptr->pwm_channel_1, 50);  // 充气占空比50%
-    RTE_PWM_SET_DUTY(config_ptr->pwm_channel_2, RTE_PWM_DUTY_MIN);
+    Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_1, POWER_VALVE_STATE_RAMP_UP);
+    Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_2, POWER_VALVE_STATE_RAMP_DOWN);
 }
 /**
  * @brief  Lumbar deflation control for lumbar
@@ -63,8 +65,8 @@ static void _Snf_Lumbar_Deflation(lumbar_position_e position)
         return;
     }
     config_ptr->mode = LUMBAR_MODE_DEFLATION;
-    RTE_PWM_SET_DUTY(config_ptr->pwm_channel_1, RTE_PWM_DUTY_MIN);
-    RTE_PWM_SET_DUTY(config_ptr->pwm_channel_2, 50);
+    Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_1, POWER_VALVE_STATE_RAMP_DOWN);
+    Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_2, POWER_VALVE_STATE_RAMP_UP);
 }
 /**
  * @brief  Lumbar keep control for lumbar
@@ -84,8 +86,8 @@ static void _Snf_Lumbar_Keep(lumbar_position_e position)
         return;
     }
     config_ptr->mode = LUMBAR_MODE_DEFLATION;
-    RTE_PWM_SET_DUTY(config_ptr->pwm_channel_1, RTE_PWM_DUTY_MIN);
-    RTE_PWM_SET_DUTY(config_ptr->pwm_channel_2, RTE_PWM_DUTY_MIN);
+    Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_1, POWER_VALVE_STATE_RAMP_DOWN);
+    Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_2, POWER_VALVE_STATE_RAMP_DOWN);
 }
 /************************ Public Function Implementations ************************/
 /**
