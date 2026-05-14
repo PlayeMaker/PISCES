@@ -14,7 +14,9 @@ extern "C"
 typedef enum
 {
     POWER_VALVE_STATE_RAMP_UP,
+    POWER_VALVE_STATE_RAMP_UP_DONE,
     POWER_VALVE_STATE_RAMP_DOWN,
+    POWER_VALVE_STATE_RAMP_DOWN_DONE,
 } valve_state_e;
 
 /************************ External Variables ************************/
