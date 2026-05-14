@@ -28,10 +28,10 @@ typedef enum
 
 typedef struct
 {
-    lumbar_position_e position;       // 气袋位置
-    lumbar_mode_e     mode;           // 气袋模式
-    uint8_t           pwm_channel_1;  // 气袋对应的PWM通道
-    uint8_t           pwm_channel_2;  // 气袋对应的PWM通道
+    lumbar_position_e position;           // 腰托位置
+    lumbar_mode_e     mode;               // 腰托模式
+    uint8_t           pwm_channel_fornt;  // 腰托对应的前PWM通道
+    uint8_t           pwm_channel_rear;   // 腰托对应的后PWM通道
 } lumbar_config_t;
 /************************ External Variables ************************/
 

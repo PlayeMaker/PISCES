@@ -44,8 +44,8 @@ static void _Snf_Lumbar_Inflation(lumbar_position_e position)
         return;
     }
     config_ptr->mode = LUMBAR_MODE_INFLATION;
-    Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_1, POWER_VALVE_STATE_RAMP_UP);
-    Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_2, POWER_VALVE_STATE_RAMP_DOWN);
+    Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_fornt, POWER_VALVE_STATE_RAMP_UP);
+    Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_rear, POWER_VALVE_STATE_RAMP_DOWN);
 }
 /**
  * @brief  Lumbar deflation control for lumbar
@@ -65,8 +65,8 @@ static void _Snf_Lumbar_Deflation(lumbar_position_e position)
         return;
     }
     config_ptr->mode = LUMBAR_MODE_DEFLATION;
-    Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_1, POWER_VALVE_STATE_RAMP_DOWN);
-    Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_2, POWER_VALVE_STATE_RAMP_UP);
+    Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_fornt, POWER_VALVE_STATE_RAMP_DOWN);
+    Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_rear, POWER_VALVE_STATE_RAMP_UP);
 }
 /**
  * @brief  Lumbar keep control for lumbar
@@ -86,8 +86,8 @@ static void _Snf_Lumbar_Keep(lumbar_position_e position)
         return;
     }
     config_ptr->mode = LUMBAR_MODE_DEFLATION;
-    Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_1, POWER_VALVE_STATE_RAMP_DOWN);
-    Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_2, POWER_VALVE_STATE_RAMP_DOWN);
+    Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_fornt, POWER_VALVE_STATE_RAMP_DOWN);
+    Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_rear, POWER_VALVE_STATE_RAMP_DOWN);
 }
 /************************ Public Function Implementations ************************/
 /**
