@@ -1,11 +1,16 @@
 /************************ Include Files ************************/
 #include "Rte_Swc.h"
 #include "Rte_Swc_Types.h"
-#include "Power.h"
 #include "Rte_Swc_Com.h"
 #include "Rte_Swc_Com_Cfg.h"
 #include "App_Task.h"
 #include "Valve.h"
+#include "System.h"
+#include "Power.h"
+#include "Massage.h"
+#include "Pump.h"
+#include "Lumbar.h"
+#include "Printf.h"
 /************************ Macro Definitions ************************/
 
 /************************ Private Global Variables ************************/
@@ -24,7 +29,6 @@
   */
 void Rte_Call_Sync_C_Main_S_App_Task_Init(void)
 {
-    /* 直接调用对应的同步函数 */
     Snf_App_Task_Init();
 }
 /**
@@ -34,8 +38,97 @@ void Rte_Call_Sync_C_Main_S_App_Task_Init(void)
   */
 void Rte_Call_Sync_C_Main_S_App_Task_Scheduler(void)
 {
-    /* 直接调用对应的同步函数 */
     Snf_App_Task_Scheduler_Handle();
+}
+/**
+  * @brief  System Task
+  * @param  None
+  * @return None
+  */
+void Rte_Call_Sync_C_App_Task_S_System_Task_Scheduler(void)
+{
+    Snf_System_Task();
+}
+/**
+  * @brief  Initialize the power task, should be called once at power startup
+  * @param  None
+  * @return None
+  */
+void Rte_Call_Sync_C_App_Task_S_Power_Task_Init(void)
+{
+    Snf_Power_Task_Init();
+}
+/**
+  * @brief  Power Task
+  * @param  None
+  * @return None
+  */
+void Rte_Call_Sync_C_App_Task_S_Power_Task_Scheduler(void)
+{
+    Snf_Power_Task();
+}
+/**
+  * @brief  Initialize the massage task, should be called once at massage startup
+  * @param  None
+  * @return None
+  */
+void Rte_Call_Sync_C_App_Task_S_Massage_Task_Init(void)
+{
+    Snf_Massage_Task_Init();
+}
+/**
+  * @brief  Massage Task
+  * @param  None
+  * @return None
+  */
+void Rte_Call_Sync_C_App_Task_S_Massage_Task_Scheduler(void)
+{
+    Snf_Massage_Task();
+}
+/**
+  * @brief  Pump Task
+  * @param  None
+  * @return None
+  */
+void Rte_Call_Sync_C_App_Task_S_Pump_Task_Scheduler(void)
+{
+    Snf_Pump_Task();
+}
+/**
+  * @brief  Initialize the valve task, should be called once at valve startup
+  * @param  None
+  * @return None
+  */
+void Rte_Call_Sync_C_App_Task_S_Valve_Task_Init(void)
+{
+    Snf_Valve_Task_Init();
+}
+/**
+  * @brief  Valve Task
+  * @param  None
+  * @return None
+  */
+void Rte_Call_Sync_C_App_Task_S_Valve_Task_Scheduler(void)
+{
+    Snf_Valve_Task();
+}
+/**
+  * @brief  Lumbar Task
+  * @param  None
+  * @return None
+  */
+void Rte_Call_Sync_C_App_Task_S_Lumbar_Task_Scheduler(void)
+{
+    Snf_Lumbar_Task();
+}
+/**
+  * @brief  Printf Task
+  * @param  None
+  * @return None
+  */
+void Rte_Call_Sync_C_App_Task_S_Printf_Task_Scheduler(void)
+{
+    Snf_Printf_Task();
 }
 /**
   * @brief  Get the current battery voltage

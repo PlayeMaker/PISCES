@@ -2,30 +2,20 @@
 #include "App_Task.h"
 #include "App_Task_Cfg.h"
 #include "Basic_Types.h"
-#include "Button_Com.h"
-#include "Power.h"
-#include "System.h"
-#include "Air_Bag.h"
-#include "Pump.h"
-#include "Valve.h"
-#include "Lumbar.h"
-#include "Massage.h"
-#include "Printf.h"
 #include "Rte_Os.h"
-
+#include "Rte_Swc.h"
 /************************ Macro Definitions ************************/
 
 /************************ Private Global Variables ************************/
 static scheduler_t schedu_list[] = {
-    { NULL,                           Snf_System_Task,           SYSTEM_TASK_PERIOD_MS,  TRUE, TRUE, 0 },
-    { Snf_Power_Task_Init,            Snf_Power_Task,            POWER_TASK_PERIOD_MS,   TRUE, TRUE, 0 },
-    { Snf_Button_Detection_Task_Init, Snf_Button_Detection_Task, BUTTON_TASK_PERIOD_MS,  TRUE, TRUE, 0 },
-    { Snf_Massage_Task_Init,          Snf_Massage_Task,          MASSAGE_TASK_PERIOD_MS, TRUE, TRUE, 0 },
-    { NULL,                           Snf_Pump_Task,             PUMP_TASK_PERIOD_MS,    TRUE, TRUE, 0 },
-    { Snf_Valve_Task_Init,            Snf_Valve_Task,            VALVE_TASK_PERIOD_MS,   TRUE, TRUE, 0 },
-    { Snf_Air_Bag_Task_Init,          Snf_Air_Bag_Task,          AIR_BAG_TASK_PERIOD_MS, TRUE, TRUE, 0 },
-    { NULL,                           Snf_Lumbar_Task,           LUMBAR_TASK_PERIOD_MS,  TRUE, TRUE, 0 },
-    { NULL,                           Snf_Printf_Task,           PRINTF_TASK_PERIOD_MS,  TRUE, TRUE, 0 },
+    // clang-format off
+    { NULL,                                         Rte_Call_Sync_C_App_Task_S_System_Task_Scheduler,  SYSTEM_TASK_PERIOD_MS,  TRUE, TRUE, 0 },
+    { Rte_Call_Sync_C_App_Task_S_Power_Task_Init,   Rte_Call_Sync_C_App_Task_S_Power_Task_Scheduler,   POWER_TASK_PERIOD_MS,   TRUE, TRUE, 0 },
+    { Rte_Call_Sync_C_App_Task_S_Massage_Task_Init, Rte_Call_Sync_C_App_Task_S_Massage_Task_Scheduler, MASSAGE_TASK_PERIOD_MS, TRUE, TRUE, 0 },
+    { NULL,                                         Rte_Call_Sync_C_App_Task_S_Pump_Task_Scheduler,    PUMP_TASK_PERIOD_MS,    TRUE, TRUE, 0 },
+    { Rte_Call_Sync_C_App_Task_S_Valve_Task_Init,   Rte_Call_Sync_C_App_Task_S_Valve_Task_Scheduler,   VALVE_TASK_PERIOD_MS,   TRUE, TRUE, 0 },
+    { NULL,                                         Rte_Call_Sync_C_App_Task_S_Lumbar_Task_Scheduler,  LUMBAR_TASK_PERIOD_MS,  TRUE, TRUE, 0 },
+    { NULL,                                         Rte_Call_Sync_C_App_Task_S_Printf_Task_Scheduler,  PRINTF_TASK_PERIOD_MS,  TRUE, TRUE, 0 },
 };
 
 static const uint8_t schedu_list_size = sizeof(schedu_list) / sizeof(schedu_list[0]);
