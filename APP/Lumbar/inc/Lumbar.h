@@ -16,7 +16,7 @@ typedef enum
     LUMBAR_MODE_IDLE,       // 空闲
     LUMBAR_MODE_KEEP,       // 保持
     LUMBAR_MODE_INFLATION,  // 充气
-    LUMBAR_MODE_DEFLATION,  // 放气
+    LUMBAR_MODE_DEFLATION,  // 泄气
 } lumbar_mode_e;
 
 typedef enum
