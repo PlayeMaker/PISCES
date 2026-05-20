@@ -255,14 +255,14 @@ PORT_CONST static const Port_PinConfigType Port_B_PinsConfig[] = {
         .OutputCompare = (boolean)0,
         .InvertEnable = (boolean)0,
     },
-    /* PCR-35, Feature-GPIO */
+    /* PCR-35, Feature-ADC0_SE7 */
     
     {
         .HwPinId = 3,
-        .Direction = PORT_PIN_OUT,
+        .Direction = PORT_PIN_IN,
         .IsDirectionChangeable= PORT_PIN_DIRECTION_CHANGEABLE,
         .InitLevel = PORT_PIN_LEVEL_LOW,
-        .InitMode=  PORT_PIN_MODE_GPIO,
+        .InitMode=  PORT_PIN_MODE_ANA,
         .IsModeChangeable = PORT_PIN_MODE_CHANGEABLE,
         .PullConfig = PORT_PIN_NO_PULL,
         .DriveStrength = PORT_PIN_LOW_DRIVE_STRENGTH,
@@ -674,11 +674,11 @@ PORT_CONST static const Port_PinConfigType Port_D_PinsConfig[] = {
     /* PCR-101, Feature-GPIO */
     {
         .HwPinId = 5,
-        .Direction = PORT_PIN_IN,
-        .IsDirectionChangeable= PORT_PIN_DIRECTION_UNCHANGEABLE,
+        .Direction = PORT_PIN_OUT,
+        .IsDirectionChangeable= PORT_PIN_DIRECTION_CHANGEABLE,
         .InitLevel = PORT_PIN_LEVEL_LOW,
         .InitMode=  PORT_PIN_MODE_GPIO,
-        .IsModeChangeable = PORT_PIN_MODE_NOT_CHANGEABLE,
+        .IsModeChangeable = PORT_PIN_MODE_CHANGEABLE,
         .PullConfig = PORT_PIN_NO_PULL,
         .DriveStrength = PORT_PIN_LOW_DRIVE_STRENGTH,
         .PassiveFilter = (boolean)0,

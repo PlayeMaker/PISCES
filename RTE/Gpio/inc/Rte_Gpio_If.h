@@ -9,8 +9,8 @@ extern "C"
 /************************ Include Files ************************/
 #include "Drv_Gpio.h"
 /************************ Macro Definitions ************************/
-#define RTE_GPIO_HEAT_ENABLE()             Snf_Drv_Gpio_Write(DRV_GPIO_PORT_B, DRV_GPIO_PIN_3, DRV_GPIO_LEVEL_HIGH)
-#define RTE_GPIO_HEAT_DISABLE()            Snf_Drv_Gpio_Write(DRV_GPIO_PORT_B, DRV_GPIO_PIN_3, DRV_GPIO_LEVEL_LOW)
+#define RTE_GPIO_HEAT_ENABLE()             Snf_Drv_Gpio_Write(DRV_GPIO_PORT_D, DRV_GPIO_PIN_5, DRV_GPIO_LEVEL_HIGH)
+#define RTE_GPIO_HEAT_DISABLE()            Snf_Drv_Gpio_Write(DRV_GPIO_PORT_D, DRV_GPIO_PIN_5, DRV_GPIO_LEVEL_LOW)
 
 #define RTE_GPIO_HEAT5_ENABLE()            Snf_Drv_Gpio_Write(DRV_GPIO_PORT_C, DRV_GPIO_PIN_8, DRV_GPIO_LEVEL_HIGH)
 #define RTE_GPIO_HEAT5_DISABLE()           Snf_Drv_Gpio_Write(DRV_GPIO_PORT_C, DRV_GPIO_PIN_8, DRV_GPIO_LEVEL_LOW)
@@ -33,11 +33,11 @@ extern "C"
 #define RTE_GPIO_5V_LOAD_ENABLE()          Snf_Drv_Gpio_Write(DRV_GPIO_PORT_D, DRV_GPIO_PIN_3, DRV_GPIO_LEVEL_HIGH)
 #define RTE_GPIO_5V_LOAD_DISABLE()         Snf_Drv_Gpio_Write(DRV_GPIO_PORT_D, DRV_GPIO_PIN_3, DRV_GPIO_LEVEL_LOW)
 
-#define RTE_GPIO_PUMP_ENABLE()             Snf_Drv_Gpio_Write(DRV_GPIO_PORT_E, DRV_GPIO_PIN_1, DRV_GPIO_LEVEL_HIGH)
-#define RTE_GPIO_PUMP_DISABLE()            Snf_Drv_Gpio_Write(DRV_GPIO_PORT_E, DRV_GPIO_PIN_1, DRV_GPIO_LEVEL_LOW)
+#define RTE_GPIO_PUMP_ENABLE()             Snf_Drv_Gpio_Write(DRV_GPIO_PORT_E, DRV_GPIO_PIN_0, DRV_GPIO_LEVEL_HIGH)
+#define RTE_GPIO_PUMP_DISABLE()            Snf_Drv_Gpio_Write(DRV_GPIO_PORT_E, DRV_GPIO_PIN_0, DRV_GPIO_LEVEL_LOW)
 
-#define RTE_GPIO_VALVE_ENABLE()            Snf_Drv_Gpio_Write(DRV_GPIO_PORT_E, DRV_GPIO_PIN_0, DRV_GPIO_LEVEL_HIGH)
-#define RTE_GPIO_VALVE_DISABLE()           Snf_Drv_Gpio_Write(DRV_GPIO_PORT_E, DRV_GPIO_PIN_0, DRV_GPIO_LEVEL_LOW)
+#define RTE_GPIO_VALVE_ENABLE()            Snf_Drv_Gpio_Write(DRV_GPIO_PORT_E, DRV_GPIO_PIN_1, DRV_GPIO_LEVEL_HIGH)
+#define RTE_GPIO_VALVE_DISABLE()           Snf_Drv_Gpio_Write(DRV_GPIO_PORT_E, DRV_GPIO_PIN_1, DRV_GPIO_LEVEL_LOW)
 
 #define RTE_GPIO_PUMP_VALVE_DSEL_ENABLE()  Snf_Drv_Gpio_Write(DRV_GPIO_PORT_C, DRV_GPIO_PIN_5, DRV_GPIO_LEVEL_HIGH)
 #define RTE_GPIO_PUMP_VALVE_DSEL_DISABLE() Snf_Drv_Gpio_Write(DRV_GPIO_PORT_C, DRV_GPIO_PIN_5, DRV_GPIO_LEVEL_LOW)

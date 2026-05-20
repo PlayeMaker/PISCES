@@ -144,7 +144,7 @@ extern "C"{
 #define PortConf_PortPin_NTC4_IN           ((Port_PinType)(((2)<<8)|16))
 #define PortConf_PortPin_NTC5_IN           ((Port_PinType)(((2)<<8)|15))
 #define PortConf_PortPin_HEAT_IS           ((Port_PinType)(((2)<<8)|14))
-#define PortConf_PortPin_HEAT_EN           ((Port_PinType)(((1)<<8)|3))
+#define PortConf_PortPin_HEAT_EN           ((Port_PinType)(((3)<<8)|5))
 #define PortConf_PortPin_VERSION           ((Port_PinType)(((1)<<8)|2))
 #define PortConf_PortPin_CAN_TXD           ((Port_PinType)(((1)<<8)|1))
 #define PortConf_PortPin_CAN_RXD           ((Port_PinType)(((1)<<8)|0))
@@ -173,6 +173,7 @@ extern "C"{
 #define PortConf_PortPin_PUMP_EN2          ((Port_PinType)(((4)<<8)|1))
 #define PortConf_PortPin_VALVE_EN          ((Port_PinType)(((4)<<8)|0))
 #define PortConf_PortPin_PUMP_VALVE_DSEL   ((Port_PinType)(((2)<<8)|5))
+#define PortConf_PortPin_MCU_ML_SW1        ((Port_PinType)(((1)<<8)|3))
 
 #ifdef __cplusplus
 }

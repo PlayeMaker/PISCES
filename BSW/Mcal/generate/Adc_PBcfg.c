@@ -44,9 +44,10 @@ extern void ADC0_Group0CallBack(void);
 #include "Adc_MemMap.h"
 
 /*Group channels definetion*/
-ADC_CONST static const Adc_ChannelType AdcGroup_0_Channel[9] = 
+ADC_CONST static const Adc_ChannelType AdcGroup_0_Channel[10] = 
 {
     ADC0_SE6_ADCH6|ADC_SAMP0,
+    ADC0_SE7_ADCH7|ADC_SAMP0,
     ADC0_SE8_ADCH8|ADC_SAMP0,
     ADC0_SE9_ADCH9|ADC_SAMP0,
     ADC0_SE12_ADCH12|ADC_SAMP0,
@@ -62,7 +63,7 @@ ADC_CONST static const Adc_ChannelType AdcGroup_0_Channel[9] =
 ADC_CONST static const Adc_GroupDefType AdcGroup_0_ChannelsInf = 
 {
     .GroupChannels       = &AdcGroup_0_Channel[0],
-    .GroupChannelsNum    = 9,
+    .GroupChannelsNum    = 10,
     .GroupInHwUnitId     = ADC_0,
 };
 

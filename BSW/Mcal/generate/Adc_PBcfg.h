@@ -37,7 +37,7 @@
 */
 #define AdcConf_AdcConfigSet_AdcGroup_0                (0U)
 
-#define AdcGroup_0_CHANNEL_NUMBER             (9U)
+#define AdcGroup_0_CHANNEL_NUMBER             (10U)
 
 
 
