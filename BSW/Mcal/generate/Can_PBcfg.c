@@ -1047,7 +1047,7 @@ CAN_CONST const Can_ChannelConfigType Can_ChannelConfig[1] =
 #endif
 #if (CAN_FD_USAGE == STD_ON)
         .FdUsage                 = FALSE,
-        .IsoModeUsage            = TRUE,
+        .IsoModeUsage            = FALSE,
 #endif
         .CanTimeQuantaSource     = CAN_CLOCK_SOURCE_PE,
         .ChBaudrateNum           = 1U,

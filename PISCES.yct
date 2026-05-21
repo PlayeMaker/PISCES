@@ -7551,10 +7551,10 @@
     "Can": {
       "data": {
         "Can": {
-          "POST_BUILD_VARIANT_USED": false,
+          "POST_BUILD_VARIANT_USED": true,
           "IMPLEMENTATION_CONFIG_VARIANT": "VariantPostBuild",
           "CanGeneral": {
-            "CanDevErrorDetect": true,
+            "CanDevErrorDetect": false,
             "CanEnableUserModeSupport": false,
             "CanMulticoreSupport": false,
             "CanVersionInfoApi": false,
@@ -7619,7 +7619,7 @@
                 "CanControllerPrExcEn": false,
                 "CanControllerEdgeFilter": false,
                 "CanControllerFdUsage": false,
-                "CanControllerFdISO": true,
+                "CanControllerFdISO": false,
                 "CanControllerDmaUsage": false,
                 "CanControllerDmaId": "",
                 "CanControllerDmaChannel": "",
@@ -7659,25 +7659,29 @@
                   "CanRxFifoType": "CAN_RX_FIFO_NONE",
                   "CanEnhanceRxFifoConfig": {
                     "CanEnhanceRxFifoWaterMark": "1",
-                    "CanExtendedRxFifoFilterNum": "1",
-                    "CanStandardRxFifoFilterNum": "2",
-                    "CanExtendedRxFifoFilterTable": {
-                      "CanExtendedRxFifoFilterTable_0": {
-                        "ExtendedFilterCode1": "0x00000000",
-                        "ExtendedFilterCode2": "0x1FFFFFFF",
-                        "CanEnhanceRxFifoFilterFormat": "CAN_FILTER_FORMAT_ACC_RANG_MODE"
-                      }
-                    },
+                    "CanExtendedRxFifoFilterNum": "0",
+                    "CanStandardRxFifoFilterNum": "4",
+                    "CanExtendedRxFifoFilterTable": {},
                     "CanStandardRxFifoFilterTable": {
                       "CanStandardRxFifoFilterTable_0": {
-                        "StandardFilterCode1": "0x000",
+                        "StandardFilterCode1": "0x302",
                         "StandardFilterCode2": "0x7FF",
                         "CanEnhanceRxFifoFilterFormat": "CAN_FILTER_FORMAT_ACC_MASK_MODE"
                       },
                       "CanStandardRxFifoFilterTable_1": {
+                        "StandardFilterCode1": "0x7df",
+                        "StandardFilterCode2": "0x7FF",
+                        "CanEnhanceRxFifoFilterFormat": "CAN_FILTER_FORMAT_ACC_MASK_MODE"
+                      },
+                      "CanStandardRxFifoFilterTable_2": {
+                        "StandardFilterCode1": "0x710",
+                        "StandardFilterCode2": "0x1FF",
+                        "CanEnhanceRxFifoFilterFormat": "CAN_FILTER_FORMAT_ACC_RANG_MODE"
+                      },
+                      "CanStandardRxFifoFilterTable_3": {
                         "StandardFilterCode1": "0x000",
                         "StandardFilterCode2": "0x7FF",
-                        "CanEnhanceRxFifoFilterFormat": "CAN_FILTER_FORMAT_ACC_RANG_MODE"
+                        "CanEnhanceRxFifoFilterFormat": "CAN_FILTER_FORMAT_ACC_MASK_MODE"
                       }
                     }
                   },
@@ -7709,15 +7713,15 @@
                     "CanControllerFdBaudrateEnable": false,
                     "CanControllerFdBaudrateConfig": {
                       "CanControllerFdBaudRate": "2000",
-                      "CanControllerFdPreDiv": "1",
-                      "CanControllerSyncJumpWidth": "1",
-                      "CanControllerFdQuantaNum": "12",
+                      "CanControllerFdPreDiv": "2",
+                      "CanControllerSyncJumpWidth": "4",
+                      "CanControllerFdQuantaNum": "20",
                       "CanControllerSyncSeg": "1",
-                      "CanControllerPropSeg": "5",
-                      "CanControllerSeg1": "4",
-                      "CanControllerSeg2": "2",
-                      "CanControllerFdSamplePoint": 83.33333333333334,
-                      "CanControllerSspOffset": "10",
+                      "CanControllerPropSeg": "8",
+                      "CanControllerSeg1": "7",
+                      "CanControllerSeg2": "4",
+                      "CanControllerFdSamplePoint": 80,
+                      "CanControllerSspOffset": "16",
                       "CanControllerTxBitRateSwitch": true
                     }
                   }
@@ -8192,7 +8196,7 @@
       "enable": {
         "Can/CanConfigSet/CanController/CAN0/CanBusoffNotification": false,
         "Can/CanConfigSet/CanController/CAN0/CanControllerBaudrateConfig/CanControllerBaudrateConfig_0/CanControllerFdBaudrateConfig": false,
-        "Can/CanConfigSet/CanController/CAN0/CanControllerBaudrateConfig/CanControllerBaudrateConfig_0/CanControllerFdBaudrateConfig/CanControllerSspOffset": false,
+        "Can/CanConfigSet/CanController/CAN0/CanControllerBaudrateConfig/CanControllerBaudrateConfig_0/CanControllerFdBaudrateConfig/CanControllerSspOffset": true,
         "Can/CanConfigSet/CanController/CAN0/CanControllerDmaChannel": false,
         "Can/CanConfigSet/CanController/CAN0/CanControllerDmaId": false,
         "Can/CanConfigSet/CanController/CAN0/CanControllerEcucPartitionRef": false,
@@ -8302,8 +8306,22 @@
         "Can/CanGeneral/CanTxPduIdTransmitCalloutFunction": false
       },
       "version": "/YTM32MX_0_9_1/Can",
-      "updateTime": 1779342404387,
-      "lock": false
+      "updateTime": 1779344411246,
+      "lock": false,
+      "CanWakeUpCheckedNum": 0,
+      "CanRxInterruptNum": 1,
+      "CanRxPollingNum": 0,
+      "CanTxInterruptNum": 1,
+      "CanTxPollingNum": 0,
+      "CanBusOffInterruptNum": 1,
+      "CanBusOffPollingNum": 0,
+      "FDUsage": 0,
+      "EnHancedFifo": 0,
+      "LegacyFifo": 0,
+      "NoneFifo": 1,
+      "DmaUsage": 0,
+      "WakeUpApi": false,
+      "CanControllerId": "0"
     },
     "Port": {
       "data": {

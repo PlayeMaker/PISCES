@@ -96,7 +96,7 @@ extern "C"{
  * @ref          ECUC_Can_00064
  * @scope        LOCAL
  */
-#define CAN_DEV_ERROR_DETECT           (STD_ON)
+#define CAN_DEV_ERROR_DETECT           (STD_OFF)
 
 /**
  * @brief        The support of the Can_SetBaudrate API is optional.
