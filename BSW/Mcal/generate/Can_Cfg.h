@@ -232,7 +232,7 @@ extern "C"{
 #define CAN_BUSOFF_PROCESS_HAS_POLLING    (STD_OFF)
 
 #define CAN_FD_USAGE                      (STD_OFF)
-#define CAN_ENHANCE_FIFO_USAGE            (STD_ON)
+#define CAN_ENHANCE_FIFO_USAGE            (STD_OFF)
 #define CAN_LEGACY_FIFO_USAGE             (STD_OFF)
 
 #define CAN_MAIN_FUNCTION_RW_PERIOD_OPTION_NUM (0U)
@@ -265,8 +265,26 @@ extern "C"{
 #define CanConf_CanController_CAN0                                        (0U)
 
 
-#define CanConf_CanHardwareObject_CAN0_RX_EN_FIFO                             (0U)
-#define CanConf_CanHardwareObject_CAN0_TX_FD                                  (1U)
+#define CanConf_CanHardwareObject_HOH0_BCU_11E                                (0U)
+#define CanConf_CanHardwareObject_HOH2_DIAG_REQ_AllECU                        (1U)
+#define CanConf_CanHardwareObject_HOH3_DIAG_REQ_MCMD_623_MCMP_624             (2U)
+#define CanConf_CanHardwareObject_HOH4_VC_Data_5E0                            (3U)
+#define CanConf_CanHardwareObject_HOH5_ZONE_13C                               (4U)
+#define CanConf_CanHardwareObject_HOH6_ZONE_MCMD_1C9_MCMP_1CF                 (5U)
+#define CanConf_CanHardwareObject_HOH7_ZONE_2EF                               (6U)
+#define CanConf_CanHardwareObject_HOH8_ZONE_3A9                               (7U)
+#define CanConf_CanHardwareObject_HOH9_ZONE_3B2                               (8U)
+#define CanConf_CanHardwareObject_HOH10_MCMD_Zone_FL_MCM_01_1D1_MCMP_Zone_FL_MCM_03_1D3    (9U)
+#define CanConf_CanHardwareObject_HOH11_MCMD_Zone_FL_MCM_02_1D2_MCMP_Zone_FL_MCM_04_1D4    (10U)
+#define CanConf_CanHardwareObject_HOH12_MCMD_ZONE_MCM_05_1B4_MCMP_ZONE_MCM_06_1B5    (11U)
+#define CanConf_CanHardwareObject_HOH13_ZONE_PNC                              (12U)
+#define CanConf_CanHardwareObject_HOH15_DIAG_RESP_MCM_D_6A3_MCMP_6A4          (13U)
+#define CanConf_CanHardwareObject_HOH16_MCM_D_1B6_MCM_P_1B7                   (14U)
+#define CanConf_CanHardwareObject_HOH17_MCM_D_1DF_MCM_P_1E2                   (15U)
+#define CanConf_CanHardwareObject_HOH18_MCM_D_1E0_MCM_P_1E3                   (16U)
+#define CanConf_CanHardwareObject_HOH19_MCM_D_1E1_MCM_P_1E4                   (17U)
+#define CanConf_CanHardwareObject_HOH20_MCM_D_1E8_MCM_P_1EB                   (18U)
+#define CanConf_CanHardwareObject_HOH21_MCM_D_1EC_MCM_P_1ED                   (19U)
 
 /*==================================================================================================
  *                                      PRECMPILE CONFIG
@@ -281,9 +299,9 @@ typedef void (*Can_MainFunction_RW)(void);
 #define CAN_LOGIC_CHANNEL_0_USAGE             (STD_ON)
 #define FLEXCAN_0_MAP                          (STD_ON)
 #define CAN_0_FD_USAGE                        (STD_OFF)
-#define CAN_0_ENHANCE_FIFO_USAGE              (STD_ON)
+#define CAN_0_ENHANCE_FIFO_USAGE              (STD_OFF)
 #define CAN_0_LEGACY_FIFO_USAGE               (STD_OFF)
-#define CAN_0_NONE_FIFO_USAGE                 (STD_OFF)
+#define CAN_0_NONE_FIFO_USAGE                 (STD_ON)
 #define CAN_0_DMA_USAGE                       (STD_OFF)
 #define CAN_0_RX_PROCESS_MODE                 (CAN_EVENT_PROCESS_INTERRUPT)
 #define CAN_0_TX_PROCESS_MODE                 (CAN_EVENT_PROCESS_INTERRUPT)
