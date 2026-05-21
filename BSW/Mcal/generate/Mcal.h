@@ -41,6 +41,9 @@ extern "C"{
 #include "Mcu_PBcfg.h"
 #include "Adc.h"
 #include "Adc_PBcfg.h"
+#include "Fls.h"
+#include "Fls_PBcfg.h"
+#include "Fee.h"
 #include "Pwm.h"
 #include "Pwm_PBcfg.h"
 #include "Pwm_Lld_Etmr_PBcfg.h"
@@ -66,6 +69,9 @@ MCU_CONFIG_PB
 #endif
 #ifdef ADC_CONFIG_PB
 ADC_CONFIG_PB
+#endif
+#ifdef FLS_CONFIG_PB
+FLS_CONFIG_PB
 #endif
 #ifdef PWM_CONFIG_PB
 PWM_CONFIG_PB

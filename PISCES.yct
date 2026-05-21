@@ -8307,21 +8307,7 @@
       },
       "version": "/YTM32MX_0_9_1/Can",
       "updateTime": 1779344411246,
-      "lock": false,
-      "CanWakeUpCheckedNum": 0,
-      "CanRxInterruptNum": 1,
-      "CanRxPollingNum": 0,
-      "CanTxInterruptNum": 1,
-      "CanTxPollingNum": 0,
-      "CanBusOffInterruptNum": 1,
-      "CanBusOffPollingNum": 0,
-      "FDUsage": 0,
-      "EnHancedFifo": 0,
-      "LegacyFifo": 0,
-      "NoneFifo": 1,
-      "DmaUsage": 0,
-      "WakeUpApi": false,
-      "CanControllerId": "0"
+      "lock": false
     },
     "Port": {
       "data": {
@@ -11558,6 +11544,454 @@
       "enable": {},
       "version": "/YTM32MX_0_9_1/WdgIf",
       "updateTime": 443
+    },
+    "Fee": {
+      "lock": false,
+      "data": {
+        "Fee": {
+          "POST_BUILD_VARIANT_USED": false,
+          "IMPLEMENTATION_CONFIG_VARIANT": "VariantPreCompile",
+          "FeeClusterGroup": {
+            "FeeClusterGroup_0": {
+              "FeeCluster": {
+                "FeeCluster_0": {
+                  "FeeSector": {
+                    "FeeSector_0": {
+                      "FeeSectorRef": "Fls/FlsConfigSet/FlsSectorList/FlsSector/FlsSector_0",
+                      "FeeSectorIndex": "0"
+                    }
+                  }
+                },
+                "FeeCluster_1": {
+                  "FeeSector": {
+                    "FeeSector_0": {
+                      "FeeSectorRef": "Fls/FlsConfigSet/FlsSectorList/FlsSector/FlsSector_1",
+                      "FeeSectorIndex": "0"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "FeeBlockConfiguration": {
+            "Block_CfgID": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "1",
+              "FeeBlockSize": "2",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_0": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "2",
+              "FeeBlockSize": "19",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_1": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "3",
+              "FeeBlockSize": "19",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_2": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "4",
+              "FeeBlockSize": "19",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_3": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "5",
+              "FeeBlockSize": "19",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_4": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "6",
+              "FeeBlockSize": "19",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_5": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "7",
+              "FeeBlockSize": "19",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_6": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "8",
+              "FeeBlockSize": "19",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_7": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "9",
+              "FeeBlockSize": "19",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_8": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "10",
+              "FeeBlockSize": "19",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_9": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "11",
+              "FeeBlockSize": "19",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_10": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "12",
+              "FeeBlockSize": "19",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_11": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "13",
+              "FeeBlockSize": "19",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_12": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "14",
+              "FeeBlockSize": "1",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_13": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "15",
+              "FeeBlockSize": "19",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_14": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "16",
+              "FeeBlockSize": "19",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_15": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "17",
+              "FeeBlockSize": "19",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_16": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "18",
+              "FeeBlockSize": "19",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_17": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "19",
+              "FeeBlockSize": "19",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_18": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "20",
+              "FeeBlockSize": "19",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_PrimaryDataEntry_0_19": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "21",
+              "FeeBlockSize": "19",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            },
+            "FEE_Dem_StorageMem": {
+              "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
+              "FeeBlockNumber": "22",
+              "FeeBlockSize": "156",
+              "FeeImmediateData": false,
+              "FeeNumberOfWriteCycles": "0",
+              "FeeDeviceIndex": "Fls/FlsGeneral",
+              "FeeBlockAssignment": "APPLICATION"
+            }
+          },
+          "FeeGeneral": {
+            "FeeDevErrorDetect": false,
+            "FeeMainFunctionPeriod": "0.005",
+            "FeeNvmJobEndNotification": "NvM_JobEndNotification",
+            "FeeNvmJobErrorNotification": "NvM_JobErrorNotification",
+            "FeeClusterFormatNotification": "NULL_PTR",
+            "FeePollingMode": false,
+            "FeeSetModeSupported": true,
+            "FeeVersionInfoApi": true,
+            "FeeVirtualPageSize": "8",
+            "FeeDataBufferSize": "32",
+            "FeeBlockAlwaysAvailable": true,
+            "FeeLegacyEraseMode": true,
+            "FeeSwapForeignBlocksEnabled": true,
+            "FeeMarkEmptyBlocksInvalid": true,
+            "FeeConfigAssignment": "APPLICATION",
+            "FeeMaximumNumberBlocks": "30",
+            "FeeEnableSchmSupport": true
+          },
+          "CommonPublishedInformation": {
+            "ArReleaseMajorVersion": "4",
+            "ArReleaseMinorVersion": "4",
+            "ArReleaseRevisionVersion": "0",
+            "ModuleId": "21",
+            "SwMajorVersion": "0",
+            "SwMinorVersion": "9",
+            "SwPatchVersion": "1",
+            "VendorApiInfix": "",
+            "VendorId": "180"
+          },
+          "FeePublishedInformation": {
+            "FeeBlockOverhead": "0",
+            "FeePageOverhead": "0"
+          }
+        }
+      },
+      "enable": {
+        "Fee/CommonPublishedInformation/VendorApiInfix": false,
+        "Fee/FeeGeneral/FeeClusterFormatNotification": false,
+        "Fee/FeeGeneral/FeeNvmJobEndNotification": true,
+        "Fee/FeeGeneral/FeeNvmJobErrorNotification": true
+      },
+      "version": "/YTM32MX_0_9_1/Fee",
+      "updateTime": 1779349556971
+    },
+    "Fls": {
+      "lock": false,
+      "data": {
+        "Fls": {
+          "POST_BUILD_VARIANT_USED": false,
+          "IMPLEMENTATION_CONFIG_VARIANT": "VariantPostBuild",
+          "FlsConfigSet": {
+            "FlsAcErase": "1073751296",
+            "FlsAcWrite": "1073751296",
+            "FlsAcErasePointer": "NULL_PTR",
+            "FlsAcWritePointer": "NULL_PTR",
+            "FlsCallCycle": "0.2",
+            "FlsDefaultMode": "MEMIF_MODE_SLOW",
+            "FlsACCallback": "Fls_AC_Callback",
+            "FlsJobEndNotification": "Fee_JobEndNotification",
+            "FlsJobErrorNotification": "Fee_JobErrorNotification",
+            "FlsStartFlashAccessNotif": "Fls_StartFlashAccessNotif",
+            "FlsFinishedFlashAccessNotif": "Fls_FinishedFlashAccessNotif",
+            "FlsReadFunctionCallout": "FlsReadFunctionCallout",
+            "FlsQspiInitCallout": "FlsQspiInitCallout",
+            "FlsQspiResetCallout": "FlsQspiResetCallout",
+            "FlsQspiErrorCheckCallout": "FlsQspiErrorCheckCallout",
+            "FlsQspiEccCheckCallout": "FlsQspiEccCheckCallout",
+            "FlsMaxReadFastMode": "10240",
+            "FlsMaxReadNormalMode": "1024",
+            "FlsMaxWriteFastMode": "256",
+            "FlsMaxWriteNormalMode": "4",
+            "FlsProtection": "0",
+            "FlsExternalDriver": {
+              "FlsSpiReference": "",
+              "ControllerCfg": {},
+              "MemCfg": {},
+              "FlsController": {},
+              "FlsMem": {}
+            },
+            "FlsSectorList": {
+              "FlsSector": {
+                "FlsSector_0": {
+                  "FlsSectorIndex": "0",
+                  "FlsPhysicalSector": "FLS_DATA_ARRAY_0_BLOCK_2_S000",
+                  "FlsNumberOfSectors": "8",
+                  "FlsPageSize": "4",
+                  "FlsSectorSize": "512",
+                  "FlsSectorStartaddress": "0",
+                  "FlsSectorEraseAsynch": true,
+                  "FlsPageWriteAsynch": true,
+                  "FlsHwCh": "FLS_CH_INTERN",
+                  "flashInstance": "",
+                  "FlsSectorHwAddress": "0x0"
+                },
+                "FlsSector_1": {
+                  "FlsSectorIndex": "1",
+                  "FlsPhysicalSector": "FLS_DATA_ARRAY_0_BLOCK_2_S008",
+                  "FlsNumberOfSectors": "8",
+                  "FlsPageSize": "4",
+                  "FlsSectorSize": "512",
+                  "FlsSectorStartaddress": "4096",
+                  "FlsSectorEraseAsynch": true,
+                  "FlsPageWriteAsynch": true,
+                  "FlsHwCh": "FLS_CH_INTERN",
+                  "flashInstance": "",
+                  "FlsSectorHwAddress": "0x0"
+                }
+              }
+            },
+            "FlsProtectionList": {
+              "FlsInternalAreaProtectionCfg": {}
+            }
+          },
+          "AutosarExt": {
+            "FlsEnableUserModeSupport": false,
+            "FlsEnableSchmSupport": true,
+            "FlsQspiLockLUT": false,
+            "FlsSynchronizeCache": false,
+            "FlsInvalidPrefetchBufFromRam": false,
+            "FlsInternalSectorsConfigured": true,
+            "FlsExternalSectorsConfigured": false,
+            "FlsInternalSectorsProtectionSupport": true,
+            "FlsInternalSectorsQuickEraseEnable": false,
+            "FlsInternalSectorsQuickEraseTimeLimit": "400",
+            "FlsInternalSectorsQuickEraseRepeatLimit": "20",
+            "FlsInternalEccErrDisposeEnable": false,
+            "FlsInternalBusFaultNotificationForApp": "NULL_PTR",
+            "FlsInternalEccErrInterruptEnable": false,
+            "FlsInternalEccErrorNotification": "NULL_PTR"
+          },
+          "FlsGeneral": {
+            "FlsEcucPartitionRef": "",
+            "FlsEnableDevAssert": false,
+            "FlsAcLoadOnJobStart": false,
+            "FlsCleanCacheAfterLoadAc": false,
+            "FlsBaseAddress": "0",
+            "FlsBlankCheckApi": true,
+            "FlsCancelApi": true,
+            "FlsCompareApi": true,
+            "FlsDevErrorDetect": false,
+            "FlsDriverIndex": "0",
+            "FlsGetJobResultApi": true,
+            "FlsGetStatusApi": true,
+            "FlsSetModeApi": false,
+            "FlsTotalSize": "1310720",
+            "FlsUseInterrupts": false,
+            "FlsVersionInfoApi": true,
+            "FlsECCCheck": false,
+            "FlsECCHandlingProtectionHook": false,
+            "FlsEraseVerificationEnabled": false,
+            "FlsWriteVerificationEnabled": false,
+            "FlsMaxEraseBlankCheck": "256",
+            "FlsTimeoutSupervisionEnabled": false,
+            "FlsTimeoutMethod": "OSIF_COUNTER_DUMMY",
+            "FlsAsyncWriteTimeout": "2147483647",
+            "FlsAsyncEraseTimeout": "2147483647",
+            "FlsSyncWriteTimeout": "2147483647",
+            "FlsSyncEraseTimeout": "2147483647",
+            "FlsAbortTimeout": "2147483647",
+            "FlsQspiIpTimeoutOsifCounterType": "OSIF_COUNTER_DUMMY",
+            "FlsQspiSyncReadTimeout": "2147483647",
+            "FlsQspiAsyncWriteTimeout": "2147483647",
+            "FlsQspiAsyncEraseTimeout": "2147483647",
+            "FlsQspiSyncWriteTimeout": "2147483647",
+            "FlsQspiSyncEraseTimeout": "2147483647",
+            "FlsQspiCommandCompleteTimeout": "1",
+            "FlsQspiResetTimeout": "1",
+            "FlsQspiFlashInitTimeout": "1",
+            "FlsQspiSoftwareResetDelay": "0",
+            "FlsQspiTxBufferResetDelay": "0",
+            "FlsQspiWriteEnableRetries": "3"
+          },
+          "FlsPublishedInformation": {
+            "FlsAcLocationErase": "0",
+            "FlsAcLocationWrite": "0",
+            "FlsAcSizeErase": "0",
+            "FlsAcSizeWrite": "0",
+            "FlsEraseTime": "5.0",
+            "FlsErasedValue": "4294967295",
+            "FlsECCValue": "1427461397",
+            "FlsExpectedHwId": "0",
+            "FlsSpecifiedEraseCycles": "100000",
+            "FlsWriteTime": "0.0005"
+          },
+          "CommonPublishedInformation": {
+            "ArReleaseMajorVersion": "4",
+            "ArReleaseMinorVersion": "4",
+            "ArReleaseRevisionVersion": "0",
+            "ModuleId": "92",
+            "SwMajorVersion": "0",
+            "SwMinorVersion": "9",
+            "SwPatchVersion": "1",
+            "VendorApiInfix": "",
+            "VendorId": "180"
+          }
+        }
+      },
+      "enable": {
+        "Fls/AutosarExt/FlsInternalBusFaultNotificationForApp": false,
+        "Fls/AutosarExt/FlsInternalEccErrorNotification": false,
+        "Fls/CommonPublishedInformation/VendorApiInfix": false,
+        "Fls/FlsConfigSet/FlsACCallback": false,
+        "Fls/FlsConfigSet/FlsExternalDriver": false,
+        "Fls/FlsConfigSet/FlsFinishedFlashAccessNotif": false,
+        "Fls/FlsConfigSet/FlsJobEndNotification": false,
+        "Fls/FlsConfigSet/FlsJobErrorNotification": false,
+        "Fls/FlsConfigSet/FlsQspiEccCheckCallout": false,
+        "Fls/FlsConfigSet/FlsQspiErrorCheckCallout": false,
+        "Fls/FlsConfigSet/FlsQspiInitCallout": false,
+        "Fls/FlsConfigSet/FlsQspiResetCallout": false,
+        "Fls/FlsConfigSet/FlsReadFunctionCallout": false,
+        "Fls/FlsConfigSet/FlsSectorList/FlsSector/FlsSector_0/flashInstance": false,
+        "Fls/FlsConfigSet/FlsSectorList/FlsSector/FlsSector_1/flashInstance": false,
+        "Fls/FlsConfigSet/FlsStartFlashAccessNotif": false,
+        "Fls/FlsGeneral/FlsEcucPartitionRef": false
+      },
+      "version": "/YTM32MX_0_9_1/Fls",
+      "updateTime": 1779348922466
     }
   }
 }
