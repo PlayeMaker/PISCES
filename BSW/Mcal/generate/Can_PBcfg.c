@@ -126,12 +126,16 @@ CAN_CONST const Can_FilterOfMbType Can_FilterConfig_1[1] =
         .MaskCode   = 0x7FFU,
     }
 };
-CAN_CONST const Can_FilterOfMbType Can_FilterConfig_2[1] =
+CAN_CONST const Can_FilterOfMbType Can_FilterConfig_2[2] =
 {
     {
         .FilterCode = 0x623U,
         .MaskCode   = 0x7FFU,
-    }
+    },
+    {
+        .FilterCode = 0x624U,
+        .MaskCode   = 0x7FFU,
+    },    
 };
 CAN_CONST const Can_FilterOfMbType Can_FilterConfig_3[1] =
 {
@@ -147,10 +151,14 @@ CAN_CONST const Can_FilterOfMbType Can_FilterConfig_4[1] =
         .MaskCode   = 0x7FFU,
     }
 };
-CAN_CONST const Can_FilterOfMbType Can_FilterConfig_5[1] =
+CAN_CONST const Can_FilterOfMbType Can_FilterConfig_5[2] =
 {
     {
         .FilterCode = 0x1C9U,
+        .MaskCode   = 0x7FFU,
+    },
+    {
+        .FilterCode = 0x1CFU,
         .MaskCode   = 0x7FFU,
     }
 };
@@ -175,24 +183,37 @@ CAN_CONST const Can_FilterOfMbType Can_FilterConfig_8[1] =
         .MaskCode   = 0x7FFU,
     }
 };
-CAN_CONST const Can_FilterOfMbType Can_FilterConfig_9[1] =
+CAN_CONST const Can_FilterOfMbType Can_FilterConfig_9[2] =
 {
     {
         .FilterCode = 0x1D1U,
         .MaskCode   = 0x7FFU,
+    },
+    {
+        .FilterCode = 0x1D3U,
+        .MaskCode   = 0x7FFU,
     }
 };
-CAN_CONST const Can_FilterOfMbType Can_FilterConfig_10[1] =
+CAN_CONST const Can_FilterOfMbType Can_FilterConfig_10[2] =
 {
     {
         .FilterCode = 0x1D2U,
         .MaskCode   = 0x7FFU,
+    },
+    {
+        .FilterCode = 0x1D4U,
+        .MaskCode   = 0x7FFU,
     }
+
 };
-CAN_CONST const Can_FilterOfMbType Can_FilterConfig_11[1] =
+CAN_CONST const Can_FilterOfMbType Can_FilterConfig_11[2] =
 {
     {
         .FilterCode = 0x1B4U,
+        .MaskCode   = 0x7FFU,
+    },
+    {
+        .FilterCode = 0x1B5U,
         .MaskCode   = 0x7FFU,
     }
 };
@@ -206,7 +227,7 @@ CAN_CONST const Can_FilterOfMbType Can_FilterConfig_12[1] =
 
 
 
-CAN_CONST const Can_HohConfigType Can_HohConfig[20] =
+CAN_CONST const Can_HohConfigType Can_HohConfig_MCM_D[20] =
 {
     {
         .CanObjId          = 0U,
@@ -598,7 +619,397 @@ CAN_CONST const Can_HohConfigType Can_HohConfig[20] =
     },
 };
 
-
+CAN_CONST const Can_HohConfigType Can_HohConfig_MCM_P[20] =
+{
+    {
+        .CanObjId          = 0U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_RECEIVE,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .MsgIdType         = STANDARD,
+        .FilterConfig      = Can_FilterConfig_0,
+        .CanHwFlagStartId  = 0,
+        .CanHwObjStartId = 0
+    },
+    {
+        .CanObjId          = 1U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_RECEIVE,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .MsgIdType         = STANDARD,
+        .FilterConfig      = Can_FilterConfig_1,
+        .CanHwFlagStartId  = 1,
+        .CanHwObjStartId = 1
+    },
+    {
+        .CanObjId          = 2U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_RECEIVE,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .MsgIdType         = STANDARD,
+        .FilterConfig      = &Can_FilterConfig_2[1],
+        .CanHwFlagStartId  = 2,
+        .CanHwObjStartId = 2
+    },
+    {
+        .CanObjId          = 3U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_RECEIVE,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .MsgIdType         = STANDARD,
+        .FilterConfig      = Can_FilterConfig_3,
+        .CanHwFlagStartId  = 3,
+        .CanHwObjStartId = 3
+    },
+    {
+        .CanObjId          = 4U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_RECEIVE,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .MsgIdType         = STANDARD,
+        .FilterConfig      = Can_FilterConfig_4,
+        .CanHwFlagStartId  = 4,
+        .CanHwObjStartId = 4
+    },
+    {
+        .CanObjId          = 5U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_RECEIVE,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .MsgIdType         = STANDARD,
+        .FilterConfig      = &Can_FilterConfig_5[1],
+        .CanHwFlagStartId  = 5,
+        .CanHwObjStartId = 5
+    },
+    {
+        .CanObjId          = 6U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_RECEIVE,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .MsgIdType         = STANDARD,
+        .FilterConfig      = Can_FilterConfig_6,
+        .CanHwFlagStartId  = 6,
+        .CanHwObjStartId = 6
+    },
+    {
+        .CanObjId          = 7U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_RECEIVE,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .MsgIdType         = STANDARD,
+        .FilterConfig      = Can_FilterConfig_7,
+        .CanHwFlagStartId  = 7,
+        .CanHwObjStartId = 7
+    },
+    {
+        .CanObjId          = 8U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_RECEIVE,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .MsgIdType         = STANDARD,
+        .FilterConfig      = Can_FilterConfig_8,
+        .CanHwFlagStartId  = 8,
+        .CanHwObjStartId = 8
+    },
+    {
+        .CanObjId          = 9U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_RECEIVE,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .MsgIdType         = STANDARD,
+        .FilterConfig      = &Can_FilterConfig_9[1],
+        .CanHwFlagStartId  = 9,
+        .CanHwObjStartId = 9
+    },
+    {
+        .CanObjId          = 10U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_RECEIVE,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .MsgIdType         = STANDARD,
+        .FilterConfig      = &Can_FilterConfig_10[1],
+        .CanHwFlagStartId  = 10,
+        .CanHwObjStartId = 10
+    },
+    {
+        .CanObjId          = 11U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_RECEIVE,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .MsgIdType         = STANDARD,
+        .FilterConfig      = &Can_FilterConfig_11[1],
+        .CanHwFlagStartId  = 11,
+        .CanHwObjStartId = 11
+    },
+    {
+        .CanObjId          = 12U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_RECEIVE,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .MsgIdType         = STANDARD,
+        .FilterConfig      = Can_FilterConfig_12,
+        .CanHwFlagStartId  = 12,
+        .CanHwObjStartId = 12
+    },
+    {
+        .CanObjId          = 13U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_TRANSMIT,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (CAN_FD_USAGE == STD_ON)
+        .CanFdPaddingValue = 0xccU,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .TrigTransEnable   = FALSE,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .CanHwFlagStartId  = 13,
+        .CanHwObjStartId = 13
+    },
+    {
+        .CanObjId          = 14U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_TRANSMIT,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (CAN_FD_USAGE == STD_ON)
+        .CanFdPaddingValue = 0xccU,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .TrigTransEnable   = FALSE,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .CanHwFlagStartId  = 14,
+        .CanHwObjStartId = 14
+    },
+    {
+        .CanObjId          = 15U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_TRANSMIT,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (CAN_FD_USAGE == STD_ON)
+        .CanFdPaddingValue = 0xccU,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .TrigTransEnable   = FALSE,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .CanHwFlagStartId  = 15,
+        .CanHwObjStartId = 15
+    },
+    {
+        .CanObjId          = 16U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_TRANSMIT,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (CAN_FD_USAGE == STD_ON)
+        .CanFdPaddingValue = 0xccU,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .TrigTransEnable   = FALSE,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .CanHwFlagStartId  = 16,
+        .CanHwObjStartId = 16
+    },
+    {
+        .CanObjId          = 17U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_TRANSMIT,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (CAN_FD_USAGE == STD_ON)
+        .CanFdPaddingValue = 0xccU,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .TrigTransEnable   = FALSE,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .CanHwFlagStartId  = 17,
+        .CanHwObjStartId = 17
+    },
+    {
+        .CanObjId          = 18U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_TRANSMIT,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (CAN_FD_USAGE == STD_ON)
+        .CanFdPaddingValue = 0xccU,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .TrigTransEnable   = FALSE,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .CanHwFlagStartId  = 18,
+        .CanHwObjStartId = 18
+    },
+    {
+        .CanObjId          = 19U,
+        .CanChannelId      = 0U,
+        .CanHwObjRegionId  = CAN_RAM_REGION_0,
+        .CanHwObjNum       = 1U,
+        .ObjectType        = CAN_TRANSMIT,
+#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) || (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+        .UsePolling        = FALSE,
+        .PollingPeriodId   = 255U,
+#endif
+#if (CAN_FD_USAGE == STD_ON)
+        .CanFdPaddingValue = 0xccU,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .TrigTransEnable   = FALSE,
+#endif
+#if (DEVELOPPING == STD_ON)
+        .BasicFullType     = CAN_HANDLE_BASIC,
+#endif
+        .CanHwFlagStartId  = 19,
+        .CanHwObjStartId = 19
+    },
+};
 
 /**
  * @brief This map is used to translate the 'CAN hardware ID' to 'a logical ID'.
@@ -1070,33 +1481,63 @@ CAN_CONST const Can_ChannelConfigType Can_ChannelConfig[1] =
 /**
  * @brief CAN config
  */
-CAN_CONST const Can_ConfigType Can_Config =
+CAN_CONST const Can_ConfigType Can_Config[2] =
 {
-    .CanChannelNum        = 1U,
-    .CanHohNum            = 20U,
-    .CanChCfgPtr          = Can_ChannelConfig,
-    .CanHohCfgPtr         = Can_HohConfig,
-    .CanHwIdTable         = Can_HwIdTable,
-#if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) && (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
-    .CanPolPeriodNum      = 0,
-#endif
-#if (CAN_RX_PROCESS_HAS_POLLING == STD_ON)
-    .CanHrhPolPeriodPtr   = NULL_PTR,
-#endif
-#if (CAN_TX_PROCESS_HAS_POLLING == STD_ON)
-    .CanHthPolPeriodPtr   = NULL_PTR,
-#endif
-    .CanReceiveCallback   = NULL_PTR,
-    .CanTransmitCallback  = NULL_PTR,
-#if ((CAN_ENHANCE_FIFO_USAGE == STD_ON) || (CAN_LEGACY_FIFO_USAGE == STD_ON))
-#if (CAN_FIFO_IDHIT_USAGE == STD_ON)
-    .CanIdhitCallback     = NULL_PTR,
-#endif
-#endif
-#if (CAN_ICOM_USAGE == STD_ON)
-    .CanIcomNum           = 0U,
-    .CanIcomCfgPtr        = NULL_PTR,
-#endif
+    {
+            .CanChannelNum        = 1U,
+            .CanHohNum            = 20U,
+            .CanChCfgPtr          = Can_ChannelConfig,
+            .CanHohCfgPtr         = Can_HohConfig_MCM_D,
+            .CanHwIdTable         = Can_HwIdTable,
+        #if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) && (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+            .CanPolPeriodNum      = 0,
+        #endif
+        #if (CAN_RX_PROCESS_HAS_POLLING == STD_ON)
+            .CanHrhPolPeriodPtr   = NULL_PTR,
+        #endif
+        #if (CAN_TX_PROCESS_HAS_POLLING == STD_ON)
+            .CanHthPolPeriodPtr   = NULL_PTR,
+        #endif
+            .CanReceiveCallback   = NULL_PTR,
+            .CanTransmitCallback  = NULL_PTR,
+        #if ((CAN_ENHANCE_FIFO_USAGE == STD_ON) || (CAN_LEGACY_FIFO_USAGE == STD_ON))
+        #if (CAN_FIFO_IDHIT_USAGE == STD_ON)
+            .CanIdhitCallback     = NULL_PTR,
+        #endif
+        #endif
+        #if (CAN_ICOM_USAGE == STD_ON)
+            .CanIcomNum           = 0U,
+            .CanIcomCfgPtr        = NULL_PTR,
+        #endif
+    },
+    {
+            .CanChannelNum        = 1U,
+            .CanHohNum            = 20U,
+            .CanChCfgPtr          = Can_ChannelConfig,
+            .CanHohCfgPtr         = Can_HohConfig_MCM_P,
+            .CanHwIdTable         = Can_HwIdTable,
+        #if ((CAN_RX_PROCESS_HAS_POLLING == STD_ON) && (CAN_TX_PROCESS_HAS_POLLING == STD_ON))
+            .CanPolPeriodNum      = 0,
+        #endif
+        #if (CAN_RX_PROCESS_HAS_POLLING == STD_ON)
+            .CanHrhPolPeriodPtr   = NULL_PTR,
+        #endif
+        #if (CAN_TX_PROCESS_HAS_POLLING == STD_ON)
+            .CanHthPolPeriodPtr   = NULL_PTR,
+        #endif
+            .CanReceiveCallback   = NULL_PTR,
+            .CanTransmitCallback  = NULL_PTR,
+        #if ((CAN_ENHANCE_FIFO_USAGE == STD_ON) || (CAN_LEGACY_FIFO_USAGE == STD_ON))
+        #if (CAN_FIFO_IDHIT_USAGE == STD_ON)
+            .CanIdhitCallback     = NULL_PTR,
+        #endif
+        #endif
+        #if (CAN_ICOM_USAGE == STD_ON)
+            .CanIcomNum           = 0U,
+            .CanIcomCfgPtr        = NULL_PTR,
+        #endif
+    }
+
 };
 
 #define CAN_STOP_SEC_CONFIG_DATA_UNSPECIFIED

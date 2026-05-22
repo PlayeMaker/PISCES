@@ -108,7 +108,7 @@
               false:	API not supported / function not provided 
  * @ref          ECUC_Fls_00291
  */
-#define FLS_SET_MODE_API                            (STD_OFF)
+#define FLS_SET_MODE_API                            (STD_ON)
 
 /**
  * @brief        Compile switch to enable timeout supervision.

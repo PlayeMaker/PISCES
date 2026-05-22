@@ -32,7 +32,7 @@ extern "C"{
  *                                       DEFINES AND MACROS
 ==================================================================================================*/
 #define CAN_CONFIG_PB \
-    extern const Can_ConfigType Can_Config;
+    extern const Can_ConfigType Can_Config[2];
 
 #ifdef __cplusplus
 }

@@ -89,6 +89,37 @@ typedef struct
     uint8 sw_patch_version;   /**< Software patch version */
 } Std_VersionInfoType;
 
+/*Init State*/
+typedef enum
+{
+    STD_UNINITIALIZED = 0,
+    STD_INITIALIZED = 1
+} Std_InitStateType;
+
+/*SWS_Std_91001*/
+typedef enum
+{
+    STD_MESSAGETYPE_REQUEST = 0x00,
+    STD_MESSAGETYPE_RESPONSE = 0x01
+} Std_MessageTypeType;
+
+/*SWS_Std_91002*/
+typedef enum
+{
+    STD_MESSAGERESULT_OK = 0x00,
+    STD_MESSAGERESULT_ERROR = 0x01
+} Std_MessageResultType;
+/*******************************************************************************
+*   Insos Special
+*******************************************************************************/
+/* config level is only allowed to use in precompile lines, no convert need*/
+#define STD_CONFIG_VARIANTS_PRECOMPILE  (1)
+#define STD_CONFIG_VARIANTS_LINKTIME    (2)
+#define STD_CONFIG_VARIANTS_POSTBUILD   (3)
+
+/* Vender ID */
+#define STD_HIRAIN_VENDOR_ID            ((uint16)0x0056)
+
 #endif /* STD_TYPES_H */
 /** @} */
 

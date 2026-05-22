@@ -34,7 +34,7 @@ extern "C"{
 *                                        INCLUDE FILES
 ==================================================================================================*/
 #include "CanIf.h"
-#include "CanIf_Can.h"
+#include "CanIf_Cbk.h"
 #include "Can_Lld.h"
 #include "Can_Drv.h"
 #include "Can.h"

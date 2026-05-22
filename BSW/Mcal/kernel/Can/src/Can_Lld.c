@@ -53,7 +53,7 @@ extern "C" {
 #include "Can_Drv.h"
 #include "SchM_Can.h"
 #include "Can_Lld.h"
-#include "CanIf_Can.h"
+#include "CanIf_Cbk.h"
 
 #if (CAN_WAKEUP_SUPPORT == STD_ON)
 #include "EcuM.h"

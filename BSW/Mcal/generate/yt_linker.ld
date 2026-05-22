@@ -37,6 +37,7 @@ SECTIONS
     /DISCARD/ : {
         *(.ARM.exidx*)
         *(.gnu.linkonce.armexidx.*)
+        *(.fini*)
     }
 
     .IVT  : {

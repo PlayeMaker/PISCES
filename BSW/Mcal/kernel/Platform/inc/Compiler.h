@@ -65,6 +65,12 @@
  */
 #define TYPEDEF
 
+/** 
+* @violates @ref Compiler_h_REF_1 A function should be used in
+* preference to a function-like macro.
+*/
+#define STATIC static
+
 #ifndef NULL_PTR
 /**
  * @brief NULL_PTR define
@@ -81,7 +87,10 @@
  */
 #define LOCAL_INLINE static inline
 
-
+/* in CW, can not use any key words to locate the memclass
+   we can only use #pragma to locate the memclass which is in MemMap.h
+*/
+#define P2P2VAR(ptrtype,memclass,ptrclass) ptrtype **
 /**
  * @brief FUNC macro
  * @details The compiler abstraction shall define the FUNC macro for the declaration and

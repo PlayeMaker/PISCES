@@ -9893,7 +9893,7 @@
         "Mcu/McuModuleConfiguration/McuResetSetting": false
       },
       "version": "/YTM32MX_0_9_1/Mcu",
-      "updateTime": 1779341414412,
+      "updateTime": 1779350273257,
       "lock": false
     },
     "Det": {
@@ -11546,7 +11546,6 @@
       "updateTime": 443
     },
     "Fee": {
-      "lock": false,
       "data": {
         "Fee": {
           "POST_BUILD_VARIANT_USED": false,
@@ -11816,10 +11815,10 @@
         "Fee/FeeGeneral/FeeNvmJobErrorNotification": true
       },
       "version": "/YTM32MX_0_9_1/Fee",
-      "updateTime": 1779349556971
+      "updateTime": 1779349556971,
+      "lock": false
     },
     "Fls": {
-      "lock": false,
       "data": {
         "Fls": {
           "POST_BUILD_VARIANT_USED": false,
@@ -11917,7 +11916,7 @@
             "FlsDriverIndex": "0",
             "FlsGetJobResultApi": true,
             "FlsGetStatusApi": true,
-            "FlsSetModeApi": false,
+            "FlsSetModeApi": true,
             "FlsTotalSize": "1310720",
             "FlsUseInterrupts": false,
             "FlsVersionInfoApi": true,
@@ -11991,7 +11990,22 @@
         "Fls/FlsGeneral/FlsEcucPartitionRef": false
       },
       "version": "/YTM32MX_0_9_1/Fls",
-      "updateTime": 1779348922466
+      "updateTime": 1779366274069,
+      "lock": false,
+      "FlsSectorCount": 8,
+      "FlsSectorListName": "200_FLS_DATA_ARRAY_0_BLOCK_2_S008",
+      "FlsSectorListBaseAddr": 0,
+      "ExitFlsSectorEn": false,
+      "SectorHwStartAddress": 33558528,
+      "FlsBlock0ProtectCfg": 0,
+      "FlsBlock1ProtectCfg": 0,
+      "FlsBlock2ProtectCfg": 0,
+      "FlsSectorStartIndex": 0,
+      "FlsSectorEndIndex": 0,
+      "FlsSectorIndexMinus": 0,
+      "FlsBlock0ProtectNumber": 16,
+      "FlsBlock1ProtectNumber": 16,
+      "FlsBlock2ProtectNumber": 16
     }
   }
 }
