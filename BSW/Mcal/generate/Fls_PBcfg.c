@@ -27,6 +27,8 @@
 /*==================================================================================================
  *                                       Function Prototypes
 ==================================================================================================*/
+extern void Fee_JobEndNotification(void); 
+extern void Fee_JobErrorNotification(void); 
 
 #define FLS_START_SEC_CONFIG_DATA_UNSPECIFIED
 #include "Fls_MemMap.h"
@@ -65,8 +67,8 @@ FLS_CONST const Fls_SectorProtectType Fls_SectorProtectConfig[FLS_INTERNAL_BLOCK
 FLS_CONST const Fls_ConfigType Fls_Config = {
     .AcEraseFunPtr = NULL_PTR,
     .AcWriteFunPtr = NULL_PTR,
-    .JobEndNotificationFunPtr = NULL_PTR,
-    .JobErrorNotificationFunPtr = NULL_PTR,
+    .JobEndNotificationFunPtr = Fee_JobEndNotification,
+    .JobErrorNotificationFunPtr = Fee_JobErrorNotification,
     .DefaultMode = MEMIF_MODE_SLOW,
     .MaxReadFastMode = 10240U,
     .MaxReadNormalMode = 1024U,

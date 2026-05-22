@@ -11693,7 +11693,7 @@
             "FEE_PrimaryDataEntry_0_12": {
               "FeeClusterGroupRef": "Fee/FeeClusterGroup/FeeClusterGroup_0",
               "FeeBlockNumber": "14",
-              "FeeBlockSize": "1",
+              "FeeBlockSize": "19",
               "FeeImmediateData": false,
               "FeeNumberOfWriteCycles": "0",
               "FeeDeviceIndex": "Fls/FlsGeneral",
@@ -11815,7 +11815,7 @@
         "Fee/FeeGeneral/FeeNvmJobErrorNotification": true
       },
       "version": "/YTM32MX_0_9_1/Fee",
-      "updateTime": 1779349556971,
+      "updateTime": 1779431591475,
       "lock": false
     },
     "Fls": {
@@ -11977,8 +11977,8 @@
         "Fls/FlsConfigSet/FlsACCallback": false,
         "Fls/FlsConfigSet/FlsExternalDriver": false,
         "Fls/FlsConfigSet/FlsFinishedFlashAccessNotif": false,
-        "Fls/FlsConfigSet/FlsJobEndNotification": false,
-        "Fls/FlsConfigSet/FlsJobErrorNotification": false,
+        "Fls/FlsConfigSet/FlsJobEndNotification": true,
+        "Fls/FlsConfigSet/FlsJobErrorNotification": true,
         "Fls/FlsConfigSet/FlsQspiEccCheckCallout": false,
         "Fls/FlsConfigSet/FlsQspiErrorCheckCallout": false,
         "Fls/FlsConfigSet/FlsQspiInitCallout": false,
@@ -11991,21 +11991,7 @@
       },
       "version": "/YTM32MX_0_9_1/Fls",
       "updateTime": 1779366274069,
-      "lock": false,
-      "FlsSectorCount": 8,
-      "FlsSectorListName": "200_FLS_DATA_ARRAY_0_BLOCK_2_S008",
-      "FlsSectorListBaseAddr": 0,
-      "ExitFlsSectorEn": false,
-      "SectorHwStartAddress": 33558528,
-      "FlsBlock0ProtectCfg": 0,
-      "FlsBlock1ProtectCfg": 0,
-      "FlsBlock2ProtectCfg": 0,
-      "FlsSectorStartIndex": 0,
-      "FlsSectorEndIndex": 0,
-      "FlsSectorIndexMinus": 0,
-      "FlsBlock0ProtectNumber": 16,
-      "FlsBlock1ProtectNumber": 16,
-      "FlsBlock2ProtectNumber": 16
+      "lock": false
     }
   }
 }

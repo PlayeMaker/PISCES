@@ -11,6 +11,7 @@
 #include "Pump.h"
 #include "Lumbar.h"
 #include "Printf.h"
+#include "Stack.h"
 /************************ Macro Definitions ************************/
 
 /************************ Private Global Variables ************************/
@@ -129,6 +130,24 @@ void Rte_Call_Sync_C_App_Task_S_Lumbar_Task_Scheduler(void)
 void Rte_Call_Sync_C_App_Task_S_Printf_Task_Scheduler(void)
 {
     Snf_Printf_Task();
+}
+/**
+  * @brief  Initialize the Stack task, should be called once at Stack startup
+  * @param  None
+  * @return None
+  */
+void Rte_Call_Sync_C_App_Task_S_Stack_Task_Init(void)
+{
+    Snf_Stack_Task_Init();
+}
+/**
+  * @brief  Stack Task
+  * @param  None
+  * @return None
+  */
+void Rte_Call_Sync_C_App_Task_S_Stack_Task_Scheduler(void)
+{
+    Snf_Stack_Task();
 }
 /**
   * @brief  Get the current battery voltage (Pump->Power)

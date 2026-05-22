@@ -30,6 +30,8 @@ void Rte_Call_Sync_C_App_Task_S_Valve_Task_Init(void);
 void Rte_Call_Sync_C_App_Task_S_Valve_Task_Scheduler(void);
 void Rte_Call_Sync_C_App_Task_S_Lumbar_Task_Scheduler(void);
 void Rte_Call_Sync_C_App_Task_S_Printf_Task_Scheduler(void);
+void Rte_Call_Sync_C_App_Task_S_Stack_Task_Init(void);
+void Rte_Call_Sync_C_App_Task_S_Stack_Task_Scheduler(void);
 uint16_t Rte_Call_Sync_C_Pump_S_Power_Get_Voltage(void);
 bool Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(uint8_t index, valve_state_e state);
 bool Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(uint8_t index, valve_state_e state);

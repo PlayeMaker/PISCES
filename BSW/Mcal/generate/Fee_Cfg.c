@@ -247,7 +247,7 @@ FEE_CONST const Fee_BlockConfigType Fee_BlockConfig[FEE_CRT_CFG_NR_OF_BLOCKS] =
     /* The Fee Block 14 */
     {
         .BlockNumber = 14U,
-        .BlockSize = 1U,
+        .BlockSize = 19U,
         .ClrGrp = 0U,
         .ImmediateData = 0U,
 #if (FEE_SWAP_FOREIGN_BLOCKS_ENABLED == STD_ON) 

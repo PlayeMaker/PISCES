@@ -259,7 +259,7 @@ extern "C"{
 
 #define FeeConf_FeeBlockConfiguration_FEE_PrimaryDataEntry_0_12   (14U)
 
-#define FeeConf_FeeBlockConfiguration_FEE_PrimaryDataEntry_0_12_BlockSize   (1U)
+#define FeeConf_FeeBlockConfiguration_FEE_PrimaryDataEntry_0_12_BlockSize   (19U)
 
 #define FeeConf_FeeBlockConfiguration_FEE_PrimaryDataEntry_0_13   (15U)
 

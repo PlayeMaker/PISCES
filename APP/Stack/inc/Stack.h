@@ -1,31 +1,24 @@
-#ifndef _APP_TASK_CFG_H_
-#define _APP_TASK_CFG_H_
+#ifndef _STACK_H_
+#define _STACK_H_
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
 /************************ Include Files ************************/
 
 /************************ Macro Definitions ************************/
-#define POWER_TASK_PERIOD_MS   7
-#define BUTTON_TASK_PERIOD_MS  5
-#define LUMBAR_TASK_PERIOD_MS  30
-#define PUMP_TASK_PERIOD_MS    50
-#define VALVE_TASK_PERIOD_MS   4
-#define MASSAGE_TASK_PERIOD_MS 5
-#define SYSTEM_TASK_PERIOD_MS  5
-#define PRINTF_TASK_PERIOD_MS  10
-#define STACK_TASK_PERIOD_MS   5
+#define STACK_CAN_TP_TIMEOUT  10 // Unit: ms, timeout for CanTp main function, should be less than CAN_TASK_PERIOD_MS 
 /************************ Type Definitions ************************/
 
 /************************ External Variables ************************/
 
 /************************ Function Declarations ************************/
+void Snf_Stack_Task_Init(void);
+void Snf_Stack_Task(void);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* _APP_TASK_CFG_H_ */
+#endif /* _STACK_H_ */

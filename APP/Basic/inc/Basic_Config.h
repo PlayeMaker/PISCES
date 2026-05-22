@@ -20,6 +20,7 @@ extern "C"
 #define LUMBAR_PRINTF_ENABLE
 #define VALVE_PRINTF_ENABLE
 #define MASSAGE_PRINTF_ENABLE
+#define STACK_PRINTF_ENABLE
 #endif
 /************************ Type Definitions ************************/
 
