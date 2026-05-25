@@ -1,0 +1,49 @@
+{
+    "env": {
+        "PROJ_DIR": "${workspaceFolder}"
+    },
+    "configurations": [
+        {
+            "name": "YTM32B1MD2",
+            "intelliSenseMode": "gcc-x64",
+            "includePath": [
+                "${PROJ_DIR}/generate",
+                "${PROJ_DIR}/Mcal/Port/inc",
+                "${PROJ_DIR}/Mcal/Rte/inc",
+                "${PROJ_DIR}/Mcal/Platform/inc",
+                "${PROJ_DIR}/Mcal/Platform/core",
+                "${PROJ_DIR}/Mcal/Platform/YTM32B1MD2/feature",
+                "${PROJ_DIR}/Mcal/Platform/YTM32B1MD2/regmap",
+                "${PROJ_DIR}/Mcal/Det/inc",
+                "${PROJ_DIR}/Mcal/CanIf/inc",
+                "${PROJ_DIR}/Mcal/Can/inc",
+                "${PROJ_DIR}/Mcal/Mcu/inc",
+                "${PROJ_DIR}/Mcal/Adc/inc",
+                "${PROJ_DIR}/Mcal/Fls/inc",
+                "${PROJ_DIR}/Mcal/Fee/inc",
+                "${PROJ_DIR}/Mcal/MemIf/inc",
+                "${PROJ_DIR}/Mcal/Pwm/inc",
+                "${PROJ_DIR}/Mcal/CddDma/inc",
+                "${PROJ_DIR}/Mcal/CddUart/inc",
+                "${PROJ_DIR}/Mcal/Dio/inc",
+                "${PROJ_DIR}/Mcal/Wdg/inc",
+                "${PROJ_DIR}/Mcal/WdgIf/inc"
+            ],
+            "defines": [
+                "YTM32B1MD2",
+                "CPU_YTM32B1MD2"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            },
+            "configurationProvider": "ms-vscode.cmake-tools"
+        }
+    ]
+}
