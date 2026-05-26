@@ -59,25 +59,39 @@ Use of #include directive after code fragment.
 * Include files
 *******************************************************************************/
 #include "Dcm_Callout.h"
-
+#include "Dflash.h"
 /*Dcm_Callout.c Header File User Code start*/
 
 /*Dcm_Callout.c Header File User Code end*/
 #define DCM_START_SEC_CODE
 #include "Dcm_MemMap.h"
+#include "BSW_APP.h"
 
+extern ECU_MODE CURRENT_ECU;
+#define REP_FLAG_DATA              (0x0200FC00u)
 /*SWS_Dcm_00543*/
 FUNC(Std_ReturnType, DCM_CALLOUT_CODE) Dcm_SetProgConditions
 (
-    Dcm_OpStatusType OpStatus, 
-    P2CONST(Dcm_ProgConditionsType, AUTOMATIC, DCM_APPL_DATA) ProgConditions
+	Dcm_OpStatusType OpStatus,
+	P2CONST(Dcm_ProgConditionsType, AUTOMATIC, DCM_APPL_DATA) ProgConditions
 )
 {
-    Std_ReturnType Result = E_OK;
-    /*Dcm_SetProgConditions User Code start*/
+	uint8 dataMCMD[4] = {0xA5,0xA5,0xA5,0xA5};
+    uint8 dataMCMP[4] = {0xB5,0xB5,0xB5,0xB5};
+    Std_ReturnType ret = E_OK;
+    /* Dcm_SetProgConditions User Code start*/
 
-    /*Dcm_SetProgConditions User Code end*/
-    return Result;
+    if(CURRENT_ECU == MCM_D)
+    {
+        Dflash_Write(REP_FLAG_DATA,0x4,&dataMCMD[0]);
+    }
+    else
+    {
+        Dflash_Write(REP_FLAG_DATA,0x4,&dataMCMP[0]);
+    }
+    
+    /* Dcm_SetProgConditions User Code end*/
+    return ret;
 }
 
 /*SWS_Dcm_00544*/
@@ -378,12 +392,20 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_RoutineServices_0x0203_Start
     P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode
 )
 {
-    /*Rte_Call_Dcm_RoutineServices_0x0203_Start User Code start*/
+    /* Rte_Call_Dcm_RoutineServices_0x0203_Start User Code start*/
+    if(1)
+    {
+        *DataOut_DspRoutine0x0203_StartOutSignal = 0;
+    }
+    else
+    {
+        *DataOut_DspRoutine0x0203_StartOutSignal = 1;        
+    }
 
     Std_ReturnType Result = E_OK;
 
     return Result;
-    /*Rte_Call_Dcm_RoutineServices_0x0203_Start User Code end*/
+    /* Rte_Call_Dcm_RoutineServices_0x0203_Start User Code end*/
 }
 FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_SecurityAccess_L2_GetSeed
 (

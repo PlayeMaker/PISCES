@@ -103,6 +103,8 @@ FUNC(void, BSWM_CODE)  BswM_InitBlockIICallout_Core0(void)
  
     Dcm_Init(&Dcm_PB_Config[CURRENT_ECU]);
     NvM_Init(NULL_PTR);
+
+    Dflash_Init();
     /*BswM_InitBlockIICallout_Core0 User Code end*/
 }
 
