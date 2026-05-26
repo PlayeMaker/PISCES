@@ -128,17 +128,54 @@ FUNC(Std_ReturnType, RTE_CODE) SchM_Switch_Dcm_DcmDiagnosticSessionControl
 
     return ret;
 }
+
+
+/*FUNCTION**********************************************************************
+ *
+ * Function Name : SystemSoftwareReset
+ * Description   : This function is used to initiate a system reset
+ *
+ * Implements    : SystemSoftwareReset_Activity
+ *END**************************************************************************/
+void SystemSoftwareReset(void)
+{
+    Mcu_PerformReset();
+}
+
+
+
+static uint8 Dcm_ResetMode = 0xFF;
 FUNC(Std_ReturnType, RTE_CODE) SchM_Switch_Dcm_DcmEcuReset
 (
-    CONST(Rte_ModeType_DcmEcuReset, AUTOMATIC) nextMode
+    VAR(Rte_ModeType_DcmEcuReset, AUTOMATIC) nextMode
 )
 {
-    Std_ReturnType ret = RTE_E_OK;
-    /*SchM_Switch_Dcm_DcmEcuReset User Code start*/
-
-    /*SchM_Switch_Dcm_DcmEcuReset User Code end*/
-
-    return ret;
+    /* SchM_Switch_Dcm_DcmEcuReset User Code start*/
+    if(RTE_MODE_DcmEcuReset_EXECUTE != nextMode)
+    {
+        Dcm_ResetMode = nextMode;
+    }
+    else
+    {
+        if((RTE_MODE_DcmEcuReset_JUMPTOBOOTLOADER ==
+Dcm_ResetMode))
+        {
+            Dcm_ResetMode = 0xFF;
+            SystemSoftwareReset();
+        }
+        if((RTE_MODE_DcmEcuReset_HARD == Dcm_ResetMode))
+        {
+            Dcm_ResetMode = 0xFF;
+            SystemSoftwareReset();
+        }
+        if((RTE_MODE_DcmEcuReset_SOFT == Dcm_ResetMode))
+        {
+            Dcm_ResetMode = 0xFF;
+            SystemSoftwareReset();
+        }
+    }
+    return RTE_E_OK;
+    /* SchM_Switch_Dcm_DcmEcuReset User Code end*/
 }
 FUNC(Std_ReturnType, RTE_CODE) SchM_Switch_Dcm_DcmSecurityAccess
 (
