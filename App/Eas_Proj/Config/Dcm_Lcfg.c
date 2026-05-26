@@ -105,7 +105,7 @@ VAR(uint16, DCM_VAR) Dcm_DidIndexList[1];
 #include "Dcm_MemMap.h"
 
 
-STATIC CONST(Dcm_DsdSubServiceType, DCM_CONST) Dcm_DsdSubServiceTable_0[17] =
+STATIC CONST(Dcm_DsdSubServiceType, DCM_CONST) Dcm_DsdSubServiceTable_0[18] =
 {
     /*SubService index 0*//*10 Service*/
     {
@@ -131,7 +131,15 @@ STATIC CONST(Dcm_DsdSubServiceType, DCM_CONST) Dcm_DsdSubServiceTable_0[17] =
         DCM_DEFAULT_MASK | DCM_EXTENDED_MASK,
         NULL_PTR
     },
-    /*SubService index 3*//*11 Service*/
+    /*SubService index 3*//*10 Service*/
+    {
+        (uint8)0x66,
+        DCM_REQ_PHY_FUN_MASK,
+        DCM_LOCKED_MASK | DCM_L2_MASK,
+        DCM_ALL_MASK,
+        NULL_PTR
+    },
+    /*SubService index 4*//*11 Service*/
     {
         (uint8)0x01,
         DCM_REQ_PHY_FUN_MASK,
@@ -139,7 +147,7 @@ STATIC CONST(Dcm_DsdSubServiceType, DCM_CONST) Dcm_DsdSubServiceTable_0[17] =
         DCM_EXTENDED_MASK,
         NULL_PTR
     },
-    /*SubService index 4*//*11 Service*/
+    /*SubService index 5*//*11 Service*/
     {
         (uint8)0x03,
         DCM_REQ_PHY_FUN_MASK,
@@ -147,17 +155,9 @@ STATIC CONST(Dcm_DsdSubServiceType, DCM_CONST) Dcm_DsdSubServiceTable_0[17] =
         DCM_EXTENDED_MASK,
         NULL_PTR
     },
-    /*SubService index 5*//*19 Service*/
-    {
-        (uint8)0x01,
-        DCM_REQ_PHY_MASK,
-        DCM_LOCKED_MASK | DCM_L2_MASK,
-        DCM_DEFAULT_MASK | DCM_EXTENDED_MASK,
-        NULL_PTR
-    },
     /*SubService index 6*//*19 Service*/
     {
-        (uint8)0x02,
+        (uint8)0x01,
         DCM_REQ_PHY_MASK,
         DCM_LOCKED_MASK | DCM_L2_MASK,
         DCM_DEFAULT_MASK | DCM_EXTENDED_MASK,
@@ -165,7 +165,7 @@ STATIC CONST(Dcm_DsdSubServiceType, DCM_CONST) Dcm_DsdSubServiceTable_0[17] =
     },
     /*SubService index 7*//*19 Service*/
     {
-        (uint8)0x04,
+        (uint8)0x02,
         DCM_REQ_PHY_MASK,
         DCM_LOCKED_MASK | DCM_L2_MASK,
         DCM_DEFAULT_MASK | DCM_EXTENDED_MASK,
@@ -173,7 +173,7 @@ STATIC CONST(Dcm_DsdSubServiceType, DCM_CONST) Dcm_DsdSubServiceTable_0[17] =
     },
     /*SubService index 8*//*19 Service*/
     {
-        (uint8)0x06,
+        (uint8)0x04,
         DCM_REQ_PHY_MASK,
         DCM_LOCKED_MASK | DCM_L2_MASK,
         DCM_DEFAULT_MASK | DCM_EXTENDED_MASK,
@@ -181,13 +181,21 @@ STATIC CONST(Dcm_DsdSubServiceType, DCM_CONST) Dcm_DsdSubServiceTable_0[17] =
     },
     /*SubService index 9*//*19 Service*/
     {
+        (uint8)0x06,
+        DCM_REQ_PHY_MASK,
+        DCM_LOCKED_MASK | DCM_L2_MASK,
+        DCM_DEFAULT_MASK | DCM_EXTENDED_MASK,
+        NULL_PTR
+    },
+    /*SubService index 10*//*19 Service*/
+    {
         (uint8)0x0A,
         DCM_REQ_PHY_MASK,
         DCM_LOCKED_MASK | DCM_L2_MASK,
         DCM_DEFAULT_MASK | DCM_EXTENDED_MASK,
         NULL_PTR
     },
-    /*SubService index 10*//*27 Service*/
+    /*SubService index 11*//*27 Service*/
     {
         (uint8)0x03,
         DCM_REQ_PHY_MASK,
@@ -195,7 +203,7 @@ STATIC CONST(Dcm_DsdSubServiceType, DCM_CONST) Dcm_DsdSubServiceTable_0[17] =
         DCM_EXTENDED_MASK,
         NULL_PTR
     },
-    /*SubService index 11*//*27 Service*/
+    /*SubService index 12*//*27 Service*/
     {
         (uint8)0x04,
         DCM_REQ_PHY_MASK,
@@ -203,7 +211,7 @@ STATIC CONST(Dcm_DsdSubServiceType, DCM_CONST) Dcm_DsdSubServiceTable_0[17] =
         DCM_EXTENDED_MASK,
         NULL_PTR
     },
-    /*SubService index 12*//*28 Service*/
+    /*SubService index 13*//*28 Service*/
     {
         (uint8)0x00,
         DCM_REQ_PHY_FUN_MASK,
@@ -211,7 +219,7 @@ STATIC CONST(Dcm_DsdSubServiceType, DCM_CONST) Dcm_DsdSubServiceTable_0[17] =
         DCM_EXTENDED_MASK,
         NULL_PTR
     },
-    /*SubService index 13*//*28 Service*/
+    /*SubService index 14*//*28 Service*/
     {
         (uint8)0x01,
         DCM_REQ_PHY_FUN_MASK,
@@ -219,7 +227,7 @@ STATIC CONST(Dcm_DsdSubServiceType, DCM_CONST) Dcm_DsdSubServiceTable_0[17] =
         DCM_EXTENDED_MASK,
         NULL_PTR
     },
-    /*SubService index 14*//*3E Service*/
+    /*SubService index 15*//*3E Service*/
     {
         (uint8)0x00,
         DCM_REQ_PHY_FUN_MASK,
@@ -227,7 +235,7 @@ STATIC CONST(Dcm_DsdSubServiceType, DCM_CONST) Dcm_DsdSubServiceTable_0[17] =
         DCM_DEFAULT_MASK | DCM_EXTENDED_MASK,
         NULL_PTR
     },
-    /*SubService index 15*//*85 Service*/
+    /*SubService index 16*//*85 Service*/
     {
         (uint8)0x01,
         DCM_REQ_PHY_FUN_MASK,
@@ -235,7 +243,7 @@ STATIC CONST(Dcm_DsdSubServiceType, DCM_CONST) Dcm_DsdSubServiceTable_0[17] =
         DCM_EXTENDED_MASK,
         NULL_PTR
     },
-    /*SubService index 16*//*85 Service*/
+    /*SubService index 17*//*85 Service*/
     {
         (uint8)0x02,
         DCM_REQ_PHY_FUN_MASK,
@@ -257,7 +265,7 @@ STATIC CONST(Dcm_DsdServiceType, DCM_CONST) Dcm_DsdServiceTable_0[10] =
         TRUE,
         DCM_LOCKED_MASK | DCM_L2_MASK,
         DCM_DEFAULT_MASK | DCM_EXTENDED_MASK,
-        (uint8)3,
+        (uint8)4,
         (uint16)0
     },
     {
@@ -269,7 +277,7 @@ STATIC CONST(Dcm_DsdServiceType, DCM_CONST) Dcm_DsdServiceTable_0[10] =
         DCM_LOCKED_MASK | DCM_L2_MASK,
         DCM_EXTENDED_MASK,
         (uint8)2,
-        (uint16)3
+        (uint16)4
     },
     {
         (uint8)0x14,
@@ -291,7 +299,7 @@ STATIC CONST(Dcm_DsdServiceType, DCM_CONST) Dcm_DsdServiceTable_0[10] =
         DCM_LOCKED_MASK | DCM_L2_MASK,
         DCM_DEFAULT_MASK | DCM_EXTENDED_MASK,
         (uint8)5,
-        (uint16)5
+        (uint16)6
     },
     {
         (uint8)0x22,
@@ -313,7 +321,7 @@ STATIC CONST(Dcm_DsdServiceType, DCM_CONST) Dcm_DsdServiceTable_0[10] =
         DCM_LOCKED_MASK | DCM_L2_MASK,
         DCM_EXTENDED_MASK,
         (uint8)2,
-        (uint16)10
+        (uint16)11
     },
     {
         (uint8)0x28,
@@ -324,7 +332,7 @@ STATIC CONST(Dcm_DsdServiceType, DCM_CONST) Dcm_DsdServiceTable_0[10] =
         DCM_LOCKED_MASK | DCM_L2_MASK,
         DCM_EXTENDED_MASK,
         (uint8)2,
-        (uint16)12
+        (uint16)13
     },
     {
         (uint8)0x31,
@@ -346,7 +354,7 @@ STATIC CONST(Dcm_DsdServiceType, DCM_CONST) Dcm_DsdServiceTable_0[10] =
         DCM_LOCKED_MASK | DCM_L2_MASK,
         DCM_DEFAULT_MASK | DCM_EXTENDED_MASK,
         (uint8)1,
-        (uint16)14
+        (uint16)15
     },
     {
         (uint8)0x85,
@@ -357,7 +365,7 @@ STATIC CONST(Dcm_DsdServiceType, DCM_CONST) Dcm_DsdServiceTable_0[10] =
         DCM_LOCKED_MASK | DCM_L2_MASK,
         DCM_EXTENDED_MASK,
         (uint8)2,
-        (uint16)15
+        (uint16)16
     }
 };
 CONST(Dcm_DsdServiceTableType, DCM_CONST) Dcm_DsdServiceTable[DCM_CFG_NUM_OF_STAB] =
@@ -366,7 +374,7 @@ CONST(Dcm_DsdServiceTableType, DCM_CONST) Dcm_DsdServiceTable[DCM_CFG_NUM_OF_STA
         (uint8)0,
         (uint8)10,
         Dcm_DsdServiceTable_0,
-        (uint16)17,
+        (uint16)18,
         Dcm_DsdSubServiceTable_0
     }
 };
@@ -402,7 +410,7 @@ CONST(Dcm_DslProtocolRowType, DCM_CONST) Dcm_DslProtocolRow[DCM_CFG_NUM_OF_PROTO
 #define DCM_START_SEC_CONFIG_DATA
 #include "Dcm_MemMap.h"
 
-STATIC CONST(Dcm_DspSessionRowType, DCM_CONST) Dcm_DspSessionRow_0[3] =
+STATIC CONST(Dcm_DspSessionRowType, DCM_CONST) Dcm_DspSessionRow_0[4] =
 {
     {
         DCM_NO_BOOT,
@@ -427,12 +435,20 @@ STATIC CONST(Dcm_DspSessionRowType, DCM_CONST) Dcm_DspSessionRow_0[3] =
         (uint16)50,
         (uint32)2000,
         RTE_MODE_DcmDiagnosticSessionControl_EXTENDED_DIAGNOSTIC_SESSION
+    },
+    {
+        DCM_NO_BOOT,
+        DCM_FACTORYTEST_SESSION,
+        DCM_FACTORYTEST_MASK,
+        (uint16)50,
+        (uint32)2000,
+        RTE_MODE_DcmDiagnosticSessionControl_FACTORYTEST_SESSION
     }
 };
 CONST(Dcm_DspSessionType, DCM_CONST) Dcm_DspSession[DCM_CFG_NUM_OF_STAB] =
 {
     {
-        (uint8)3,
+        (uint8)4,
         Dcm_DspSessionRow_0
     }
 };
@@ -471,7 +487,7 @@ CONST(Dcm_DspComControlType, DCM_CONST) Dcm_DspComControl[DCM_CFG_NUM_OF_STAB] =
     }
 };
 
-STATIC CONST(Dcm_DspDataTableType, DCM_CONST) Dcm_DspDataTable_0[14] =
+STATIC CONST(Dcm_DspDataTableType, DCM_CONST) Dcm_DspDataTable_0[16] =
 {
     {/*0*/
         (uint16)4,
@@ -612,12 +628,32 @@ STATIC CONST(Dcm_DspDataTableType, DCM_CONST) Dcm_DspDataTable_0[14] =
         NULL_PTR,
         Dcm_DataServices_0xF19E_0_ReadData,
         (NvM_BlockIdType)0
+    },
+    {/*14*/
+        (uint16)3,
+        DCM_UINT8_N,
+        DCM_USE_DATA_ASYNCH_CLIENT_SERVER_ERROR,
+        FALSE,
+        NULL_PTR,
+        NULL_PTR,
+        Dcm_DataServices_0xFD01_0_ReadData,
+        (NvM_BlockIdType)0
+    },
+    {/*15*/
+        (uint16)3,
+        DCM_UINT8_N,
+        DCM_USE_DATA_ASYNCH_CLIENT_SERVER_ERROR,
+        FALSE,
+        NULL_PTR,
+        NULL_PTR,
+        Dcm_DataServices_0xFD02_0_ReadData,
+        (NvM_BlockIdType)0
     }
 };
 CONST(Dcm_DspDataType, DCM_CONST) Dcm_DspData[DCM_CFG_NUM_OF_STAB] =
 {
     {
-        (uint16)14,
+        (uint16)16,
         Dcm_DspDataTable_0
     }
 };
@@ -719,6 +755,20 @@ STATIC CONST(Dcm_DspDidSignalType, DCM_CONST) Dcm_DspDidSignal_0xF19E_0[1] =
         (uint16)13
     }
 };
+STATIC CONST(Dcm_DspDidSignalType, DCM_CONST) Dcm_DspDidSignal_0xFD01_0[1] =
+{
+    {
+        (uint16)0,
+        (uint16)14
+    }
+};
+STATIC CONST(Dcm_DspDidSignalType, DCM_CONST) Dcm_DspDidSignal_0xFD02_0[1] =
+{
+    {
+        (uint16)0,
+        (uint16)15
+    }
+};
 STATIC CONST(Dcm_DspDidReadType, DCM_CONST) Dcm_DspDidRead_0xF010_0 =
 {
     DCM_REQ_PHY_FUN_MASK,
@@ -803,7 +853,19 @@ STATIC CONST(Dcm_DspDidReadType, DCM_CONST) Dcm_DspDidRead_0xF19E_0 =
     DCM_LOCKED_MASK | DCM_L2_MASK,
     DCM_DEFAULT_MASK | DCM_EXTENDED_MASK
 };
-STATIC CONST(Dcm_DspDidTableType, DCM_CONST) Dcm_DspDidTable_0[14] =
+STATIC CONST(Dcm_DspDidReadType, DCM_CONST) Dcm_DspDidRead_0xFD01_0 =
+{
+    DCM_REQ_PHY_FUN_MASK,
+    DCM_LOCKED_MASK | DCM_L2_MASK,
+    DCM_DEFAULT_MASK | DCM_EXTENDED_MASK
+};
+STATIC CONST(Dcm_DspDidReadType, DCM_CONST) Dcm_DspDidRead_0xFD02_0 =
+{
+    DCM_REQ_PHY_FUN_MASK,
+    DCM_LOCKED_MASK | DCM_L2_MASK,
+    DCM_DEFAULT_MASK | DCM_EXTENDED_MASK
+};
+STATIC CONST(Dcm_DspDidTableType, DCM_CONST) Dcm_DspDidTable_0[16] =
 {
     {/*0*/
         (uint16)0xF010,
@@ -930,12 +992,30 @@ STATIC CONST(Dcm_DspDidTableType, DCM_CONST) Dcm_DspDidTable_0[14] =
         },
         (uint16)1,
         Dcm_DspDidSignal_0xF19E_0
+    },
+    {/*14*/
+        (uint16)0xFD01,
+        (uint16)0x3,
+        {
+            &Dcm_DspDidRead_0xFD01_0,
+        },
+        (uint16)1,
+        Dcm_DspDidSignal_0xFD01_0
+    },
+    {/*15*/
+        (uint16)0xFD02,
+        (uint16)0x3,
+        {
+            &Dcm_DspDidRead_0xFD02_0,
+        },
+        (uint16)1,
+        Dcm_DspDidSignal_0xFD02_0
     }
 };
 CONST(Dcm_DspDidType, DCM_CONST) Dcm_DspDid[DCM_CFG_NUM_OF_STAB] =
 {
     {
-        (uint16)14,
+        (uint16)16,
         Dcm_DspDidTable_0
     }
 };

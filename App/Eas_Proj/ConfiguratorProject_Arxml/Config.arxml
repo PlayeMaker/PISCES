@@ -43,6 +43,10 @@
             <EAS-INFO-FILE-NODE>New_ECU_1</EAS-INFO-FILE-NODE>
           </EAS-INFO-FILE-CFGSET_ODX>
           <EAS-INFO-FILE-CFGSET_ARXML></EAS-INFO-FILE-CFGSET_ARXML>
+          <LDF>
+            <EAS-INFO-FILE-CFGSET>Cfg_D</EAS-INFO-FILE-CFGSET>
+            <EAS-INFO-FILE-CFGSET>Cfg_P</EAS-INFO-FILE-CFGSET>
+          </LDF>
           <DBC>
             <EAS-INFO-FILE-CFGSET>Cfg_D
               <EAS-INFO-FILE-PATH>D:\caohaitao_project\AZ_NIO_SINUOFAN\02_eas\00_importfile\CAN_body_le1.dbc
@@ -55,14 +59,15 @@
               </EAS-INFO-FILE-PATH>
             </EAS-INFO-FILE-CFGSET>
           </DBC>
-          <LDF>
-            <EAS-INFO-FILE-CFGSET>Cfg_D</EAS-INFO-FILE-CFGSET>
-            <EAS-INFO-FILE-CFGSET>Cfg_P</EAS-INFO-FILE-CFGSET>
-          </LDF>
           <EXCEL>
             <EAS-INFO-FILE-CFGSET>Cfg_D</EAS-INFO-FILE-CFGSET>
             <EAS-INFO-FILE-CFGSET>Cfg_P</EAS-INFO-FILE-CFGSET>
           </EXCEL>
+          <DDSXML>
+            <EAS-INFO-FILE-CFGSET>ImportDdsXml</EAS-INFO-FILE-CFGSET>
+            <EAS-INFO-FILE-CFGSET>Cfg_D</EAS-INFO-FILE-CFGSET>
+            <EAS-INFO-FILE-CFGSET>Cfg_P</EAS-INFO-FILE-CFGSET>
+          </DDSXML>
           <BSWARXML>
             <EAS-INFO-FILE-CFGSET>ImportBswArxml
               <EAS-INFO-FILE-PATH>D:\caohaitao_project\AZ_NIO_SINUOFAN\02_eas\00_importfile\Can.arxml
@@ -94,11 +99,6 @@
             <EAS-INFO-FILE-CFGSET>Cfg_D</EAS-INFO-FILE-CFGSET>
             <EAS-INFO-FILE-CFGSET>Cfg_P</EAS-INFO-FILE-CFGSET>
           </SYSARXML>
-          <DDSXML>
-            <EAS-INFO-FILE-CFGSET>ImportDdsXml</EAS-INFO-FILE-CFGSET>
-            <EAS-INFO-FILE-CFGSET>Cfg_D</EAS-INFO-FILE-CFGSET>
-            <EAS-INFO-FILE-CFGSET>Cfg_P</EAS-INFO-FILE-CFGSET>
-          </DDSXML>
         </EAS-INFO-FILE>
       </EAS-INFO>
       <ELEMENTS>

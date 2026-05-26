@@ -97,6 +97,9 @@ typedef uint8 Rte_ModeType_DcmDiagnosticSessionControl;
 #ifndef RTE_MODE_DcmDiagnosticSessionControl_EXTENDED_DIAGNOSTIC_SESSION
 #define RTE_MODE_DcmDiagnosticSessionControl_EXTENDED_DIAGNOSTIC_SESSION        (Rte_ModeType_DcmDiagnosticSessionControl)2
 #endif
+#ifndef RTE_MODE_DcmDiagnosticSessionControl_FACTORYTEST_SESSION
+#define RTE_MODE_DcmDiagnosticSessionControl_FACTORYTEST_SESSION      (Rte_ModeType_DcmDiagnosticSessionControl)3
+#endif
 #ifndef RTE_TRANSITION_DcmDiagnosticSessionControl
 #define RTE_TRANSITION_DcmDiagnosticSessionControl          (Rte_ModeType_DcmDiagnosticSessionControl)255
 #endif

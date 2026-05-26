@@ -84,6 +84,7 @@ typedef uint8 Dcm_SesCtrlType;
 #define DCM_DEFAULT_SESSION                                 (Dcm_SesCtrlType)0x01
 #define DCM_PROGRAMMING_SESSION                             (Dcm_SesCtrlType)0x02
 #define DCM_EXTENDED_DIAGNOSTIC_SESSION                     (Dcm_SesCtrlType)0x03
+#define DCM_FACTORYTEST_SESSION                             (Dcm_SesCtrlType)0x66
 
 /*SWS_Dcm_00979*/
 /*ECUC_Dcm_01110*/
@@ -460,6 +461,10 @@ typedef uint8 Dcm_DataElement_DspData_0xF195_0_ArrayType[3];
 typedef Dcm_DataElement_DspData_0xF195_0_ArrayType Dcm_DataElement_DspData_0xF195_0Type;
 typedef uint8 Dcm_DataElement_DspData_0xF19E_0_ArrayType[3];
 typedef Dcm_DataElement_DspData_0xF19E_0_ArrayType Dcm_DataElement_DspData_0xF19E_0Type;
+typedef uint8 Dcm_DataElement_DspData_0xFD01_0_ArrayType[3];
+typedef Dcm_DataElement_DspData_0xFD01_0_ArrayType Dcm_DataElement_DspData_0xFD01_0Type;
+typedef uint8 Dcm_DataElement_DspData_0xFD02_0_ArrayType[3];
+typedef Dcm_DataElement_DspData_0xFD02_0_ArrayType Dcm_DataElement_DspData_0xFD02_0Type;
 typedef uint8 Dcm_DidSupportedType;
 typedef uint8 Dcm_KeyArray_L2Type[4];
 typedef uint8 Dcm_SeedArray_L2Type[4];

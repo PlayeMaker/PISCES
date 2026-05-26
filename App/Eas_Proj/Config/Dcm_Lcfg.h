@@ -33,6 +33,7 @@ Names in this file may not follow relevant rules.
 #define DCM_DEFAULT_MASK                                    (Dcm_SessionMaskType)0x00000001
 #define DCM_PROGRAMMING_MASK                                (Dcm_SessionMaskType)0x00000002
 #define DCM_EXTENDED_MASK                                   (Dcm_SessionMaskType)0x00000004
+#define DCM_FACTORYTEST_MASK                                (Dcm_SessionMaskType)0x00000008
 
 #define DCM_LOCKED_MASK                                     (Dcm_SecurityMaskType)0x00000001
 #define DCM_L2_MASK                                         (Dcm_SecurityMaskType)0x00000002
