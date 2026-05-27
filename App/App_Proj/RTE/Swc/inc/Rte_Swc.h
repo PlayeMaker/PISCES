@@ -20,6 +20,7 @@ extern "C"
 /************************ Function Declarations ************************/
 void Rte_Call_Sync_C_Main_S_App_Task_Init(void);
 void Rte_Call_Sync_C_Main_S_App_Task_Scheduler(void);
+void Rte_Call_Sync_C_App_Task_S_System_Task_Init(void);
 void Rte_Call_Sync_C_App_Task_S_System_Task_Scheduler(void);
 void Rte_Call_Sync_C_App_Task_S_Power_Task_Init(void);
 void Rte_Call_Sync_C_App_Task_S_Power_Task_Scheduler(void);

@@ -9,7 +9,7 @@
 /************************ Private Global Variables ************************/
 static scheduler_t schedu_list[] = {
     // clang-format off
-    { NULL,                                         Rte_Call_Sync_C_App_Task_S_System_Task_Scheduler,  SYSTEM_TASK_PERIOD_MS,  TRUE, TRUE, 0 },
+    { Rte_Call_Sync_C_App_Task_S_System_Task_Init,  Rte_Call_Sync_C_App_Task_S_System_Task_Scheduler,  SYSTEM_TASK_PERIOD_MS,  TRUE, TRUE, 0 },
     { Rte_Call_Sync_C_App_Task_S_Power_Task_Init,   Rte_Call_Sync_C_App_Task_S_Power_Task_Scheduler,   POWER_TASK_PERIOD_MS,   TRUE, TRUE, 0 },
     { Rte_Call_Sync_C_App_Task_S_Stack_Task_Init,   Rte_Call_Sync_C_App_Task_S_Stack_Task_Scheduler,   STACK_TASK_PERIOD_MS,   TRUE, TRUE, 0 },
     { Rte_Call_Sync_C_App_Task_S_Massage_Task_Init, Rte_Call_Sync_C_App_Task_S_Massage_Task_Scheduler, MASSAGE_TASK_PERIOD_MS, TRUE, TRUE, 0 },

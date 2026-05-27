@@ -42,6 +42,15 @@ void Rte_Call_Sync_C_Main_S_App_Task_Scheduler(void)
     Snf_App_Task_Scheduler_Handle();
 }
 /**
+  * @brief  Initialize the system task, should be called once at system startup
+  * @param  None
+  * @return None
+  */
+void Rte_Call_Sync_C_App_Task_S_System_Task_Init(void)
+{
+    Snf_System_Task_Init();
+}
+/**
   * @brief  System Task
   * @param  None
   * @return None
