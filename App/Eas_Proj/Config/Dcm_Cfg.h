@@ -230,7 +230,7 @@
 #define DCM_CFG_RXPDU_NUM                                   (PduIdType)2
 #define DCM_CFG_DDDID_NUM                                   (uint16)0
 #define DCM_CFG_ALL_DDDID_ELEMENT_NUM                       0
-#define DCM_CFG_RID_NUM                                     (uint16)1
+#define DCM_CFG_RID_NUM                                     (uint16)4
 
 #define DcmTransmit(DcmTxPduId,PduInfoPtr)    PduR_UpCallTransmit(DcmTxPduId,PduInfoPtr)
 #define DcmCancelTransmit(DcmTxPduId)

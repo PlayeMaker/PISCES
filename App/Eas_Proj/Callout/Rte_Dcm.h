@@ -202,6 +202,28 @@ extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_RoutineServices_0x0203_Start
     P2VAR(Dcm_StartDataOut_DspRoutine0x0203_DspRoutine0x0203_StartOutSignalType, AUTOMATIC, RTE_APPL_DATA) DataOut_DspRoutine0x0203_StartOutSignal,
     P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode
 );
+#define Dcm_Rte_RoutineServices_0xFD01_Start                Rte_Call_Dcm_RoutineServices_0xFD01_Start
+extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_RoutineServices_0xFD01_Start
+(
+    CONST(Dcm_OpStatusType, AUTOMATIC) OpStatus,
+    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode
+);
+#define Dcm_Rte_RoutineServices_0xFD04_Start                Rte_Call_Dcm_RoutineServices_0xFD04_Start
+extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_RoutineServices_0xFD04_Start
+(
+    CONST(Dcm_StartDataIn_DspRoutine0xFD04_DspRoutine0xFD04_StartInSignalType, AUTOMATIC) DataIn_DspRoutine0xFD04_StartInSignal,
+    CONST(Dcm_OpStatusType, AUTOMATIC) OpStatus,
+    P2VAR(Dcm_StartDataOut_DspRoutine0xFD04_DspRoutine0xFD04_StartOutSignalType, AUTOMATIC, RTE_APPL_DATA) DataOut_DspRoutine0xFD04_StartOutSignal,
+    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode
+);
+#define Dcm_Rte_RoutineServices_0xFD05_Start                Rte_Call_Dcm_RoutineServices_0xFD05_Start
+extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_RoutineServices_0xFD05_Start
+(
+    CONST(Dcm_StartDataIn_DspRoutine0xFD05_DspRoutine0xFD05_StartInSignalType, AUTOMATIC) DataIn_DspRoutine0xFD05_StartInSignal,
+    CONST(Dcm_OpStatusType, AUTOMATIC) OpStatus,
+    P2VAR(Dcm_StartDataOut_DspRoutine0xFD05_DspRoutine0xFD05_StartOutSignalType, AUTOMATIC, RTE_APPL_DATA) DataOut_DspRoutine0xFD05_StartOutSignal,
+    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode
+);
 #define Dcm_Rte_SecurityAccess_L2_GetSeed                   Rte_Call_Dcm_SecurityAccess_L2_GetSeed
 extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_SecurityAccess_L2_GetSeed
 (

@@ -418,6 +418,119 @@ FUNC(Std_ReturnType, RTE_CODE) Dcm_RoutineServices_0x0203_Start
 }
 
 
+FUNC(Std_ReturnType, RTE_CODE) Dcm_RoutineServices_0xFD01_Start
+(
+    P2VAR(uint8, AUTOMATIC, DCM_VAR) DataIn,
+    Dcm_OpStatusType OpStatus,
+    P2VAR(uint8, AUTOMATIC, DCM_VAR) DataOut,
+    P2VAR(uint16, AUTOMATIC, DCM_VAR) currentDataLength,
+    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, DCM_VAR) ErrorCode
+)
+{
+    Std_ReturnType ret = E_OK;
+    /*DataIn signals*/
+
+    /*DataOut signals*/
+
+
+
+    ret = Dcm_Rte_RoutineServices_0xFD01_Start(
+        OpStatus,
+        ErrorCode
+    );
+
+    if(ret == E_OK)
+    {
+    }
+
+    return ret;
+}
+
+
+FUNC(Std_ReturnType, RTE_CODE) Dcm_RoutineServices_0xFD04_Start
+(
+    P2VAR(uint8, AUTOMATIC, DCM_VAR) DataIn,
+    Dcm_OpStatusType OpStatus,
+    P2VAR(uint8, AUTOMATIC, DCM_VAR) DataOut,
+    P2VAR(uint16, AUTOMATIC, DCM_VAR) currentDataLength,
+    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, DCM_VAR) ErrorCode
+)
+{
+    Std_ReturnType ret = E_OK;
+    uint16 DataPos;
+    /*DataIn signals*/
+    Dcm_StartDataIn_DspRoutine0xFD04_DspRoutine0xFD04_StartInSignalType DataIn_DspRoutine0xFD04_Start_DspRoutine0xFD04_StartInSignal;
+
+    /*DataOut signals*/
+    Dcm_StartDataOut_DspRoutine0xFD04_DspRoutine0xFD04_StartOutSignalType DataOut_DspRoutine0xFD04_Start_DspRoutine0xFD04_StartOutSignal;
+
+
+    DataPos = (uint16)0;
+
+    Dcm_DataServices_DataTypeConversion(&(DataIn[DataPos]), (uint32)4, DCM_UINT32, DCM_OPAQUE, &DataIn_DspRoutine0xFD04_Start_DspRoutine0xFD04_StartInSignal, TRUE);
+
+
+    ret = Dcm_Rte_RoutineServices_0xFD04_Start(
+        DataIn_DspRoutine0xFD04_Start_DspRoutine0xFD04_StartInSignal,
+        OpStatus,
+        &DataOut_DspRoutine0xFD04_Start_DspRoutine0xFD04_StartOutSignal,/*Pointer*/
+        ErrorCode
+    );
+
+    if(ret == E_OK)
+    {
+        DataPos = (uint16)0;
+
+        Dcm_DataServices_DataTypeConversion(&(DataOut[DataPos]), (uint32)4, DCM_UINT32, DCM_OPAQUE, &DataOut_DspRoutine0xFD04_Start_DspRoutine0xFD04_StartOutSignal, FALSE);
+        
+    }
+
+    return ret;
+}
+
+
+FUNC(Std_ReturnType, RTE_CODE) Dcm_RoutineServices_0xFD05_Start
+(
+    P2VAR(uint8, AUTOMATIC, DCM_VAR) DataIn,
+    Dcm_OpStatusType OpStatus,
+    P2VAR(uint8, AUTOMATIC, DCM_VAR) DataOut,
+    P2VAR(uint16, AUTOMATIC, DCM_VAR) currentDataLength,
+    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, DCM_VAR) ErrorCode
+)
+{
+    Std_ReturnType ret = E_OK;
+    uint16 DataPos;
+    /*DataIn signals*/
+    Dcm_StartDataIn_DspRoutine0xFD05_DspRoutine0xFD05_StartInSignalType DataIn_DspRoutine0xFD05_Start_DspRoutine0xFD05_StartInSignal;
+
+    /*DataOut signals*/
+    Dcm_StartDataOut_DspRoutine0xFD05_DspRoutine0xFD05_StartOutSignalType DataOut_DspRoutine0xFD05_Start_DspRoutine0xFD05_StartOutSignal;
+
+
+    DataPos = (uint16)0;
+
+    Dcm_DataServices_DataTypeConversion(&(DataIn[DataPos]), (uint32)2, DCM_UINT16, DCM_OPAQUE, &DataIn_DspRoutine0xFD05_Start_DspRoutine0xFD05_StartInSignal, TRUE);
+
+
+    ret = Dcm_Rte_RoutineServices_0xFD05_Start(
+        DataIn_DspRoutine0xFD05_Start_DspRoutine0xFD05_StartInSignal,
+        OpStatus,
+        &DataOut_DspRoutine0xFD05_Start_DspRoutine0xFD05_StartOutSignal,/*Pointer*/
+        ErrorCode
+    );
+
+    if(ret == E_OK)
+    {
+        DataPos = (uint16)0;
+
+        Dcm_DataServices_DataTypeConversion(&(DataOut[DataPos]), (uint32)2, DCM_UINT16, DCM_OPAQUE, &DataOut_DspRoutine0xFD05_Start_DspRoutine0xFD05_StartOutSignal, FALSE);
+        
+    }
+
+    return ret;
+}
+
+
 
 
 #define DCM_STOP_SEC_CODE

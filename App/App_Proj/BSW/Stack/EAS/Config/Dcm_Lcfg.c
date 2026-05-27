@@ -341,7 +341,7 @@ STATIC CONST(Dcm_DsdServiceType, DCM_CONST) Dcm_DsdServiceTable_0[10] =
         NULL_PTR,
         TRUE,
         DCM_LOCKED_MASK | DCM_L2_MASK,
-        DCM_EXTENDED_MASK,
+        DCM_EXTENDED_MASK | DCM_FACTORYTEST_MASK,
         (uint8)0,
         (uint16)0
     },
@@ -1019,12 +1019,27 @@ CONST(Dcm_DspDidType, DCM_CONST) Dcm_DspDid[DCM_CFG_NUM_OF_STAB] =
         Dcm_DspDidTable_0
     }
 };
-STATIC CONST(Dcm_DspCommonAuthorizationType, DCM_CONST) Dcm_DspCommonAuthorization_0[1] =
+STATIC CONST(Dcm_DspCommonAuthorizationType, DCM_CONST) Dcm_DspCommonAuthorization_0[4] =
 {
     {
         DCM_REQ_PHY_MASK,
         DCM_LOCKED_MASK | DCM_L2_MASK,
         DCM_EXTENDED_MASK
+    },
+    {
+        DCM_REQ_PHY_MASK,
+        DCM_LOCKED_MASK | DCM_L2_MASK,
+        DCM_FACTORYTEST_MASK
+    },
+    {
+        DCM_REQ_PHY_MASK,
+        DCM_LOCKED_MASK | DCM_L2_MASK,
+        DCM_FACTORYTEST_MASK
+    },
+    {
+        DCM_REQ_PHY_MASK,
+        DCM_LOCKED_MASK | DCM_L2_MASK,
+        DCM_FACTORYTEST_MASK
     }
 };
 STATIC CONST(Dcm_DspRoutineControlType, DCM_CONST) Dcm_DspStartRoutine_0x0203_0 =
@@ -1041,12 +1056,72 @@ STATIC CONST(Dcm_DspRoutineControlType, DCM_CONST) Dcm_DspStartRoutine_0x0203_0 
     }
 };
 
+STATIC CONST(Dcm_DspRoutineControlType, DCM_CONST) Dcm_DspStartRoutine_0xFD01_0 =
+{
+    Dcm_RoutineServices_0xFD01_Start,
+    &(Dcm_DspCommonAuthorization_0[3]),
+    {
+        (uint16)0,
+        DCM_UINT8
+    },
+    {
+        (uint16)0,
+        DCM_UINT8
+    }
+};
 
-STATIC CONST(Dcm_DspRoutineIdInfoType, DCM_CONST) Dcm_DspRoutineIdInfo_0[1] =
+STATIC CONST(Dcm_DspRoutineControlType, DCM_CONST) Dcm_DspStartRoutine_0xFD04_0 =
+{
+    Dcm_RoutineServices_0xFD04_Start,
+    &(Dcm_DspCommonAuthorization_0[1]),
+    {
+        (uint16)4,
+        DCM_UINT32
+    },
+    {
+        (uint16)4,
+        DCM_UINT32
+    }
+};
+
+STATIC CONST(Dcm_DspRoutineControlType, DCM_CONST) Dcm_DspStartRoutine_0xFD05_0 =
+{
+    Dcm_RoutineServices_0xFD05_Start,
+    &(Dcm_DspCommonAuthorization_0[2]),
+    {
+        (uint16)2,
+        DCM_UINT16
+    },
+    {
+        (uint16)2,
+        DCM_UINT16
+    }
+};
+
+
+STATIC CONST(Dcm_DspRoutineIdInfoType, DCM_CONST) Dcm_DspRoutineIdInfo_0[4] =
 {
     {
         (uint16)0x0203,
         &Dcm_DspStartRoutine_0x0203_0,
+        NULL_PTR,
+        NULL_PTR
+    },
+    {
+        (uint16)0xFD01,
+        &Dcm_DspStartRoutine_0xFD01_0,
+        NULL_PTR,
+        NULL_PTR
+    },
+    {
+        (uint16)0xFD04,
+        &Dcm_DspStartRoutine_0xFD04_0,
+        NULL_PTR,
+        NULL_PTR
+    },
+    {
+        (uint16)0xFD05,
+        &Dcm_DspStartRoutine_0xFD05_0,
         NULL_PTR,
         NULL_PTR
     }
@@ -1055,7 +1130,7 @@ STATIC CONST(Dcm_DspRoutineIdInfoType, DCM_CONST) Dcm_DspRoutineIdInfo_0[1] =
 CONST(Dcm_DspRoutineType, DCM_CONST) Dcm_DspRoutine[DCM_CFG_NUM_OF_STAB] =
 {
     {
-        (uint16)1,
+        (uint16)4,
         Dcm_DspRoutineIdInfo_0
     }
 };

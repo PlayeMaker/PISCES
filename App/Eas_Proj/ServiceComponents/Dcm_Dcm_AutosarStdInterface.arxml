@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-2-2.xsd">
   <AR-PACKAGES>
-    <AR-PACKAGE UUID="895a1cfa-abea-4c99-ab7c-0741751c4aca">
+    <AR-PACKAGE UUID="b19b2814-1548-41e5-b6ed-6266c52de515">
       <SHORT-NAME>BSW</SHORT-NAME>
       <AR-PACKAGES>
-        <AR-PACKAGE UUID="70e9f08c-6e8e-4ddb-ae2a-1f4379a91620">
+        <AR-PACKAGE UUID="3e34c870-2bed-40df-88d4-68a831014fcc">
           <SHORT-NAME>BaseTypes</SHORT-NAME>
           <ELEMENTS>
-            <SW-BASE-TYPE UUID="70a08641-d45a-4cca-8fba-baa8ea14f3bc">
+            <SW-BASE-TYPE UUID="3d0a6f7a-ba0e-4122-94b7-9e9d78428f29">
               <SHORT-NAME>boolean</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -21,7 +21,7 @@
               <BASE-TYPE-ENCODING>BOOLEAN</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned char</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="990b24d5-b7b8-46e6-ab80-67458c66957d">
+            <SW-BASE-TYPE UUID="0b3eb309-5c06-40c7-8e6c-ace45df6116d">
               <SHORT-NAME>float32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -35,7 +35,7 @@
               <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>float</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="7ddbc3b6-7564-495a-9204-2728fe544cdd">
+            <SW-BASE-TYPE UUID="61a213de-7dfc-456c-9417-39be9f7f5eb0">
               <SHORT-NAME>float64</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -49,7 +49,7 @@
               <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>double</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="75239405-b028-452b-a43f-1effc15ffb4c">
+            <SW-BASE-TYPE UUID="bd4b8a68-583a-4a92-b569-e14bd1e92485">
               <SHORT-NAME>sint16</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -63,7 +63,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed short</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="6bb19738-18b8-40b8-9ac6-f2f2c2f8964f">
+            <SW-BASE-TYPE UUID="3e8cc850-565a-4620-9438-45343d40eb16">
               <SHORT-NAME>sint32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -77,7 +77,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed int</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="91925131-677e-4b82-906a-862a389bf7fb">
+            <SW-BASE-TYPE UUID="828b4e4b-61f4-4b83-abe6-2cbe7f361510">
               <SHORT-NAME>sint64</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -91,7 +91,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed long</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="1f9792dd-0f83-485a-9e85-e38e28b7e824">
+            <SW-BASE-TYPE UUID="7017393e-c45f-4887-b1ba-bdb19f451bb9">
               <SHORT-NAME>sint8</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -105,7 +105,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed char</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="bf4b0d3a-0f7c-4735-a1b3-a87f4ca1cc8b">
+            <SW-BASE-TYPE UUID="7c9735db-4989-414b-809c-a446e31f9cff">
               <SHORT-NAME>uint16</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -119,7 +119,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned short</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="b50d0992-db98-4b41-bf12-094e3449bc05">
+            <SW-BASE-TYPE UUID="527055d6-9241-4acb-87d0-cbb5687c82ee">
               <SHORT-NAME>uint32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -133,7 +133,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned int</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="f0bc762e-6694-4101-9b3a-9807835a3723">
+            <SW-BASE-TYPE UUID="751a33be-2a2e-4f59-9c97-64edb1031c95">
               <SHORT-NAME>uint64</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -147,7 +147,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned long</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="0e8f9914-1628-46bf-90e6-31feb334ea14">
+            <SW-BASE-TYPE UUID="c0c1dd1e-f1ab-474a-abe6-8a7ff1fac05d">
               <SHORT-NAME>uint8</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -161,7 +161,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned char</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="e8d15a44-89ee-4a66-bce9-2fe64fc3fcde">
+            <SW-BASE-TYPE UUID="0e74bfcb-e749-4adc-8d4b-79a6bbdf85a3">
               <SHORT-NAME>void</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -177,10 +177,10 @@
             </SW-BASE-TYPE>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="5ad19a8f-50c0-4a68-bfc8-2a46c506edda">
+        <AR-PACKAGE UUID="76587a6d-e528-4992-b846-9679158c14b0">
           <SHORT-NAME>CompuMethods</SHORT-NAME>
           <ELEMENTS>
-            <COMPU-METHOD UUID="02f923fe-255a-4172-9fa2-4e228068e5d0">
+            <COMPU-METHOD UUID="9dc27d78-0c49-4121-a7b7-ce7b67db7a71">
               <SHORT-NAME>Dcm_ConfirmationStatusType</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
               <ADMIN-DATA>
@@ -223,7 +223,7 @@
                 </COMPU-SCALES>
               </COMPU-INTERNAL-TO-PHYS>
             </COMPU-METHOD>
-            <COMPU-METHOD UUID="48dabd0e-ae12-4a49-8c65-fcb743f42a43">
+            <COMPU-METHOD UUID="121299d8-413e-4f09-abbf-37bedad9800a">
               <SHORT-NAME>Dcm_DidSupportedType</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
               <ADMIN-DATA>
@@ -252,7 +252,7 @@
                 </COMPU-SCALES>
               </COMPU-INTERNAL-TO-PHYS>
             </COMPU-METHOD>
-            <COMPU-METHOD UUID="5a0ebd26-f60e-473c-b461-8b9d8790450e">
+            <COMPU-METHOD UUID="c772412e-6092-4d64-a249-72f5360a581d">
               <SHORT-NAME>Dcm_NegativeResponseCodeType</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
               <ADMIN-DATA>
@@ -652,7 +652,7 @@
                 </COMPU-SCALES>
               </COMPU-INTERNAL-TO-PHYS>
             </COMPU-METHOD>
-            <COMPU-METHOD UUID="5e692d60-33cc-4e16-8928-20fbe2ce298d">
+            <COMPU-METHOD UUID="848f030e-fe07-4952-b7d9-cd6780e6021c">
               <SHORT-NAME>Dcm_OpStatusType</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
               <ADMIN-DATA>
@@ -695,7 +695,7 @@
                 </COMPU-SCALES>
               </COMPU-INTERNAL-TO-PHYS>
             </COMPU-METHOD>
-            <COMPU-METHOD UUID="23022870-ae13-4316-ac57-a86de78ce0e2">
+            <COMPU-METHOD UUID="eda7e5fb-0c8e-4c20-8516-cfd600bd9713">
               <SHORT-NAME>Dcm_ProtocolType</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
               <ADMIN-DATA>
@@ -913,7 +913,7 @@
                 </COMPU-SCALES>
               </COMPU-INTERNAL-TO-PHYS>
             </COMPU-METHOD>
-            <COMPU-METHOD UUID="81e61948-e2e9-4efd-a714-60384285ff62">
+            <COMPU-METHOD UUID="c8fad63f-d758-46cd-a17b-921c06457ddf">
               <SHORT-NAME>Dcm_SecLevelType</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
               <ADMIN-DATA>
@@ -949,7 +949,7 @@
                 </COMPU-SCALES>
               </COMPU-INTERNAL-TO-PHYS>
             </COMPU-METHOD>
-            <COMPU-METHOD UUID="038b857a-e89f-49dd-833d-93c82d99c553">
+            <COMPU-METHOD UUID="566d0f8d-59ff-4174-b4cc-9e25ace6394c">
               <SHORT-NAME>Dcm_SesCtrlType</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
               <ADMIN-DATA>
@@ -994,10 +994,10 @@
             </COMPU-METHOD>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="32f2c2b5-88b0-41f9-8615-0cf3171101c4">
+        <AR-PACKAGE UUID="4db18054-07a0-4740-9f54-af96d010ccba">
           <SHORT-NAME>DataConstrs</SHORT-NAME>
           <ELEMENTS>
-            <DATA-CONSTR UUID="e0b9e08d-d18b-4804-9785-43d6f485a356">
+            <DATA-CONSTR UUID="2953e824-6e21-434e-86f8-b9ee14a4b327">
               <SHORT-NAME>Dcm_NegativeResponseCodeType</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -1015,7 +1015,7 @@
                 </DATA-CONSTR-RULE>
               </DATA-CONSTR-RULES>
             </DATA-CONSTR>
-            <DATA-CONSTR UUID="afb5cd18-f0f1-4b66-b35d-71613ea15713">
+            <DATA-CONSTR UUID="616047b2-a549-4266-afb2-230fc9152fb1">
               <SHORT-NAME>Dcm_SecLevelType</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -1035,10 +1035,10 @@
             </DATA-CONSTR>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="43a0dce0-3abb-4cfd-8b29-7c27b8137b48">
+        <AR-PACKAGE UUID="1e1dd038-dd1b-4c50-90a1-d4c95ae04f6a">
           <SHORT-NAME>ImplementationDataTypes</SHORT-NAME>
           <ELEMENTS>
-            <IMPLEMENTATION-DATA-TYPE UUID="c5e9face-34ad-4ec4-a74c-db343c1b6247">
+            <IMPLEMENTATION-DATA-TYPE UUID="84f717af-4aed-4629-84cc-d4b96891e838">
               <SHORT-NAME>Dcm_ConfirmationStatusType</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1057,7 +1057,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="aebdb17e-2e09-45aa-892a-9fa5323f61a1">
+            <IMPLEMENTATION-DATA-TYPE UUID="17d72bfa-c9af-4705-934f-ca1d4b152374">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF010_0Type</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1075,7 +1075,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="688fcbc6-67cd-4641-89a0-68eff23083b6">
+            <IMPLEMENTATION-DATA-TYPE UUID="741b02a5-ea30-41dc-b539-9bd03eb141ed">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF010_0_ArrayType</SHORT-NAME>
               <CATEGORY>ARRAY</CATEGORY>
               <ADMIN-DATA>
@@ -1086,7 +1086,7 @@
                 </SDGS>
               </ADMIN-DATA>
               <SUB-ELEMENTS>
-                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="02f1c271-0de0-4802-b35d-de6fce0e9ace">
+                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="ae5bdce7-366f-47dc-917e-05fd8d565959">
                   <SHORT-NAME>SubElement</SHORT-NAME>
                   <CATEGORY>TYPE_REFERENCE</CATEGORY>
                   <ARRAY-SIZE>4</ARRAY-SIZE>
@@ -1101,7 +1101,7 @@
                 </IMPLEMENTATION-DATA-TYPE-ELEMENT>
               </SUB-ELEMENTS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="54bf9cf4-9c93-497d-a4f2-cbab7171476c">
+            <IMPLEMENTATION-DATA-TYPE UUID="a90b16b7-af28-48c1-9773-f55668cdd27a">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF110_0Type</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1119,7 +1119,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="65621682-fff7-40ae-8332-8da8064b8f44">
+            <IMPLEMENTATION-DATA-TYPE UUID="e354b3f5-d8d0-453a-8a62-671ff9d9fe2a">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF110_0_ArrayType</SHORT-NAME>
               <CATEGORY>ARRAY</CATEGORY>
               <ADMIN-DATA>
@@ -1130,7 +1130,7 @@
                 </SDGS>
               </ADMIN-DATA>
               <SUB-ELEMENTS>
-                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="a810fc5e-121c-4d91-87e8-537ac531ad84">
+                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="0a7f1b13-4c2b-4c96-9380-1606b72acf44">
                   <SHORT-NAME>SubElement</SHORT-NAME>
                   <CATEGORY>TYPE_REFERENCE</CATEGORY>
                   <ARRAY-SIZE>11</ARRAY-SIZE>
@@ -1145,7 +1145,7 @@
                 </IMPLEMENTATION-DATA-TYPE-ELEMENT>
               </SUB-ELEMENTS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="6602a163-0938-40f5-ab1c-197eb2baaf4a">
+            <IMPLEMENTATION-DATA-TYPE UUID="855b6db1-1720-4a5d-b66f-92d7c06d9f42">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF111_0Type</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1163,7 +1163,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="3d1eb17d-b211-4110-a36c-e887124205bc">
+            <IMPLEMENTATION-DATA-TYPE UUID="f605b01a-c7ef-4de3-804d-c9f2c0fcefb2">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF111_0_ArrayType</SHORT-NAME>
               <CATEGORY>ARRAY</CATEGORY>
               <ADMIN-DATA>
@@ -1174,7 +1174,7 @@
                 </SDGS>
               </ADMIN-DATA>
               <SUB-ELEMENTS>
-                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="2775ad2f-ba8b-4d21-ab15-ba843985b1f7">
+                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="605f8187-cfdb-4ad5-96c1-e86e2ae9dbf1">
                   <SHORT-NAME>SubElement</SHORT-NAME>
                   <CATEGORY>TYPE_REFERENCE</CATEGORY>
                   <ARRAY-SIZE>2</ARRAY-SIZE>
@@ -1189,7 +1189,7 @@
                 </IMPLEMENTATION-DATA-TYPE-ELEMENT>
               </SUB-ELEMENTS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="42494c00-41d1-4dea-86bb-a7e8e3e66aa0">
+            <IMPLEMENTATION-DATA-TYPE UUID="73d210a1-25df-4047-a8d6-482a66956084">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF118_0Type</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1207,7 +1207,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="e1fcf0c0-a475-4036-877b-d6c53a63a8bc">
+            <IMPLEMENTATION-DATA-TYPE UUID="2e685018-ecaa-49c6-b9dc-b250cb26a0a7">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF118_0_ArrayType</SHORT-NAME>
               <CATEGORY>ARRAY</CATEGORY>
               <ADMIN-DATA>
@@ -1218,7 +1218,7 @@
                 </SDGS>
               </ADMIN-DATA>
               <SUB-ELEMENTS>
-                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="afd1748d-8e8f-499f-aa63-1522f0d228c1">
+                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="a2d92d0d-d8f2-4c59-9aec-f27986bd6b40">
                   <SHORT-NAME>SubElement</SHORT-NAME>
                   <CATEGORY>TYPE_REFERENCE</CATEGORY>
                   <ARRAY-SIZE>11</ARRAY-SIZE>
@@ -1233,7 +1233,7 @@
                 </IMPLEMENTATION-DATA-TYPE-ELEMENT>
               </SUB-ELEMENTS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="6cb87d85-9598-404c-9d56-a54a80f12e04">
+            <IMPLEMENTATION-DATA-TYPE UUID="d0a63246-ad1e-4c2b-a9b7-879ecb1104a7">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF119_0Type</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1251,7 +1251,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="34ac75c0-a72f-4a88-b579-82e7656e006a">
+            <IMPLEMENTATION-DATA-TYPE UUID="2dd9af51-4d97-4da0-9466-401739a0f736">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF119_0_ArrayType</SHORT-NAME>
               <CATEGORY>ARRAY</CATEGORY>
               <ADMIN-DATA>
@@ -1262,7 +1262,7 @@
                 </SDGS>
               </ADMIN-DATA>
               <SUB-ELEMENTS>
-                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="16fd6727-d29f-4592-9f14-959b17860d58">
+                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="ed5b49ff-eb69-4121-aa33-75259b2d1678">
                   <SHORT-NAME>SubElement</SHORT-NAME>
                   <CATEGORY>TYPE_REFERENCE</CATEGORY>
                   <ARRAY-SIZE>2</ARRAY-SIZE>
@@ -1277,7 +1277,7 @@
                 </IMPLEMENTATION-DATA-TYPE-ELEMENT>
               </SUB-ELEMENTS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="9a845ea6-e6d0-491c-a12e-a03befe89d4d">
+            <IMPLEMENTATION-DATA-TYPE UUID="3f5cf225-3bac-402b-8d36-c4c44d8f7e77">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF150_0Type</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1295,7 +1295,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="2d96069f-1837-450f-b557-a3084708abc8">
+            <IMPLEMENTATION-DATA-TYPE UUID="d8fc2424-9d0e-46b1-a658-5e1e1a2f83cb">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF150_0_ArrayType</SHORT-NAME>
               <CATEGORY>ARRAY</CATEGORY>
               <ADMIN-DATA>
@@ -1306,7 +1306,7 @@
                 </SDGS>
               </ADMIN-DATA>
               <SUB-ELEMENTS>
-                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="3039765a-d05b-4f83-9ca2-d8a4ac8a2fcc">
+                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="9f105597-0eb8-48ad-88f9-27a1c816ff0a">
                   <SHORT-NAME>SubElement</SHORT-NAME>
                   <CATEGORY>TYPE_REFERENCE</CATEGORY>
                   <ARRAY-SIZE>3</ARRAY-SIZE>
@@ -1321,7 +1321,7 @@
                 </IMPLEMENTATION-DATA-TYPE-ELEMENT>
               </SUB-ELEMENTS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="0202505e-d07f-4233-bbd9-2d2f2787b7b1">
+            <IMPLEMENTATION-DATA-TYPE UUID="6e1af18a-fdc0-42a2-a90f-e73df78b978d">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF15B_0Type</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1339,7 +1339,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="0e2cac31-f86a-497b-9138-c69837a591f6">
+            <IMPLEMENTATION-DATA-TYPE UUID="7d2306f4-ed11-46bd-a067-fb3d4609f6d2">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF15B_0_ArrayType</SHORT-NAME>
               <CATEGORY>ARRAY</CATEGORY>
               <ADMIN-DATA>
@@ -1350,7 +1350,7 @@
                 </SDGS>
               </ADMIN-DATA>
               <SUB-ELEMENTS>
-                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="e6f2ef43-5383-429e-b8dc-026a78c8ff44">
+                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="a6e32c7d-83fb-4e9c-992f-7c3920cd4ea5">
                   <SHORT-NAME>SubElement</SHORT-NAME>
                   <CATEGORY>TYPE_REFERENCE</CATEGORY>
                   <ARRAY-SIZE>12</ARRAY-SIZE>
@@ -1365,7 +1365,7 @@
                 </IMPLEMENTATION-DATA-TYPE-ELEMENT>
               </SUB-ELEMENTS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="9a488e68-b633-4b5a-a2ad-e4ee20b22863">
+            <IMPLEMENTATION-DATA-TYPE UUID="2e3cf9b6-4792-4e35-a6f4-c286744bc7c5">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF186_0Type</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1383,7 +1383,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="f5d91709-940e-4f5c-a08d-83d81dfc2a8b">
+            <IMPLEMENTATION-DATA-TYPE UUID="43ee8484-37ff-443d-8ba7-5eac874b545d">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF186_0_PrimitiveType</SHORT-NAME>
               <CATEGORY>VALUE</CATEGORY>
               <ADMIN-DATA>
@@ -1401,7 +1401,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="61608d14-35d7-422a-b220-ce1757972f0d">
+            <IMPLEMENTATION-DATA-TYPE UUID="fefa4f3c-3e13-4493-b09a-2140390dbe44">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF18A_0Type</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1419,7 +1419,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="b77111e8-645c-4a58-9e21-ed46a6a9db83">
+            <IMPLEMENTATION-DATA-TYPE UUID="176362da-b68e-42eb-9642-7b5bcc75c1b5">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF18A_0_ArrayType</SHORT-NAME>
               <CATEGORY>ARRAY</CATEGORY>
               <ADMIN-DATA>
@@ -1430,7 +1430,7 @@
                 </SDGS>
               </ADMIN-DATA>
               <SUB-ELEMENTS>
-                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="2a024404-f646-4466-8d18-cc453646e222">
+                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="4ca799dc-2cc0-4f1d-a1d1-7d7ff971fc59">
                   <SHORT-NAME>SubElement</SHORT-NAME>
                   <CATEGORY>TYPE_REFERENCE</CATEGORY>
                   <ARRAY-SIZE>8</ARRAY-SIZE>
@@ -1445,7 +1445,7 @@
                 </IMPLEMENTATION-DATA-TYPE-ELEMENT>
               </SUB-ELEMENTS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="e3783f37-3fb1-4705-bfac-276bd8968927">
+            <IMPLEMENTATION-DATA-TYPE UUID="0d10cf57-d990-4f7b-a15c-af8a9f8794f3">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF18B_0Type</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1463,7 +1463,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="efa23932-62c3-4570-acfd-b2171e4d4d49">
+            <IMPLEMENTATION-DATA-TYPE UUID="dcc9849e-0f3c-4770-9b5f-c74f2f1a006b">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF18B_0_ArrayType</SHORT-NAME>
               <CATEGORY>ARRAY</CATEGORY>
               <ADMIN-DATA>
@@ -1474,7 +1474,7 @@
                 </SDGS>
               </ADMIN-DATA>
               <SUB-ELEMENTS>
-                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="44ae35cd-d5a7-4054-b124-98fc87e77e44">
+                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="9f234991-cde6-409b-8f3c-fae556696d82">
                   <SHORT-NAME>SubElement</SHORT-NAME>
                   <CATEGORY>TYPE_REFERENCE</CATEGORY>
                   <ARRAY-SIZE>3</ARRAY-SIZE>
@@ -1489,7 +1489,7 @@
                 </IMPLEMENTATION-DATA-TYPE-ELEMENT>
               </SUB-ELEMENTS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="1b7593aa-f22d-4ae6-96b7-ee9cda4fb483">
+            <IMPLEMENTATION-DATA-TYPE UUID="5c3a140d-e208-4d7d-b5e1-f191d5ae6c47">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF18C_0Type</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1507,7 +1507,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="9b4d81f8-2ca3-4fa9-be9f-72ff738f47b8">
+            <IMPLEMENTATION-DATA-TYPE UUID="19486bbf-c805-494f-a1f9-48aee6ba974e">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF18C_0_ArrayType</SHORT-NAME>
               <CATEGORY>ARRAY</CATEGORY>
               <ADMIN-DATA>
@@ -1518,7 +1518,7 @@
                 </SDGS>
               </ADMIN-DATA>
               <SUB-ELEMENTS>
-                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="65b3545c-eb46-4964-b761-3ea76e6fe7d1">
+                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="f524cec2-4799-425e-a12f-38bc21c5c228">
                   <SHORT-NAME>SubElement</SHORT-NAME>
                   <CATEGORY>TYPE_REFERENCE</CATEGORY>
                   <ARRAY-SIZE>16</ARRAY-SIZE>
@@ -1533,7 +1533,7 @@
                 </IMPLEMENTATION-DATA-TYPE-ELEMENT>
               </SUB-ELEMENTS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="ba109a54-e021-4f16-9134-8ad5332a8776">
+            <IMPLEMENTATION-DATA-TYPE UUID="4016a0b0-453c-454d-853c-afc74b76d937">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF193_0Type</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1551,7 +1551,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="775a8a2d-dcd5-4cb9-871b-598a2427eeed">
+            <IMPLEMENTATION-DATA-TYPE UUID="f4611a4f-27e6-4326-9b38-e6f20620bb4f">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF193_0_ArrayType</SHORT-NAME>
               <CATEGORY>ARRAY</CATEGORY>
               <ADMIN-DATA>
@@ -1562,7 +1562,7 @@
                 </SDGS>
               </ADMIN-DATA>
               <SUB-ELEMENTS>
-                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="a132453a-5c8a-433d-903b-2276d3cf66ea">
+                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="1f9ff508-7fbc-413c-8c30-44b93e13b8cc">
                   <SHORT-NAME>SubElement</SHORT-NAME>
                   <CATEGORY>TYPE_REFERENCE</CATEGORY>
                   <ARRAY-SIZE>3</ARRAY-SIZE>
@@ -1577,7 +1577,7 @@
                 </IMPLEMENTATION-DATA-TYPE-ELEMENT>
               </SUB-ELEMENTS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="64bdcda7-6145-4217-9141-6b1a1cc44d4d">
+            <IMPLEMENTATION-DATA-TYPE UUID="ec6c24ee-0e0d-4833-a53f-8b24f1ca59f6">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF195_0Type</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1595,7 +1595,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="771094c8-db4c-4e4f-a52f-2f9566024102">
+            <IMPLEMENTATION-DATA-TYPE UUID="f0ca96fd-9d3f-4940-a9c7-c6fdd9088793">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF195_0_ArrayType</SHORT-NAME>
               <CATEGORY>ARRAY</CATEGORY>
               <ADMIN-DATA>
@@ -1606,7 +1606,7 @@
                 </SDGS>
               </ADMIN-DATA>
               <SUB-ELEMENTS>
-                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="c3e3ca56-3bd6-4f48-98c0-76c86d1ffbc8">
+                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="ebdf5d05-3a57-4327-a046-a57d85bdc778">
                   <SHORT-NAME>SubElement</SHORT-NAME>
                   <CATEGORY>TYPE_REFERENCE</CATEGORY>
                   <ARRAY-SIZE>3</ARRAY-SIZE>
@@ -1621,7 +1621,7 @@
                 </IMPLEMENTATION-DATA-TYPE-ELEMENT>
               </SUB-ELEMENTS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="af586e96-b143-4ae2-b09b-1580e3a037dc">
+            <IMPLEMENTATION-DATA-TYPE UUID="4a07b0c6-fe62-4bcf-8392-cda692f91ea3">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF19E_0Type</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1639,7 +1639,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="cc9429ce-0d27-4f27-aaa4-4caad4ed576a">
+            <IMPLEMENTATION-DATA-TYPE UUID="6d51a3e6-6e09-44a6-aeea-fe3918903930">
               <SHORT-NAME>Dcm_DataElement_DspData_0xF19E_0_ArrayType</SHORT-NAME>
               <CATEGORY>ARRAY</CATEGORY>
               <ADMIN-DATA>
@@ -1650,7 +1650,7 @@
                 </SDGS>
               </ADMIN-DATA>
               <SUB-ELEMENTS>
-                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="e6994737-4631-4d85-8829-f8995b5b0ab1">
+                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="5de2b3c9-b806-45f1-81a1-6e9f30f3b406">
                   <SHORT-NAME>SubElement</SHORT-NAME>
                   <CATEGORY>TYPE_REFERENCE</CATEGORY>
                   <ARRAY-SIZE>3</ARRAY-SIZE>
@@ -1665,7 +1665,7 @@
                 </IMPLEMENTATION-DATA-TYPE-ELEMENT>
               </SUB-ELEMENTS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="8190e094-b05e-4a8c-910d-1777c36a6c29">
+            <IMPLEMENTATION-DATA-TYPE UUID="892ba800-4ec3-4523-b1b8-18d95ebcaa90">
               <SHORT-NAME>Dcm_DataElement_DspData_0xFD01_0Type</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1683,7 +1683,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="a963085f-9179-4ac3-993f-5db5901b8c0e">
+            <IMPLEMENTATION-DATA-TYPE UUID="acab8709-cbe2-4e84-95c3-ecefeea58f25">
               <SHORT-NAME>Dcm_DataElement_DspData_0xFD01_0_ArrayType</SHORT-NAME>
               <CATEGORY>ARRAY</CATEGORY>
               <ADMIN-DATA>
@@ -1694,7 +1694,7 @@
                 </SDGS>
               </ADMIN-DATA>
               <SUB-ELEMENTS>
-                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="56510ffb-4a0a-4228-81f3-a43e63b548da">
+                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="6ff276de-41ad-4353-8fb9-5db8e78f6799">
                   <SHORT-NAME>SubElement</SHORT-NAME>
                   <CATEGORY>TYPE_REFERENCE</CATEGORY>
                   <ARRAY-SIZE>3</ARRAY-SIZE>
@@ -1709,7 +1709,7 @@
                 </IMPLEMENTATION-DATA-TYPE-ELEMENT>
               </SUB-ELEMENTS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="dc666b18-6d18-4b12-955f-61377cfe661b">
+            <IMPLEMENTATION-DATA-TYPE UUID="c9ef7005-08a5-4669-b82d-db722406b5f5">
               <SHORT-NAME>Dcm_DataElement_DspData_0xFD02_0Type</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1727,7 +1727,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="3fe2357d-45bc-4361-8017-b987dba593f2">
+            <IMPLEMENTATION-DATA-TYPE UUID="da0d0fde-076d-4006-8487-25c5eed16429">
               <SHORT-NAME>Dcm_DataElement_DspData_0xFD02_0_ArrayType</SHORT-NAME>
               <CATEGORY>ARRAY</CATEGORY>
               <ADMIN-DATA>
@@ -1738,7 +1738,7 @@
                 </SDGS>
               </ADMIN-DATA>
               <SUB-ELEMENTS>
-                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="61a472ab-e8d7-4b68-98f3-b99c21c19166">
+                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="40502b4c-640b-48e0-8858-aef73ec1c3fb">
                   <SHORT-NAME>SubElement</SHORT-NAME>
                   <CATEGORY>TYPE_REFERENCE</CATEGORY>
                   <ARRAY-SIZE>3</ARRAY-SIZE>
@@ -1753,7 +1753,7 @@
                 </IMPLEMENTATION-DATA-TYPE-ELEMENT>
               </SUB-ELEMENTS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="b78e11c0-f9ac-4587-83c7-9e97883e76fc">
+            <IMPLEMENTATION-DATA-TYPE UUID="dfec7ee6-f870-4f5f-81ff-47ac3b919da9">
               <SHORT-NAME>Dcm_DidSupportedType</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1772,7 +1772,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="2deb9fe2-84e9-401a-9f3b-98f960d6e8f0">
+            <IMPLEMENTATION-DATA-TYPE UUID="9bb48ce4-5cf0-4691-883b-e10aec17037c">
               <SHORT-NAME>Dcm_KeyArray_L2Type</SHORT-NAME>
               <CATEGORY>ARRAY</CATEGORY>
               <ADMIN-DATA>
@@ -1783,7 +1783,7 @@
                 </SDGS>
               </ADMIN-DATA>
               <SUB-ELEMENTS>
-                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="bf6a1cfe-7afe-4092-9738-cf6713c257a7">
+                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="2c6c61a6-d789-46fd-9955-3c123e301fd1">
                   <SHORT-NAME>SubElement</SHORT-NAME>
                   <CATEGORY>TYPE_REFERENCE</CATEGORY>
                   <ARRAY-SIZE>4</ARRAY-SIZE>
@@ -1798,7 +1798,7 @@
                 </IMPLEMENTATION-DATA-TYPE-ELEMENT>
               </SUB-ELEMENTS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="daff1e81-0a02-418f-b763-2fa6dbd7a3fe">
+            <IMPLEMENTATION-DATA-TYPE UUID="b5ec0e83-1115-4fb6-94a8-7d666a4a8ab0">
               <SHORT-NAME>Dcm_NegativeResponseCodeType</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1818,7 +1818,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="4bcc799b-d651-4c31-bcf3-d8b2839b8a6c">
+            <IMPLEMENTATION-DATA-TYPE UUID="b5e42d4a-bb36-41ce-b87d-be3d305b0e33">
               <SHORT-NAME>Dcm_OpStatusType</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1837,7 +1837,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="cd41fc4f-5dd6-471f-9a55-928e2b9c643a">
+            <IMPLEMENTATION-DATA-TYPE UUID="4ab77b3d-d549-46de-9d5b-5df9ff3fda04">
               <SHORT-NAME>Dcm_ProtocolType</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1856,7 +1856,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="0cab929d-43de-430e-9f45-01f62cc261bd">
+            <IMPLEMENTATION-DATA-TYPE UUID="8ffad41e-b0d2-4eae-a58c-99ce649cd5de">
               <SHORT-NAME>Dcm_SecLevelType</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1876,7 +1876,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="c249ee5a-5499-43b4-95bb-4802401cf222">
+            <IMPLEMENTATION-DATA-TYPE UUID="95f844d3-fa2d-4064-8979-2bb6734914e9">
               <SHORT-NAME>Dcm_SeedArray_L2Type</SHORT-NAME>
               <CATEGORY>ARRAY</CATEGORY>
               <ADMIN-DATA>
@@ -1887,7 +1887,7 @@
                 </SDGS>
               </ADMIN-DATA>
               <SUB-ELEMENTS>
-                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="7d7ab329-b206-472c-af18-6629600a0796">
+                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="3c3ba823-6ea5-4cb5-a13e-2fa4c745343c">
                   <SHORT-NAME>SubElement</SHORT-NAME>
                   <CATEGORY>TYPE_REFERENCE</CATEGORY>
                   <ARRAY-SIZE>4</ARRAY-SIZE>
@@ -1902,7 +1902,7 @@
                 </IMPLEMENTATION-DATA-TYPE-ELEMENT>
               </SUB-ELEMENTS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="b314bd76-439a-4d49-b29a-1a812246debe">
+            <IMPLEMENTATION-DATA-TYPE UUID="e42f9498-75d9-446f-90df-9ed96cf4a02c">
               <SHORT-NAME>Dcm_SesCtrlType</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1921,7 +1921,79 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="6d2feba4-fb1b-4e67-94b1-1d7c2db5bc17">
+            <IMPLEMENTATION-DATA-TYPE UUID="11336efc-710e-4c4a-862f-d2f5ce26ed19">
+              <SHORT-NAME>Dcm_StartDataIn_DspRoutine0xFD04_DspRoutine0xFD04_StartInSignalPrimitiveType</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">Dcm</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/BSW/BaseTypes/uint32</BASE-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="4b755f08-a1fa-431a-baba-712c8235da53">
+              <SHORT-NAME>Dcm_StartDataIn_DspRoutine0xFD04_DspRoutine0xFD04_StartInSignalType</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">Dcm</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_StartDataIn_DspRoutine0xFD04_DspRoutine0xFD04_StartInSignalPrimitiveType</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="22ce88dd-12a8-456e-8d62-4e0795dac9c0">
+              <SHORT-NAME>Dcm_StartDataIn_DspRoutine0xFD05_DspRoutine0xFD05_StartInSignalPrimitiveType</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">Dcm</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/BSW/BaseTypes/uint16</BASE-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="a0d61ff6-2da5-4631-9527-ba21a578e093">
+              <SHORT-NAME>Dcm_StartDataIn_DspRoutine0xFD05_DspRoutine0xFD05_StartInSignalType</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">Dcm</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_StartDataIn_DspRoutine0xFD05_DspRoutine0xFD05_StartInSignalPrimitiveType</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="d7a625c9-3bf7-4bc8-8a08-b8606982bea2">
               <SHORT-NAME>Dcm_StartDataOut_DspRoutine0x0203_DspRoutine0x0203_StartOutSignalPrimitiveType</SHORT-NAME>
               <CATEGORY>VALUE</CATEGORY>
               <ADMIN-DATA>
@@ -1939,7 +2011,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="1a6b64fc-f58a-48db-9ef8-5798bbf90cdd">
+            <IMPLEMENTATION-DATA-TYPE UUID="9e4dfea8-ed7e-4e6c-9ab1-7d193f272ed9">
               <SHORT-NAME>Dcm_StartDataOut_DspRoutine0x0203_DspRoutine0x0203_StartOutSignalType</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -1957,7 +2029,79 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="5a0a6cf7-6a13-4dc6-a4ce-0928544e04d8">
+            <IMPLEMENTATION-DATA-TYPE UUID="b0dd033c-172c-437b-9ed7-8811467b1b4c">
+              <SHORT-NAME>Dcm_StartDataOut_DspRoutine0xFD04_DspRoutine0xFD04_StartOutSignalPrimitiveType</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">Dcm</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/BSW/BaseTypes/uint32</BASE-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="0f8c500a-3c0c-4d32-885d-8cdf49f75342">
+              <SHORT-NAME>Dcm_StartDataOut_DspRoutine0xFD04_DspRoutine0xFD04_StartOutSignalType</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">Dcm</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_StartDataOut_DspRoutine0xFD04_DspRoutine0xFD04_StartOutSignalPrimitiveType</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="d29d07c0-8a6b-4c75-8154-1c671b7d50e1">
+              <SHORT-NAME>Dcm_StartDataOut_DspRoutine0xFD05_DspRoutine0xFD05_StartOutSignalPrimitiveType</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">Dcm</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/BSW/BaseTypes/uint16</BASE-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="cc6a23e0-6491-4a18-b05d-013a02e5c118">
+              <SHORT-NAME>Dcm_StartDataOut_DspRoutine0xFD05_DspRoutine0xFD05_StartOutSignalType</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">Dcm</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_StartDataOut_DspRoutine0xFD05_DspRoutine0xFD05_StartOutSignalPrimitiveType</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="c956dc0d-ff57-471c-ad0d-4d899148bbed">
               <SHORT-NAME>boolean</SHORT-NAME>
               <CATEGORY>VALUE</CATEGORY>
               <ADMIN-DATA>
@@ -1975,7 +2119,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="77571752-94a3-40fc-8406-04d316793a00">
+            <IMPLEMENTATION-DATA-TYPE UUID="87ca63ce-4200-4718-a5f0-3a0e2473babd">
               <SHORT-NAME>sint16</SHORT-NAME>
               <CATEGORY>VALUE</CATEGORY>
               <ADMIN-DATA>
@@ -1993,7 +2137,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="89b965d3-1b67-4f0b-b67a-ae455f14b7fe">
+            <IMPLEMENTATION-DATA-TYPE UUID="9f1b18eb-ad3a-4f6f-8c24-994f80a4fe26">
               <SHORT-NAME>sint32</SHORT-NAME>
               <CATEGORY>VALUE</CATEGORY>
               <ADMIN-DATA>
@@ -2011,7 +2155,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="eb5c343f-8e72-4a24-aa6c-0dc4fc6692ef">
+            <IMPLEMENTATION-DATA-TYPE UUID="d803e432-2004-425c-acaa-1ff63dddd166">
               <SHORT-NAME>sint8</SHORT-NAME>
               <CATEGORY>VALUE</CATEGORY>
               <ADMIN-DATA>
@@ -2029,7 +2173,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="a09c34ff-65b3-4977-bf6b-3dcf890f553e">
+            <IMPLEMENTATION-DATA-TYPE UUID="43b3d762-04b5-4d46-be4e-10d4701e46eb">
               <SHORT-NAME>uint16</SHORT-NAME>
               <CATEGORY>VALUE</CATEGORY>
               <ADMIN-DATA>
@@ -2047,7 +2191,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="24667ecd-2ec4-4c6a-880d-9d8b78fe02ba">
+            <IMPLEMENTATION-DATA-TYPE UUID="3a0c9f3e-2095-488a-bb72-3e5029d6dc71">
               <SHORT-NAME>uint32</SHORT-NAME>
               <CATEGORY>VALUE</CATEGORY>
               <ADMIN-DATA>
@@ -2065,7 +2209,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="4b5442d3-1f63-45de-bc7d-b60111430805">
+            <IMPLEMENTATION-DATA-TYPE UUID="3ae161c3-fa87-473a-855d-71e36521eb28">
               <SHORT-NAME>uint8</SHORT-NAME>
               <CATEGORY>VALUE</CATEGORY>
               <ADMIN-DATA>
@@ -2085,10 +2229,10 @@
             </IMPLEMENTATION-DATA-TYPE>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="e85855f4-95fd-4ff7-989a-6441b3cdc5a2">
+        <AR-PACKAGE UUID="697971f9-5d38-45a7-b0b0-8953945bb615">
           <SHORT-NAME>ModeDeclarationGroups</SHORT-NAME>
           <ELEMENTS>
-            <MODE-DECLARATION-GROUP UUID="bbe192c9-4bbf-4390-ab62-f6223a770d94">
+            <MODE-DECLARATION-GROUP UUID="4cd223f2-daed-4038-869a-3cfd5977b189">
               <SHORT-NAME>DcmCommunicationControl_ComM_BODY_LE1_CAN</SHORT-NAME>
               <CATEGORY>EXPLICIT_ORDER</CATEGORY>
               <ADMIN-DATA>
@@ -2100,58 +2244,58 @@
               </ADMIN-DATA>
               <INITIAL-MODE-REF DEST="MODE-DECLARATION">/BSW/ModeDeclarationGroups/DcmCommunicationControl_ComM_BODY_LE1_CAN/DCM_ENABLE_RX_TX_NORM_NM</INITIAL-MODE-REF>
               <MODE-DECLARATIONS>
-                <MODE-DECLARATION UUID="9677eb2c-e23f-426a-a3b3-f07b81aff5a2">
+                <MODE-DECLARATION UUID="5bed4eb9-9f50-4bc1-8271-44bb658dfc97">
                   <SHORT-NAME>DCM_DISABLE_RX_ENABLE_TX_NM</SHORT-NAME>
                   <VALUE>6</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="f578fd73-6677-4dea-a44a-ddeb24dc3474">
+                <MODE-DECLARATION UUID="f8aad9a4-245a-47da-be6a-5275365456db">
                   <SHORT-NAME>DCM_DISABLE_RX_ENABLE_TX_NORM</SHORT-NAME>
                   <VALUE>2</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="d5df3777-56a6-4f7e-8dc2-78e9a8205a34">
+                <MODE-DECLARATION UUID="351c4716-77e8-4363-b197-fd837a7addaf">
                   <SHORT-NAME>DCM_DISABLE_RX_ENABLE_TX_NORM_NM</SHORT-NAME>
                   <VALUE>10</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="49b8d039-22cf-4cb0-95cb-c5a546ac10d0">
+                <MODE-DECLARATION UUID="daeb43e1-a686-46c5-89fc-4621f1ba4798">
                   <SHORT-NAME>DCM_DISABLE_RX_TX_NM</SHORT-NAME>
                   <VALUE>7</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="5ac928b1-3be3-4ce9-b450-3aea88708899">
+                <MODE-DECLARATION UUID="ac40f8b2-84ee-408f-b40e-78f28a7c9620">
                   <SHORT-NAME>DCM_DISABLE_RX_TX_NORMAL</SHORT-NAME>
                   <VALUE>3</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="e7acf691-3ba9-4704-80fa-94277deb6f0a">
+                <MODE-DECLARATION UUID="181c0455-5187-436f-be1b-380bc5a66e84">
                   <SHORT-NAME>DCM_DISABLE_RX_TX_NORM_NM</SHORT-NAME>
                   <VALUE>11</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="3c93e751-d977-48d9-bab7-171015004df9">
+                <MODE-DECLARATION UUID="8aba83c1-2503-43f6-87e0-dc4482e8ee9b">
                   <SHORT-NAME>DCM_ENABLE_RX_DISABLE_TX_NM</SHORT-NAME>
                   <VALUE>5</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="7b8cc26e-5ec4-4597-884a-4ce80a95d4b9">
+                <MODE-DECLARATION UUID="c16592af-d3c5-46bb-b915-48b08bc1aec8">
                   <SHORT-NAME>DCM_ENABLE_RX_DISABLE_TX_NORM</SHORT-NAME>
                   <VALUE>1</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="be2afafe-c065-4530-86d4-fe4d67b8ef8e">
+                <MODE-DECLARATION UUID="67e269e3-255a-4a51-bd4c-dd448c477209">
                   <SHORT-NAME>DCM_ENABLE_RX_DISABLE_TX_NORM_NM</SHORT-NAME>
                   <VALUE>9</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="13ed628c-fe75-40c8-acfb-9e40eaac89bd">
+                <MODE-DECLARATION UUID="9fecd0a8-c0bc-47ed-8ac2-ed1d09caf91d">
                   <SHORT-NAME>DCM_ENABLE_RX_TX_NM</SHORT-NAME>
                   <VALUE>4</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="7b0cc5c3-c610-42a5-9fa7-c1fe7e1025af">
+                <MODE-DECLARATION UUID="f211b7a1-f26c-4995-8f9b-b9b991757502">
                   <SHORT-NAME>DCM_ENABLE_RX_TX_NORM</SHORT-NAME>
                   <VALUE>0</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="671793e5-5398-4c71-bcc0-1940c74868d7">
+                <MODE-DECLARATION UUID="7bd8bc16-2733-4f61-b67a-5ceed5b23714">
                   <SHORT-NAME>DCM_ENABLE_RX_TX_NORM_NM</SHORT-NAME>
                   <VALUE>8</VALUE>
                 </MODE-DECLARATION>
               </MODE-DECLARATIONS>
               <ON-TRANSITION-VALUE>12</ON-TRANSITION-VALUE>
             </MODE-DECLARATION-GROUP>
-            <MODE-DECLARATION-GROUP UUID="89154f26-ddc2-4714-a5da-9b62bb51b784">
+            <MODE-DECLARATION-GROUP UUID="c2eed9e6-ba68-4a1b-99ea-7b498ab46d9a">
               <SHORT-NAME>DcmControlDtcSetting</SHORT-NAME>
               <CATEGORY>EXPLICIT_ORDER</CATEGORY>
               <ADMIN-DATA>
@@ -2163,18 +2307,18 @@
               </ADMIN-DATA>
               <INITIAL-MODE-REF DEST="MODE-DECLARATION">/BSW/ModeDeclarationGroups/DcmControlDtcSetting/ENABLEDTCSETTING</INITIAL-MODE-REF>
               <MODE-DECLARATIONS>
-                <MODE-DECLARATION UUID="a7ee53ab-12bd-4f6b-b141-a581c2054a70">
+                <MODE-DECLARATION UUID="60ac92e7-dfe5-4433-a90b-b72d2733c637">
                   <SHORT-NAME>DISABLEDTCSETTING</SHORT-NAME>
                   <VALUE>1</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="fbe1e209-88e5-4ad6-9687-9c6de3d7226b">
+                <MODE-DECLARATION UUID="e789e3ef-6af3-48ea-819c-9f27ff63b80f">
                   <SHORT-NAME>ENABLEDTCSETTING</SHORT-NAME>
                   <VALUE>0</VALUE>
                 </MODE-DECLARATION>
               </MODE-DECLARATIONS>
               <ON-TRANSITION-VALUE>2</ON-TRANSITION-VALUE>
             </MODE-DECLARATION-GROUP>
-            <MODE-DECLARATION-GROUP UUID="4d774487-5569-494b-9123-799f1351f527">
+            <MODE-DECLARATION-GROUP UUID="1f5fa739-3323-4a1c-9617-ab05d3f5429b">
               <SHORT-NAME>DcmDiagnosticSessionControl</SHORT-NAME>
               <CATEGORY>EXPLICIT_ORDER</CATEGORY>
               <ADMIN-DATA>
@@ -2186,26 +2330,26 @@
               </ADMIN-DATA>
               <INITIAL-MODE-REF DEST="MODE-DECLARATION">/BSW/ModeDeclarationGroups/DcmDiagnosticSessionControl/DEFAULT_SESSION</INITIAL-MODE-REF>
               <MODE-DECLARATIONS>
-                <MODE-DECLARATION UUID="8bb9a5c6-f335-462b-8894-597ee2de8400">
+                <MODE-DECLARATION UUID="46df24f8-f576-4410-b957-dfa3e6243b70">
                   <SHORT-NAME>DEFAULT_SESSION</SHORT-NAME>
                   <VALUE>0</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="296eda02-604a-46d1-af35-17b9ac2b88a4">
+                <MODE-DECLARATION UUID="71ddff79-895e-4c35-839d-dd86f1b233ec">
                   <SHORT-NAME>EXTENDED_DIAGNOSTIC_SESSION</SHORT-NAME>
                   <VALUE>2</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="0ff7f539-ad0a-4cf3-bcd7-120388282b8e">
+                <MODE-DECLARATION UUID="fd4aa68f-278e-46f0-b702-d4a96c5243d7">
                   <SHORT-NAME>FACTORYTEST_SESSION</SHORT-NAME>
                   <VALUE>3</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="c30dc02f-7c58-4400-a044-61d053bd6566">
+                <MODE-DECLARATION UUID="17e0bbbe-b156-4e29-8df1-3b6422eb81a3">
                   <SHORT-NAME>PROGRAMMING_SESSION</SHORT-NAME>
                   <VALUE>1</VALUE>
                 </MODE-DECLARATION>
               </MODE-DECLARATIONS>
               <ON-TRANSITION-VALUE>4</ON-TRANSITION-VALUE>
             </MODE-DECLARATION-GROUP>
-            <MODE-DECLARATION-GROUP UUID="ea3f2f75-660d-474b-8045-736282c8381f">
+            <MODE-DECLARATION-GROUP UUID="aa257ce1-a821-4e43-98ae-80a2b6a98dba">
               <SHORT-NAME>DcmEcuReset</SHORT-NAME>
               <CATEGORY>EXPLICIT_ORDER</CATEGORY>
               <ADMIN-DATA>
@@ -2217,38 +2361,38 @@
               </ADMIN-DATA>
               <INITIAL-MODE-REF DEST="MODE-DECLARATION">/BSW/ModeDeclarationGroups/DcmEcuReset/NONE</INITIAL-MODE-REF>
               <MODE-DECLARATIONS>
-                <MODE-DECLARATION UUID="33aced8e-b53b-4b23-b723-e37102544db6">
+                <MODE-DECLARATION UUID="abb39bd4-168e-4d3e-a25a-e7f6ea3e5982">
                   <SHORT-NAME>EXECUTE</SHORT-NAME>
                   <VALUE>6</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="29f0f1e0-7e67-4da9-9547-2e2bff722eda">
+                <MODE-DECLARATION UUID="1bc4259a-fbae-4e7a-872d-5a5645d5918d">
                   <SHORT-NAME>HARD</SHORT-NAME>
                   <VALUE>1</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="9cc5ab2a-5700-4012-b93e-204290781112">
+                <MODE-DECLARATION UUID="5ddb7fc4-5460-4c88-9259-466548455af4">
                   <SHORT-NAME>JUMPTOBOOTLOADER</SHORT-NAME>
                   <VALUE>4</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="40b420a0-d85a-4258-ac8b-c5c031afd4fe">
+                <MODE-DECLARATION UUID="45bcfa6b-eb9b-4f1a-ac23-626a1ba4c8fc">
                   <SHORT-NAME>JUMPTOSYSSUPPLIERBOOTLOADER</SHORT-NAME>
                   <VALUE>5</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="b852c1a7-7e3d-4e96-98a1-2a547fee0212">
+                <MODE-DECLARATION UUID="8a94bd0d-f222-4199-9f5a-b61733ac4cf0">
                   <SHORT-NAME>KEYONOFF</SHORT-NAME>
                   <VALUE>2</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="762bd209-39b4-47ec-a2c9-358d9a04b323">
+                <MODE-DECLARATION UUID="5f3e0aeb-15c1-43d3-a0f5-0daba5a12e2b">
                   <SHORT-NAME>NONE</SHORT-NAME>
                   <VALUE>0</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="f073f526-3131-4359-b59e-45df32444f00">
+                <MODE-DECLARATION UUID="cc26f8dc-6942-453e-8d58-d0c7d4391323">
                   <SHORT-NAME>SOFT</SHORT-NAME>
                   <VALUE>3</VALUE>
                 </MODE-DECLARATION>
               </MODE-DECLARATIONS>
               <ON-TRANSITION-VALUE>7</ON-TRANSITION-VALUE>
             </MODE-DECLARATION-GROUP>
-            <MODE-DECLARATION-GROUP UUID="b3e72bd6-bbf5-4cfd-90e6-027ca082c48a">
+            <MODE-DECLARATION-GROUP UUID="35b02d43-2121-4a38-81a9-2a28e6278647">
               <SHORT-NAME>DcmSecurityAccess</SHORT-NAME>
               <CATEGORY>EXPLICIT_ORDER</CATEGORY>
               <ADMIN-DATA>
@@ -2260,7 +2404,7 @@
               </ADMIN-DATA>
               <INITIAL-MODE-REF DEST="MODE-DECLARATION">/BSW/ModeDeclarationGroups/DcmSecurityAccess/SEC_LEV_LOCKED</INITIAL-MODE-REF>
               <MODE-DECLARATIONS>
-                <MODE-DECLARATION UUID="256afba5-1a31-49cc-a4ce-c2d80eeb2e25">
+                <MODE-DECLARATION UUID="c61b0048-e79e-43a3-b269-2af052258af0">
                   <SHORT-NAME>SEC_LEV_LOCKED</SHORT-NAME>
                   <VALUE>0</VALUE>
                 </MODE-DECLARATION>
@@ -2269,10 +2413,10 @@
             </MODE-DECLARATION-GROUP>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="0b1659fc-b446-456e-9df5-505ed0ae4c8d">
+        <AR-PACKAGE UUID="9621ce63-9f35-42b0-87ef-2de951ff630c">
           <SHORT-NAME>PortInterfaces</SHORT-NAME>
           <ELEMENTS>
-            <CLIENT-SERVER-INTERFACE UUID="54829b45-6ada-46ae-a6b8-05d0eab26166">
+            <CLIENT-SERVER-INTERFACE UUID="150cfd6c-858c-4e73-92ee-3e95504ef2ba">
               <SHORT-NAME>CallbackDCMRequestServices</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -2283,20 +2427,20 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="9b189ccb-13ae-469e-aa22-90cab9a79757">
+                <CLIENT-SERVER-OPERATION UUID="578e6efa-6ea5-4d15-8679-7dc0387f1612">
                   <SHORT-NAME>StartProtocol</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="bc650630-dc10-4d9c-9886-df17ceaf8592">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="121038a1-ddef-4c35-80ac-5a8278f2d9cd">
                       <SHORT-NAME>ProtocolType</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_ProtocolType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="2114a769-2e5e-4c44-a6de-aba717b7d4d1">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="712e71bc-e064-4111-ad8d-86dea9462645">
                       <SHORT-NAME>TesterSourceAddress</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/uint16</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="dc0cb207-179a-4baf-8343-e1e0bb285a71">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="de39769e-c18c-49b9-8539-b0ff4fa1c979">
                       <SHORT-NAME>ConnectionId</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/uint16</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
@@ -2308,20 +2452,20 @@
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/CallbackDCMRequestServices/E_PROTOCOL_NOT_ALLOWED</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="c9fae6a5-08de-456a-bbac-9e7cf2ec22d9">
+                <CLIENT-SERVER-OPERATION UUID="ee3f7960-184c-4b7f-b4e1-9e1cd87b40de">
                   <SHORT-NAME>StopProtocol</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="5d727c38-dac4-4500-bb89-9630f05bed03">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="19e6994f-df32-4986-8aeb-866d3a8253f3">
                       <SHORT-NAME>ProtocolType</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_ProtocolType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="0d59cffb-9bc0-46d9-95c0-eea231fc9be7">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="92a2e54f-173f-4cec-bd35-dc35d1e98259">
                       <SHORT-NAME>TesterSourceAddress</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/uint16</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="60ccefe7-1d66-4bbb-800a-13459023faa1">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="3b719ef8-8c95-4c40-aa21-b87a1b3625f6">
                       <SHORT-NAME>ConnectionId</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/uint16</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
@@ -2334,21 +2478,21 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="bd37abb0-a073-4793-8c6c-5e1e05bcfbf2">
+                <APPLICATION-ERROR UUID="1da8f950-ef76-4e8e-b1d7-844386afdc85">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="291e2bdb-f049-49f0-bebe-cd293fbd5484">
+                <APPLICATION-ERROR UUID="3b677ec5-4106-4da8-aebd-2b0fbbdcbfe4">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="660c8107-aaaf-40e6-9023-ffb5fb037471">
+                <APPLICATION-ERROR UUID="92a3428b-9422-4a5c-80ed-de08877f0158">
                   <SHORT-NAME>E_PROTOCOL_NOT_ALLOWED</SHORT-NAME>
                   <ERROR-CODE>5</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="29a6a4b8-efe8-4ffe-8c34-9f084f96de3c">
+            <CLIENT-SERVER-INTERFACE UUID="b7b61878-b158-4a72-b8f2-d46f7af0b7e2">
               <SHORT-NAME>DCMServices</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -2359,10 +2503,10 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="95d3dfd8-22fd-4388-9dcb-1c23c5798eab">
+                <CLIENT-SERVER-OPERATION UUID="d7df2c35-dd1e-4f30-9653-22f2c0f1ee15">
                   <SHORT-NAME>GetSecurityLevel</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="ecd42467-8eff-45c0-8a9f-6223f8f60e0b">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="2b083f39-5c8a-47ad-bbb4-249db7e9a174">
                       <SHORT-NAME>SecLevel</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_SecLevelType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -2373,10 +2517,10 @@
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/DCMServices/E_OK</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="2a2da7d6-cd20-461c-bc82-27c7d580be6d">
+                <CLIENT-SERVER-OPERATION UUID="c571d396-a7ea-4c97-95b0-79000a03d141">
                   <SHORT-NAME>GetSesCtrlType</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="ecfa9241-893a-47d7-a61f-bfb1721b551b">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="421eb7df-9931-4b25-b7ca-4c6a531570c1">
                       <SHORT-NAME>SesCtrlType</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_SesCtrlType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -2387,17 +2531,17 @@
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/DCMServices/E_OK</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="08104cf5-fd3f-4a42-9e83-5f8d9af665cb">
+                <CLIENT-SERVER-OPERATION UUID="4a0d475a-e5b7-4248-856f-e32dcb0f8232">
                   <SHORT-NAME>ResetToDefaultSession</SHORT-NAME>
                   <POSSIBLE-ERROR-REFS>
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/DCMServices/E_NOT_OK</POSSIBLE-ERROR-REF>
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/DCMServices/E_OK</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="d210e722-ee04-408b-b877-384f593bdc0f">
+                <CLIENT-SERVER-OPERATION UUID="0a4b5f75-61ee-4e1b-9571-659c5f01d279">
                   <SHORT-NAME>SetActiveDiagnostic</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="6e31b629-e424-4299-8230-d3deaf3daa0c">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="fd94eb70-d4f4-4eec-97d5-0d17e1fe2644">
                       <SHORT-NAME>active</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/boolean</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
@@ -2409,17 +2553,17 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="7a3a2188-9b1f-491b-b76d-35f9ef8b7bac">
+                <APPLICATION-ERROR UUID="0f06dd3e-9d26-4996-84e7-85f5031ba531">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="298dac9e-dffc-41c9-96da-948b8698c377">
+                <APPLICATION-ERROR UUID="9f34ac86-b86a-4cbe-81a0-7095cab8a3b9">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="1d09a55b-014b-40de-ad6a-084f73beb459">
+            <CLIENT-SERVER-INTERFACE UUID="2e92d7f2-7553-4f28-bc3f-d99dff30b10f">
               <SHORT-NAME>DataServices_DspData_0xF010_0</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -2430,20 +2574,20 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="0817f422-578c-4542-9f1b-6ff0132cf18a">
+                <CLIENT-SERVER-OPERATION UUID="bf6fb550-e00e-4a59-b883-635a6279bbc0">
                   <SHORT-NAME>ReadData</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="3e3f5d29-6d24-492b-a008-4f715591f721">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="1e21b083-6a8a-469d-8eb4-b0c044072d3f">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="00e3c253-e475-479e-9a08-217ccbcead6b">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="b7006830-2d5b-400f-bb8d-aced8855d0c8">
                       <SHORT-NAME>Data</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_DataElement_DspData_0xF010_0Type</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="6dc4de32-cd3c-4b1d-8b6c-53db98ea56f5">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="925e4b0d-a862-46bd-a1de-45c75ac9d552">
                       <SHORT-NAME>ErrorCode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -2457,21 +2601,21 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="292922d1-e4a2-49e5-9960-d78dca10a514">
+                <APPLICATION-ERROR UUID="06b4a80d-add8-4e21-8345-99764dfbed02">
                   <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
                   <ERROR-CODE>10</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="ac787875-48be-4144-b071-b522e3d82564">
+                <APPLICATION-ERROR UUID="05d70015-ce46-418b-b6d4-c6a2a7ab5e21">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="fc9dfaf2-ff31-4d16-b6ec-a6ffffadb2be">
+                <APPLICATION-ERROR UUID="f63b8612-c9a8-4277-92e5-2735683c0718">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="31d9a801-fd4f-4733-b063-ae8a26434909">
+            <CLIENT-SERVER-INTERFACE UUID="23f178d4-7225-4145-9898-5f4b2795adf7">
               <SHORT-NAME>DataServices_DspData_0xF110_0</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -2482,20 +2626,20 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="dc856121-8d96-4ad3-9d6d-6d492cb90f4c">
+                <CLIENT-SERVER-OPERATION UUID="7881a4ab-0405-44bd-9e40-cb4642f79918">
                   <SHORT-NAME>ReadData</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="7b9ac82d-893e-4f53-888b-4df5d78f3d0d">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="775f0018-66fe-47a8-8156-a871a29a4e69">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="fcd1f4ec-e563-4aec-bc19-ec455223ed1e">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="ec13cbf5-9cdb-4de7-9c93-0ee5cc6c1a02">
                       <SHORT-NAME>Data</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_DataElement_DspData_0xF110_0Type</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="0f340cf6-6aa6-42fc-8b89-2c699c98a558">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="be131c1e-ad4e-4fa0-9b12-a4e53726f7a9">
                       <SHORT-NAME>ErrorCode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -2509,21 +2653,21 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="42bd24cf-438f-4912-854f-bd4c8eae2b71">
+                <APPLICATION-ERROR UUID="c41465e2-4716-45a7-b944-bd602c040140">
                   <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
                   <ERROR-CODE>10</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="cd10ff01-ab21-4be2-a1bd-7393e8bec85a">
+                <APPLICATION-ERROR UUID="e32599ca-5966-4a8a-a89e-fd76de7ce695">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="32fffb7b-f7dd-44eb-af42-2b7ca7dabd41">
+                <APPLICATION-ERROR UUID="50b5ea1b-4a7b-47d9-8e7a-9e71c2e30ab7">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="e7d9bfde-aae2-49ea-a802-869e621e47db">
+            <CLIENT-SERVER-INTERFACE UUID="5fa835b3-a569-48e4-9fd1-46be9f514565">
               <SHORT-NAME>DataServices_DspData_0xF111_0</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -2534,20 +2678,20 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="d76996a1-f9b6-45ed-bec2-5772f09723d5">
+                <CLIENT-SERVER-OPERATION UUID="36303713-ce0a-497a-ad09-c79c0f682047">
                   <SHORT-NAME>ReadData</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="ac041514-d38e-4d1e-be94-cc02d1f85739">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="0ca68878-c748-48a4-9529-bca8201d534f">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="06e7dff8-96af-4c82-bfc5-4a08e164b1dc">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="dabcdda5-41a8-4aeb-9d3e-5eb136c9da3f">
                       <SHORT-NAME>Data</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_DataElement_DspData_0xF111_0Type</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="02f6be18-b793-48e1-b4c8-3948eddecaae">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="2ea92370-fd4c-4026-87e4-bebd4a8e64e0">
                       <SHORT-NAME>ErrorCode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -2561,21 +2705,21 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="da66f8cd-e20e-4453-bb27-052f6448e2e8">
+                <APPLICATION-ERROR UUID="befd4a74-716d-4ebe-bc1e-a378f3764500">
                   <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
                   <ERROR-CODE>10</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="9e6c590d-2f37-4f6b-a7ef-2fccded1793c">
+                <APPLICATION-ERROR UUID="7cbaa495-6717-4195-8a6e-3ea78a83ed73">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="082dad3f-7855-4e38-a4a5-5e2ad619f693">
+                <APPLICATION-ERROR UUID="f7cb6db3-579c-43be-967e-82410fe60fee">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="1c94b9e1-7fb3-49f1-9bfd-33b49e3feb4d">
+            <CLIENT-SERVER-INTERFACE UUID="36ff9c0d-16d1-48b4-a5e2-d6ffd10a3044">
               <SHORT-NAME>DataServices_DspData_0xF118_0</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -2586,20 +2730,20 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="7c2e723f-9102-42f1-b380-2fe22b618267">
+                <CLIENT-SERVER-OPERATION UUID="8bbb7d63-c3c0-4948-81e6-d4dd4c26e854">
                   <SHORT-NAME>ReadData</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="97d31abb-f92f-4960-b986-58ff93d04801">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="886c219c-7f2d-40a4-819f-6af461b8e74c">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="865ff5b2-5da0-4c1b-a806-fd24d64b7531">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="a8ef33f9-49bb-4a89-bba3-aa78b5af0e75">
                       <SHORT-NAME>Data</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_DataElement_DspData_0xF118_0Type</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="e91758e8-b073-46c0-9e20-848f1941b769">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="76fd3c70-c00c-4e28-a433-624484e29ceb">
                       <SHORT-NAME>ErrorCode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -2613,21 +2757,21 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="930e6c7b-198a-4849-9b89-b44c5076ab60">
+                <APPLICATION-ERROR UUID="ddd4e4b0-2498-4ba7-b708-5a3c6901a110">
                   <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
                   <ERROR-CODE>10</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="c7eeed1e-746c-4204-91e6-a186771dd9e3">
+                <APPLICATION-ERROR UUID="c531bf5f-e682-4096-8870-35119551a9b2">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="1e673094-45d6-4d30-a8d3-23d39b96527f">
+                <APPLICATION-ERROR UUID="f28b1e44-d33c-4461-9c00-566bafdf17da">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="911058cc-e7db-4c36-ab72-1e00f249c1c8">
+            <CLIENT-SERVER-INTERFACE UUID="1de7098e-aef8-4794-9472-6d9513fa994f">
               <SHORT-NAME>DataServices_DspData_0xF119_0</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -2638,20 +2782,20 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="222e630e-c343-4870-93e7-fa1e2fd241a4">
+                <CLIENT-SERVER-OPERATION UUID="48956083-f908-4cc0-b373-9d7ace4f8dd1">
                   <SHORT-NAME>ReadData</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="871792ff-1dce-4be9-8ff6-4252fb8ad5df">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="ae372890-c3ac-4060-b2da-f57cbf33d3ed">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="7a76a862-79ff-4469-82ec-d22f732de7ee">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="172fe25a-66ac-46fb-b8ba-d0c1c0092c7d">
                       <SHORT-NAME>Data</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_DataElement_DspData_0xF119_0Type</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="837e16f3-4a82-452e-ae19-0fa0be81f38f">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="d1fdb8d6-f4d9-44f7-8501-01dae7fc03e2">
                       <SHORT-NAME>ErrorCode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -2665,21 +2809,21 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="4ce91096-5717-4f5d-bcd8-a9ac209460cb">
+                <APPLICATION-ERROR UUID="0f6a16dd-b34d-4e35-bbfd-2123054d5d88">
                   <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
                   <ERROR-CODE>10</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="97ccfc6f-5f5d-4fc4-9a2a-3db2a4b8fef8">
+                <APPLICATION-ERROR UUID="4f671b28-7b1f-4def-ae62-eb46c5462664">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="14836eb0-848e-42f2-a1b6-b606b365b4b0">
+                <APPLICATION-ERROR UUID="5735874a-cc1a-4185-88fc-ae48b39d259c">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="dabb50ad-045b-4aca-af81-2f0e554e1632">
+            <CLIENT-SERVER-INTERFACE UUID="c5b59a89-89ef-4dfe-b2a5-ee285f4ad32b">
               <SHORT-NAME>DataServices_DspData_0xF150_0</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -2690,20 +2834,20 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="0c136549-fd97-4f64-a924-abc6ff6176f2">
+                <CLIENT-SERVER-OPERATION UUID="11cb66c0-9d5d-4c4b-9ac9-922dc3690c51">
                   <SHORT-NAME>ReadData</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="f933d253-2eb1-4b0a-ad53-746e5dde9c63">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="a0d5abad-917e-4b99-bc1f-c10d95b30390">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="64b12a6a-8ec4-4f23-9a17-e8da60d4fc5e">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="6ea79cb3-45a4-4a48-8946-60c27b8c692b">
                       <SHORT-NAME>Data</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_DataElement_DspData_0xF150_0Type</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="7adb9598-114c-4dfe-861e-92e6066d09ce">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="92caa1e6-548f-4b6d-89de-5d591bbfa3b9">
                       <SHORT-NAME>ErrorCode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -2717,21 +2861,21 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="2f80044a-c738-4bdc-9623-92b7c4388b28">
+                <APPLICATION-ERROR UUID="f6833dcc-d980-4e22-a523-16bed6c3b744">
                   <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
                   <ERROR-CODE>10</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="aa0000c3-b441-4360-a2f7-aae23555b983">
+                <APPLICATION-ERROR UUID="f808e293-9e9c-4ac0-8158-9ae838ca8a6a">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="0c0cb65d-2a10-4436-a823-19ca05365a6b">
+                <APPLICATION-ERROR UUID="8f35dd45-0831-45ef-9986-f04ded25cfcc">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="b67be192-a22b-4210-a4bb-d60cf802036d">
+            <CLIENT-SERVER-INTERFACE UUID="c8325107-a04a-43f4-bad2-e33721b7a7bc">
               <SHORT-NAME>DataServices_DspData_0xF15B_0</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -2742,20 +2886,20 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="ada0e683-d24b-4ebc-9903-0c37405db50c">
+                <CLIENT-SERVER-OPERATION UUID="3fb1d1a2-026b-4622-b50a-aa7643d7691b">
                   <SHORT-NAME>ReadData</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="8eee79db-ff14-4a97-8427-25ca403484d0">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="1826ca2f-a64a-48cb-a439-c781251aa00d">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="85936a75-085f-47fd-9772-564353f3de69">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="7d924477-c303-4493-8001-6684316ebe36">
                       <SHORT-NAME>Data</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_DataElement_DspData_0xF15B_0Type</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="95588c31-1471-4c3f-a93e-faea8793518c">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="16cd0b1a-9e36-4b45-93a4-13bfb590d2ec">
                       <SHORT-NAME>ErrorCode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -2769,21 +2913,21 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="b3a65fd3-c616-416a-b08d-ff3f18f6f3ae">
+                <APPLICATION-ERROR UUID="835e4de1-e9f6-496a-98af-df09adde5e4d">
                   <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
                   <ERROR-CODE>10</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="24878a90-7ce8-4f82-84bd-1668806bca0a">
+                <APPLICATION-ERROR UUID="f8b3f977-e718-4da8-97f8-49dd2e68461e">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="90a1364e-dee9-4dae-be7b-fd289af9a2f8">
+                <APPLICATION-ERROR UUID="fd322ffb-938b-49e2-beb9-5af3b6e90059">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="87eb546d-0916-43c4-b40a-02bc07a8b509">
+            <CLIENT-SERVER-INTERFACE UUID="b63aed6c-9110-4e0c-b042-98ea72697632">
               <SHORT-NAME>DataServices_DspData_0xF186_0</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -2794,20 +2938,20 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="381e688b-5948-4d43-9dee-b42586b8851f">
+                <CLIENT-SERVER-OPERATION UUID="47b7bdad-fa0b-4cc6-9aae-a845aa8a49e0">
                   <SHORT-NAME>ReadData</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="2762e001-8af0-4800-9104-bc7e272af3ee">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="d3ef84c1-2766-4ac4-943e-c434ebc193ea">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="8976ab23-62ed-45fc-b85c-ee3e4f1dc924">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="4ab6d8af-2687-4011-a517-6e95174c3b3a">
                       <SHORT-NAME>Data</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_DataElement_DspData_0xF186_0Type</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="bdecad54-7498-434a-b74d-3b168f07fc70">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="89132284-85fc-43dd-90f1-6af76ca6bf17">
                       <SHORT-NAME>ErrorCode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -2821,21 +2965,21 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="996cee8d-c83e-44e1-ad8e-5295b6e0c0fb">
+                <APPLICATION-ERROR UUID="09ebd20f-e911-41bc-bc41-5748e0aa4ed7">
                   <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
                   <ERROR-CODE>10</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="b70c1213-2e68-4e17-959b-5fc60266edd1">
+                <APPLICATION-ERROR UUID="beafd2ca-42ef-4ea7-bee4-79ef8e8b3a68">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="9020778b-1e45-4e4a-84c3-26c151dc3748">
+                <APPLICATION-ERROR UUID="1cafe391-6854-4863-85a2-e9dbdf5a7794">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="949a3fc2-10f1-4065-bf90-cbf7d6fda6a2">
+            <CLIENT-SERVER-INTERFACE UUID="09ea5115-5e96-40e5-8fca-6a16c87990fc">
               <SHORT-NAME>DataServices_DspData_0xF18A_0</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -2846,20 +2990,20 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="467fb591-1c8d-4518-a653-a99d14628cc8">
+                <CLIENT-SERVER-OPERATION UUID="01a82a56-515d-49e2-92ec-d2ad972a982f">
                   <SHORT-NAME>ReadData</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="b0b178e4-121c-4e7b-b403-2fc87db6777f">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="038ef961-a80d-44d9-87c5-20f4d55e9e8f">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="a07fd417-f067-4ce1-ad36-0833860870ff">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="9993677f-5391-463e-8024-30e305b57b9d">
                       <SHORT-NAME>Data</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_DataElement_DspData_0xF18A_0Type</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="a9a0ab33-e908-416e-86a4-45ccd1310a2f">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="03d6e1f1-beee-40ad-9bf4-b218b271efd7">
                       <SHORT-NAME>ErrorCode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -2873,21 +3017,21 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="063ddb1d-5e3e-407f-8753-884ce8b070ff">
+                <APPLICATION-ERROR UUID="e82c6003-b824-49ce-951c-5db5800e038f">
                   <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
                   <ERROR-CODE>10</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="64f7bddf-679d-4fde-ab2b-a883444f5268">
+                <APPLICATION-ERROR UUID="c004fc69-376c-4d0d-9335-ac8b355b15fa">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="55e2e3f3-5c9a-45b0-8667-ef8c14e80dbd">
+                <APPLICATION-ERROR UUID="371009ad-3692-4912-a89d-fba72a6fb51b">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="0bcfe68d-4315-49fd-9c6e-18a96ea717fb">
+            <CLIENT-SERVER-INTERFACE UUID="b6dc9586-82a4-4f27-80c0-48f86efd3d9e">
               <SHORT-NAME>DataServices_DspData_0xF18B_0</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -2898,20 +3042,20 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="a2de9ecd-0474-404e-9149-207ca358e69d">
+                <CLIENT-SERVER-OPERATION UUID="de8543fb-57ce-47ff-bfdd-6ac3b4976bee">
                   <SHORT-NAME>ReadData</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="122ce9fb-5394-4aeb-9fb3-db954548a66d">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="99e74c69-226c-4bce-b641-bf7f96061e88">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="d228f5a2-86ba-4f80-be2d-7988617fd28c">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="a113e955-6be2-405d-9ae3-e685c7550557">
                       <SHORT-NAME>Data</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_DataElement_DspData_0xF18B_0Type</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="d47fe28b-6d50-403e-971e-e7c02a6c1c82">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="e9211eb4-a2ef-4196-b6ce-ff08d2eb4d21">
                       <SHORT-NAME>ErrorCode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -2925,21 +3069,21 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="db1acc10-f1c7-4659-8b8e-f6ebdeecb300">
+                <APPLICATION-ERROR UUID="836a456a-1b0b-4ad6-a6f1-f81214b32a7b">
                   <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
                   <ERROR-CODE>10</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="008097a6-b87e-4dce-92ff-5989b57d1648">
+                <APPLICATION-ERROR UUID="72360647-7cff-43ee-9708-a19053ea6237">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="faa452f9-804d-4c1c-8d3d-abd2207fe81e">
+                <APPLICATION-ERROR UUID="6f97c948-3a47-4e80-997b-57ba728a42ad">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="f059c9f9-b92d-41cd-8570-69bff0877340">
+            <CLIENT-SERVER-INTERFACE UUID="c6d91702-b30c-467c-a675-680950c2f6f2">
               <SHORT-NAME>DataServices_DspData_0xF18C_0</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -2950,20 +3094,20 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="13c81cf2-3e54-4af6-ba7a-14648cf5d993">
+                <CLIENT-SERVER-OPERATION UUID="5cb53c86-a8dd-46b5-acf0-fb1229db7d8f">
                   <SHORT-NAME>ReadData</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="392174cf-acc3-43d0-9b54-98782eca05e5">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="d9707b8c-1c67-4943-9fe1-ed8f19431a0d">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="80a46503-cbe0-485a-9ff3-0920c86b862c">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="aa510534-04a2-47b3-be47-d26210b51510">
                       <SHORT-NAME>Data</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_DataElement_DspData_0xF18C_0Type</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="a2b3e1ce-490a-4b01-9716-f52a597716fb">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="1844f5e9-8312-47c8-a0e3-c3e38f39ea43">
                       <SHORT-NAME>ErrorCode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -2977,21 +3121,21 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="22302943-1877-4654-ac0d-05ff97264239">
+                <APPLICATION-ERROR UUID="4a99724f-8e1b-4c48-a029-fb741b3d0b08">
                   <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
                   <ERROR-CODE>10</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="bcda86ee-b0d2-4758-b9f1-5973d954f206">
+                <APPLICATION-ERROR UUID="05f68120-9b2f-4014-97f5-7326ed7de8a5">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="bd104dbd-338d-4f5c-894a-73ea8491777d">
+                <APPLICATION-ERROR UUID="8b32877d-1039-4aa2-90cb-f1d801f23cdb">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="8a6af643-bbbe-4eb3-8158-8add1c2ab324">
+            <CLIENT-SERVER-INTERFACE UUID="12a96cc0-87f2-45be-b7c2-b024252776b2">
               <SHORT-NAME>DataServices_DspData_0xF193_0</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -3002,20 +3146,20 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="6885b807-caa2-490b-bc4f-9f95d04440a1">
+                <CLIENT-SERVER-OPERATION UUID="2ca9bb05-2792-4658-aa12-57f939458b66">
                   <SHORT-NAME>ReadData</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="8c53a390-9499-4be6-82f5-35fbbc5100fa">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="69624207-e0ce-4c1f-b5ad-c4aaf7818d2e">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="c29046d6-dd5d-4639-8795-fda4f7d8c1ba">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="2b1d60c8-38b8-4c7d-887b-71c721ee915a">
                       <SHORT-NAME>Data</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_DataElement_DspData_0xF193_0Type</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="e9c8c936-02de-4f1e-a533-6fc82156a316">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="635c5ffa-e548-46af-a300-f2f28841636a">
                       <SHORT-NAME>ErrorCode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -3029,21 +3173,21 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="530764ef-e8be-4f41-a914-719286a45d9c">
+                <APPLICATION-ERROR UUID="0c1f8ff7-205a-49a0-b68e-8defbc270181">
                   <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
                   <ERROR-CODE>10</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="7afa11e9-c6f8-4598-833a-4c4e2c093903">
+                <APPLICATION-ERROR UUID="8017db66-8882-4906-b276-be9ee1aed95b">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="f7f3ddb7-c921-4d93-bd19-dbab0fef2587">
+                <APPLICATION-ERROR UUID="1dc688af-dc2c-4bad-9c20-2e8e26a5f81a">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="3d6b2fea-4c90-4860-828e-ce17bb7509c8">
+            <CLIENT-SERVER-INTERFACE UUID="f52330a5-428d-4e65-8fdc-592b06e4e587">
               <SHORT-NAME>DataServices_DspData_0xF195_0</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -3054,20 +3198,20 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="741adcfe-0352-485e-8676-ad253a498a10">
+                <CLIENT-SERVER-OPERATION UUID="c00721ed-13f5-44b0-b055-f4d6faa1847b">
                   <SHORT-NAME>ReadData</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="9124806a-b4e4-4a60-a1af-dba8cf7ac481">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="c73f8b4f-eb47-4ee0-9845-29cb14849189">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="c0952ae9-1c72-4d86-97fd-452491afab82">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="8035c9d7-906e-4b14-8af9-6b952e29b1fa">
                       <SHORT-NAME>Data</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_DataElement_DspData_0xF195_0Type</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="ad7a245a-95ec-40c0-a165-37eec8de8975">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="3e746b1f-f906-4ef2-8948-46c6a5752d7f">
                       <SHORT-NAME>ErrorCode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -3081,21 +3225,21 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="3f4bef8c-e880-4830-a610-8b91fca636c3">
+                <APPLICATION-ERROR UUID="5f25c244-0a8d-4bd3-ab01-f40a10c8c0aa">
                   <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
                   <ERROR-CODE>10</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="c87bff1a-d0a3-4b93-8162-f19c0ae9612e">
+                <APPLICATION-ERROR UUID="4d37707e-bef0-42da-bb62-78c5a9ec8e91">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="78b25d07-0aa2-471a-bdc7-bf6769d5417d">
+                <APPLICATION-ERROR UUID="69af3462-2154-438a-84fc-8bb866bd933e">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="88fc198f-26bc-4f30-8910-4da9ec1c10b0">
+            <CLIENT-SERVER-INTERFACE UUID="5d32b94c-20e4-4c9c-b318-16b640eb2407">
               <SHORT-NAME>DataServices_DspData_0xF19E_0</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -3106,20 +3250,20 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="8e1d2121-cb84-4100-a1d5-a2be02d98caa">
+                <CLIENT-SERVER-OPERATION UUID="6a888119-868a-4c9b-bc10-ecf43b152e72">
                   <SHORT-NAME>ReadData</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="391de1f5-3ccb-40e6-8982-e3fb05e07281">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="f7f5f7ac-dc0c-4415-9e5e-ac5a49be1664">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="b7a170ce-e2f1-453d-a1ae-2bc3e520a80e">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="84c032b4-2735-445f-bd9f-79edf92ce18a">
                       <SHORT-NAME>Data</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_DataElement_DspData_0xF19E_0Type</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="7f9e7e25-b895-4468-8d6d-3f039aa2b484">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="0ac24c5d-e899-4403-adc6-0ad0a3ee8897">
                       <SHORT-NAME>ErrorCode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -3133,21 +3277,21 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="e928c069-89e0-4576-bf4f-630988f1b231">
+                <APPLICATION-ERROR UUID="78c18f64-f54f-4f6c-aaff-6e6e5591b1ce">
                   <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
                   <ERROR-CODE>10</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="12419da9-4100-4c5b-b0ef-3a2b96613fc5">
+                <APPLICATION-ERROR UUID="b1a85b51-a823-42b4-8fcb-f54cdee65183">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="8b6d2b96-f945-44bc-892c-c5e4ff94d447">
+                <APPLICATION-ERROR UUID="7d6ee669-e123-49b3-a2fd-a73f2e800a55">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="12eee796-fc21-4b06-9c68-fda83c57bf5f">
+            <CLIENT-SERVER-INTERFACE UUID="a5ddf002-747b-473d-9cfa-44e546e3c6ea">
               <SHORT-NAME>DataServices_DspData_0xFD01_0</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -3158,20 +3302,20 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="235cd381-eab1-4b89-95dd-2eec5c2853a6">
+                <CLIENT-SERVER-OPERATION UUID="42bfda09-fc03-463a-9472-120d0fa56b54">
                   <SHORT-NAME>ReadData</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="fa87f81d-b8b4-4ca3-8cb9-d9c61328dc95">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="b5094fa2-8442-463f-8d7d-7bb1538d4472">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="abfcdd97-643c-4d9a-85a3-d56f8344ded1">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="8a897341-881f-4b0d-94cf-fd91a64c36c9">
                       <SHORT-NAME>Data</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_DataElement_DspData_0xFD01_0Type</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="fcfec7c0-48b0-4288-801b-3d1ec33ac5ca">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="850195a3-9891-4574-85f0-c48bfaf61bf3">
                       <SHORT-NAME>ErrorCode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -3185,21 +3329,21 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="91a79c5c-94da-4792-9257-fb2b0dcb200d">
+                <APPLICATION-ERROR UUID="3a30fe00-ba91-475a-8a11-61caea0962d2">
                   <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
                   <ERROR-CODE>10</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="ff42fa6b-66c2-4f92-bc79-5b62d1cb1ee6">
+                <APPLICATION-ERROR UUID="03dcbd6c-2d68-4195-b08e-7eaec71f1ef1">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="93d3e3f5-e8e2-45e2-a48b-529ce3b251da">
+                <APPLICATION-ERROR UUID="292f60a1-6297-4caf-beb1-94313a95900c">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="b7a377b3-ccfe-434f-b2f6-e6c797da6299">
+            <CLIENT-SERVER-INTERFACE UUID="520e87b2-0a42-4880-913c-65274b97e8d1">
               <SHORT-NAME>DataServices_DspData_0xFD02_0</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -3210,20 +3354,20 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="1464b0c4-8e2e-486a-a477-87213d0379ce">
+                <CLIENT-SERVER-OPERATION UUID="65dbb343-aed4-4577-9f89-ed5c68b2678f">
                   <SHORT-NAME>ReadData</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="67c1f083-6ca1-46ba-aa91-310c8eb2c72d">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="61ad8fdd-54f2-481d-a756-c2333e32744a">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="cb26c36f-6f84-41b8-be03-7f249c3a1c76">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="e9f1eb09-5621-42a8-9cfb-85af19adf429">
                       <SHORT-NAME>Data</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_DataElement_DspData_0xFD02_0Type</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="a2e3e2b1-1740-4dc3-8645-c7293f503d59">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="b9a19554-a10d-4893-8b51-a0fa5fa13ad5">
                       <SHORT-NAME>ErrorCode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -3237,21 +3381,21 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="231fc634-9398-4987-bd68-a1166912b48b">
+                <APPLICATION-ERROR UUID="66cb3a65-a114-4a92-91db-8ad83a75fc73">
                   <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
                   <ERROR-CODE>10</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="17295c95-8abf-473d-8b3c-3d28fd15e01a">
+                <APPLICATION-ERROR UUID="acb43b45-aa93-4ad0-bf5f-d83f26766ba7">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="349d87e2-35d1-474f-939d-9a87839b6f2f">
+                <APPLICATION-ERROR UUID="b6804ce9-5aab-4098-9ec8-2fe175293346">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="33f431fd-7384-46a8-a4be-da9115a1a18e">
+            <CLIENT-SERVER-INTERFACE UUID="627c4682-7cc0-422c-9f1d-c78d11f52675">
               <SHORT-NAME>RoutineServices_0x0203</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -3262,20 +3406,20 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="91966f58-b12a-407b-b2eb-45267993bcd7">
+                <CLIENT-SERVER-OPERATION UUID="ee36418a-269d-44a5-9155-2ef41c670777">
                   <SHORT-NAME>Start</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="ab2aba15-75cc-45a5-85fb-ed95b87c824c">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="db3e7688-b008-488e-901d-51f573df6257">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="be7a85be-11eb-4479-b9a5-5e0c52ca4da1">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="88edbfb6-479c-4430-bd08-d050eb96a496">
                       <SHORT-NAME>DataOut_DspRoutine0x0203_StartOutSignal</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_StartDataOut_DspRoutine0x0203_DspRoutine0x0203_StartOutSignalType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="195f6752-52b1-4aa6-aed7-e754bc5ffa4c">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="38328531-a04d-42e4-bc20-c061f6b8a740">
                       <SHORT-NAME>ErrorCode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -3290,25 +3434,201 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="46e619d7-36b9-4c85-9b18-bffc5c1dcaae">
+                <APPLICATION-ERROR UUID="f1724875-afa2-40ee-835a-eee2c7f66b34">
                   <SHORT-NAME>DCM_E_FORCE_RCRRP</SHORT-NAME>
                   <ERROR-CODE>12</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="7a130f0d-6a95-47f3-9314-87946f3c36b6">
+                <APPLICATION-ERROR UUID="3475792f-49f7-4cad-a9ab-073764927c32">
                   <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
                   <ERROR-CODE>10</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="d826aa0e-02b2-4b98-948f-ae36edc7cd21">
+                <APPLICATION-ERROR UUID="8a07a5ec-b29d-49ab-bcf4-43e49f7815b4">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="0db17293-40be-457f-814d-5897dd79d042">
+                <APPLICATION-ERROR UUID="897d5b7b-f865-4317-82b1-67480fa16444">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="6ca54ad1-afb1-4b2a-bd69-ce5b4b6040d5">
+            <CLIENT-SERVER-INTERFACE UUID="ac3e35b4-1bd7-4f18-91b2-9f2fab5ecbff">
+              <SHORT-NAME>RoutineServices_0xFD01</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">True</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
+              <OPERATIONS>
+                <CLIENT-SERVER-OPERATION UUID="dbc002ec-9a6e-4891-aa78-66cb6127d33a">
+                  <SHORT-NAME>Start</SHORT-NAME>
+                  <ARGUMENTS>
+                    <ARGUMENT-DATA-PROTOTYPE UUID="daa7bd4b-aa74-4995-9af9-155cd07ad1cc">
+                      <SHORT-NAME>OpStatus</SHORT-NAME>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
+                      <DIRECTION>IN</DIRECTION>
+                    </ARGUMENT-DATA-PROTOTYPE>
+                    <ARGUMENT-DATA-PROTOTYPE UUID="5a750b99-99e3-4d4d-8cc6-a5ca239ae2cf">
+                      <SHORT-NAME>ErrorCode</SHORT-NAME>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
+                      <DIRECTION>OUT</DIRECTION>
+                    </ARGUMENT-DATA-PROTOTYPE>
+                  </ARGUMENTS>
+                  <POSSIBLE-ERROR-REFS>
+                    <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/RoutineServices_0xFD01/DCM_E_FORCE_RCRRP</POSSIBLE-ERROR-REF>
+                    <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/RoutineServices_0xFD01/DCM_E_PENDING</POSSIBLE-ERROR-REF>
+                    <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/RoutineServices_0xFD01/E_NOT_OK</POSSIBLE-ERROR-REF>
+                    <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/RoutineServices_0xFD01/E_OK</POSSIBLE-ERROR-REF>
+                  </POSSIBLE-ERROR-REFS>
+                </CLIENT-SERVER-OPERATION>
+              </OPERATIONS>
+              <POSSIBLE-ERRORS>
+                <APPLICATION-ERROR UUID="fc726d26-ff80-42ee-9c38-e2507e6439de">
+                  <SHORT-NAME>DCM_E_FORCE_RCRRP</SHORT-NAME>
+                  <ERROR-CODE>12</ERROR-CODE>
+                </APPLICATION-ERROR>
+                <APPLICATION-ERROR UUID="fe8b261d-df29-41c9-967a-afc68f17a0fb">
+                  <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
+                  <ERROR-CODE>10</ERROR-CODE>
+                </APPLICATION-ERROR>
+                <APPLICATION-ERROR UUID="bf6ac160-590f-4a22-a5df-b9284f885b0c">
+                  <SHORT-NAME>E_NOT_OK</SHORT-NAME>
+                  <ERROR-CODE>1</ERROR-CODE>
+                </APPLICATION-ERROR>
+                <APPLICATION-ERROR UUID="2d8cd8d4-166b-4636-b576-0d8f8de8c6b4">
+                  <SHORT-NAME>E_OK</SHORT-NAME>
+                  <ERROR-CODE>0</ERROR-CODE>
+                </APPLICATION-ERROR>
+              </POSSIBLE-ERRORS>
+            </CLIENT-SERVER-INTERFACE>
+            <CLIENT-SERVER-INTERFACE UUID="908d21ec-e1d8-4cde-9a81-39a10cf51650">
+              <SHORT-NAME>RoutineServices_0xFD04</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">True</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
+              <OPERATIONS>
+                <CLIENT-SERVER-OPERATION UUID="a13d3a37-051e-4153-b112-32d47b250bab">
+                  <SHORT-NAME>Start</SHORT-NAME>
+                  <ARGUMENTS>
+                    <ARGUMENT-DATA-PROTOTYPE UUID="26f8559a-6084-4287-b20c-7dbd65a77fea">
+                      <SHORT-NAME>DataIn_DspRoutine0xFD04_StartInSignal</SHORT-NAME>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_StartDataIn_DspRoutine0xFD04_DspRoutine0xFD04_StartInSignalType</TYPE-TREF>
+                      <DIRECTION>IN</DIRECTION>
+                    </ARGUMENT-DATA-PROTOTYPE>
+                    <ARGUMENT-DATA-PROTOTYPE UUID="e2d252d3-0c6a-46aa-9dd1-c0bf7e5dda8e">
+                      <SHORT-NAME>OpStatus</SHORT-NAME>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
+                      <DIRECTION>IN</DIRECTION>
+                    </ARGUMENT-DATA-PROTOTYPE>
+                    <ARGUMENT-DATA-PROTOTYPE UUID="ce7fc284-2f8d-4cc6-b278-54cdf70b64d0">
+                      <SHORT-NAME>DataOut_DspRoutine0xFD04_StartOutSignal</SHORT-NAME>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_StartDataOut_DspRoutine0xFD04_DspRoutine0xFD04_StartOutSignalType</TYPE-TREF>
+                      <DIRECTION>OUT</DIRECTION>
+                    </ARGUMENT-DATA-PROTOTYPE>
+                    <ARGUMENT-DATA-PROTOTYPE UUID="81aef2f4-2a1d-4f3e-a730-0f81070aae38">
+                      <SHORT-NAME>ErrorCode</SHORT-NAME>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
+                      <DIRECTION>OUT</DIRECTION>
+                    </ARGUMENT-DATA-PROTOTYPE>
+                  </ARGUMENTS>
+                  <POSSIBLE-ERROR-REFS>
+                    <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/RoutineServices_0xFD04/DCM_E_FORCE_RCRRP</POSSIBLE-ERROR-REF>
+                    <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/RoutineServices_0xFD04/DCM_E_PENDING</POSSIBLE-ERROR-REF>
+                    <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/RoutineServices_0xFD04/E_NOT_OK</POSSIBLE-ERROR-REF>
+                    <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/RoutineServices_0xFD04/E_OK</POSSIBLE-ERROR-REF>
+                  </POSSIBLE-ERROR-REFS>
+                </CLIENT-SERVER-OPERATION>
+              </OPERATIONS>
+              <POSSIBLE-ERRORS>
+                <APPLICATION-ERROR UUID="898a814c-b7a7-4c5c-a9c0-550e3dbc6bd9">
+                  <SHORT-NAME>DCM_E_FORCE_RCRRP</SHORT-NAME>
+                  <ERROR-CODE>12</ERROR-CODE>
+                </APPLICATION-ERROR>
+                <APPLICATION-ERROR UUID="327e6c86-5192-4711-8b62-54b7b93dc2d1">
+                  <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
+                  <ERROR-CODE>10</ERROR-CODE>
+                </APPLICATION-ERROR>
+                <APPLICATION-ERROR UUID="ce8d3a87-825c-4373-a540-e34fa3cd3b85">
+                  <SHORT-NAME>E_NOT_OK</SHORT-NAME>
+                  <ERROR-CODE>1</ERROR-CODE>
+                </APPLICATION-ERROR>
+                <APPLICATION-ERROR UUID="f9b1c4a8-d6f7-4894-84ea-5cb39e2a9d5c">
+                  <SHORT-NAME>E_OK</SHORT-NAME>
+                  <ERROR-CODE>0</ERROR-CODE>
+                </APPLICATION-ERROR>
+              </POSSIBLE-ERRORS>
+            </CLIENT-SERVER-INTERFACE>
+            <CLIENT-SERVER-INTERFACE UUID="0293b2db-5fb1-4580-83a0-e54b4f260f48">
+              <SHORT-NAME>RoutineServices_0xFD05</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">True</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
+              <OPERATIONS>
+                <CLIENT-SERVER-OPERATION UUID="32a0e353-dd31-4832-ad89-d003d0416a20">
+                  <SHORT-NAME>Start</SHORT-NAME>
+                  <ARGUMENTS>
+                    <ARGUMENT-DATA-PROTOTYPE UUID="89a9a5e8-bb2a-4f01-a505-70628d0e070b">
+                      <SHORT-NAME>DataIn_DspRoutine0xFD05_StartInSignal</SHORT-NAME>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_StartDataIn_DspRoutine0xFD05_DspRoutine0xFD05_StartInSignalType</TYPE-TREF>
+                      <DIRECTION>IN</DIRECTION>
+                    </ARGUMENT-DATA-PROTOTYPE>
+                    <ARGUMENT-DATA-PROTOTYPE UUID="e9407d5b-6015-44f5-a42c-194eaa9856ab">
+                      <SHORT-NAME>OpStatus</SHORT-NAME>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
+                      <DIRECTION>IN</DIRECTION>
+                    </ARGUMENT-DATA-PROTOTYPE>
+                    <ARGUMENT-DATA-PROTOTYPE UUID="f58a4f86-b2be-4c35-8e34-78ff901350ba">
+                      <SHORT-NAME>DataOut_DspRoutine0xFD05_StartOutSignal</SHORT-NAME>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_StartDataOut_DspRoutine0xFD05_DspRoutine0xFD05_StartOutSignalType</TYPE-TREF>
+                      <DIRECTION>OUT</DIRECTION>
+                    </ARGUMENT-DATA-PROTOTYPE>
+                    <ARGUMENT-DATA-PROTOTYPE UUID="6e7fc06d-c731-447b-875c-dd68e2717285">
+                      <SHORT-NAME>ErrorCode</SHORT-NAME>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
+                      <DIRECTION>OUT</DIRECTION>
+                    </ARGUMENT-DATA-PROTOTYPE>
+                  </ARGUMENTS>
+                  <POSSIBLE-ERROR-REFS>
+                    <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/RoutineServices_0xFD05/DCM_E_FORCE_RCRRP</POSSIBLE-ERROR-REF>
+                    <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/RoutineServices_0xFD05/DCM_E_PENDING</POSSIBLE-ERROR-REF>
+                    <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/RoutineServices_0xFD05/E_NOT_OK</POSSIBLE-ERROR-REF>
+                    <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/RoutineServices_0xFD05/E_OK</POSSIBLE-ERROR-REF>
+                  </POSSIBLE-ERROR-REFS>
+                </CLIENT-SERVER-OPERATION>
+              </OPERATIONS>
+              <POSSIBLE-ERRORS>
+                <APPLICATION-ERROR UUID="b90e6e86-aa24-4307-a02b-84f4da8c9af8">
+                  <SHORT-NAME>DCM_E_FORCE_RCRRP</SHORT-NAME>
+                  <ERROR-CODE>12</ERROR-CODE>
+                </APPLICATION-ERROR>
+                <APPLICATION-ERROR UUID="b05017ae-cca8-4661-903f-39b4d551d131">
+                  <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
+                  <ERROR-CODE>10</ERROR-CODE>
+                </APPLICATION-ERROR>
+                <APPLICATION-ERROR UUID="dc2d12f3-33dd-40a9-8cac-47071cd3a702">
+                  <SHORT-NAME>E_NOT_OK</SHORT-NAME>
+                  <ERROR-CODE>1</ERROR-CODE>
+                </APPLICATION-ERROR>
+                <APPLICATION-ERROR UUID="397f5524-1ec6-4dfa-a154-0103efd589a4">
+                  <SHORT-NAME>E_OK</SHORT-NAME>
+                  <ERROR-CODE>0</ERROR-CODE>
+                </APPLICATION-ERROR>
+              </POSSIBLE-ERRORS>
+            </CLIENT-SERVER-INTERFACE>
+            <CLIENT-SERVER-INTERFACE UUID="faf048fe-b2b3-41e7-ae3f-f72808c43acb">
               <SHORT-NAME>SecurityAccess_L2</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -3319,20 +3639,20 @@
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="0845eaec-a4d4-4241-8df8-02f22ff2c4fd">
+                <CLIENT-SERVER-OPERATION UUID="f56d7fd4-9212-4994-99e7-658120918b2b">
                   <SHORT-NAME>CompareKey</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="8ca266ac-0f75-4e2b-8168-28f22a520bdf">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="a78f248c-6645-4da9-9544-571f4d89e89f">
                       <SHORT-NAME>Key</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_KeyArray_L2Type</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="508c8747-4323-4120-89cc-437e15d155e1">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="7fe5d809-ba15-4ea4-ba18-80d400e4a160">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="6cacdeed-3dcd-491f-9bf7-b7d3333a588d">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="b0d34673-36cb-4eaa-9fb5-5ab8b73dfb11">
                       <SHORT-NAME>ErrorCode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -3345,15 +3665,15 @@
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/SecurityAccess_L2/E_OK</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="408e29a2-cb4b-4d3b-ba8b-18b268378acf">
+                <CLIENT-SERVER-OPERATION UUID="b336ab0a-c919-4832-9c3f-4b38d7d5f0cc">
                   <SHORT-NAME>GetSecurityAttemptCounter</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="edb0d8ce-f655-44db-be2a-05e18ccf58f9">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="7cf83033-23cc-4dcd-9bfe-0bdcc0cde3cc">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="2275d874-aedb-47f0-a44d-8ff67a2b73cd">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="da3760c1-eecf-492a-9f7c-2cbd459f8bb7">
                       <SHORT-NAME>AttemptCounter</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/uint8</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -3365,20 +3685,20 @@
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/SecurityAccess_L2/E_OK</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="b9f8f752-d66c-4d9c-8db6-c1240f87e07e">
+                <CLIENT-SERVER-OPERATION UUID="97758acd-ccf6-4e1e-91b0-cfc3698ecc3b">
                   <SHORT-NAME>GetSeed</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="c39a02eb-ea64-4a9b-abb5-304cfb9ca301">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="2ae7da72-c8c6-4cdb-8af1-25c55684f454">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="0b3f7f9c-af31-4448-800f-bb3cc4fb4bed">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="2cf42383-20c3-4ac4-b315-2ffbecf8882f">
                       <SHORT-NAME>Seed</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_SeedArray_L2Type</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="ec108844-6402-4a23-b955-a52aea5048a0">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="3164e167-6256-466c-87da-b0263b017c8e">
                       <SHORT-NAME>ErrorCode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_NegativeResponseCodeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -3390,15 +3710,15 @@
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/SecurityAccess_L2/E_OK</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="b8fc241b-a9d1-46b6-b5c1-070e887a47d0">
+                <CLIENT-SERVER-OPERATION UUID="7d61fd4c-7995-4264-a55d-0c0e79f828c4">
                   <SHORT-NAME>SetSecurityAttemptCounter</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="2dbf7695-9ee3-4e41-a179-da3d99a53a47">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="2704c100-0e70-4bbe-8849-68b5c5858e23">
                       <SHORT-NAME>OpStatus</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/Dcm_OpStatusType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="84cab411-92a2-4aef-9d0d-77a6b551320c">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="1eb38bf6-2c94-409c-9093-2c1ca30fc40a">
                       <SHORT-NAME>AttemptCounter</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/uint8</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
@@ -3412,25 +3732,25 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="06d4f551-9bd3-4912-8630-6d111d027046">
+                <APPLICATION-ERROR UUID="484ca59a-791f-4f19-ab76-a732f7ae17a9">
                   <SHORT-NAME>DCM_E_COMPARE_KEY_FAILED</SHORT-NAME>
                   <ERROR-CODE>11</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="96687689-62fc-4e59-92dd-9da4d2cca68c">
+                <APPLICATION-ERROR UUID="b4c90054-3558-44ad-a5d1-931d5c4026e1">
                   <SHORT-NAME>DCM_E_PENDING</SHORT-NAME>
                   <ERROR-CODE>10</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="d8811faf-fc74-4d8e-861a-3079d17999bd">
+                <APPLICATION-ERROR UUID="ada0cd00-45e7-4de0-85b8-883735125c8a">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="67ca8b95-8eb0-4136-b9f8-f3016da31219">
+                <APPLICATION-ERROR UUID="e8dc0882-7df6-42a0-ac5d-69addb47bdcd">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <MODE-SWITCH-INTERFACE UUID="3992272e-9873-4d39-b166-608b73621ee9">
+            <MODE-SWITCH-INTERFACE UUID="83760f08-d5d9-4475-a845-3dcd68be2d4d">
               <SHORT-NAME>DcmCommunicationControl_ComM_BODY_LE1_CAN</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -3440,12 +3760,12 @@
                 </SDGS>
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
-              <MODE-GROUP UUID="a4868c70-6e4e-47dd-8ff5-acfd790e9178">
+              <MODE-GROUP UUID="274ac3ec-ea03-4f4c-a609-7a8908d0ce1b">
                 <SHORT-NAME>DcmCommunicationControl_ComM_BODY_LE1_CAN</SHORT-NAME>
                 <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/BSW/ModeDeclarationGroups/DcmCommunicationControl_ComM_BODY_LE1_CAN</TYPE-TREF>
               </MODE-GROUP>
             </MODE-SWITCH-INTERFACE>
-            <MODE-SWITCH-INTERFACE UUID="61d975cf-4343-4d3a-8f28-4b0a796bfe6f">
+            <MODE-SWITCH-INTERFACE UUID="c5ed8ad9-0b7b-45e5-9b09-a7177ceb25ad">
               <SHORT-NAME>DcmControlDtcSetting</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -3455,12 +3775,12 @@
                 </SDGS>
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
-              <MODE-GROUP UUID="fec3538d-10e4-4fe0-809f-dd99c522f4a4">
+              <MODE-GROUP UUID="33eef141-1be2-4592-b59d-ac479f4ca1d2">
                 <SHORT-NAME>DcmControlDtcSetting</SHORT-NAME>
                 <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/BSW/ModeDeclarationGroups/DcmControlDtcSetting</TYPE-TREF>
               </MODE-GROUP>
             </MODE-SWITCH-INTERFACE>
-            <MODE-SWITCH-INTERFACE UUID="38bc4b5f-3f52-4e82-907d-2d1229ca2ba7">
+            <MODE-SWITCH-INTERFACE UUID="1ea36cce-cd91-49e1-b3eb-a0f9b8bfe1d9">
               <SHORT-NAME>DcmDiagnosticSessionControl</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -3470,12 +3790,12 @@
                 </SDGS>
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
-              <MODE-GROUP UUID="b1f11ba3-9762-4875-96c5-bd7ba710c213">
+              <MODE-GROUP UUID="cc748cfc-4e6f-4f70-88be-ddec95b4332d">
                 <SHORT-NAME>DcmDiagnosticSessionControl</SHORT-NAME>
                 <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/BSW/ModeDeclarationGroups/DcmDiagnosticSessionControl</TYPE-TREF>
               </MODE-GROUP>
             </MODE-SWITCH-INTERFACE>
-            <MODE-SWITCH-INTERFACE UUID="7566c86c-d48a-4481-93c1-ea86df530560">
+            <MODE-SWITCH-INTERFACE UUID="f3813143-59be-4503-bb0e-9b7d349d7ea6">
               <SHORT-NAME>DcmEcuReset</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -3485,12 +3805,12 @@
                 </SDGS>
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
-              <MODE-GROUP UUID="cdf736c9-47ec-464f-bb8e-85315b96cc65">
+              <MODE-GROUP UUID="1f3e6cf0-d733-4583-a6f8-16068f73440e">
                 <SHORT-NAME>DcmEcuReset</SHORT-NAME>
                 <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/BSW/ModeDeclarationGroups/DcmEcuReset</TYPE-TREF>
               </MODE-GROUP>
             </MODE-SWITCH-INTERFACE>
-            <MODE-SWITCH-INTERFACE UUID="aa4d121b-8d27-4a25-a9d0-294b1f950426">
+            <MODE-SWITCH-INTERFACE UUID="2073a499-cbf0-47cb-94c6-2a797be75640">
               <SHORT-NAME>DcmSecurityAccess</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -3500,20 +3820,20 @@
                 </SDGS>
               </ADMIN-DATA>
               <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
-              <MODE-GROUP UUID="e549f3e8-7284-4c27-9a74-b61877e23668">
+              <MODE-GROUP UUID="f96349da-8f07-40be-8171-96def4dc3fae">
                 <SHORT-NAME>DcmSecurityAccess</SHORT-NAME>
                 <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/BSW/ModeDeclarationGroups/DcmSecurityAccess</TYPE-TREF>
               </MODE-GROUP>
             </MODE-SWITCH-INTERFACE>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="f86b0598-0457-4af1-b059-6151c2d92adb">
+        <AR-PACKAGE UUID="006f12da-1b29-4f03-a6f9-e32bd8726f99">
           <SHORT-NAME>SWCs</SHORT-NAME>
           <ELEMENTS>
-            <COMPOSITION-SW-COMPONENT-TYPE UUID="66e21a5c-76cc-4fc5-8e8c-82061e2c0cf8">
+            <COMPOSITION-SW-COMPONENT-TYPE UUID="2b04581f-41bc-42b6-9375-60f01c31c7bf">
               <SHORT-NAME>TopComposition</SHORT-NAME>
               <PORTS>
-                <P-PORT-PROTOTYPE UUID="63afc863-64ab-4da0-a4f3-bb834aea9850">
+                <P-PORT-PROTOTYPE UUID="064a15ad-e764-4832-a7da-8cd6f46e7bd8">
                   <SHORT-NAME>CallbackDCMRequestServices_User</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3524,7 +3844,7 @@
                   </ADMIN-DATA>
                   <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/CallbackDCMRequestServices</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
-                <R-PORT-PROTOTYPE UUID="21923491-b819-444c-992f-2c042697b0c8">
+                <R-PORT-PROTOTYPE UUID="7154cadb-6000-4748-b33d-ceb3fb22c1bc">
                   <SHORT-NAME>DCMServices</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3535,7 +3855,7 @@
                   </ADMIN-DATA>
                   <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/DCMServices</REQUIRED-INTERFACE-TREF>
                 </R-PORT-PROTOTYPE>
-                <P-PORT-PROTOTYPE UUID="d98b11fb-bf68-41dd-9d38-06177300e53b">
+                <P-PORT-PROTOTYPE UUID="ad416da9-af3d-40a6-9348-44655acddc36">
                   <SHORT-NAME>DataServices_DspData_0xF010_0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3546,7 +3866,7 @@
                   </ADMIN-DATA>
                   <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/DataServices_DspData_0xF010_0</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
-                <P-PORT-PROTOTYPE UUID="ba7a4287-da9d-440c-8b1e-3f71ac88728a">
+                <P-PORT-PROTOTYPE UUID="b9eaced5-2c9b-464d-9ff4-bdf38f8f425b">
                   <SHORT-NAME>DataServices_DspData_0xF110_0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3557,7 +3877,7 @@
                   </ADMIN-DATA>
                   <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/DataServices_DspData_0xF110_0</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
-                <P-PORT-PROTOTYPE UUID="7ae4c88c-9a71-4f64-acd1-55d7ebac167b">
+                <P-PORT-PROTOTYPE UUID="5dc646c9-88dd-4ad2-8e14-30bb9b1c0f51">
                   <SHORT-NAME>DataServices_DspData_0xF111_0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3568,7 +3888,7 @@
                   </ADMIN-DATA>
                   <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/DataServices_DspData_0xF111_0</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
-                <P-PORT-PROTOTYPE UUID="cf0af1b4-8239-43db-9da6-843b81afaf11">
+                <P-PORT-PROTOTYPE UUID="19204ce5-87d6-4118-8955-7dffbb60f3c6">
                   <SHORT-NAME>DataServices_DspData_0xF118_0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3579,7 +3899,7 @@
                   </ADMIN-DATA>
                   <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/DataServices_DspData_0xF118_0</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
-                <P-PORT-PROTOTYPE UUID="40f93021-74dd-400b-81be-682b49409475">
+                <P-PORT-PROTOTYPE UUID="34184552-b8a2-4dc1-a4b0-cf017fd218e0">
                   <SHORT-NAME>DataServices_DspData_0xF119_0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3590,7 +3910,7 @@
                   </ADMIN-DATA>
                   <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/DataServices_DspData_0xF119_0</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
-                <P-PORT-PROTOTYPE UUID="6489bb0f-dea9-4665-9c51-108c25655ad4">
+                <P-PORT-PROTOTYPE UUID="2141959a-d9e4-461e-af12-f2789ff7276e">
                   <SHORT-NAME>DataServices_DspData_0xF150_0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3601,7 +3921,7 @@
                   </ADMIN-DATA>
                   <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/DataServices_DspData_0xF150_0</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
-                <P-PORT-PROTOTYPE UUID="f847d6f2-0f87-413f-92ab-e5da57834b2e">
+                <P-PORT-PROTOTYPE UUID="9fcd1685-42a6-4fa5-acd3-a33d2222fb1d">
                   <SHORT-NAME>DataServices_DspData_0xF15B_0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3612,7 +3932,7 @@
                   </ADMIN-DATA>
                   <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/DataServices_DspData_0xF15B_0</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
-                <P-PORT-PROTOTYPE UUID="47d0c4b7-5b7b-4234-9442-4502d45109aa">
+                <P-PORT-PROTOTYPE UUID="0c99bb27-3f98-4ae9-9db1-29b1d4d29719">
                   <SHORT-NAME>DataServices_DspData_0xF186_0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3623,7 +3943,7 @@
                   </ADMIN-DATA>
                   <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/DataServices_DspData_0xF186_0</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
-                <P-PORT-PROTOTYPE UUID="caf859bb-585f-4025-9e1a-e4f0581700e6">
+                <P-PORT-PROTOTYPE UUID="c9e69b4c-0c3c-4e48-91f6-b2d3b41dd92c">
                   <SHORT-NAME>DataServices_DspData_0xF18A_0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3634,7 +3954,7 @@
                   </ADMIN-DATA>
                   <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/DataServices_DspData_0xF18A_0</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
-                <P-PORT-PROTOTYPE UUID="69a66285-9dbe-41e4-9149-49ea4516c221">
+                <P-PORT-PROTOTYPE UUID="8b372d82-ea2b-41c5-a06b-ac032f58ec37">
                   <SHORT-NAME>DataServices_DspData_0xF18B_0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3645,7 +3965,7 @@
                   </ADMIN-DATA>
                   <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/DataServices_DspData_0xF18B_0</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
-                <P-PORT-PROTOTYPE UUID="75147de8-c908-4c68-a1ff-f36d56ac961c">
+                <P-PORT-PROTOTYPE UUID="81a096e3-9e61-47b3-bfed-9b0564502ff6">
                   <SHORT-NAME>DataServices_DspData_0xF18C_0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3656,7 +3976,7 @@
                   </ADMIN-DATA>
                   <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/DataServices_DspData_0xF18C_0</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
-                <P-PORT-PROTOTYPE UUID="d7814aa6-6b31-4fc1-883d-39f8f1f20474">
+                <P-PORT-PROTOTYPE UUID="cbb2eef0-2716-489c-8b32-16e2f5e0538b">
                   <SHORT-NAME>DataServices_DspData_0xF193_0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3667,7 +3987,7 @@
                   </ADMIN-DATA>
                   <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/DataServices_DspData_0xF193_0</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
-                <P-PORT-PROTOTYPE UUID="3af16774-98c2-4e39-a47b-c2a7121b4c5c">
+                <P-PORT-PROTOTYPE UUID="6c5dfe2c-37ea-40e8-86f7-2a68927a0096">
                   <SHORT-NAME>DataServices_DspData_0xF195_0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3678,7 +3998,7 @@
                   </ADMIN-DATA>
                   <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/DataServices_DspData_0xF195_0</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
-                <P-PORT-PROTOTYPE UUID="3778206b-467a-49df-a094-92b5b202f864">
+                <P-PORT-PROTOTYPE UUID="45fbe7f7-e309-4133-8dd5-e64341c6878b">
                   <SHORT-NAME>DataServices_DspData_0xF19E_0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3689,7 +4009,7 @@
                   </ADMIN-DATA>
                   <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/DataServices_DspData_0xF19E_0</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
-                <P-PORT-PROTOTYPE UUID="37c05876-9078-4ff1-8c36-9f0851315e14">
+                <P-PORT-PROTOTYPE UUID="95edce4b-215c-4cff-ab87-d1dd89064cc9">
                   <SHORT-NAME>DataServices_DspData_0xFD01_0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3700,7 +4020,7 @@
                   </ADMIN-DATA>
                   <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/DataServices_DspData_0xFD01_0</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
-                <P-PORT-PROTOTYPE UUID="b7752467-ab60-40a9-b8ae-04aefdd75be5">
+                <P-PORT-PROTOTYPE UUID="5f306b17-df3d-45a7-a125-6907e38d9433">
                   <SHORT-NAME>DataServices_DspData_0xFD02_0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3711,7 +4031,7 @@
                   </ADMIN-DATA>
                   <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/DataServices_DspData_0xFD02_0</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
-                <R-PORT-PROTOTYPE UUID="db858a2f-25db-41a5-a32e-0b1d66d9486c">
+                <R-PORT-PROTOTYPE UUID="46f56628-60fc-44be-b079-2d640536b454">
                   <SHORT-NAME>DcmCommunicationControl_ComM_BODY_LE1_CAN</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3722,7 +4042,7 @@
                   </ADMIN-DATA>
                   <REQUIRED-INTERFACE-TREF DEST="MODE-SWITCH-INTERFACE">/BSW/PortInterfaces/DcmCommunicationControl_ComM_BODY_LE1_CAN</REQUIRED-INTERFACE-TREF>
                 </R-PORT-PROTOTYPE>
-                <R-PORT-PROTOTYPE UUID="130bf902-5a1f-41a6-ad94-0d6d77c3a193">
+                <R-PORT-PROTOTYPE UUID="c9b650d1-dc5a-497b-981f-003e0a841bc2">
                   <SHORT-NAME>DcmControlDtcSetting</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3733,7 +4053,7 @@
                   </ADMIN-DATA>
                   <REQUIRED-INTERFACE-TREF DEST="MODE-SWITCH-INTERFACE">/BSW/PortInterfaces/DcmControlDtcSetting</REQUIRED-INTERFACE-TREF>
                 </R-PORT-PROTOTYPE>
-                <R-PORT-PROTOTYPE UUID="e48b8852-75ae-4f05-80e4-c49381ac14e4">
+                <R-PORT-PROTOTYPE UUID="8a74cd61-8557-49b6-8fe0-9b0e88ebaa0c">
                   <SHORT-NAME>DcmDiagnosticSessionControl</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3744,7 +4064,7 @@
                   </ADMIN-DATA>
                   <REQUIRED-INTERFACE-TREF DEST="MODE-SWITCH-INTERFACE">/BSW/PortInterfaces/DcmDiagnosticSessionControl</REQUIRED-INTERFACE-TREF>
                 </R-PORT-PROTOTYPE>
-                <R-PORT-PROTOTYPE UUID="2658d7ba-d624-4b72-9139-a5de223cdda5">
+                <R-PORT-PROTOTYPE UUID="75d19caa-80e7-42ea-a28d-1ff035758448">
                   <SHORT-NAME>DcmEcuReset</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3755,7 +4075,7 @@
                   </ADMIN-DATA>
                   <REQUIRED-INTERFACE-TREF DEST="MODE-SWITCH-INTERFACE">/BSW/PortInterfaces/DcmEcuReset</REQUIRED-INTERFACE-TREF>
                 </R-PORT-PROTOTYPE>
-                <R-PORT-PROTOTYPE UUID="acb7d1f4-2da4-4458-821f-e0f16aa15009">
+                <R-PORT-PROTOTYPE UUID="7a82e06d-6ac3-4d63-a9dc-a9de4da84c73">
                   <SHORT-NAME>DcmSecurityAccess</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3766,7 +4086,7 @@
                   </ADMIN-DATA>
                   <REQUIRED-INTERFACE-TREF DEST="MODE-SWITCH-INTERFACE">/BSW/PortInterfaces/DcmSecurityAccess</REQUIRED-INTERFACE-TREF>
                 </R-PORT-PROTOTYPE>
-                <P-PORT-PROTOTYPE UUID="ee9e02f3-5c2e-41b8-910f-25923e13e231">
+                <P-PORT-PROTOTYPE UUID="0465ee6f-bd16-4e09-8b4e-7910d6cdea3b">
                   <SHORT-NAME>RoutineServices_0x0203</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -3777,7 +4097,40 @@
                   </ADMIN-DATA>
                   <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/RoutineServices_0x0203</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
-                <P-PORT-PROTOTYPE UUID="baddac16-633b-4819-9f1e-2057a79be243">
+                <P-PORT-PROTOTYPE UUID="53ba3b20-e976-4d5f-99c2-b26d6ed901bc">
+                  <SHORT-NAME>RoutineServices_0xFD01</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="BSW">
+                        <SD GID="isBSW">True</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/RoutineServices_0xFD01</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="e870c29d-5099-4cf5-bebf-68641be9e9f3">
+                  <SHORT-NAME>RoutineServices_0xFD04</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="BSW">
+                        <SD GID="isBSW">True</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/RoutineServices_0xFD04</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="654a7ff4-6481-443d-b907-e580d8cf583e">
+                  <SHORT-NAME>RoutineServices_0xFD05</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="BSW">
+                        <SD GID="isBSW">True</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/RoutineServices_0xFD05</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="ebb9ec79-6dee-4502-afb8-71a5a32d9247">
                   <SHORT-NAME>SecurityAccess_L2</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
