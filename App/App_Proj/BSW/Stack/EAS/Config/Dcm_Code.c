@@ -450,35 +450,6 @@ FUNC(Std_ReturnType, RTE_CODE) Dcm_RoutineServices_0x0203_Start
 }
 
 
-FUNC(Std_ReturnType, RTE_CODE) Dcm_RoutineServices_0xFD01_Start
-(
-    P2VAR(uint8, AUTOMATIC, DCM_VAR) DataIn,
-    Dcm_OpStatusType OpStatus,
-    P2VAR(uint8, AUTOMATIC, DCM_VAR) DataOut,
-    P2VAR(uint16, AUTOMATIC, DCM_VAR) currentDataLength,
-    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, DCM_VAR) ErrorCode
-)
-{
-    Std_ReturnType ret = E_OK;
-    /*DataIn signals*/
-
-    /*DataOut signals*/
-
-
-
-    ret = Dcm_Rte_RoutineServices_0xFD01_Start(
-        OpStatus,
-        ErrorCode
-    );
-
-    if(ret == E_OK)
-    {
-    }
-
-    return ret;
-}
-
-
 FUNC(Std_ReturnType, RTE_CODE) Dcm_RoutineServices_0xFD04_Start
 (
     P2VAR(uint8, AUTOMATIC, DCM_VAR) DataIn,
@@ -557,6 +528,35 @@ FUNC(Std_ReturnType, RTE_CODE) Dcm_RoutineServices_0xFD05_Start
 
         // Dcm_DataServices_DataTypeConversion(&(DataOut[DataPos]), (uint32)2, DCM_UINT16, DCM_OPAQUE, &DataOut_DspRoutine0xFD05_Start_DspRoutine0xFD05_StartOutSignal, FALSE);
         
+    }
+
+    return ret;
+}
+
+
+FUNC(Std_ReturnType, RTE_CODE) Dcm_RoutineServices_0xFD10_Start
+(
+    P2VAR(uint8, AUTOMATIC, DCM_VAR) DataIn,
+    Dcm_OpStatusType OpStatus,
+    P2VAR(uint8, AUTOMATIC, DCM_VAR) DataOut,
+    P2VAR(uint16, AUTOMATIC, DCM_VAR) currentDataLength,
+    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, DCM_VAR) ErrorCode
+)
+{
+    Std_ReturnType ret = E_OK;
+    /*DataIn signals*/
+
+    /*DataOut signals*/
+
+
+
+    ret = Dcm_Rte_RoutineServices_0xFD10_Start(
+        OpStatus,
+        ErrorCode
+    );
+
+    if(ret == E_OK)
+    {
     }
 
     return ret;

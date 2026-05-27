@@ -195,15 +195,6 @@ extern FUNC(Std_ReturnType, RTE_CODE) Dcm_RoutineServices_0x0203_Start
     P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, DCM_VAR) ErrorCode
 );
 
-extern FUNC(Std_ReturnType, RTE_CODE) Dcm_RoutineServices_0xFD01_Start
-(
-    P2VAR(uint8, AUTOMATIC, DCM_VAR) DataIn,
-    Dcm_OpStatusType OpStatus,
-    P2VAR(uint8, AUTOMATIC, DCM_VAR) DataOut,
-    P2VAR(uint16, AUTOMATIC, DCM_VAR) currentDataLength,/*In&Out parameter*/
-    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, DCM_VAR) ErrorCode
-);
-
 extern FUNC(Std_ReturnType, RTE_CODE) Dcm_RoutineServices_0xFD04_Start
 (
     P2VAR(uint8, AUTOMATIC, DCM_VAR) DataIn,
@@ -214,6 +205,15 @@ extern FUNC(Std_ReturnType, RTE_CODE) Dcm_RoutineServices_0xFD04_Start
 );
 
 extern FUNC(Std_ReturnType, RTE_CODE) Dcm_RoutineServices_0xFD05_Start
+(
+    P2VAR(uint8, AUTOMATIC, DCM_VAR) DataIn,
+    Dcm_OpStatusType OpStatus,
+    P2VAR(uint8, AUTOMATIC, DCM_VAR) DataOut,
+    P2VAR(uint16, AUTOMATIC, DCM_VAR) currentDataLength,/*In&Out parameter*/
+    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, DCM_VAR) ErrorCode
+);
+
+extern FUNC(Std_ReturnType, RTE_CODE) Dcm_RoutineServices_0xFD10_Start
 (
     P2VAR(uint8, AUTOMATIC, DCM_VAR) DataIn,
     Dcm_OpStatusType OpStatus,

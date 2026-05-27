@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-2-2.xsd">
   <AR-PACKAGES>
-    <AR-PACKAGE UUID="52e46101-b286-4b4e-8948-6619a6549864">
+    <AR-PACKAGE UUID="f882b6c5-daf1-49d7-b2df-5aca7f02cc3e">
       <SHORT-NAME>BSW</SHORT-NAME>
       <AR-PACKAGES>
-        <AR-PACKAGE UUID="eb7eed83-4d9a-49ab-a152-4f00a29ec015">
+        <AR-PACKAGE UUID="a64ed219-3cea-49ca-a3a0-58d1f19973bb">
           <SHORT-NAME>BaseTypes</SHORT-NAME>
           <ELEMENTS>
-            <SW-BASE-TYPE UUID="1c46fa9b-e981-4301-98c7-4dbd50c04ab9">
+            <SW-BASE-TYPE UUID="4985807e-677f-4a68-aa6b-2dbaa5b77b4d">
               <SHORT-NAME>boolean</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -21,7 +21,7 @@
               <BASE-TYPE-ENCODING>BOOLEAN</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned char</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="bd4088dc-a53f-46b6-9b80-9fd309c59f1b">
+            <SW-BASE-TYPE UUID="0dc6d142-4d17-4165-931a-a27350c8c224">
               <SHORT-NAME>float32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -35,7 +35,7 @@
               <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>float</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="cf5add12-aa96-482c-a550-fb850c6e585c">
+            <SW-BASE-TYPE UUID="41626bcf-f3e4-4ca2-9c90-d9159553defd">
               <SHORT-NAME>float64</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -49,7 +49,7 @@
               <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>double</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="6a200003-9ce4-40a2-a17b-4c9ce0fef9b6">
+            <SW-BASE-TYPE UUID="1d9a8ae2-55ac-4f68-aae7-f9975b806175">
               <SHORT-NAME>sint16</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -63,7 +63,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed short</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="e25d6b72-f402-4477-91e2-1d04b5ebd950">
+            <SW-BASE-TYPE UUID="6105018b-2522-460d-ac6a-76c53e653301">
               <SHORT-NAME>sint32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -77,7 +77,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed int</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="ca1cc38a-7809-44d4-919a-a597f652d77a">
+            <SW-BASE-TYPE UUID="4d278441-c577-4180-913c-d58721b40632">
               <SHORT-NAME>sint64</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -91,7 +91,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed long</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="1021cb7d-f093-41ab-8064-ad4455443d91">
+            <SW-BASE-TYPE UUID="e0234852-56ff-4aae-bb7e-a84961c4d796">
               <SHORT-NAME>sint8</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -105,7 +105,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed char</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="3b7ab8b7-9109-40ab-bd25-30197ea9559f">
+            <SW-BASE-TYPE UUID="83d7cd41-1d7d-47d2-abe7-680b895d1915">
               <SHORT-NAME>uint16</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -119,7 +119,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned short</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="cefec7d9-8acb-4522-91b3-d146f3942680">
+            <SW-BASE-TYPE UUID="373d53da-8612-4228-8554-8be308c3d9b6">
               <SHORT-NAME>uint32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -133,7 +133,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned int</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="449288d8-47f2-4642-90a6-71f34c1f8918">
+            <SW-BASE-TYPE UUID="3d6a6693-0799-420d-beaa-701d7ebae3e5">
               <SHORT-NAME>uint64</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -147,7 +147,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned long</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="15fee9dd-6afa-4036-bd2f-0d3fdfcf276a">
+            <SW-BASE-TYPE UUID="516b0531-89e1-417a-a7af-02247172aebf">
               <SHORT-NAME>uint8</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -161,7 +161,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned char</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="15c040ce-6258-4ce9-9475-12cbcbbc3ddf">
+            <SW-BASE-TYPE UUID="7b5749f8-b3c6-4193-8ff8-a235cc16f1ac">
               <SHORT-NAME>void</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -177,10 +177,10 @@
             </SW-BASE-TYPE>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="24307682-85f3-45e8-8466-57e282b86098">
+        <AR-PACKAGE UUID="25d17bd4-c5b5-4638-808a-49a9266f9b89">
           <SHORT-NAME>CompuMethods</SHORT-NAME>
           <ELEMENTS>
-            <COMPU-METHOD UUID="bc4aec18-aced-4b7e-8680-659a30947706">
+            <COMPU-METHOD UUID="0c03dab1-2984-458d-b26f-a61db26b9b34">
               <SHORT-NAME>ComM_InhibitionStatusType</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
               <ADMIN-DATA>
@@ -209,7 +209,7 @@
                 </COMPU-SCALES>
               </COMPU-INTERNAL-TO-PHYS>
             </COMPU-METHOD>
-            <COMPU-METHOD UUID="74e019ec-82ac-4c78-b7a5-256259ea53eb">
+            <COMPU-METHOD UUID="3cf525ab-5e2d-403d-af27-1955d92adfc7">
               <SHORT-NAME>ComM_ModeType</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
               <ADMIN-DATA>
@@ -254,10 +254,10 @@
             </COMPU-METHOD>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="512033db-ff84-4025-bebc-674f98eba659">
+        <AR-PACKAGE UUID="50168681-49bc-4e11-b89a-800d6a663fd7">
           <SHORT-NAME>ImplementationDataTypes</SHORT-NAME>
           <ELEMENTS>
-            <IMPLEMENTATION-DATA-TYPE UUID="10331829-2282-4b0b-9edd-425d28c10115">
+            <IMPLEMENTATION-DATA-TYPE UUID="d3133dc7-5bfd-4eff-8390-54520621e279">
               <SHORT-NAME>ComM_InhibitionStatusType</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -276,7 +276,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="eecf04db-b278-4c73-8820-41ea9c3266c7">
+            <IMPLEMENTATION-DATA-TYPE UUID="41eb9540-948c-4c35-89c8-a32f279b3005">
               <SHORT-NAME>ComM_ModeType</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -295,7 +295,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="4e17b846-643d-4eee-8c78-b739040c3ecb">
+            <IMPLEMENTATION-DATA-TYPE UUID="4e2f6ebc-255f-426d-941c-f66e14efdb16">
               <SHORT-NAME>ComM_UserHandleType</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -313,7 +313,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="c5e8bfa7-8dc1-4bae-8ab6-9aefb050775d">
+            <IMPLEMENTATION-DATA-TYPE UUID="b003369b-038d-4980-95ff-e197ce3eaefc">
               <SHORT-NAME>boolean</SHORT-NAME>
               <CATEGORY>VALUE</CATEGORY>
               <ADMIN-DATA>
@@ -331,7 +331,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="888fa46f-1453-4bb6-a29f-019c22ce911e">
+            <IMPLEMENTATION-DATA-TYPE UUID="b915d325-8af5-4f3b-a709-3c2a64c32b25">
               <SHORT-NAME>uint8</SHORT-NAME>
               <CATEGORY>VALUE</CATEGORY>
               <ADMIN-DATA>
@@ -351,10 +351,10 @@
             </IMPLEMENTATION-DATA-TYPE>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="37939202-3a33-4a8d-8a5e-c82e03f1a9d3">
+        <AR-PACKAGE UUID="1f303b6c-2980-471f-a4ba-0d07bed25cd0">
           <SHORT-NAME>ModeDeclarationGroups</SHORT-NAME>
           <ELEMENTS>
-            <MODE-DECLARATION-GROUP UUID="1c338461-cf73-4e4a-b494-d9265740dbdf">
+            <MODE-DECLARATION-GROUP UUID="49db679f-d4b5-43f7-94c7-5dd4f864f5b8">
               <SHORT-NAME>ComMMode</SHORT-NAME>
               <CATEGORY>ALPHABETIC_ORDER</CATEGORY>
               <ADMIN-DATA>
@@ -366,15 +366,15 @@
               </ADMIN-DATA>
               <INITIAL-MODE-REF DEST="MODE-DECLARATION">/BSW/ModeDeclarationGroups/ComMMode/COMM_NO_COMMUNICATION</INITIAL-MODE-REF>
               <MODE-DECLARATIONS>
-                <MODE-DECLARATION UUID="31d39faf-e5ec-4b3d-865a-5257abc21d6c">
+                <MODE-DECLARATION UUID="a9ead836-7f47-4656-bad8-c3e9d64f1a73">
                   <SHORT-NAME>COMM_FULL_COMMUNICATION</SHORT-NAME>
                   <VALUE>0</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="1259508a-01af-4fca-8ad7-1bd91baddbd8">
+                <MODE-DECLARATION UUID="fe5f994b-0cd6-45fc-bb20-dcf43627a6cc">
                   <SHORT-NAME>COMM_NO_COMMUNICATION</SHORT-NAME>
                   <VALUE>1</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="04bec959-84fe-48b2-a53a-b1c11d0edd85">
+                <MODE-DECLARATION UUID="e4fde2d7-03c9-4679-b053-c61cfdac8a36">
                   <SHORT-NAME>COMM_SILENT_COMMUNICATION</SHORT-NAME>
                   <VALUE>2</VALUE>
                 </MODE-DECLARATION>
@@ -383,10 +383,10 @@
             </MODE-DECLARATION-GROUP>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="6780dc0d-6ad3-44b5-ac80-22e10f63acac">
+        <AR-PACKAGE UUID="6104c982-6a37-49a3-849e-509901efa8fd">
           <SHORT-NAME>PortInterfaces</SHORT-NAME>
           <ELEMENTS>
-            <CLIENT-SERVER-INTERFACE UUID="174794b5-99c0-4e4d-9051-99a300b6b277">
+            <CLIENT-SERVER-INTERFACE UUID="4b14cead-213d-4d6a-9690-f8462e8a5287">
               <SHORT-NAME>ComM_UserRequest</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -397,10 +397,10 @@
               </ADMIN-DATA>
               <SERVICE-KIND>COM-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="4cdad7a6-2667-48b7-a8c7-34718b61528d">
+                <CLIENT-SERVER-OPERATION UUID="8765b617-013c-4cd4-9220-d39b954ab4ce">
                   <SHORT-NAME>GetCurrentComMode</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="7dc6ed26-4a2a-4036-878e-65d51d5ceba2">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="527d5d65-1b38-4dd1-9e30-a45795f61e91">
                       <SHORT-NAME>ComMode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/ComM_ModeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -411,10 +411,10 @@
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/ComM_UserRequest/E_OK</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="a525687b-98ed-442d-809d-f122f068fa4f">
+                <CLIENT-SERVER-OPERATION UUID="1cc262a9-f66a-4dd7-a054-7275012f882f">
                   <SHORT-NAME>GetCurrentPNCComMode</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="a375a630-7b00-4b2c-9d08-f7633a7ba1e5">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="216656e4-e0d3-4ada-b411-2869721e082f">
                       <SHORT-NAME>ComMode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/ComM_ModeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -427,10 +427,10 @@
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/ComM_UserRequest/E_OK</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="e5def59d-b712-4525-96ec-4c78e38e7c73">
+                <CLIENT-SERVER-OPERATION UUID="95131d4d-0efe-4671-a450-8943d53d7169">
                   <SHORT-NAME>GetMaxComMode</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="43895098-3026-4073-971c-8dc25b4e2271">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="8a0f6c14-9f73-443c-9fea-d6273d530c22">
                       <SHORT-NAME>ComMode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/ComM_ModeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -441,10 +441,10 @@
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/ComM_UserRequest/E_OK</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="3fa3c7d9-8363-489b-9ab2-96426c8d3d32">
+                <CLIENT-SERVER-OPERATION UUID="d5774c68-b117-4992-80e9-5d1f478e04a6">
                   <SHORT-NAME>GetRequestedComMode</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="bb975c63-bff1-42ab-aa71-c770d43ba40e">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="0cf204ed-d793-4661-908f-e7b68d467e6f">
                       <SHORT-NAME>ComMode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/ComM_ModeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -455,10 +455,10 @@
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/ComM_UserRequest/E_OK</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="2b43f44c-a57b-4474-b523-053c423fb86e">
+                <CLIENT-SERVER-OPERATION UUID="1e10103c-e5c0-4f93-9308-5e7691b65077">
                   <SHORT-NAME>RequestComMode</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="71fa5daf-4c73-4e52-933c-cc407fef62f2">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="cd46bbda-8e13-4c47-90ab-9a3c13a33538">
                       <SHORT-NAME>ComMode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/ComM_ModeType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
@@ -472,29 +472,29 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="eb0d6940-61f4-48a2-8eb6-c08b7438e3bc">
+                <APPLICATION-ERROR UUID="ed714323-15ef-45bb-8412-549c131b37c2">
                   <SHORT-NAME>E_MODE_LIMITATION</SHORT-NAME>
                   <ERROR-CODE>2</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="34ff72dc-05bd-41c2-b20b-c14e55b03788">
+                <APPLICATION-ERROR UUID="46e03d94-5b8c-45ea-a476-456b7a8355ee">
                   <SHORT-NAME>E_MULTIPLE_PNC_ASSIGNED</SHORT-NAME>
                   <ERROR-CODE>3</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="3c45afea-6ec7-42c6-812f-8999017e0742">
+                <APPLICATION-ERROR UUID="18696f67-952b-42d4-8cd4-db60b7cad80a">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="2e3e1aa0-4c4b-44bc-a064-8c80f476a198">
+                <APPLICATION-ERROR UUID="bd238d1b-3f62-4220-a504-693ec0763756">
                   <SHORT-NAME>E_NO_PNC_ASSIGNED</SHORT-NAME>
                   <ERROR-CODE>4</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="bf30dd02-0466-4fe7-b0f8-d5beaa2a2073">
+                <APPLICATION-ERROR UUID="8d0e2159-476c-47b9-8aee-4d35526c5ebd">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <MODE-SWITCH-INTERFACE UUID="3ace79cc-92eb-4795-9901-9549de6700d7">
+            <MODE-SWITCH-INTERFACE UUID="da36ac2d-6250-4387-9619-d68d8bc3f78c">
               <SHORT-NAME>ComM_CurrentMode</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -504,20 +504,20 @@
                 </SDGS>
               </ADMIN-DATA>
               <SERVICE-KIND>COM-MANAGER</SERVICE-KIND>
-              <MODE-GROUP UUID="08a42338-e679-46f1-8a82-da5d5ffe3e3b">
+              <MODE-GROUP UUID="c3c1f853-3b4a-47ae-9d26-b3adac173aeb">
                 <SHORT-NAME>ComMMode</SHORT-NAME>
                 <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/BSW/ModeDeclarationGroups/ComMMode</TYPE-TREF>
               </MODE-GROUP>
             </MODE-SWITCH-INTERFACE>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="1f30241a-ab8c-4e3d-9d9e-8a3e228df100">
+        <AR-PACKAGE UUID="ae4a5f8c-d68e-4bd6-a34b-3974d060095e">
           <SHORT-NAME>SWCs</SHORT-NAME>
           <ELEMENTS>
-            <COMPOSITION-SW-COMPONENT-TYPE UUID="0706ad89-9ff1-4ef4-ab79-7b711eed47b6">
+            <COMPOSITION-SW-COMPONENT-TYPE UUID="7954fbc0-0444-4e00-9663-53b59e8daf43">
               <SHORT-NAME>TopComposition</SHORT-NAME>
               <PORTS>
-                <R-PORT-PROTOTYPE UUID="40a50e9e-6ff8-4026-aa66-a4cbfaea88ce">
+                <R-PORT-PROTOTYPE UUID="fdef487a-9084-415b-8398-2b861ca0a9f3">
                   <SHORT-NAME>UM_User0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -528,7 +528,7 @@
                   </ADMIN-DATA>
                   <REQUIRED-INTERFACE-TREF DEST="MODE-SWITCH-INTERFACE">/BSW/PortInterfaces/ComM_CurrentMode</REQUIRED-INTERFACE-TREF>
                 </R-PORT-PROTOTYPE>
-                <R-PORT-PROTOTYPE UUID="a391e37a-9d2d-4b2f-bc88-a20c110691ec">
+                <R-PORT-PROTOTYPE UUID="6c3d274d-23fe-429c-b0f6-fdb3e5232700">
                   <SHORT-NAME>UR_User0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>

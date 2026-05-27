@@ -457,19 +457,6 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_RoutineServices_0x0203_Start
     return Result;
     /*Rte_Call_Dcm_RoutineServices_0x0203_Start User Code end*/
 }
-FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_RoutineServices_0xFD01_Start
-(
-    CONST(Dcm_OpStatusType, AUTOMATIC) OpStatus,
-    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode
-)
-{
-    /*Rte_Call_Dcm_RoutineServices_0xFD01_Start User Code start*/
-
-    Std_ReturnType Result = E_OK;
-
-    return Result;
-    /*Rte_Call_Dcm_RoutineServices_0xFD01_Start User Code end*/
-}
 FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_RoutineServices_0xFD04_Start
 (
     CONST(Dcm_StartDataIn_DspRoutine0xFD04_DspRoutine0xFD04_StartInSignalType, AUTOMATIC) DataIn_DspRoutine0xFD04_StartInSignal,
@@ -499,6 +486,19 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_RoutineServices_0xFD05_Start
 
     return Result;
     /*Rte_Call_Dcm_RoutineServices_0xFD05_Start User Code end*/
+}
+FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_RoutineServices_0xFD10_Start
+(
+    CONST(Dcm_OpStatusType, AUTOMATIC) OpStatus,
+    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode
+)
+{
+    /*Rte_Call_Dcm_RoutineServices_0xFD10_Start User Code start*/
+
+    Std_ReturnType Result = E_OK;
+
+    return Result;
+    /*Rte_Call_Dcm_RoutineServices_0xFD10_Start User Code end*/
 }
 FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_SecurityAccess_L2_GetSeed
 (
