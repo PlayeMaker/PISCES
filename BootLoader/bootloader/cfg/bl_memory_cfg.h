@@ -88,8 +88,8 @@
 
 #define MEM_MEMORY_2_TYPE           MEM_MEMORY_TYPE_EEPROM
 #define MEM_MEMORY_2_INDEX          (0)
-#define MEM_MEMORY_2_BASE_ADDRESS   (0x0200F000UL)
-#define MEM_MEMORY_2_SIZE           (0x00001000UL)
+#define MEM_MEMORY_2_BASE_ADDRESS   (0x0200F600UL)
+#define MEM_MEMORY_2_SIZE           (0x00000A00UL)
 #define MEM_MEMORY_2_OPS            (&gs_MemoryOps[2])
 #define MEM_MEMORY_2_OPS_INIT       BL_NULL_PTR
 #define MEM_MEMORY_2_OPS_DEINIT     (&Dflash_Deinit)

@@ -79,7 +79,7 @@
 /*****************************************************************************
  *  Internal Macro Definitions
  *****************************************************************************/
-#define SYS_ENTRY_POINT     (0x20004ul)  /**< application entry point.*/
+#define SYS_ENTRY_POINT     (0x00018004ul)  /**< application entry point.*/
 
 
 #define WakeUpFlag               (*(volatile uint64_t*)(0x20407E00ul))
