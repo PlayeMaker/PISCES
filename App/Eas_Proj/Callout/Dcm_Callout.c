@@ -371,6 +371,24 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xF19E_0_ReadDa
     return E_OK;
     /*Rte_Call_Dcm_DataServices_DspData_0xF19E_0_ReadData User Code end*/
 }
+FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xFD00_0_ReadData
+(
+    CONST(Dcm_OpStatusType, AUTOMATIC) OpStatus,
+    VAR(Dcm_DataElement_DspData_0xFD00_0Type,AUTOMATIC) Data,
+    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode
+)
+{
+    /*Rte_Call_Dcm_DataServices_DspData_0xFD00_0_ReadData User Code start*/
+
+    uint8 i;
+    uint8 length = (uint8)3;
+    for(i = (uint8)0; i < length; i++)
+    {
+        Data[i] = i + 1;
+    }
+    return E_OK;
+    /*Rte_Call_Dcm_DataServices_DspData_0xFD00_0_ReadData User Code end*/
+}
 FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xFD01_0_ReadData
 (
     CONST(Dcm_OpStatusType, AUTOMATIC) OpStatus,
@@ -406,6 +424,24 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xFD02_0_ReadDa
     }
     return E_OK;
     /*Rte_Call_Dcm_DataServices_DspData_0xFD02_0_ReadData User Code end*/
+}
+FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xFD03_0_ReadData
+(
+    CONST(Dcm_OpStatusType, AUTOMATIC) OpStatus,
+    VAR(Dcm_DataElement_DspData_0xFD03_0Type,AUTOMATIC) Data,
+    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode
+)
+{
+    /*Rte_Call_Dcm_DataServices_DspData_0xFD03_0_ReadData User Code start*/
+
+    uint8 i;
+    uint8 length = (uint8)2;
+    for(i = (uint8)0; i < length; i++)
+    {
+        Data[i] = i + 1;
+    }
+    return E_OK;
+    /*Rte_Call_Dcm_DataServices_DspData_0xFD03_0_ReadData User Code end*/
 }
 FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_RoutineServices_0x0203_Start
 (

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-2-2.xsd">
   <AR-PACKAGES>
-    <AR-PACKAGE UUID="961eb3d0-7c6e-4208-99d7-fb5b93a70d5c">
+    <AR-PACKAGE UUID="e35d07f0-6a11-48b3-8db6-3155e4c0ccde">
       <SHORT-NAME>BSW</SHORT-NAME>
       <AR-PACKAGES>
-        <AR-PACKAGE UUID="2c0e31a3-d9ec-4c72-8a54-24e7b5922575">
+        <AR-PACKAGE UUID="f800d742-47c0-4516-9640-f0736cbe20fd">
           <SHORT-NAME>BaseTypes</SHORT-NAME>
           <ELEMENTS>
-            <SW-BASE-TYPE UUID="0098610b-686e-460f-84c2-74f92de11809">
+            <SW-BASE-TYPE UUID="487f5be7-93cc-4742-8141-87049e165eec">
               <SHORT-NAME>boolean</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -21,7 +21,7 @@
               <BASE-TYPE-ENCODING>BOOLEAN</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned char</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="a94b9bff-33d7-4d0e-aad7-d1b3f0eb3bfc">
+            <SW-BASE-TYPE UUID="d953c657-d100-4555-ad92-d2eb845ca3d2">
               <SHORT-NAME>float32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -35,7 +35,7 @@
               <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>float</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="cda1c6ad-3c37-4892-a928-cceee3d95c44">
+            <SW-BASE-TYPE UUID="953179df-0fa8-42b3-b53b-d52412c0fee6">
               <SHORT-NAME>float64</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -49,7 +49,7 @@
               <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>double</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="28657274-ab6a-4242-a410-6febe4c06f63">
+            <SW-BASE-TYPE UUID="550f6c25-7a42-431a-af87-89861118b0e4">
               <SHORT-NAME>sint16</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -63,7 +63,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed short</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="80b48785-c656-4e3c-9076-4a3afccc4f81">
+            <SW-BASE-TYPE UUID="38508533-f841-4b68-aab6-688266d62129">
               <SHORT-NAME>sint32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -77,7 +77,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed int</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="4e52468f-095a-48ba-a313-c681c94ae6a7">
+            <SW-BASE-TYPE UUID="42323483-b7df-4361-b907-cc4bea30ad40">
               <SHORT-NAME>sint64</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -91,7 +91,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed long</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="de9293ec-6959-4cd4-975d-4b72cb606209">
+            <SW-BASE-TYPE UUID="2a320a09-be6c-4513-9374-e0fc6dde0f9f">
               <SHORT-NAME>sint8</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -105,7 +105,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed char</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="56343ae0-a7a1-47fb-be6c-8e6041de420c">
+            <SW-BASE-TYPE UUID="218c2a04-d9a8-4367-9f5f-3128e400f630">
               <SHORT-NAME>uint16</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -119,7 +119,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned short</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="5f47e922-a915-474d-8150-86391f285439">
+            <SW-BASE-TYPE UUID="cf42dc54-5871-4cfa-acf1-aaf75a85c1e9">
               <SHORT-NAME>uint32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -133,7 +133,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned int</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="a7a239df-b49b-47b0-9507-1ebfd3149c16">
+            <SW-BASE-TYPE UUID="f50ffc08-caff-4bb4-ba29-214e9856f372">
               <SHORT-NAME>uint64</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -147,7 +147,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned long</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="f7b8599d-ac02-4e39-a001-69c2bc56ce65">
+            <SW-BASE-TYPE UUID="568a471b-369a-4b41-a2cd-d92d0d61dd2d">
               <SHORT-NAME>uint8</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -161,7 +161,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned char</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="56ccd8f6-2931-4331-a868-d2ac9c5864aa">
+            <SW-BASE-TYPE UUID="df24bfca-e041-4f8c-9733-f39e88d3d701">
               <SHORT-NAME>void</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -177,10 +177,10 @@
             </SW-BASE-TYPE>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="fe98c5b9-71d9-49a1-b482-4017fbfc1686">
+        <AR-PACKAGE UUID="9eff8088-3b9e-4179-8192-678d75f99a0b">
           <SHORT-NAME>ImplementationDataTypes</SHORT-NAME>
           <ELEMENTS>
-            <IMPLEMENTATION-DATA-TYPE UUID="7a7b9c4f-8030-45e0-aae4-00453deecba9">
+            <IMPLEMENTATION-DATA-TYPE UUID="d27883ae-91e0-46fe-9f04-1b18a14e0227">
               <SHORT-NAME>uint8</SHORT-NAME>
               <CATEGORY>VALUE</CATEGORY>
               <ADMIN-DATA>
@@ -200,10 +200,10 @@
             </IMPLEMENTATION-DATA-TYPE>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="737df9c9-2f9a-4a44-a8d5-2cb9c20b9531">
+        <AR-PACKAGE UUID="37257b82-4be8-4d95-9675-69ae103fbb84">
           <SHORT-NAME>SWCs</SHORT-NAME>
           <ELEMENTS>
-            <COMPOSITION-SW-COMPONENT-TYPE UUID="7794787d-2604-4a8a-9be2-d89f4a4aa003">
+            <COMPOSITION-SW-COMPONENT-TYPE UUID="4748ac74-9255-48c7-a649-746f5f213ae1">
               <SHORT-NAME>TopComposition</SHORT-NAME>
             </COMPOSITION-SW-COMPONENT-TYPE>
           </ELEMENTS>

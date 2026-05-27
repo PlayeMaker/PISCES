@@ -158,6 +158,13 @@ extern FUNC(Std_ReturnType, DCM_CODE) Dcm_DataServices_0xF19E_0_ReadData
     P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, DCM_VAR) ErrorCode
 );
 
+extern FUNC(Std_ReturnType, DCM_CODE) Dcm_DataServices_0xFD00_0_ReadData
+(
+    Dcm_OpStatusType OpStatus,
+    P2VAR(uint8, AUTOMATIC, DCM_VAR) Data,
+    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, DCM_VAR) ErrorCode
+);
+
 extern FUNC(Std_ReturnType, DCM_CODE) Dcm_DataServices_0xFD01_0_ReadData
 (
     Dcm_OpStatusType OpStatus,
@@ -166,6 +173,13 @@ extern FUNC(Std_ReturnType, DCM_CODE) Dcm_DataServices_0xFD01_0_ReadData
 );
 
 extern FUNC(Std_ReturnType, DCM_CODE) Dcm_DataServices_0xFD02_0_ReadData
+(
+    Dcm_OpStatusType OpStatus,
+    P2VAR(uint8, AUTOMATIC, DCM_VAR) Data,
+    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, DCM_VAR) ErrorCode
+);
+
+extern FUNC(Std_ReturnType, DCM_CODE) Dcm_DataServices_0xFD03_0_ReadData
 (
     Dcm_OpStatusType OpStatus,
     P2VAR(uint8, AUTOMATIC, DCM_VAR) Data,

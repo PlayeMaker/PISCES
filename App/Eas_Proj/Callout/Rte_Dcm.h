@@ -181,6 +181,13 @@ extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xF19E_0
     VAR(Dcm_DataElement_DspData_0xF19E_0Type,AUTOMATIC) Data,
     P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode
 );
+#define Dcm_Rte_DataServices_DspData_0xFD00_0_ReadData      Rte_Call_Dcm_DataServices_DspData_0xFD00_0_ReadData
+extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xFD00_0_ReadData
+(
+    CONST(Dcm_OpStatusType, AUTOMATIC) OpStatus,
+    VAR(Dcm_DataElement_DspData_0xFD00_0Type,AUTOMATIC) Data,
+    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode
+);
 #define Dcm_Rte_DataServices_DspData_0xFD01_0_ReadData      Rte_Call_Dcm_DataServices_DspData_0xFD01_0_ReadData
 extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xFD01_0_ReadData
 (
@@ -193,6 +200,13 @@ extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xFD02_0
 (
     CONST(Dcm_OpStatusType, AUTOMATIC) OpStatus,
     VAR(Dcm_DataElement_DspData_0xFD02_0Type,AUTOMATIC) Data,
+    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode
+);
+#define Dcm_Rte_DataServices_DspData_0xFD03_0_ReadData      Rte_Call_Dcm_DataServices_DspData_0xFD03_0_ReadData
+extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xFD03_0_ReadData
+(
+    CONST(Dcm_OpStatusType, AUTOMATIC) OpStatus,
+    VAR(Dcm_DataElement_DspData_0xFD03_0Type,AUTOMATIC) Data,
     P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode
 );
 #define Dcm_Rte_RoutineServices_0x0203_Start                Rte_Call_Dcm_RoutineServices_0x0203_Start
