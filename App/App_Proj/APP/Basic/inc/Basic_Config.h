@@ -8,7 +8,17 @@ extern "C"
 
 /************************ Include Files ************************/
 
-/************************ Macro Definitions ************************/
+/************************ Project Definitions ************************/
+#define PISCES_MCM_D // 主驾
+// #define PISCES_MCM_P // 副驾
+
+#if defined(PISCES_MCM_D) && defined(PISCES_MCM_P)
+#error "Must define only one of PISCES_MCM_D or PISCES_MCM_P, not both"
+#elif !defined(PISCES_MCM_D) && !defined(PISCES_MCM_P)
+#error "Must define PISCES_MCM_D or PISCES_MCM_P"
+#endif
+
+/************************ Function Definitions ************************/
 // 调试打印宏开关
 #define DEBUG_PRINTF_ENABLE  // 总开关
 
@@ -22,11 +32,6 @@ extern "C"
 #define MASSAGE_PRINTF_ENABLE
 #define STACK_PRINTF_ENABLE
 #endif
-/************************ Type Definitions ************************/
-
-/************************ External Variables ************************/
-
-/************************ Function Declarations ************************/
 
 #ifdef __cplusplus
 }
