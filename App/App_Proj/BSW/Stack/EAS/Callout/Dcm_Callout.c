@@ -60,6 +60,7 @@ Use of #include directive after code fragment.
 *******************************************************************************/
 #include "Dcm_Callout.h"
 #include "Dflash.h"
+#include "Version.h"
 /*Dcm_Callout.c Header File User Code start*/
 
 /*Dcm_Callout.c Header File User Code end*/
@@ -162,9 +163,10 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xF110_0_ReadDa
 
     uint8 i;
     uint8 length = (uint8)11;
+    char* hardware_version = Snf_Hardware_Version_Get();
     for(i = (uint8)0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = hardware_version[i];
     }
     return E_OK;
     /*Rte_Call_Dcm_DataServices_DspData_0xF110_0_ReadData User Code end*/
@@ -180,9 +182,10 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xF111_0_ReadDa
 
     uint8 i;
     uint8 length = (uint8)2;
+    char* hardware_baseline = Snf_Hardware_Baseline_Get();
     for(i = (uint8)0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = hardware_baseline[i];
     }
     return E_OK;
     /*Rte_Call_Dcm_DataServices_DspData_0xF111_0_ReadData User Code end*/
@@ -198,9 +201,10 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xF118_0_ReadDa
 
     uint8 i;
     uint8 length = (uint8)11;
+    char* software_version = Snf_Software_Version_Get();
     for(i = (uint8)0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = software_version[i];
     }
     return E_OK;
     /*Rte_Call_Dcm_DataServices_DspData_0xF118_0_ReadData User Code end*/
@@ -216,9 +220,10 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xF119_0_ReadDa
 
     uint8 i;
     uint8 length = (uint8)2;
+    char* software_baseline = Snf_Software_Baseline_Get();
     for(i = (uint8)0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = software_baseline[i];
     }
     return E_OK;
     /*Rte_Call_Dcm_DataServices_DspData_0xF119_0_ReadData User Code end*/
@@ -234,9 +239,10 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xF150_0_ReadDa
 
     uint8 i;
     uint8 length = (uint8)3;
+    char* bootloader_number = Snf_Bootloader_Number_Get();
     for(i = (uint8)0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = bootloader_number[i];
     }
     return E_OK;
     /*Rte_Call_Dcm_DataServices_DspData_0xF150_0_ReadData User Code end*/
@@ -270,9 +276,11 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xF186_0_ReadDa
 
     uint8 i;
     uint8 length = (uint8)1;
+    uint8 ses_ctrl_type = 0;
+    Rte_Call_DCMServices_GetSesCtrlType(&ses_ctrl_type);
     for(i = (uint8)0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = ses_ctrl_type;
     }
     return E_OK;
     /*Rte_Call_Dcm_DataServices_DspData_0xF186_0_ReadData User Code end*/
@@ -288,9 +296,10 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xF18A_0_ReadDa
 
     uint8 i;
     uint8 length = (uint8)8;
+    char* supplier_number = Snf_Supplier_Number_Get();
     for(i = (uint8)0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = supplier_number[i];
     }
     return E_OK;
     /*Rte_Call_Dcm_DataServices_DspData_0xF18A_0_ReadData User Code end*/
@@ -306,9 +315,10 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xF18B_0_ReadDa
 
     uint8 i;
     uint8 length = (uint8)3;
+    char* manufacturing_date = Snf_Manufacturing_Date_Get();
     for(i = (uint8)0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = manufacturing_date[i];
     }
     return E_OK;
     /*Rte_Call_Dcm_DataServices_DspData_0xF18B_0_ReadData User Code end*/
@@ -324,9 +334,10 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xF18C_0_ReadDa
 
     uint8 i;
     uint8 length = (uint8)16;
+    char* serial_number = Snf_Serial_Number_Get();
     for(i = (uint8)0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = serial_number[i];
     }
     return E_OK;
     /*Rte_Call_Dcm_DataServices_DspData_0xF18C_0_ReadData User Code end*/
@@ -342,9 +353,10 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xF193_0_ReadDa
 
     uint8 i;
     uint8 length = (uint8)3;
+    char* supplier_hardware_number = Snf_Supplier_Hardware_Number_Get();
     for(i = (uint8)0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = supplier_hardware_number[i];
     }
     return E_OK;
     /*Rte_Call_Dcm_DataServices_DspData_0xF193_0_ReadData User Code end*/
@@ -360,9 +372,10 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xF195_0_ReadDa
 
     uint8 i;
     uint8 length = (uint8)3;
+    char* supplier_software_number = Snf_Supplier_Software_Number_Get();
     for(i = (uint8)0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = supplier_software_number[i];
     }
     return E_OK;
     /*Rte_Call_Dcm_DataServices_DspData_0xF195_0_ReadData User Code end*/
@@ -378,9 +391,10 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xF19E_0_ReadDa
 
     uint8 i;
     uint8 length = (uint8)3;
+    char* diag_database_version = Snf_Diag_Database_Version_Get();
     for(i = (uint8)0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = diag_database_version[i];
     }
     return E_OK;
     /*Rte_Call_Dcm_DataServices_DspData_0xF19E_0_ReadData User Code end*/
@@ -396,9 +410,10 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xFD00_0_ReadDa
 
     uint8 i;
     uint8 length = (uint8)3;
+    char* bootloader_inside_version = Snf_Bootloader_Inside_Version_Get();
     for(i = (uint8)0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = bootloader_inside_version[i];
     }
     return E_OK;
     /*Rte_Call_Dcm_DataServices_DspData_0xFD00_0_ReadData User Code end*/
@@ -414,9 +429,10 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xFD01_0_ReadDa
 
     uint8 i;
     uint8 length = (uint8)3;
+    char* software_inside_version = Snf_Software_Inside_Version_Get();
     for(i = (uint8)0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = software_inside_version[i];
     }
     return E_OK;
     /*Rte_Call_Dcm_DataServices_DspData_0xFD01_0_ReadData User Code end*/
@@ -432,9 +448,10 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xFD02_0_ReadDa
 
     uint8 i;
     uint8 length = (uint8)3;
+    char* hardware_inside_version = Snf_Hardware_Inside_Version_Get();
     for(i = (uint8)0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = hardware_inside_version[i];
     }
     return E_OK;
     /*Rte_Call_Dcm_DataServices_DspData_0xFD02_0_ReadData User Code end*/
