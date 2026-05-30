@@ -1125,13 +1125,28 @@ STATIC CONST(Dcm_DspRoutineControlType, DCM_CONST) Dcm_DspStartRoutine_0xFD04_0 
     Dcm_RoutineServices_0xFD04_Start,
     &(Dcm_DspCommonAuthorization_0[1]),
     {
-        (uint16)4,
-        DCM_UINT32
+        (uint16)3,
+        DCM_VARIABLE_LENGTH
     },
     {
-        (uint16)4,
-        DCM_UINT32
+        (uint16)3,
+        DCM_VARIABLE_LENGTH
     }
+};
+
+STATIC CONST(Dcm_DspRoutineControlType, DCM_CONST) Dcm_DspStopRoutine_0xFD04_0 =
+{
+    Dcm_RoutineServices_0xFD04_Stop,
+    &(Dcm_DspCommonAuthorization_0[1]),
+    {
+        (uint16)3,
+        DCM_VARIABLE_LENGTH
+    },
+    {
+        (uint16)3,
+        DCM_VARIABLE_LENGTH
+    }
+
 };
 
 STATIC CONST(Dcm_DspRoutineControlType, DCM_CONST) Dcm_DspStartRoutine_0xFD05_0 =
@@ -1140,11 +1155,11 @@ STATIC CONST(Dcm_DspRoutineControlType, DCM_CONST) Dcm_DspStartRoutine_0xFD05_0 
     &(Dcm_DspCommonAuthorization_0[2]),
     {
         (uint16)2,
-        DCM_UINT16
+        DCM_VARIABLE_LENGTH
     },
     {
         (uint16)2,
-        DCM_UINT16
+        DCM_VARIABLE_LENGTH
     }
 };
 
@@ -1174,7 +1189,7 @@ STATIC CONST(Dcm_DspRoutineIdInfoType, DCM_CONST) Dcm_DspRoutineIdInfo_0[4] =
     {
         (uint16)0xFD04,
         &Dcm_DspStartRoutine_0xFD04_0,
-        NULL_PTR,
+        &Dcm_DspStopRoutine_0xFD04_0,
         NULL_PTR
     },
     {

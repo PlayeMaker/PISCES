@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-2-2.xsd">
   <AR-PACKAGES>
-    <AR-PACKAGE UUID="c3e660c7-4b6f-497e-ad38-5e248587dd8e">
+    <AR-PACKAGE UUID="0edd0f9d-51fa-4861-96f6-50175ca50063">
       <SHORT-NAME>BSW</SHORT-NAME>
       <AR-PACKAGES>
-        <AR-PACKAGE UUID="38df8118-bbea-4c86-9bdc-9d70ffe0a7cf">
+        <AR-PACKAGE UUID="eaae65c8-db32-4031-8aa1-c194721c1387">
           <SHORT-NAME>BaseTypes</SHORT-NAME>
           <ELEMENTS>
-            <SW-BASE-TYPE UUID="0086ebab-ed48-4e14-b63d-14e0f61c6185">
+            <SW-BASE-TYPE UUID="5a9633d8-085f-4156-af88-5c7ade28a0fc">
               <SHORT-NAME>boolean</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -21,7 +21,7 @@
               <BASE-TYPE-ENCODING>BOOLEAN</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned char</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="6358f55e-786a-4b14-9718-f2ae1f3e37e8">
+            <SW-BASE-TYPE UUID="df177b2d-2916-46e2-b5e0-c166a1194b19">
               <SHORT-NAME>float32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -35,7 +35,7 @@
               <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>float</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="f05fdf5b-e019-4128-a03b-24cfa4de5b60">
+            <SW-BASE-TYPE UUID="2930f33d-9401-4d5a-99eb-91e551e2c1da">
               <SHORT-NAME>float64</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -49,7 +49,7 @@
               <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>double</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="1c4a6aeb-6a1a-40b7-99e6-d515fc61629f">
+            <SW-BASE-TYPE UUID="9de4d9d9-6f1b-4fba-ab64-334c9550e321">
               <SHORT-NAME>sint16</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -63,7 +63,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed short</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="c9f78adc-a5d6-47ec-8c6a-97ba431a47e7">
+            <SW-BASE-TYPE UUID="70f39ec1-f506-484a-aae0-078184f5b210">
               <SHORT-NAME>sint32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -77,7 +77,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed int</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="c3f01d7d-9d3d-49a8-8a3d-cb3513ee8b87">
+            <SW-BASE-TYPE UUID="c8177c8a-d1f6-47b9-b22c-7ed65f683323">
               <SHORT-NAME>sint64</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -91,7 +91,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed long</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="797e7da5-456a-4c0b-84ef-d193b5c8b486">
+            <SW-BASE-TYPE UUID="0c384736-14b6-46ba-8f65-56abb80226b8">
               <SHORT-NAME>sint8</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -105,7 +105,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed char</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="31a8fba4-3d8d-4ce7-b839-bccd53edb0c5">
+            <SW-BASE-TYPE UUID="d7b8b7c1-f4af-40de-8136-246cebadcfea">
               <SHORT-NAME>uint16</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -119,7 +119,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned short</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="8d23683c-3c66-4658-9577-eb87902092c6">
+            <SW-BASE-TYPE UUID="bae8682c-f568-4535-8b14-d55fdea6c292">
               <SHORT-NAME>uint32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -133,7 +133,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned int</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="344938b5-763f-4df2-9d1c-52cfdda3f9f8">
+            <SW-BASE-TYPE UUID="51106eb4-7e79-446e-9696-365ef95e27df">
               <SHORT-NAME>uint64</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -147,7 +147,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned long</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="a4a7ecda-ae07-46ab-bb41-2742aff2464f">
+            <SW-BASE-TYPE UUID="dbdd0aa5-d018-4776-897b-bddde8329aaa">
               <SHORT-NAME>uint8</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -161,7 +161,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned char</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="57cfd6eb-8d81-48dd-a5dc-b21c0eb6ac69">
+            <SW-BASE-TYPE UUID="914adfe4-7541-42c5-bb75-ca07d037ab6f">
               <SHORT-NAME>void</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -177,10 +177,10 @@
             </SW-BASE-TYPE>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="7a67623c-573f-4d58-b9ef-0afd3e6b9d99">
+        <AR-PACKAGE UUID="1e0bdd06-b62e-4118-8876-f9d3ec3074de">
           <SHORT-NAME>CompuMethods</SHORT-NAME>
           <ELEMENTS>
-            <COMPU-METHOD UUID="d9486c72-759f-41bd-bac2-e3acc5f770d6">
+            <COMPU-METHOD UUID="676f3a74-43f5-46c8-aa84-80f3182f644d">
               <SHORT-NAME>NvM_BlockRequestType</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
               <ADMIN-DATA>
@@ -244,7 +244,7 @@
                 </COMPU-SCALES>
               </COMPU-INTERNAL-TO-PHYS>
             </COMPU-METHOD>
-            <COMPU-METHOD UUID="938fd76a-bfa2-46f1-99ab-b6e655f36d8b">
+            <COMPU-METHOD UUID="689a9ab9-37e7-416c-b603-969a8ca33879">
               <SHORT-NAME>NvM_InitBlockRequestType</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
               <ADMIN-DATA>
@@ -287,7 +287,7 @@
                 </COMPU-SCALES>
               </COMPU-INTERNAL-TO-PHYS>
             </COMPU-METHOD>
-            <COMPU-METHOD UUID="8c0d71de-7963-4ee9-b5fb-80dcbc73c62d">
+            <COMPU-METHOD UUID="5c71e7ed-b49f-442c-be32-42d4a34f72c5">
               <SHORT-NAME>NvM_RequestResultType</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
               <ADMIN-DATA>
@@ -360,10 +360,10 @@
             </COMPU-METHOD>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="44f9d31a-1ff1-4cd6-8f53-7f5dade0ddf7">
+        <AR-PACKAGE UUID="0aa24d2c-b830-4120-8d49-c030a7bfd76c">
           <SHORT-NAME>ImplementationDataTypes</SHORT-NAME>
           <ELEMENTS>
-            <IMPLEMENTATION-DATA-TYPE UUID="af10efac-79ef-40cb-bfa0-df45ffbf444f">
+            <IMPLEMENTATION-DATA-TYPE UUID="9ef1e8f3-0fba-4d5d-9fe3-2e55d465391d">
               <SHORT-NAME>ConstVoidPtr</SHORT-NAME>
               <CATEGORY>DATA_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -391,7 +391,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="c4bb52d9-f308-4457-bc95-2c7e48bb6da2">
+            <IMPLEMENTATION-DATA-TYPE UUID="ce45151d-5b6a-4950-9103-ae97db6aabab">
               <SHORT-NAME>NvM_BlockIdType</SHORT-NAME>
               <CATEGORY>VALUE</CATEGORY>
               <ADMIN-DATA>
@@ -409,7 +409,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="76efe1a2-e8a3-406e-a618-e62bfc070adf">
+            <IMPLEMENTATION-DATA-TYPE UUID="f0f672e3-08b7-49aa-9249-7f6fb22eed3b">
               <SHORT-NAME>NvM_BlockRequestType</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -428,7 +428,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="6521a55a-a15c-4f9b-a0bf-684a2f15bdba">
+            <IMPLEMENTATION-DATA-TYPE UUID="2e800720-9fcd-490d-86f1-35b1a7532409">
               <SHORT-NAME>NvM_InitBlockRequestType</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -447,7 +447,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="7bb6a986-e11a-4206-be93-f56fdfe2ad3c">
+            <IMPLEMENTATION-DATA-TYPE UUID="e0a159eb-c1b9-4a33-8193-7ef73701bc88">
               <SHORT-NAME>NvM_RequestResultType</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -466,7 +466,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="9c267946-d692-42d5-9ef5-e13daa697b7b">
+            <IMPLEMENTATION-DATA-TYPE UUID="019261c2-7565-4d4d-b1dc-73efd27581d1">
               <SHORT-NAME>VoidPtr</SHORT-NAME>
               <CATEGORY>DATA_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -493,7 +493,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="51dacff3-6832-43cc-bc07-58a9e5449431">
+            <IMPLEMENTATION-DATA-TYPE UUID="7c65b91c-9b94-4523-a209-e49fae9e5311">
               <SHORT-NAME>uint8</SHORT-NAME>
               <CATEGORY>VALUE</CATEGORY>
               <ADMIN-DATA>
@@ -511,7 +511,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="8cb6f6fe-51c8-40c2-9e1b-7da48db279e7">
+            <IMPLEMENTATION-DATA-TYPE UUID="a13ccea0-6daf-4cd7-82e2-c90f33a9e7cc">
               <SHORT-NAME>void</SHORT-NAME>
               <CATEGORY>VALUE</CATEGORY>
               <ADMIN-DATA>
@@ -531,10 +531,10 @@
             </IMPLEMENTATION-DATA-TYPE>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="c8336f8e-492c-42e4-9078-2105d36b8d8f">
+        <AR-PACKAGE UUID="f7703d2c-70d4-4a37-a18a-e8a46b3a4d2a">
           <SHORT-NAME>PortInterfaces</SHORT-NAME>
           <ELEMENTS>
-            <CLIENT-SERVER-INTERFACE UUID="a2b302ab-8332-4ad4-96d5-2c9bea316875">
+            <CLIENT-SERVER-INTERFACE UUID="f94e64d9-0c9f-486f-89eb-ea1982547c18">
               <SHORT-NAME>NvM_ReadAll</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -545,7 +545,7 @@
               </ADMIN-DATA>
               <SERVICE-KIND>NON-VOLATILE-RAM-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="e525fd66-8f06-4f05-bb0c-c8541fe4e3e0">
+                <CLIENT-SERVER-OPERATION UUID="fe19231b-253c-4a1f-b158-e2168009c408">
                   <SHORT-NAME>ReadAll</SHORT-NAME>
                   <POSSIBLE-ERROR-REFS>
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/NvM_ReadAll/E_NOT_OK</POSSIBLE-ERROR-REF>
@@ -554,17 +554,17 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="6bca7487-684a-45bc-8d23-704648336a65">
+                <APPLICATION-ERROR UUID="e247a4b3-873e-4b12-946b-98701dc6c3ce">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="342d550f-70ee-4793-87d9-16276cf39aa4">
+                <APPLICATION-ERROR UUID="64af9990-58e3-4f93-a1c0-aae952abf83d">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="cce8e593-6ca3-449a-a882-cc35e36b2fdd">
+            <CLIENT-SERVER-INTERFACE UUID="98267088-a0f5-4058-8699-1afe94ef3198">
               <SHORT-NAME>NvM_WriteAll</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -575,7 +575,7 @@
               </ADMIN-DATA>
               <SERVICE-KIND>NON-VOLATILE-RAM-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="83096ec2-f0ea-4135-b6f8-f5c8bba44725">
+                <CLIENT-SERVER-OPERATION UUID="344bd26b-4c94-45f3-9617-9bf8ee41531c">
                   <SHORT-NAME>WriteAll</SHORT-NAME>
                   <POSSIBLE-ERROR-REFS>
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/NvM_WriteAll/E_NOT_OK</POSSIBLE-ERROR-REF>
@@ -584,11 +584,11 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="00e2878f-0de7-4691-9ae1-bfa5b23e2e97">
+                <APPLICATION-ERROR UUID="de51c8a0-d226-4178-b896-8b8e0e006017">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="a27162ba-7d7f-4fe5-8c29-dc8a75cb8250">
+                <APPLICATION-ERROR UUID="26e82c6c-d4f9-428e-913b-4543ef46c95d">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
@@ -596,13 +596,13 @@
             </CLIENT-SERVER-INTERFACE>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="d9f5796e-a123-4ea1-89fd-29e66ac48521">
+        <AR-PACKAGE UUID="3233587d-a19f-4c2b-8cbb-7067236ed0a7">
           <SHORT-NAME>SWCs</SHORT-NAME>
           <ELEMENTS>
-            <COMPOSITION-SW-COMPONENT-TYPE UUID="629e550a-743a-458f-b291-6459cd2db809">
+            <COMPOSITION-SW-COMPONENT-TYPE UUID="847d039a-f6fd-4f58-8ad0-999695b54b56">
               <SHORT-NAME>TopComposition</SHORT-NAME>
               <PORTS>
-                <R-PORT-PROTOTYPE UUID="9d2d7687-6b17-405f-9a60-ccb6550ee22b">
+                <R-PORT-PROTOTYPE UUID="7e57c830-7d58-4f8b-bdf6-9af18241f1b7">
                   <SHORT-NAME>ReadAll</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -613,7 +613,7 @@
                   </ADMIN-DATA>
                   <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/NvM_ReadAll</REQUIRED-INTERFACE-TREF>
                 </R-PORT-PROTOTYPE>
-                <R-PORT-PROTOTYPE UUID="c171893c-352c-46d5-b6ea-c2c3793bccd0">
+                <R-PORT-PROTOTYPE UUID="a028674e-c1f4-477e-9196-47220911c913">
                   <SHORT-NAME>WriteAll</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>

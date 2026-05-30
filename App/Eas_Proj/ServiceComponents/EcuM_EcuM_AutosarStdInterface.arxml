@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-2-2.xsd">
   <AR-PACKAGES>
-    <AR-PACKAGE UUID="b2ce145d-d127-413f-929c-e010c2d72f03">
+    <AR-PACKAGE UUID="7124bb31-629c-4fe8-9ab2-75754dae19c3">
       <SHORT-NAME>BSW</SHORT-NAME>
       <AR-PACKAGES>
-        <AR-PACKAGE UUID="bb9c99ea-83d8-45d1-8338-d59b5511e8a2">
+        <AR-PACKAGE UUID="c11eeadb-b48a-413b-90b3-17a2a5ee421b">
           <SHORT-NAME>BaseTypes</SHORT-NAME>
           <ELEMENTS>
-            <SW-BASE-TYPE UUID="06ac4e58-eb87-4044-9ac9-3a768000bcf1">
+            <SW-BASE-TYPE UUID="df1606a7-921a-4044-9cf0-a2fcc382c794">
               <SHORT-NAME>boolean</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -21,7 +21,7 @@
               <BASE-TYPE-ENCODING>BOOLEAN</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned char</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="3bdce835-5a34-46d0-8a22-b1da84dce268">
+            <SW-BASE-TYPE UUID="e6e94e4c-a028-47ae-a5dc-0b00a8c189f0">
               <SHORT-NAME>float32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -35,7 +35,7 @@
               <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>float</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="5183d285-85a8-4750-b8d9-02ae5eec40b6">
+            <SW-BASE-TYPE UUID="c933a68f-7dd2-44fa-9e46-c8fcf6f56818">
               <SHORT-NAME>float64</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -49,7 +49,7 @@
               <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>double</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="bf445324-479a-407a-9517-6785895812ac">
+            <SW-BASE-TYPE UUID="6f30467e-6196-4789-b917-ba18e0cfc1fe">
               <SHORT-NAME>sint16</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -63,7 +63,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed short</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="01c5e231-55f1-4de5-93d1-ba2450f7412c">
+            <SW-BASE-TYPE UUID="036cbf04-585f-43be-a2da-e045b80a3820">
               <SHORT-NAME>sint32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -77,7 +77,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed int</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="f5c17b4f-e6b0-4208-9c9f-85c9977f4803">
+            <SW-BASE-TYPE UUID="007f4d65-a752-412e-aeb8-545d472856dc">
               <SHORT-NAME>sint64</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -91,7 +91,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed long</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="509b3338-1d92-4cf9-b9c1-f3856cf54632">
+            <SW-BASE-TYPE UUID="f7729ff0-51a0-4417-9ee9-4344f9b94205">
               <SHORT-NAME>sint8</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -105,7 +105,7 @@
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>signed char</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="aeef4c6f-15aa-423f-9e9f-34b543c43ac7">
+            <SW-BASE-TYPE UUID="656a2ad6-5c10-471a-8652-4980f831165b">
               <SHORT-NAME>uint16</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -119,7 +119,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned short</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="d6e9302e-72d0-49f7-894a-4020050c0cc7">
+            <SW-BASE-TYPE UUID="a9ca49f8-c669-4976-a06c-5ad30c25f765">
               <SHORT-NAME>uint32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -133,7 +133,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned int</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="32473e10-c343-4881-94ca-6a7b02fc1eae">
+            <SW-BASE-TYPE UUID="7b42c6a2-0a57-4c64-b27a-7f6bec739d32">
               <SHORT-NAME>uint64</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -147,7 +147,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned long</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="c4839197-6244-4b2c-89b0-82c98243457e">
+            <SW-BASE-TYPE UUID="009b02e1-f2c6-4073-859b-4dbe0c7dd8a9">
               <SHORT-NAME>uint8</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -161,7 +161,7 @@
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
               <NATIVE-DECLARATION>unsigned char</NATIVE-DECLARATION>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="0b6f2e5e-310a-4205-b073-36e198568d8d">
+            <SW-BASE-TYPE UUID="70dc6f90-40d4-4430-9810-27b4856cb826">
               <SHORT-NAME>void</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <ADMIN-DATA>
@@ -177,10 +177,10 @@
             </SW-BASE-TYPE>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="49a54bb7-8fcb-4a54-ac36-c3a988d8d215">
+        <AR-PACKAGE UUID="8f861d1f-f63c-4174-8b7f-cd678a9b296e">
           <SHORT-NAME>CompuMethods</SHORT-NAME>
           <ELEMENTS>
-            <COMPU-METHOD UUID="20c77e0e-f2b3-4ccc-be76-0f03a1bd8e1a">
+            <COMPU-METHOD UUID="1c501a74-034c-462b-8092-22f3a46b44f6">
               <SHORT-NAME>EcuM_BootTargetType</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
               <ADMIN-DATA>
@@ -216,7 +216,7 @@
                 </COMPU-SCALES>
               </COMPU-INTERNAL-TO-PHYS>
             </COMPU-METHOD>
-            <COMPU-METHOD UUID="4e2da6f4-644e-4e89-8811-aa92e425b6f7">
+            <COMPU-METHOD UUID="cc6ab541-2c97-400d-8cee-4b26addaf62a">
               <SHORT-NAME>EcuM_ShutdownCauseType</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
               <ADMIN-DATA>
@@ -259,7 +259,7 @@
                 </COMPU-SCALES>
               </COMPU-INTERNAL-TO-PHYS>
             </COMPU-METHOD>
-            <COMPU-METHOD UUID="4a50896f-fae8-47bc-a525-27433b4ef56a">
+            <COMPU-METHOD UUID="0fcf8a06-87fd-482c-a708-6ea85e3b0411">
               <SHORT-NAME>EcuM_ShutdownTargetType</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
               <ADMIN-DATA>
@@ -297,10 +297,10 @@
             </COMPU-METHOD>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="7d9befad-6ae3-4a4c-9c07-4f25dbb1b7ed">
+        <AR-PACKAGE UUID="9505f340-1c3c-4526-9058-8963cc01577c">
           <SHORT-NAME>ImplementationDataTypes</SHORT-NAME>
           <ELEMENTS>
-            <IMPLEMENTATION-DATA-TYPE UUID="446217c0-e9a6-4683-8f11-bba6497af249">
+            <IMPLEMENTATION-DATA-TYPE UUID="1b27f44c-2670-4a67-ba7e-f6f96c0abac1">
               <SHORT-NAME>EcuM_BootTargetType</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -319,7 +319,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="2dc53e1f-5386-43e9-8a50-6550a0a9109f">
+            <IMPLEMENTATION-DATA-TYPE UUID="0d256811-ac35-4828-9f4c-75bdd829dc84">
               <SHORT-NAME>EcuM_ShutdownCauseType</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -338,7 +338,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="c1b239ed-b9f4-452b-82bf-82d8faca3557">
+            <IMPLEMENTATION-DATA-TYPE UUID="8cf05727-9a43-499c-8ebb-396b9db6b805">
               <SHORT-NAME>EcuM_ShutdownModeType</SHORT-NAME>
               <CATEGORY>VALUE</CATEGORY>
               <ADMIN-DATA>
@@ -356,7 +356,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="b579e01b-9434-420c-8522-4a34c858c125">
+            <IMPLEMENTATION-DATA-TYPE UUID="57369a2a-ee2e-48fa-a59c-622d40cd95b6">
               <SHORT-NAME>EcuM_ShutdownTargetType</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -375,7 +375,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="d0a56295-59eb-4bd9-855c-19bdee2ddbcd">
+            <IMPLEMENTATION-DATA-TYPE UUID="96f68699-1029-405a-b90f-56bb0b370f58">
               <SHORT-NAME>EcuM_TimeType</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -393,7 +393,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="236f0f57-6019-4b04-8dbf-f50817aa767f">
+            <IMPLEMENTATION-DATA-TYPE UUID="1e89a1d6-0c7f-4956-8436-cffd17101e4c">
               <SHORT-NAME>EcuM_UserType</SHORT-NAME>
               <CATEGORY>TYPE_REFERENCE</CATEGORY>
               <ADMIN-DATA>
@@ -411,7 +411,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="8fb04d6e-bb87-414b-9488-2db2d8d8b0af">
+            <IMPLEMENTATION-DATA-TYPE UUID="9946a56b-bd59-4409-b97e-f41b3a23b382">
               <SHORT-NAME>uint32</SHORT-NAME>
               <CATEGORY>VALUE</CATEGORY>
               <ADMIN-DATA>
@@ -429,7 +429,7 @@
                 </SW-DATA-DEF-PROPS-VARIANTS>
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="95f95eb6-84d1-48c4-bd84-8ff0e419d7d1">
+            <IMPLEMENTATION-DATA-TYPE UUID="ceaf1bd7-0f02-472c-a861-a6e8c0ada520">
               <SHORT-NAME>uint8</SHORT-NAME>
               <CATEGORY>VALUE</CATEGORY>
               <ADMIN-DATA>
@@ -449,10 +449,10 @@
             </IMPLEMENTATION-DATA-TYPE>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="c419d3aa-f666-45ce-9e6c-05f5ed93ca55">
+        <AR-PACKAGE UUID="d31b528d-07fe-47a1-b567-6b68a84f26d7">
           <SHORT-NAME>ModeDeclarationGroups</SHORT-NAME>
           <ELEMENTS>
-            <MODE-DECLARATION-GROUP UUID="3bc9b4ae-ff8d-468c-8775-c2457f1281b7">
+            <MODE-DECLARATION-GROUP UUID="bf1524fe-4916-4819-be4c-e79bb7682005">
               <SHORT-NAME>EcuM_Mode</SHORT-NAME>
               <CATEGORY>ALPHABETIC_ORDER</CATEGORY>
               <ADMIN-DATA>
@@ -464,23 +464,23 @@
               </ADMIN-DATA>
               <INITIAL-MODE-REF DEST="MODE-DECLARATION">/BSW/ModeDeclarationGroups/EcuM_Mode/STARTUP</INITIAL-MODE-REF>
               <MODE-DECLARATIONS>
-                <MODE-DECLARATION UUID="c8ac608d-32e5-4257-94b2-08c0750540f9">
+                <MODE-DECLARATION UUID="39c5c325-cecd-4b10-9947-66fe4fb679d1">
                   <SHORT-NAME>POST_RUN</SHORT-NAME>
                   <VALUE>0</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="61b86b88-1fb5-4cb1-9b48-f949de44945f">
+                <MODE-DECLARATION UUID="9b79a751-1bb9-4f08-b3cd-7b1c16632e4c">
                   <SHORT-NAME>RUN</SHORT-NAME>
                   <VALUE>1</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="27ad6da8-2854-4ea9-8deb-36705adcd9ca">
+                <MODE-DECLARATION UUID="85d6af74-33e8-4d4c-bb2e-0ebea9a091d5">
                   <SHORT-NAME>SHUTDOWN</SHORT-NAME>
                   <VALUE>2</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="fbdc0455-a62b-4ad7-afb4-d8aae51e4543">
+                <MODE-DECLARATION UUID="f21b45dc-a4f1-4179-aae2-a2f44cc00638">
                   <SHORT-NAME>SLEEP</SHORT-NAME>
                   <VALUE>3</VALUE>
                 </MODE-DECLARATION>
-                <MODE-DECLARATION UUID="690c2ae6-851d-42c5-bc7a-332e36ba256a">
+                <MODE-DECLARATION UUID="d03fcaa7-2559-410f-b058-bb99d0df3e37">
                   <SHORT-NAME>STARTUP</SHORT-NAME>
                   <VALUE>4</VALUE>
                 </MODE-DECLARATION>
@@ -489,10 +489,10 @@
             </MODE-DECLARATION-GROUP>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="803d6615-5c68-4213-8581-f278902c16aa">
+        <AR-PACKAGE UUID="6c795d22-cb49-446d-a2c4-342cec457c70">
           <SHORT-NAME>PortInterfaces</SHORT-NAME>
           <ELEMENTS>
-            <CLIENT-SERVER-INTERFACE UUID="1fd4d622-8323-4406-a90d-485a5feb10fb">
+            <CLIENT-SERVER-INTERFACE UUID="da4e3e19-feba-40a9-9f54-3359df54aaac">
               <SHORT-NAME>EcuM_BootTarget</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -503,10 +503,10 @@
               </ADMIN-DATA>
               <SERVICE-KIND>ECU-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="cd4804e8-5aeb-4698-88b0-c5171f67262e">
+                <CLIENT-SERVER-OPERATION UUID="43a33bf0-a5db-40f0-8463-60e5adadbe74">
                   <SHORT-NAME>GetBootTarget</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="f8a71ed6-8497-4395-8476-a628c8ec7c82">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="4269c25b-01d3-4342-bc29-88047ebbd828">
                       <SHORT-NAME>target</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/EcuM_BootTargetType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -516,10 +516,10 @@
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/EcuM_BootTarget/E_OK</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="04731071-5af9-40d8-b2c3-33e9a351ff3a">
+                <CLIENT-SERVER-OPERATION UUID="399b4110-a528-47ea-bfb3-9bfff6e961ce">
                   <SHORT-NAME>SelectBootTarget</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="5614eb37-b634-4a18-8545-05e85be7da9d">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="47c93819-d9c1-48dc-a839-39a74d04b5e1">
                       <SHORT-NAME>target</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/EcuM_BootTargetType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
@@ -532,17 +532,17 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="992e5e76-e821-4c6a-b185-9694990890a6">
+                <APPLICATION-ERROR UUID="06437d02-c099-4263-a048-eeeaa0a77463">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="dea94eff-8ddb-49cd-9747-65d28f704c75">
+                <APPLICATION-ERROR UUID="a79a335f-380b-4be6-bfe1-ad24590e25a0">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="3f8d9efb-cffa-4fbe-bc96-ebc013b56379">
+            <CLIENT-SERVER-INTERFACE UUID="59d4a9e0-3484-4070-9682-cfce3c528fcb">
               <SHORT-NAME>EcuM_ShutdownTarget</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -553,15 +553,15 @@
               </ADMIN-DATA>
               <SERVICE-KIND>ECU-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="4eb0d831-8a3d-491e-a4e4-a8a44cf5017c">
+                <CLIENT-SERVER-OPERATION UUID="acec50ab-c7e4-4da8-9ff3-bcb617a12967">
                   <SHORT-NAME>GetLastShutdownTarget</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="73fba265-deb3-4680-acc3-3c33adc34a8c">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="42ee1ad1-651f-44f2-b158-be1ebdbde5b8">
                       <SHORT-NAME>shutdownTarget</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/EcuM_ShutdownTargetType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="31e477f7-3211-449a-ba35-4e3fc6908179">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="c32fb7eb-e251-4df4-929b-a371087adb07">
                       <SHORT-NAME>shutdownMode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/EcuM_ShutdownModeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -572,10 +572,10 @@
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/EcuM_ShutdownTarget/E_OK</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="8cbe2f29-9a5b-4369-83c5-5c9f1695aa18">
+                <CLIENT-SERVER-OPERATION UUID="1bb9e084-0536-4e42-aa5c-9b14c81d7ade">
                   <SHORT-NAME>GetShutdownCause</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="5544a49a-dec9-4b22-a994-f0e44b2ba93e">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="a92db929-9e37-4326-bb2a-4c63a49100aa">
                       <SHORT-NAME>shutdownCause</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/EcuM_ShutdownCauseType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -586,15 +586,15 @@
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/EcuM_ShutdownTarget/E_OK</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="896aa2f2-ca6c-45bd-acf7-2dde9ebee50e">
+                <CLIENT-SERVER-OPERATION UUID="0c9b05b3-82a5-4941-85a8-5ea365357847">
                   <SHORT-NAME>GetShutdownTarget</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="421a8338-9b33-4fb6-925c-58d632b52a3d">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="84866bc6-d385-4a74-aed8-f90622e6e2cc">
                       <SHORT-NAME>shutdownTarget</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/EcuM_ShutdownTargetType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="dc96984c-ee86-4cb8-a7d2-4790f3014f3e">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="e4b77198-8f29-45fe-b1c6-809b973d40a9">
                       <SHORT-NAME>shutdownMode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/EcuM_ShutdownModeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -605,10 +605,10 @@
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/EcuM_ShutdownTarget/E_OK</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="c01baf0e-fdc1-4e9b-afcc-714323cbedb8">
+                <CLIENT-SERVER-OPERATION UUID="7cbeeb4c-7e2e-4e8f-a8b5-b0e005bf8e79">
                   <SHORT-NAME>SelectShutdownCause</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="dfadda66-9150-4080-9670-f51bbc82594d">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="5263e6fa-6476-4f9e-a0ec-ebe52d707843">
                       <SHORT-NAME>shutdownCause</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/EcuM_ShutdownCauseType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
@@ -619,15 +619,15 @@
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/EcuM_ShutdownTarget/E_OK</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="e365e84c-f143-4854-b689-c1fda5f01e1b">
+                <CLIENT-SERVER-OPERATION UUID="7b60dad5-83cc-438c-a2a8-7ad4173e2de5">
                   <SHORT-NAME>SelectShutdownTarget</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="f1206a4a-288e-4354-9ca3-a1e95e8c92e7">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="ab5d6354-cd6f-441f-b376-0104bcb5e0ba">
                       <SHORT-NAME>shutdownTarget</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/EcuM_ShutdownTargetType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
                     </ARGUMENT-DATA-PROTOTYPE>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="20344d3d-783f-425e-a95d-d5962712ca5b">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="81ceaf7d-2293-4f44-8551-781e6a7fa603">
                       <SHORT-NAME>shutdownMode</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/EcuM_ShutdownModeType</TYPE-TREF>
                       <DIRECTION>IN</DIRECTION>
@@ -640,17 +640,17 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="cc5fcf80-6f6f-4bba-8a8d-bb201d5d82cb">
+                <APPLICATION-ERROR UUID="7ff71d2a-7673-441b-88cd-bc257820c751">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="b77eef9c-98e6-4764-973a-8866402cdeae">
+                <APPLICATION-ERROR UUID="b99bd37f-aeca-47d5-b2a9-ad77cc393fa7">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="e4a58a6f-4a4b-4cda-a7d7-10842241dfd2">
+            <CLIENT-SERVER-INTERFACE UUID="07886f90-cb92-4011-ad31-a6fa4810fa8e">
               <SHORT-NAME>EcuM_StateRequest</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -661,28 +661,28 @@
               </ADMIN-DATA>
               <SERVICE-KIND>ECU-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="dc7128f2-43c8-4694-8bf1-40d726448849">
+                <CLIENT-SERVER-OPERATION UUID="7311a355-bb46-4183-8c19-8aa24bcc941a">
                   <SHORT-NAME>ReleasePOSTRUN</SHORT-NAME>
                   <POSSIBLE-ERROR-REFS>
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/EcuM_StateRequest/E_NOT_OK</POSSIBLE-ERROR-REF>
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/EcuM_StateRequest/E_OK</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="4bbd5465-1b93-4e87-a8d8-d3ea5407a859">
+                <CLIENT-SERVER-OPERATION UUID="5aec4991-c8f8-464e-9e06-82ccb286c978">
                   <SHORT-NAME>ReleaseRUN</SHORT-NAME>
                   <POSSIBLE-ERROR-REFS>
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/EcuM_StateRequest/E_NOT_OK</POSSIBLE-ERROR-REF>
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/EcuM_StateRequest/E_OK</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="e2ce98fc-079f-419e-853a-6c935d3094c1">
+                <CLIENT-SERVER-OPERATION UUID="c8aaee8f-b9f6-4446-a285-77397ff218cc">
                   <SHORT-NAME>RequestPOSTRUN</SHORT-NAME>
                   <POSSIBLE-ERROR-REFS>
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/EcuM_StateRequest/E_NOT_OK</POSSIBLE-ERROR-REF>
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/EcuM_StateRequest/E_OK</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="282cc946-9c79-477d-872c-2dadff8bb580">
+                <CLIENT-SERVER-OPERATION UUID="ca725d9a-7d8b-4c08-bd53-45e5fea51e97">
                   <SHORT-NAME>RequestRUN</SHORT-NAME>
                   <POSSIBLE-ERROR-REFS>
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/EcuM_StateRequest/E_NOT_OK</POSSIBLE-ERROR-REF>
@@ -691,17 +691,17 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="bb7c9a7a-df2e-4bc5-b3f3-ee655c8f9f62">
+                <APPLICATION-ERROR UUID="51d3197e-ddd7-40de-ad5d-482ed1f25cbe">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="0224c8f3-3dba-4262-a2f5-9f398feeeb48">
+                <APPLICATION-ERROR UUID="90e0b5c3-3628-4f50-8348-e1041154385a">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <CLIENT-SERVER-INTERFACE UUID="265d895b-ae48-4668-a05d-e69f9c81ba0b">
+            <CLIENT-SERVER-INTERFACE UUID="1fb9ee2a-54df-47b1-8c92-b8658327ad5a">
               <SHORT-NAME>EcuM_Time</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -712,10 +712,10 @@
               </ADMIN-DATA>
               <SERVICE-KIND>ECU-MANAGER</SERVICE-KIND>
               <OPERATIONS>
-                <CLIENT-SERVER-OPERATION UUID="b44aef03-902b-458a-bb4b-86eb513999d5">
+                <CLIENT-SERVER-OPERATION UUID="4951fbc8-24c0-46ae-a93d-70117d29f073">
                   <SHORT-NAME>GetCurrentTime</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="ebe5ca30-3180-44ad-9bbd-70d18d3c4aa6">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="bd0ae669-38d9-4db6-baf6-dc64d52a76d5">
                       <SHORT-NAME>time</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/EcuM_TimeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -726,10 +726,10 @@
                     <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/EcuM_Time/E_OK</POSSIBLE-ERROR-REF>
                   </POSSIBLE-ERROR-REFS>
                 </CLIENT-SERVER-OPERATION>
-                <CLIENT-SERVER-OPERATION UUID="5365dfd7-de7e-449c-b65c-11720f3bb7ef">
+                <CLIENT-SERVER-OPERATION UUID="840484ec-2a0a-442e-a214-530b9bda017c">
                   <SHORT-NAME>GetWakeupTime</SHORT-NAME>
                   <ARGUMENTS>
-                    <ARGUMENT-DATA-PROTOTYPE UUID="73011c73-5399-4908-a7d3-d49dda2d0339">
+                    <ARGUMENT-DATA-PROTOTYPE UUID="f71be876-61f5-4323-886e-bdf0ca3f9dd8">
                       <SHORT-NAME>time</SHORT-NAME>
                       <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/EcuM_TimeType</TYPE-TREF>
                       <DIRECTION>OUT</DIRECTION>
@@ -742,17 +742,17 @@
                 </CLIENT-SERVER-OPERATION>
               </OPERATIONS>
               <POSSIBLE-ERRORS>
-                <APPLICATION-ERROR UUID="a5c747e5-afec-462a-88d4-fecafd467829">
+                <APPLICATION-ERROR UUID="88842fd9-7ef7-4f70-8037-e0fdc8cf4808">
                   <SHORT-NAME>E_NOT_OK</SHORT-NAME>
                   <ERROR-CODE>1</ERROR-CODE>
                 </APPLICATION-ERROR>
-                <APPLICATION-ERROR UUID="97aa3b9f-8a6c-464a-afae-bf68dca0fdf5">
+                <APPLICATION-ERROR UUID="78cfc92d-53d1-4c9b-aaa4-62914f3811a7">
                   <SHORT-NAME>E_OK</SHORT-NAME>
                   <ERROR-CODE>0</ERROR-CODE>
                 </APPLICATION-ERROR>
               </POSSIBLE-ERRORS>
             </CLIENT-SERVER-INTERFACE>
-            <MODE-SWITCH-INTERFACE UUID="6f680454-1fe9-4843-b858-5c6e967bfaf7">
+            <MODE-SWITCH-INTERFACE UUID="f0d061ce-274f-44d0-b00b-2ef6e596dbcd">
               <SHORT-NAME>EcuM_CurrentMode</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
@@ -762,20 +762,20 @@
                 </SDGS>
               </ADMIN-DATA>
               <SERVICE-KIND>ECU-MANAGER</SERVICE-KIND>
-              <MODE-GROUP UUID="a6c46d63-1dff-40cb-b01f-5ead4f28efce">
+              <MODE-GROUP UUID="cfdf18f7-2ec4-4271-8175-46c356644e75">
                 <SHORT-NAME>currentMode</SHORT-NAME>
                 <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/BSW/ModeDeclarationGroups/EcuM_Mode</TYPE-TREF>
               </MODE-GROUP>
             </MODE-SWITCH-INTERFACE>
           </ELEMENTS>
         </AR-PACKAGE>
-        <AR-PACKAGE UUID="030254b9-2482-4ad5-b228-61fea1f1fd52">
+        <AR-PACKAGE UUID="ad3c4120-2825-489c-8f19-016f9496d36d">
           <SHORT-NAME>SWCs</SHORT-NAME>
           <ELEMENTS>
-            <COMPOSITION-SW-COMPONENT-TYPE UUID="ec188d82-3b0a-4b4b-ba01-8cd8e03225a6">
+            <COMPOSITION-SW-COMPONENT-TYPE UUID="9b4dcf49-ce32-4145-8963-61e2a8d12993">
               <SHORT-NAME>TopComposition</SHORT-NAME>
               <PORTS>
-                <R-PORT-PROTOTYPE UUID="9fdffa5a-c8ba-41dd-9600-28a124529cd4">
+                <R-PORT-PROTOTYPE UUID="ab56e431-3be5-4872-8cd8-93a4172f0295">
                   <SHORT-NAME>BootTarget_User0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -786,7 +786,7 @@
                   </ADMIN-DATA>
                   <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/EcuM_BootTarget</REQUIRED-INTERFACE-TREF>
                 </R-PORT-PROTOTYPE>
-                <R-PORT-PROTOTYPE UUID="6d39244c-3ca2-41e1-ac29-45f28fe3026b">
+                <R-PORT-PROTOTYPE UUID="1c78b499-2b13-44b7-94a3-0b23068d5924">
                   <SHORT-NAME>ShutdownTarget_User0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -797,7 +797,7 @@
                   </ADMIN-DATA>
                   <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/EcuM_ShutdownTarget</REQUIRED-INTERFACE-TREF>
                 </R-PORT-PROTOTYPE>
-                <R-PORT-PROTOTYPE UUID="e7636a4b-af5f-4088-a1e2-94f4dd7fb073">
+                <R-PORT-PROTOTYPE UUID="d5c1f0ac-1f78-4502-aa19-fbd419586d3d">
                   <SHORT-NAME>StateRequest_User0</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -808,7 +808,7 @@
                   </ADMIN-DATA>
                   <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/EcuM_StateRequest</REQUIRED-INTERFACE-TREF>
                 </R-PORT-PROTOTYPE>
-                <R-PORT-PROTOTYPE UUID="2db0cb08-2b08-488a-82f7-21ce8fc83624">
+                <R-PORT-PROTOTYPE UUID="c0735e93-3b40-4f4e-94b1-a0ef7b08a3b9">
                   <SHORT-NAME>currentMode</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>
@@ -819,7 +819,7 @@
                   </ADMIN-DATA>
                   <REQUIRED-INTERFACE-TREF DEST="MODE-SWITCH-INTERFACE">/BSW/PortInterfaces/EcuM_CurrentMode</REQUIRED-INTERFACE-TREF>
                 </R-PORT-PROTOTYPE>
-                <R-PORT-PROTOTYPE UUID="4cc5e338-47e1-4126-8869-67d6142e3038">
+                <R-PORT-PROTOTYPE UUID="36e3417f-2da3-40e9-a290-f662246e0fde">
                   <SHORT-NAME>time</SHORT-NAME>
                   <ADMIN-DATA>
                     <SDGS>

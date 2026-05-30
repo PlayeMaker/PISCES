@@ -459,9 +459,10 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_RoutineServices_0x0203_Start
 }
 FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_RoutineServices_0xFD04_Start
 (
-    CONST(Dcm_StartDataIn_DspRoutine0xFD04_DspRoutine0xFD04_StartInSignalType, AUTOMATIC) DataIn_DspRoutine0xFD04_StartInSignal,
+    CONST(Dcm_StartFlexibleInArrayData_DspRoutine0xFD04_DspRoutine0xFD04_StartInSignalType, AUTOMATIC) DataIn_DspRoutine0xFD04_StartInSignal,
     CONST(Dcm_OpStatusType, AUTOMATIC) OpStatus,
-    P2VAR(Dcm_StartDataOut_DspRoutine0xFD04_DspRoutine0xFD04_StartOutSignalType, AUTOMATIC, RTE_APPL_DATA) DataOut_DspRoutine0xFD04_StartOutSignal,
+    VAR(Dcm_StartFlexibleOutArrayData_DspRoutine0xFD04_DspRoutine0xFD04_StartOutSignalType,AUTOMATIC) DataOut_DspRoutine0xFD04_StartOutSignal,
+    P2VAR(uint16, AUTOMATIC, RTE_APPL_DATA) currentDataLength,
     P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode
 )
 {
@@ -472,11 +473,28 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_RoutineServices_0xFD04_Start
     return Result;
     /*Rte_Call_Dcm_RoutineServices_0xFD04_Start User Code end*/
 }
+FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_RoutineServices_0xFD04_Stop
+(
+    CONST(Dcm_StopFlexibleInArrayData_DspRoutine0xFD04_DspRoutine0xFD04_StopInSignalType, AUTOMATIC) DataIn_DspRoutine0xFD04_StopInSignal,
+    CONST(Dcm_OpStatusType, AUTOMATIC) OpStatus,
+    VAR(Dcm_StopFlexibleOutArrayData_DspRoutine0xFD04_DspRoutine0xFD04_StopOutSignalType,AUTOMATIC) DataOut_DspRoutine0xFD04_StopOutSignal,
+    P2VAR(uint16, AUTOMATIC, RTE_APPL_DATA) currentDataLength,
+    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode
+)
+{
+    /*Rte_Call_Dcm_RoutineServices_0xFD04_Stop User Code start*/
+
+    Std_ReturnType Result = E_OK;
+
+    return Result;
+    /*Rte_Call_Dcm_RoutineServices_0xFD04_Stop User Code end*/
+}
 FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_RoutineServices_0xFD05_Start
 (
-    CONST(Dcm_StartDataIn_DspRoutine0xFD05_DspRoutine0xFD05_StartInSignalType, AUTOMATIC) DataIn_DspRoutine0xFD05_StartInSignal,
+    CONST(Dcm_StartFlexibleInArrayData_DspRoutine0xFD05_DspRoutine0xFD05_StartInSignalType, AUTOMATIC) DataIn_DspRoutine0xFD05_StartInSignal,
     CONST(Dcm_OpStatusType, AUTOMATIC) OpStatus,
-    P2VAR(Dcm_StartDataOut_DspRoutine0xFD05_DspRoutine0xFD05_StartOutSignalType, AUTOMATIC, RTE_APPL_DATA) DataOut_DspRoutine0xFD05_StartOutSignal,
+    VAR(Dcm_StartFlexibleOutArrayData_DspRoutine0xFD05_DspRoutine0xFD05_StartOutSignalType,AUTOMATIC) DataOut_DspRoutine0xFD05_StartOutSignal,
+    P2VAR(uint16, AUTOMATIC, RTE_APPL_DATA) currentDataLength,
     P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode
 )
 {

@@ -6173,7 +6173,7 @@
                               <REFERENCE-VALUES>
                                 <ECUC-REFERENCE-VALUE>
                                   <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineCommonAuthorizationRef</DEFINITION-REF>
-                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dcm/Cfg_D/DcmDsp/DspCommonAuthorizations_DsdServiceTable0/DspRoutine0xFD04_Start</VALUE-REF>
+                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dcm/Cfg_D/DcmDsp/DspCommonAuthorizations_DsdServiceTable0/DspRoutine0xFD04</VALUE-REF>
                                 </ECUC-REFERENCE-VALUE>
                               </REFERENCE-VALUES>
                               <SUB-CONTAINERS>
@@ -6187,11 +6187,11 @@
                                       <PARAMETER-VALUES>
                                         <ECUC-TEXTUAL-PARAM-VALUE>
                                           <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineIn/DcmDspStartRoutineInSignal/DcmDspRoutineSignalType</DEFINITION-REF>
-                                          <VALUE>UINT32</VALUE>
+                                          <VALUE>VARIABLE_LENGTH</VALUE>
                                         </ECUC-TEXTUAL-PARAM-VALUE>
                                         <ECUC-NUMERICAL-PARAM-VALUE>
                                           <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineIn/DcmDspStartRoutineInSignal/DcmDspRoutineParameterSize</DEFINITION-REF>
-                                          <VALUE>4</VALUE>
+                                          <VALUE>3</VALUE>
                                         </ECUC-NUMERICAL-PARAM-VALUE>
                                         <ECUC-NUMERICAL-PARAM-VALUE>
                                           <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineIn/DcmDspStartRoutineInSignal/DcmDspRoutineSignalPos</DEFINITION-REF>
@@ -6215,11 +6215,11 @@
                                       <PARAMETER-VALUES>
                                         <ECUC-TEXTUAL-PARAM-VALUE>
                                           <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineOut/DcmDspStartRoutineOutSignal/DcmDspRoutineSignalType</DEFINITION-REF>
-                                          <VALUE>UINT32</VALUE>
+                                          <VALUE>VARIABLE_LENGTH</VALUE>
                                         </ECUC-TEXTUAL-PARAM-VALUE>
                                         <ECUC-NUMERICAL-PARAM-VALUE>
                                           <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineOut/DcmDspStartRoutineOutSignal/DcmDspRoutineParameterSize</DEFINITION-REF>
-                                          <VALUE>4</VALUE>
+                                          <VALUE>3</VALUE>
                                         </ECUC-NUMERICAL-PARAM-VALUE>
                                         <ECUC-NUMERICAL-PARAM-VALUE>
                                           <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineOut/DcmDspStartRoutineOutSignal/DcmDspRoutineSignalPos</DEFINITION-REF>
@@ -6227,6 +6227,100 @@
                                         </ECUC-NUMERICAL-PARAM-VALUE>
                                         <ECUC-TEXTUAL-PARAM-VALUE>
                                           <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineOut/DcmDspStartRoutineOutSignal/DcmDspRoutineSignalEndianness</DEFINITION-REF>
+                                          <VALUE>OPAQUE</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                      </PARAMETER-VALUES>
+                                    </ECUC-CONTAINER-VALUE>
+                                  </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                              </SUB-CONTAINERS>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>DspRoutine0xFD04_Stop</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStopRoutine</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStopRoutine/DcmDspStopRoutineFnc</DEFINITION-REF>
+                                  <VALUE>Dcm_RoutineServices_0xFD04_Stop</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStopRoutine/P4ServerMax</DEFINITION-REF>
+                                  <VALUE>0</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStopRoutine/DcmDspRoutineInterfaceArgumentIntegrity</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStopRoutine/DcmDspStopRoutineConfirmationEnabled</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStopRoutine/DcmDspStopRoutineConfirmationFnc</DEFINITION-REF>
+                                  <VALUE></VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStopRoutine/isUserDefine</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                              <REFERENCE-VALUES>
+                                <ECUC-REFERENCE-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStopRoutine/DcmDspStopRoutineCommonAuthorizationRef</DEFINITION-REF>
+                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dcm/Cfg_D/DcmDsp/DspCommonAuthorizations_DsdServiceTable0/DspRoutine0xFD04</VALUE-REF>
+                                </ECUC-REFERENCE-VALUE>
+                              </REFERENCE-VALUES>
+                              <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                  <SHORT-NAME>DspStopRoutineIn</SHORT-NAME>
+                                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopIn</DEFINITION-REF>
+                                  <SUB-CONTAINERS>
+                                    <ECUC-CONTAINER-VALUE>
+                                      <SHORT-NAME>DspRoutine0xFD04_StopInSignal</SHORT-NAME>
+                                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopIn/DcmDspRoutineStopInSignal</DEFINITION-REF>
+                                      <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopIn/DcmDspRoutineStopInSignal/DcmDspRoutineSignalType</DEFINITION-REF>
+                                          <VALUE>VARIABLE_LENGTH</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopIn/DcmDspRoutineStopInSignal/DcmDspRoutineParameterSize</DEFINITION-REF>
+                                          <VALUE>3</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopIn/DcmDspRoutineStopInSignal/DcmDspRoutineSignalPos</DEFINITION-REF>
+                                          <VALUE>0</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopIn/DcmDspRoutineStopInSignal/DcmDspRoutineSignalEndianness</DEFINITION-REF>
+                                          <VALUE>OPAQUE</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                      </PARAMETER-VALUES>
+                                    </ECUC-CONTAINER-VALUE>
+                                  </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                  <SHORT-NAME>DspStopRoutineOut</SHORT-NAME>
+                                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopOut</DEFINITION-REF>
+                                  <SUB-CONTAINERS>
+                                    <ECUC-CONTAINER-VALUE>
+                                      <SHORT-NAME>DspRoutine0xFD04_StopOutSignal</SHORT-NAME>
+                                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopOut/DcmDspRoutineStopOutSignal</DEFINITION-REF>
+                                      <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopOut/DcmDspRoutineStopOutSignal/DcmDspRoutineSignalType</DEFINITION-REF>
+                                          <VALUE>VARIABLE_LENGTH</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopOut/DcmDspRoutineStopOutSignal/DcmDspRoutineParameterSize</DEFINITION-REF>
+                                          <VALUE>3</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopOut/DcmDspRoutineStopOutSignal/DcmDspRoutineSignalPos</DEFINITION-REF>
+                                          <VALUE>0</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopOut/DcmDspRoutineStopOutSignal/DcmDspRoutineSignalEndianness</DEFINITION-REF>
                                           <VALUE>OPAQUE</VALUE>
                                         </ECUC-TEXTUAL-PARAM-VALUE>
                                       </PARAMETER-VALUES>
@@ -6300,7 +6394,7 @@
                               <REFERENCE-VALUES>
                                 <ECUC-REFERENCE-VALUE>
                                   <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineCommonAuthorizationRef</DEFINITION-REF>
-                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dcm/Cfg_D/DcmDsp/DspCommonAuthorizations_DsdServiceTable0/DspRoutine0xFD05_Start</VALUE-REF>
+                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dcm/Cfg_D/DcmDsp/DspCommonAuthorizations_DsdServiceTable0/DspRoutine0xFD05</VALUE-REF>
                                 </ECUC-REFERENCE-VALUE>
                               </REFERENCE-VALUES>
                               <SUB-CONTAINERS>
@@ -6314,7 +6408,7 @@
                                       <PARAMETER-VALUES>
                                         <ECUC-TEXTUAL-PARAM-VALUE>
                                           <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineIn/DcmDspStartRoutineInSignal/DcmDspRoutineSignalType</DEFINITION-REF>
-                                          <VALUE>UINT16</VALUE>
+                                          <VALUE>VARIABLE_LENGTH</VALUE>
                                         </ECUC-TEXTUAL-PARAM-VALUE>
                                         <ECUC-NUMERICAL-PARAM-VALUE>
                                           <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineIn/DcmDspStartRoutineInSignal/DcmDspRoutineParameterSize</DEFINITION-REF>
@@ -6342,7 +6436,7 @@
                                       <PARAMETER-VALUES>
                                         <ECUC-TEXTUAL-PARAM-VALUE>
                                           <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineOut/DcmDspStartRoutineOutSignal/DcmDspRoutineSignalType</DEFINITION-REF>
-                                          <VALUE>UINT16</VALUE>
+                                          <VALUE>VARIABLE_LENGTH</VALUE>
                                         </ECUC-TEXTUAL-PARAM-VALUE>
                                         <ECUC-NUMERICAL-PARAM-VALUE>
                                           <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineOut/DcmDspStartRoutineOutSignal/DcmDspRoutineParameterSize</DEFINITION-REF>
@@ -6427,7 +6521,7 @@
                               <REFERENCE-VALUES>
                                 <ECUC-REFERENCE-VALUE>
                                   <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineCommonAuthorizationRef</DEFINITION-REF>
-                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dcm/Cfg_D/DcmDsp/DspCommonAuthorizations_DsdServiceTable0/DspRoutine0xFD10_Start</VALUE-REF>
+                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dcm/Cfg_D/DcmDsp/DspCommonAuthorizations_DsdServiceTable0/DspRoutine0xFD10</VALUE-REF>
                                 </ECUC-REFERENCE-VALUE>
                               </REFERENCE-VALUES>
                             </ECUC-CONTAINER-VALUE>
@@ -6472,7 +6566,7 @@
                           </REFERENCE-VALUES>
                         </ECUC-CONTAINER-VALUE>
                         <ECUC-CONTAINER-VALUE>
-                          <SHORT-NAME>DspRoutine0xFD04_Start</SHORT-NAME>
+                          <SHORT-NAME>DspRoutine0xFD04</SHORT-NAME>
                           <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspCommonAuthorization</DEFINITION-REF>
                           <PARAMETER-VALUES>
                             <ECUC-NUMERICAL-PARAM-VALUE>
@@ -6504,7 +6598,7 @@
                           </REFERENCE-VALUES>
                         </ECUC-CONTAINER-VALUE>
                         <ECUC-CONTAINER-VALUE>
-                          <SHORT-NAME>DspRoutine0xFD05_Start</SHORT-NAME>
+                          <SHORT-NAME>DspRoutine0xFD05</SHORT-NAME>
                           <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspCommonAuthorization</DEFINITION-REF>
                           <PARAMETER-VALUES>
                             <ECUC-NUMERICAL-PARAM-VALUE>
@@ -6536,7 +6630,7 @@
                           </REFERENCE-VALUES>
                         </ECUC-CONTAINER-VALUE>
                         <ECUC-CONTAINER-VALUE>
-                          <SHORT-NAME>DspRoutine0xFD10_Start</SHORT-NAME>
+                          <SHORT-NAME>DspRoutine0xFD10</SHORT-NAME>
                           <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspCommonAuthorization</DEFINITION-REF>
                           <PARAMETER-VALUES>
                             <ECUC-NUMERICAL-PARAM-VALUE>
@@ -12801,7 +12895,7 @@
                               <REFERENCE-VALUES>
                                 <ECUC-REFERENCE-VALUE>
                                   <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineCommonAuthorizationRef</DEFINITION-REF>
-                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dcm/Cfg_P/DcmDsp/DspCommonAuthorizations_DsdServiceTable0/DspRoutine0xFD04_Start</VALUE-REF>
+                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dcm/Cfg_P/DcmDsp/DspCommonAuthorizations_DsdServiceTable0/DspRoutine0xFD04</VALUE-REF>
                                 </ECUC-REFERENCE-VALUE>
                               </REFERENCE-VALUES>
                               <SUB-CONTAINERS>
@@ -12815,7 +12909,7 @@
                                       <PARAMETER-VALUES>
                                         <ECUC-TEXTUAL-PARAM-VALUE>
                                           <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineIn/DcmDspStartRoutineInSignal/DcmDspRoutineSignalType</DEFINITION-REF>
-                                          <VALUE>UINT32</VALUE>
+                                          <VALUE>VARIABLE_LENGTH</VALUE>
                                         </ECUC-TEXTUAL-PARAM-VALUE>
                                         <ECUC-NUMERICAL-PARAM-VALUE>
                                           <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineIn/DcmDspStartRoutineInSignal/DcmDspRoutineParameterSize</DEFINITION-REF>
@@ -12855,6 +12949,100 @@
                                         </ECUC-NUMERICAL-PARAM-VALUE>
                                         <ECUC-TEXTUAL-PARAM-VALUE>
                                           <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineOut/DcmDspStartRoutineOutSignal/DcmDspRoutineSignalEndianness</DEFINITION-REF>
+                                          <VALUE>OPAQUE</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                      </PARAMETER-VALUES>
+                                    </ECUC-CONTAINER-VALUE>
+                                  </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                              </SUB-CONTAINERS>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>DspRoutine0xFD04_Stop</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStopRoutine</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStopRoutine/DcmDspStopRoutineFnc</DEFINITION-REF>
+                                  <VALUE>Dcm_RoutineServices_0xFD04_Stop</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStopRoutine/P4ServerMax</DEFINITION-REF>
+                                  <VALUE>0</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStopRoutine/DcmDspRoutineInterfaceArgumentIntegrity</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStopRoutine/DcmDspStopRoutineConfirmationEnabled</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStopRoutine/DcmDspStopRoutineConfirmationFnc</DEFINITION-REF>
+                                  <VALUE></VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStopRoutine/isUserDefine</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                              <REFERENCE-VALUES>
+                                <ECUC-REFERENCE-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStopRoutine/DcmDspStopRoutineCommonAuthorizationRef</DEFINITION-REF>
+                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dcm/Cfg_P/DcmDsp/DspCommonAuthorizations_DsdServiceTable0/DspRoutine0xFD04</VALUE-REF>
+                                </ECUC-REFERENCE-VALUE>
+                              </REFERENCE-VALUES>
+                              <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                  <SHORT-NAME>DspStopRoutineIn</SHORT-NAME>
+                                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopIn</DEFINITION-REF>
+                                  <SUB-CONTAINERS>
+                                    <ECUC-CONTAINER-VALUE>
+                                      <SHORT-NAME>DspRoutine0xFD04_StopInSignal</SHORT-NAME>
+                                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopIn/DcmDspRoutineStopInSignal</DEFINITION-REF>
+                                      <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopIn/DcmDspRoutineStopInSignal/DcmDspRoutineSignalType</DEFINITION-REF>
+                                          <VALUE>VARIABLE_LENGTH</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopIn/DcmDspRoutineStopInSignal/DcmDspRoutineParameterSize</DEFINITION-REF>
+                                          <VALUE>3</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopIn/DcmDspRoutineStopInSignal/DcmDspRoutineSignalPos</DEFINITION-REF>
+                                          <VALUE>0</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopIn/DcmDspRoutineStopInSignal/DcmDspRoutineSignalEndianness</DEFINITION-REF>
+                                          <VALUE>OPAQUE</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                      </PARAMETER-VALUES>
+                                    </ECUC-CONTAINER-VALUE>
+                                  </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                  <SHORT-NAME>DspStopRoutineOut</SHORT-NAME>
+                                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopOut</DEFINITION-REF>
+                                  <SUB-CONTAINERS>
+                                    <ECUC-CONTAINER-VALUE>
+                                      <SHORT-NAME>DspRoutine0xFD04_StopOutSignal</SHORT-NAME>
+                                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopOut/DcmDspRoutineStopOutSignal</DEFINITION-REF>
+                                      <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopOut/DcmDspRoutineStopOutSignal/DcmDspRoutineSignalType</DEFINITION-REF>
+                                          <VALUE>VARIABLE_LENGTH</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopOut/DcmDspRoutineStopOutSignal/DcmDspRoutineParameterSize</DEFINITION-REF>
+                                          <VALUE>3</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopOut/DcmDspRoutineStopOutSignal/DcmDspRoutineSignalPos</DEFINITION-REF>
+                                          <VALUE>0</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutineInfo/DcmDspRoutineStopOut/DcmDspRoutineStopOutSignal/DcmDspRoutineSignalEndianness</DEFINITION-REF>
                                           <VALUE>OPAQUE</VALUE>
                                         </ECUC-TEXTUAL-PARAM-VALUE>
                                       </PARAMETER-VALUES>
@@ -12928,7 +13116,7 @@
                               <REFERENCE-VALUES>
                                 <ECUC-REFERENCE-VALUE>
                                   <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineCommonAuthorizationRef</DEFINITION-REF>
-                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dcm/Cfg_P/DcmDsp/DspCommonAuthorizations_DsdServiceTable0/DspRoutine0xFD05_Start</VALUE-REF>
+                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dcm/Cfg_P/DcmDsp/DspCommonAuthorizations_DsdServiceTable0/DspRoutine0xFD05</VALUE-REF>
                                 </ECUC-REFERENCE-VALUE>
                               </REFERENCE-VALUES>
                               <SUB-CONTAINERS>
@@ -12942,7 +13130,7 @@
                                       <PARAMETER-VALUES>
                                         <ECUC-TEXTUAL-PARAM-VALUE>
                                           <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineIn/DcmDspStartRoutineInSignal/DcmDspRoutineSignalType</DEFINITION-REF>
-                                          <VALUE>UINT16</VALUE>
+                                          <VALUE>VARIABLE_LENGTH</VALUE>
                                         </ECUC-TEXTUAL-PARAM-VALUE>
                                         <ECUC-NUMERICAL-PARAM-VALUE>
                                           <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineIn/DcmDspStartRoutineInSignal/DcmDspRoutineParameterSize</DEFINITION-REF>
@@ -12970,7 +13158,7 @@
                                       <PARAMETER-VALUES>
                                         <ECUC-TEXTUAL-PARAM-VALUE>
                                           <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineOut/DcmDspStartRoutineOutSignal/DcmDspRoutineSignalType</DEFINITION-REF>
-                                          <VALUE>UINT16</VALUE>
+                                          <VALUE>VARIABLE_LENGTH</VALUE>
                                         </ECUC-TEXTUAL-PARAM-VALUE>
                                         <ECUC-NUMERICAL-PARAM-VALUE>
                                           <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineOut/DcmDspStartRoutineOutSignal/DcmDspRoutineParameterSize</DEFINITION-REF>
@@ -13055,7 +13243,7 @@
                               <REFERENCE-VALUES>
                                 <ECUC-REFERENCE-VALUE>
                                   <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspRoutine/DcmDspStartRoutine/DcmDspStartRoutineCommonAuthorizationRef</DEFINITION-REF>
-                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dcm/Cfg_P/DcmDsp/DspCommonAuthorizations_DsdServiceTable0/DspRoutine0xFD10_Start</VALUE-REF>
+                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dcm/Cfg_P/DcmDsp/DspCommonAuthorizations_DsdServiceTable0/DspRoutine0xFD10</VALUE-REF>
                                 </ECUC-REFERENCE-VALUE>
                               </REFERENCE-VALUES>
                             </ECUC-CONTAINER-VALUE>
@@ -13100,7 +13288,7 @@
                           </REFERENCE-VALUES>
                         </ECUC-CONTAINER-VALUE>
                         <ECUC-CONTAINER-VALUE>
-                          <SHORT-NAME>DspRoutine0xFD04_Start</SHORT-NAME>
+                          <SHORT-NAME>DspRoutine0xFD04</SHORT-NAME>
                           <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspCommonAuthorization</DEFINITION-REF>
                           <PARAMETER-VALUES>
                             <ECUC-NUMERICAL-PARAM-VALUE>
@@ -13132,7 +13320,7 @@
                           </REFERENCE-VALUES>
                         </ECUC-CONTAINER-VALUE>
                         <ECUC-CONTAINER-VALUE>
-                          <SHORT-NAME>DspRoutine0xFD05_Start</SHORT-NAME>
+                          <SHORT-NAME>DspRoutine0xFD05</SHORT-NAME>
                           <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspCommonAuthorization</DEFINITION-REF>
                           <PARAMETER-VALUES>
                             <ECUC-NUMERICAL-PARAM-VALUE>
@@ -13164,7 +13352,7 @@
                           </REFERENCE-VALUES>
                         </ECUC-CONTAINER-VALUE>
                         <ECUC-CONTAINER-VALUE>
-                          <SHORT-NAME>DspRoutine0xFD10_Start</SHORT-NAME>
+                          <SHORT-NAME>DspRoutine0xFD10</SHORT-NAME>
                           <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/EAS/Dcm/DcmConfigSet/DcmDsp/DcmDspCommonAuthorization</DEFINITION-REF>
                           <PARAMETER-VALUES>
                             <ECUC-NUMERICAL-PARAM-VALUE>
