@@ -9,11 +9,8 @@ extern "C"
 /************************ Include Files ************************/
 #include <stdint.h>
 /************************ Macro Definitions ************************/
-#define POWER_BAT_OPERATING_VOLT 14400U  // 电池工作电压,单位mV
-
 // 电池电压检测相关参数
-#define POWER_BAT_UNDER_VOLT           8000U
-#define POWER_BAT_OVER_VOLT            18000U
+#define POWER_BAT_INVALID_VOLT         0xFFFFU
 #define POWER_BAT_AD_TO_VOLT(ad_value) ((ad_value) * 61 / 10)
 
 // 电源故障诊断相关参数
@@ -25,6 +22,8 @@ extern "C"
 #define POWER_PUMP_SHORT_CIRCUIT             1200  // 泵短路电流对应的AD值，单位为mA
 #define POWER_VALVE_SHORT_CIRCUIT            2000  // 阀短路电流对应的AD值，单位为mA
 /************************ Type Definitions ************************/
+typedef void (*power_decection_callback_f)(void);
+
 typedef enum
 {
     POWER_BAT_STATUS_NORMAL,
@@ -41,6 +40,13 @@ typedef enum
     POWER_LOAD_STATUS_VALVE_SHORT_CIRCUIT,
 } power_load_status_e;
 
+typedef struct
+{
+    uint16_t                   voltage_min;  // 电压值，单位mV
+    uint16_t                   voltage_max;  // 电压值，单位mV
+    power_bat_status_e         status;       // 电池状态
+    power_decection_callback_f callback;     // 电池状态回调函数
+} power_bat_decection_t;
 /************************ External Variables ************************/
 
 /************************ Function Declarations ************************/
