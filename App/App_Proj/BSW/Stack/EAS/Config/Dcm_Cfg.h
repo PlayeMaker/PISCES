@@ -169,7 +169,7 @@
 /*UDS 0x85 Service*/
 #define DCM_UDS_85_ENABLED                                  STD_ON
 #define DCM_UDS_85_SUPPORT_SUPPRESSPOSRESBIT                STD_ON
-#define DCM_SUPPORT_DTC_RECORD                              STD_OFF
+#define DCM_SUPPORT_DTC_RECORD                              STD_ON
 
 /*UDS 0x87 Service*/
 #define DCM_UDS_87_ENABLED                                  STD_OFF

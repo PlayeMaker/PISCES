@@ -3565,6 +3565,10 @@
                           <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/Cfg_D/DemDTCClassTable_0/DTC_0x9D0511</VALUE-REF>
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemEnableConditionGroupRef</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_9C0511_9C0615</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemOperationCycleRef</DEFINITION-REF>
                           <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/OperationCycle_DEM_IGNITION</VALUE-REF>
                         </ECUC-REFERENCE-VALUE>
@@ -3668,6 +3672,10 @@
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemDTCRef</DEFINITION-REF>
                           <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/Cfg_D/DemDTCClassTable_0/DTC_0x9D0615</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemEnableConditionGroupRef</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_9C0511_9C0615</VALUE-REF>
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemOperationCycleRef</DEFINITION-REF>
