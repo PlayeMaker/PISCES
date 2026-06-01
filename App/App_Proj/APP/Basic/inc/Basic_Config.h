@@ -9,7 +9,16 @@ extern "C"
 /************************ Include Files ************************/
 
 /************************ Project Definitions ************************/
-#define PISCES_MCM_D // 主驾
+#define HIGH_CONFIGURATION  // 高配版本
+// #define LOW_CONFIGURATION // 低配版本
+
+#if defined(HIGH_CONFIGURATION) && defined(LOW_CONFIGURATION)
+#error "Must define only one of HIGH_CONFIGURATION or LOW_CONFIGURATION, not both"
+#elif !defined(HIGH_CONFIGURATION) && !defined(LOW_CONFIGURATION)
+#error "Must define HIGH_CONFIGURATION or LOW_CONFIGURATION"
+#endif
+
+#define PISCES_MCM_D  // 主驾
 // #define PISCES_MCM_P // 副驾
 
 #if defined(PISCES_MCM_D) && defined(PISCES_MCM_P)

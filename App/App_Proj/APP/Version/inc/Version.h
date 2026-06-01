@@ -10,26 +10,66 @@ extern "C"
 #include "Basic_Config.h"
 /************************ Macro Definitions ************************/
 /*EOL*/
-#define BOOTLOADER_INSIDE_VERSION         "100"
-#ifdef PISCES_MCM_D
-#define SOFTWARE_DRIVER_INSIDE_VERSION    "101"
+//内部版本号，需要内部维护
+#if defined(HIGH_CONFIGURATION) && defined(PISCES_MCM_D)
+#define BOOTLOADER_INSIDE_VERSION      "010"
+#define SOFTWARE_DRIVER_INSIDE_VERSION "101"
+#define HARDWARE_INSIDE_VERSION        "110"
+#elif defined(HIGH_CONFIGURATION) && defined(PISCES_MCM_P)
+#define BOOTLOADER_INSIDE_VERSION      "010"
+#define SOFTWARE_DRIVER_INSIDE_VERSION "102"
+#define HARDWARE_INSIDE_VERSION        "110"
+#elif defined(LOW_CONFIGURATION) && defined(PISCES_MCM_D)
+#define BOOTLOADER_INSIDE_VERSION      "010"
+#define SOFTWARE_DRIVER_INSIDE_VERSION "101"
+#define HARDWARE_INSIDE_VERSION        "110"
+#elif defined(LOW_CONFIGURATION) && defined(PISCES_MCM_P)
+#define BOOTLOADER_INSIDE_VERSION      "010"
+#define SOFTWARE_DRIVER_INSIDE_VERSION "102"
+#define HARDWARE_INSIDE_VERSION        "110"
 #endif
-#ifdef PISCES_MCM_P
-#define SOFTWARE_PASSENGER_INSIDE_VERSION "102"
-#endif
-#define HARDWARE_INSIDE_VERSION           "110"
+
 /*Basic*/
-#define SOFTWARE_VERSION                  "00000000000"
-#define HARDWARE_VERSION                  "00000000000"
-#define SOFTWARE_BASELINE                 "00"
-#define HARDWARE_BASELINE                 "00"
-#define SUPPLIER_NUMBER                   "00000000"
-#define MANUFACTURING_DATE                "000"
-#define DIAG_DATABASE_VERSION             "000"
-#define BOOTLOADER_VERSION                "100"
-#define SERIAL_NUMBER                     "0000000000000000"
-#define SUPPLIER_SOFTWARE_NUMBER          "101"
-#define SUPPLIER_HARDWARE_NUMBER          "110"
+#if defined(HIGH_CONFIGURATION) && defined(PISCES_MCM_D)
+#define SOFTWARE_VERSION         "P0440960 AA"
+#define HARDWARE_VERSION         "P0441087 AA"
+#define SOFTWARE_BASELINE        "  "
+#define HARDWARE_BASELINE        "  "
+#define BOOTLOADER_VERSION       "010"
+#define SUPPLIER_SOFTWARE_NUMBER "010"
+#define SUPPLIER_HARDWARE_NUMBER "010"
+#elif defined(HIGH_CONFIGURATION) && defined(PISCES_MCM_P)
+#define SOFTWARE_VERSION         "P0440961 AA"
+#define HARDWARE_VERSION         "P0441094 AA"
+#define SOFTWARE_BASELINE        "  "
+#define HARDWARE_BASELINE        "  "
+#define BOOTLOADER_VERSION       "010"
+#define SUPPLIER_SOFTWARE_NUMBER "010"
+#define SUPPLIER_HARDWARE_NUMBER "010"
+#elif defined(LOW_CONFIGURATION) && defined(PISCES_MCM_D)
+#define SOFTWARE_VERSION         "P0440954 AA"
+#define HARDWARE_VERSION         "P0441079 AA"
+#define SOFTWARE_BASELINE        "  "
+#define HARDWARE_BASELINE        "  "
+#define BOOTLOADER_VERSION       "010"
+#define SUPPLIER_SOFTWARE_NUMBER "010"
+#define SUPPLIER_HARDWARE_NUMBER "010"
+#elif defined(LOW_CONFIGURATION) && defined(PISCES_MCM_P)
+#define SOFTWARE_VERSION         "P0440959 AA"
+#define HARDWARE_VERSION         "P0441079 AA"
+#define SOFTWARE_BASELINE        "  "
+#define HARDWARE_BASELINE        "  "
+#define BOOTLOADER_VERSION       "010"
+#define SUPPLIER_SOFTWARE_NUMBER "010"
+#define SUPPLIER_HARDWARE_NUMBER "010"
+#endif
+
+#define SUPPLIER_NUMBER          "00000000"
+#define MANUFACTURING_DATE       "000"
+#define DIAG_DATABASE_VERSION    "000"
+#define SERIAL_NUMBER            "0000000000000000"
+#define SUPPLIER_SOFTWARE_NUMBER "101"
+#define SUPPLIER_HARDWARE_NUMBER "110"
 /************************ Type Definitions ************************/
 
 /************************ External Variables ************************/
