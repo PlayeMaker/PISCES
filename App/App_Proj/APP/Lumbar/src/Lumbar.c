@@ -1,93 +1,219 @@
 /************************ Include Files ************************/
+#include <stddef.h>
 #include "Basic_Config.h"
 #include "Lumbar.h"
 #include "Rte_Swc.h"
-#include "Rte_Pwm.h"
 #include "Rte_Pwm_If.h"
 #include "Rte_Log.h"
 #include "Valve_Types.h"
+#include "Rte_Com.h"
 /************************ Macro Definitions ************************/
 #ifdef LUMBAR_PRINTF_ENABLE
 #define LUMBAR_PRINTF RTE_LOG_PRINTF
 #else
 #define LUMBAR_PRINTF(...)
 #endif
+/************************ Private Function Declarations ************************/
+static void _Snf_Lumbar_Inflation(uint8_t position);
+static void _Snf_Lumbar_Deflation(uint8_t position);
+static void _Snf_Lumbar_Keep(uint8_t position);
+static void _Snf_Lumbar_Top_Read_Cmd(uint8_t position);
+static void _Snf_Lumbar_Bottom_Read_Cmd(uint8_t position);
+static void _Snf_Lumbar_Top_Write_Cmd(uint8_t position);
+static void _Snf_Lumbar_Bottom_Write_Cmd(uint8_t position);
 /************************ Private Global Variables ************************/
 static lumbar_config_t lumbar_config[] = {
-    { LUMBAR_POSITION_TOP,    LUMBAR_MODE_IDLE, RTE_PWM_CHANNEL_YT1, RTE_PWM_CHANNEL_YTR1 },
-    { LUMBAR_POSITION_BOTTOM, LUMBAR_MODE_IDLE, RTE_PWM_CHANNEL_YT2, RTE_PWM_CHANNEL_YTR2 },
+    { LUMBAR_POSITION_TOP,    LUMBAR_MODE_RESERVED, RTE_PWM_CHANNEL_YT1, RTE_PWM_CHANNEL_YTR1, _Snf_Lumbar_Top_Read_Cmd,
+     _Snf_Lumbar_Top_Write_Cmd    },
+    { LUMBAR_POSITION_BOTTOM, LUMBAR_MODE_RESERVED, RTE_PWM_CHANNEL_YT2, RTE_PWM_CHANNEL_YTR2, _Snf_Lumbar_Bottom_Read_Cmd,
+     _Snf_Lumbar_Bottom_Write_Cmd },
 };
 
 static const uint8_t lumbar_config_size = sizeof(lumbar_config) / sizeof(lumbar_config[0]);
 /************************ Public Global Variables ************************/
 
-/************************ Private Function Declarations ************************/
-static void _Snf_Lumbar_Inflation(lumbar_position_e position);
-static void _Snf_Lumbar_Deflation(lumbar_position_e position);
-static void _Snf_Lumbar_Keep(lumbar_position_e position);
 /************************ Private Function Implementations ************************/
 /**
  * @brief  Lumbar inflation control for lumbar
- * @param  None
+ * @param  position: the position of lumbar to be controlled
  * @return None
  */
-static void _Snf_Lumbar_Inflation(lumbar_position_e position)
+static void _Snf_Lumbar_Inflation(uint8_t position)
 {
-    lumbar_config_t* config_ptr = &lumbar_config[position];
+    lumbar_config_t* config_ptr = NULL;
     if (position >= lumbar_config_size)
     {
         LUMBAR_PRINTF("Inflation invalid lumbar position: %d\n", position);
         return;
     }
+
+    config_ptr = (lumbar_config_t*)&lumbar_config[position];
     if (LUMBAR_MODE_INFLATION == config_ptr->mode)
     {
         return;
     }
-    config_ptr->mode = LUMBAR_MODE_INFLATION;
+
+    LUMBAR_PRINTF("Inflation lumbar position: %d\n", position);
     Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_fornt, POWER_VALVE_STATE_RAMP_UP);
     Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_rear, POWER_VALVE_STATE_RAMP_DOWN);
 }
 /**
  * @brief  Lumbar deflation control for lumbar
- * @param  None
+ * @param  position: the position of lumbar to be controlled
  * @return None
  */
-static void _Snf_Lumbar_Deflation(lumbar_position_e position)
+static void _Snf_Lumbar_Deflation(uint8_t position)
 {
-    lumbar_config_t* config_ptr = &lumbar_config[position];
+    lumbar_config_t* config_ptr = NULL;
     if (position >= lumbar_config_size)
     {
         LUMBAR_PRINTF("Deflation invalid lumbar position: %d\n", position);
         return;
     }
+
+    config_ptr = (lumbar_config_t*)&lumbar_config[position];
     if (LUMBAR_MODE_DEFLATION == config_ptr->mode)
     {
         return;
     }
-    config_ptr->mode = LUMBAR_MODE_DEFLATION;
+
+    LUMBAR_PRINTF("Deflation lumbar position: %d\n", position);
     Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_fornt, POWER_VALVE_STATE_RAMP_DOWN);
     Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_rear, POWER_VALVE_STATE_RAMP_UP);
 }
 /**
  * @brief  Lumbar keep control for lumbar
- * @param  None
+ * @param  position: the position of lumbar to be controlled
  * @return None
  */
-static void _Snf_Lumbar_Keep(lumbar_position_e position)
+static void _Snf_Lumbar_Keep(uint8_t position)
 {
-    lumbar_config_t* config_ptr = &lumbar_config[position];
+    lumbar_config_t* config_ptr = NULL;
     if (position >= lumbar_config_size)
     {
         LUMBAR_PRINTF("Keep invalid lumbar position: %d\n", position);
         return;
     }
+
+    config_ptr = (lumbar_config_t*)&lumbar_config[position];
     if (LUMBAR_MODE_DEFLATION == config_ptr->mode)
     {
         return;
     }
-    config_ptr->mode = LUMBAR_MODE_DEFLATION;
+
+    LUMBAR_PRINTF("Keep lumbar position: %d\n", position);
     Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_fornt, POWER_VALVE_STATE_RAMP_DOWN);
     Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_rear, POWER_VALVE_STATE_RAMP_DOWN);
+}
+/**
+ * @brief  Lumbar top read command for lumbar
+ * @param  position: the position of lumbar to be controlled
+ * @return None
+ */
+static void _Snf_Lumbar_Top_Read_Cmd(uint8_t position)
+{
+    lumbar_config_t* config_ptr = NULL;
+    if (position >= lumbar_config_size)
+    {
+        LUMBAR_PRINTF("Read Top invalid lumbar position: %d\n", position);
+        return;
+    }
+
+    config_ptr        = (lumbar_config_t*)&lumbar_config[position];
+    uint8_t cmd_value = 0;
+    Rte_Read_DrvSeatLumbarTopValue1Cmd_DrvSeatLumbarTopValue1Cmd(&cmd_value);
+    config_ptr->mode = (lumbar_mode_e)cmd_value;
+}
+/**
+ * @brief Lumbar bottom read command for lumbar
+ * @param  position: the position of lumbar to be controlled
+ * @return None
+ */
+static void _Snf_Lumbar_Bottom_Read_Cmd(uint8_t position)
+{
+    lumbar_config_t* config_ptr = NULL;
+    if (position >= lumbar_config_size)
+    {
+        LUMBAR_PRINTF("Read Bottom invalid lumbar position: %d\n", position);
+        return;
+    }
+
+    config_ptr        = (lumbar_config_t*)&lumbar_config[position];
+    uint8_t cmd_value = 0;
+    Rte_Read_DrvSeatLumbarBottomValue3Cmd_DrvSeatLumbarBottomValue3Cmd(&cmd_value);
+    config_ptr->mode = (lumbar_mode_e)cmd_value;
+}
+/**
+ * @brief  Lumbar top write command for lumbar
+ * @param  position: the position of lumbar to be controlled
+ * @return None
+ */
+static void _Snf_Lumbar_Top_Write_Cmd(uint8_t position)
+{
+    lumbar_config_t* config_ptr = NULL;
+    if (position >= lumbar_config_size)
+    {
+        LUMBAR_PRINTF("Write Top invalid lumbar position: %d\n", position);
+        return;
+    }
+
+    config_ptr = (lumbar_config_t*)&lumbar_config[position];
+    Rte_Write_DrvLumbarTopWorkSts_DrvLumbarTopWorkSts(config_ptr->mode);
+}
+/**
+ * @brief  Lumbar bottom write command for lumbar
+ * @param  position: the position of lumbar to be controlled
+ * @return None
+ */
+static void _Snf_Lumbar_Bottom_Write_Cmd(uint8_t position)
+{
+    lumbar_config_t* config_ptr = NULL;
+    if (position >= lumbar_config_size)
+    {
+        LUMBAR_PRINTF("Write Bottom invalid lumbar position: %d\n", position);
+        return;
+    }
+
+    config_ptr = (lumbar_config_t*)&lumbar_config[position];
+    Rte_Write_DrvLumbarBottomWorkSts_DrvLumbarBottomWorkSts(config_ptr->mode);
+}
+
+/**
+ * @brief  Lumbar handle control for lumbar
+ * @param  None
+ * @return None
+ */
+static void _Snf_Lumbar_handle(void)
+{
+    lumbar_config_t* config_ptr = NULL;
+    for (uint8_t i = 0; i < lumbar_config_size; i++)
+    {
+        config_ptr = (lumbar_config_t*)&lumbar_config[i];
+        if (NULL != config_ptr->read_net_cmd_callback)
+        {
+            config_ptr->read_net_cmd_callback(config_ptr->position);
+        }
+
+        switch (config_ptr->mode)
+        {
+            case LUMBAR_MODE_NO_ACTION:
+                // _Snf_Lumbar_Keep(config_ptr->position);
+                break;
+            case LUMBAR_MODE_INFLATION:
+                _Snf_Lumbar_Inflation(config_ptr->position);
+                break;
+            case LUMBAR_MODE_DEFLATION:
+                _Snf_Lumbar_Deflation(config_ptr->position);
+                break;
+            default:
+                break;
+        }
+
+        if (NULL != config_ptr->write_net_cmd_callback)
+        {
+            config_ptr->write_net_cmd_callback(config_ptr->position);
+        }
+    }
 }
 /************************ Public Function Implementations ************************/
 /**
@@ -97,4 +223,5 @@ static void _Snf_Lumbar_Keep(lumbar_position_e position)
  */
 void Snf_Lumbar_Task(void)
 {
+    _Snf_Lumbar_handle();
 }
