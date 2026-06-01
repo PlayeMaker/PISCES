@@ -26,6 +26,13 @@ typedef void (*power_decection_callback_f)(void);
 
 typedef enum
 {
+    POWER_PNC_STATUS_INACTIVE = 0,
+    POWER_PNC_STATUS_ACTIVE   = 1,
+    POWER_PNC_STATUS_INVALID
+} power_pnc_status_e;
+
+typedef enum
+{
     POWER_BAT_STATUS_NORMAL,
     POWER_BAT_STATUS_LOW_VOLT,
     POWER_BAT_STATUS_OVER_VOLT,
@@ -42,10 +49,10 @@ typedef enum
 
 typedef struct
 {
-    uint16_t                   voltage_min;  // 电压值，单位mV
-    uint16_t                   voltage_max;  // 电压值，单位mV
-    power_bat_status_e         status;       // 电池状态
-    power_decection_callback_f callback;     // 电池状态回调函数
+    uint16_t                   voltage_min;         // 电压值，单位mV
+    uint16_t                   voltage_max;         // 电压值，单位mV
+    power_bat_status_e         status;              // 电池状态
+    power_decection_callback_f decection_callback;  // 电池状态检测回调函数
 } power_bat_decection_t;
 /************************ External Variables ************************/
 

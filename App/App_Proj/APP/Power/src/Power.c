@@ -10,7 +10,7 @@
 #include "Rte_Pwm.h"
 #include "Rte_Pwm_If.h"
 #include "Rte_Os.h"
-#include "Rte_Dem.h"
+#include "Rte_Private.h"
 /************************ Macro Definitions ************************/
 #ifdef POWER_PRINTF_ENABLE
 #define POWER_PRINTF RTE_LOG_PRINTF
@@ -25,7 +25,7 @@ static void _Snf_Power_Load_Detection(void);
 static void _Snf_Power_Bat_Low_Voltage_Callback(void);
 static void _Snf_Power_Bat_Normal_Voltage_Callback(void);
 static void _Snf_Power_Bat_Over_Voltage_Callback(void);
-
+static void _Snf_Power_Down_Signal_Detection(void);
 /************************ Private Global Variables ************************/
 static power_bat_status_e  power_bat_status                = POWER_BAT_STATUS_NORMAL;
 static power_load_status_e power_load_status               = POWER_LOAD_STATUS_NORMAL;
@@ -106,9 +106,9 @@ static void _Snf_Power_Voltage_Detection(void)
             {
                 power_bat_status = bat_status;
                 POWER_PRINTF("Battery status: %d, voltage: %d\r\n", power_bat_status, bat_vol);
-                if (NULL != bat_decection_ptr->callback)
+                if (NULL != bat_decection_ptr->decection_callback)
                 {
-                    bat_decection_ptr->callback();
+                    bat_decection_ptr->decection_callback();
                 }
             }
             break;
@@ -170,6 +170,43 @@ static void _Snf_Power_Load_Detection(void)
         }
     }
 }
+/**
+ * @brief  power down detection
+ * @param  None
+ * @return None
+ */
+static void _Snf_Power_Down_Signal_Detection(void)
+{
+    PNC9_Sts_IDT                 current_pnc9_sts = (PNC9_Sts_IDT)POWER_PNC_STATUS_INVALID;
+    PNC_DFT_IDT                  current_pnc_DFT  = (PNC_DFT_IDT)POWER_PNC_STATUS_INVALID;
+    static volatile PNC9_Sts_IDT last_pnc9_sts    = (PNC9_Sts_IDT)POWER_PNC_STATUS_INVALID;
+    static volatile PNC_DFT_IDT  last_pnc_DFT     = (PNC_DFT_IDT)POWER_PNC_STATUS_INVALID;
+
+    Rte_Read_PNC9_Sts_PNC9_Sts(&current_pnc9_sts);
+    Rte_Read_PNC_DFT_PNC_DFT(&current_pnc_DFT);
+
+    if (((PNC9_Sts_IDT)POWER_PNC_STATUS_ACTIVE == last_pnc9_sts || (PNC_DFT_IDT)POWER_PNC_STATUS_ACTIVE == last_pnc_DFT) &&
+        ((PNC9_Sts_IDT)POWER_PNC_STATUS_INACTIVE == current_pnc9_sts &&
+         (PNC_DFT_IDT)POWER_PNC_STATUS_INACTIVE == current_pnc_DFT))
+    {
+        POWER_PRINTF("Power on form pnc\r\n");
+        Com_IpduGroupStop(Com_BODY_LE1_CANTx);
+        //下电前保存必要数据到NvM
+        Rte_Call_WriteAll_WriteAll();
+        //还需要添加其他下电前处理逻辑，如关闭泵、阀等
+    }
+    else if (((PNC9_Sts_IDT)POWER_PNC_STATUS_INACTIVE == last_pnc9_sts ||
+              (PNC_DFT_IDT)POWER_PNC_STATUS_INACTIVE == last_pnc_DFT) &&
+             ((PNC9_Sts_IDT)POWER_PNC_STATUS_ACTIVE == current_pnc9_sts &&
+              (PNC_DFT_IDT)POWER_PNC_STATUS_ACTIVE == current_pnc_DFT))
+    {
+        POWER_PRINTF("Power down form pnc\r\n");
+        Com_IpduGroupStart(Com_BODY_LE1_CANTx, false);
+    }
+
+    last_pnc9_sts = current_pnc9_sts;
+    last_pnc_DFT  = current_pnc_DFT;
+}
 /************************ Public Function Implementations ************************/
 /**
  * @brief  Get battery voltage
@@ -215,5 +252,6 @@ void Snf_Power_Task(void)
 {
     _Snf_Power_Voltage_Detection();
     _Snf_Power_Load_Detection();
+    _Snf_Power_Down_Signal_Detection();
     Snf_Power_Message_Box_Handle();
 }
