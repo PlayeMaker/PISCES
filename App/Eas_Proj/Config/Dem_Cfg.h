@@ -174,7 +174,7 @@
 *******************************************************************************/
 #define DEM_NUM_OF_OPCYCLE                                  2
 #define DEM_NUM_OF_EN_CONDITION                             12
-#define DEM_NUM_OF_EN_GROUP                                 8
+#define DEM_NUM_OF_EN_GROUP                                 9
 #define DEM_NUM_OF_STOR_CONDITION                           0
 #define DEM_NUM_OF_STOR_GROUP                               0
 #define DEM_NUM_OF_BLOCKID                                  1

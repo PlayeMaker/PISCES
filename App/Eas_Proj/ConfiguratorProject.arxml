@@ -97571,7 +97571,7 @@
                   </REFERENCE-VALUES>
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE>
-                  <SHORT-NAME>DECG_F13C87_F3A987_F3B287_F1D387_F1D487</SHORT-NAME>
+                  <SHORT-NAME>DECG_F3A987_F3B287_F1D387_F1D487</SHORT-NAME>
                   <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/EAS/Dem/DemGeneral/DemEnableConditionGroup</DEFINITION-REF>
                   <REFERENCE-VALUES>
                     <ECUC-REFERENCE-VALUE>
@@ -97651,6 +97651,28 @@
                     <ECUC-REFERENCE-VALUE>
                       <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemGeneral/DemEnableConditionGroup/DemEnableConditionRef</DEFINITION-REF>
                       <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/EAS/Dem/DemGeneral/OnlyDracoHorizonVersion</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE>
+                  <SHORT-NAME>DECG_F13C87</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/EAS/Dem/DemGeneral/DemEnableConditionGroup</DEFINITION-REF>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemGeneral/DemEnableConditionGroup/DemEnableConditionRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/EAS/Dem/DemGeneral/PowerVoltage_9V_16V</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemGeneral/DemEnableConditionGroup/DemEnableConditionRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/EAS/Dem/DemGeneral/EnteringNetworkModeFor3s</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemGeneral/DemEnableConditionGroup/DemEnableConditionRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/EAS/Dem/DemGeneral/NotInBusoffStatus</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemGeneral/DemEnableConditionGroup/DemEnableConditionRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/EAS/Dem/DemGeneral/StopMonitoringImmediatelyWhenNotInNetworkMode</VALUE-REF>
                     </ECUC-REFERENCE-VALUE>
                   </REFERENCE-VALUES>
                 </ECUC-CONTAINER-VALUE>
@@ -101096,7 +101118,7 @@
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemEnableConditionGroupRef</DEFINITION-REF>
-                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F13C87_F3A987_F3B287_F1D387_F1D487</VALUE-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F13C87</VALUE-REF>
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemOperationCycleRef</DEFINITION-REF>
@@ -101205,7 +101227,7 @@
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemEnableConditionGroupRef</DEFINITION-REF>
-                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F13C87_F3A987_F3B287_F1D387_F1D487</VALUE-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F3A987_F3B287_F1D387_F1D487</VALUE-REF>
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemOperationCycleRef</DEFINITION-REF>
@@ -101314,7 +101336,7 @@
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemEnableConditionGroupRef</DEFINITION-REF>
-                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F13C87_F3A987_F3B287_F1D387_F1D487</VALUE-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F3A987_F3B287_F1D387_F1D487</VALUE-REF>
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemOperationCycleRef</DEFINITION-REF>
@@ -101423,7 +101445,7 @@
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemEnableConditionGroupRef</DEFINITION-REF>
-                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F13C87_F3A987_F3B287_F1D387_F1D487</VALUE-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F3A987_F3B287_F1D387_F1D487</VALUE-REF>
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemOperationCycleRef</DEFINITION-REF>
@@ -101532,7 +101554,7 @@
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemEnableConditionGroupRef</DEFINITION-REF>
-                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F13C87_F3A987_F3B287_F1D387_F1D487</VALUE-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F3A987_F3B287_F1D387_F1D487</VALUE-REF>
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemOperationCycleRef</DEFINITION-REF>
@@ -104297,7 +104319,7 @@
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemEnableConditionGroupRef</DEFINITION-REF>
-                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F13C87_F3A987_F3B287_F1D387_F1D487</VALUE-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F13C87</VALUE-REF>
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemOperationCycleRef</DEFINITION-REF>
@@ -104406,7 +104428,7 @@
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemEnableConditionGroupRef</DEFINITION-REF>
-                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F13C87_F3A987_F3B287_F1D387_F1D487</VALUE-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F3A987_F3B287_F1D387_F1D487</VALUE-REF>
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemOperationCycleRef</DEFINITION-REF>
@@ -104515,7 +104537,7 @@
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemEnableConditionGroupRef</DEFINITION-REF>
-                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F13C87_F3A987_F3B287_F1D387_F1D487</VALUE-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F3A987_F3B287_F1D387_F1D487</VALUE-REF>
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemOperationCycleRef</DEFINITION-REF>
@@ -104624,7 +104646,7 @@
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemEnableConditionGroupRef</DEFINITION-REF>
-                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F13C87_F3A987_F3B287_F1D387_F1D487</VALUE-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F3A987_F3B287_F1D387_F1D487</VALUE-REF>
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemOperationCycleRef</DEFINITION-REF>
@@ -104733,7 +104755,7 @@
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemEnableConditionGroupRef</DEFINITION-REF>
-                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F13C87_F3A987_F3B287_F1D387_F1D487</VALUE-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE" USER_DEF="false">/EAS/Dem/DemGeneral/DECG_F3A987_F3B287_F1D387_F1D487</VALUE-REF>
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/EAS/Dem/DemConfigSet/DemEventParameter/DemEventParameterRow/DemOperationCycleRef</DEFINITION-REF>

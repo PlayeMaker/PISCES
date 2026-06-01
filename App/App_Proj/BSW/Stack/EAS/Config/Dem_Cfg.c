@@ -141,6 +141,7 @@ STATIC CONST(uint8, DEM_CONST) Dem_EnableConditionRef_Array_4[2] = {(uint8)8, (u
 STATIC CONST(uint8, DEM_CONST) Dem_EnableConditionRef_Array_5[2] = {(uint8)9, (uint8)10};
 STATIC CONST(uint8, DEM_CONST) Dem_EnableConditionRef_Array_6[1] = {(uint8)10};
 STATIC CONST(uint8, DEM_CONST) Dem_EnableConditionRef_Array_7[2] = {(uint8)10, (uint8)11};
+STATIC CONST(uint8, DEM_CONST) Dem_EnableConditionRef_Array_8[4] = {(uint8)0, (uint8)3, (uint8)4, (uint8)5};
 CONST(Dem_EnableConditionGroupType, DEM_CONST) Dem_EnConditionGroupTable[DEM_NUM_OF_EN_GROUP] =
 {
     {(uint8)2, Dem_EnableConditionRef_Array_0},
@@ -150,7 +151,8 @@ CONST(Dem_EnableConditionGroupType, DEM_CONST) Dem_EnConditionGroupTable[DEM_NUM
     {(uint8)2, Dem_EnableConditionRef_Array_4},
     {(uint8)2, Dem_EnableConditionRef_Array_5},
     {(uint8)1, Dem_EnableConditionRef_Array_6},
-    {(uint8)2, Dem_EnableConditionRef_Array_7}
+    {(uint8)2, Dem_EnableConditionRef_Array_7},
+    {(uint8)4, Dem_EnableConditionRef_Array_8}
 };
 
 /*DemNvRamBlockId*/
