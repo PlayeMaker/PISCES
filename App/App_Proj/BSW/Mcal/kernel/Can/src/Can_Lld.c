@@ -3729,6 +3729,7 @@ CAN_FUNC LOCAL_INLINE void Can_Lld_IrqProcessMailBox(uint8 IrqId, uint8 HwObjId,
             }
             /* Unlock mailbox */
             Can_Lld_UpdateIdleState(CanChannelId, (uint8)RegionId, MailBoxId);
+            CanIf_TxConfirmation(Can_ChHwObjPduId[CanChannelId][RegionId][MailBoxId]);
         }
     }
 }
