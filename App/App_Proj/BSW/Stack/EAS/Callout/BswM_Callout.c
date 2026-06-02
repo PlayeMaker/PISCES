@@ -51,7 +51,6 @@ Number of macro definitions exceeds 4095 -program does not conform strictly to I
 The callout functions require user integration implementation.
 */
 
-
 /*******************************************************************************
 *   Includes
 *******************************************************************************/
@@ -69,11 +68,11 @@ The callout functions require user integration implementation.
 #include "Com.h"
 #include "Mcal.h"
 #include "BSW_APP.h"
+#include "Rte_Dem.h"
 /*Input File User Code end*/
 
 #define BSWM_START_SEC_CODE
 #include "BswM_MemMap.h"
-
 
 /* BEGIN_FUNCTION_HDR
 ********************************************************************************
@@ -88,7 +87,7 @@ The callout functions require user integration implementation.
 * Limitations:   None
 ********************************************************************************
 END_FUNCTION_HDR*/
-FUNC(void, BSWM_CODE)  BswM_InitBlockIICallout_Core0(void)
+FUNC(void, BSWM_CODE) BswM_InitBlockIICallout_Core0(void)
 {
     /*Initialiaze memory stack modules such as Eep/Ea/Fls/Fee/NvM.
       This function will be called only once after power-on.
@@ -98,9 +97,9 @@ FUNC(void, BSWM_CODE)  BswM_InitBlockIICallout_Core0(void)
     CanSM_Init(&CanSM_CfgSet[CURRENT_ECU]);
     CanTp_Init(&CanTp_PBcfg[CURRENT_ECU]);
     Com_Init(&Com_InitCfgSet[CURRENT_ECU]);
-    ComM_Init(&ComM_PBConfig[CURRENT_ECU]);  
+    ComM_Init(&ComM_PBConfig[CURRENT_ECU]);
     PduR_Init(PduR_InitCfgSet[CURRENT_ECU]);
- 
+
     Dcm_Init(&Dcm_PB_Config[CURRENT_ECU]);
     NvM_Init(NULL_PTR);
 
@@ -121,7 +120,7 @@ FUNC(void, BSWM_CODE)  BswM_InitBlockIICallout_Core0(void)
 * Limitations:   None
 ********************************************************************************
 END_FUNCTION_HDR*/
-FUNC(void, BSWM_CODE)  BswM_StartBswTaskCallout_Core0(void)
+FUNC(void, BSWM_CODE) BswM_StartBswTaskCallout_Core0(void)
 {
     /*BswM_StartBswTaskCallout_Core0 User Code start*/
 
@@ -141,7 +140,7 @@ FUNC(void, BSWM_CODE)  BswM_StartBswTaskCallout_Core0(void)
 * Limitations:   None
 ********************************************************************************
 END_FUNCTION_HDR*/
-FUNC(void, BSWM_CODE)  BswM_PostReadAllCallout_Core0(void)
+FUNC(void, BSWM_CODE) BswM_PostReadAllCallout_Core0(void)
 {
     /*Non-volatile data has been restored to RAM. Initialize modules and SWCs that
       rely on those data. This function will be called after power-on and every wakeup,
@@ -149,6 +148,20 @@ FUNC(void, BSWM_CODE)  BswM_PostReadAllCallout_Core0(void)
     */
     /*BswM_PostReadAllCallout_Core0 User Code start*/
     Dem_Init(&Dem_PBCfgSet[CURRENT_ECU]);
+    Rte_Call_OpCycle_OperationCycle_DEM_IGNITION_RestartOperationCycle();
+    Rte_Call_OpCycle_OperationCycle_DEM_WARMUP_RestartOperationCycle();
+    Rte_Call_EnableCond_AfterPowerIGN_1s_SetEnableCondition(TRUE);
+    Rte_Call_EnableCond_ECU_ActiveStatus_SetEnableCondition(TRUE);
+    Rte_Call_EnableCond_EnteringNetworkModeFor3s_SetEnableCondition(TRUE);
+    Rte_Call_EnableCond_IGNPowerOn_SetEnableCondition(TRUE);
+    Rte_Call_EnableCond_NotInBusoffStatus_SetEnableCondition(TRUE);
+    Rte_Call_EnableCond_OnlyDracoHorizonVersion_SetEnableCondition(TRUE);
+    Rte_Call_EnableCond_PowerVoltage_9V_16V_SetEnableCondition(TRUE);
+    Rte_Call_EnableCond_StopMonitoringImmediatelyWhenNotInNetworkMode_SetEnableCondition(TRUE);
+    Rte_Call_EnableCond_TheAirPumpIsStarted_SetEnableCondition(TRUE);
+    Rte_Call_EnableCond_TheHeatorIStarted_SetEnableCondition(TRUE);
+    Rte_Call_EnableCond_TheValveIStarted_SetEnableCondition(TRUE);
+    Rte_Call_EnableCond_VehState_Driving_or_DrvRdy_for_3seconds_SetEnableCondition(TRUE);
     /*BswM_PostReadAllCallout_Core0 User Code end*/
 }
 
@@ -165,7 +178,7 @@ FUNC(void, BSWM_CODE)  BswM_PostReadAllCallout_Core0(void)
 * Limitations:   None
 ********************************************************************************
 END_FUNCTION_HDR*/
-FUNC(void, BSWM_CODE)  BswM_PreShutdownCallout_Core0(void)
+FUNC(void, BSWM_CODE) BswM_PreShutdownCallout_Core0(void)
 {
     /*BswM_PreShutdownCallout_Core0 User Code start*/
 
@@ -185,7 +198,7 @@ FUNC(void, BSWM_CODE)  BswM_PreShutdownCallout_Core0(void)
 * Limitations:   None
 ********************************************************************************
 END_FUNCTION_HDR*/
-FUNC(void, BSWM_CODE)  BswM_WakeupToSleepCallout_Core0(void)
+FUNC(void, BSWM_CODE) BswM_WakeupToSleepCallout_Core0(void)
 {
     /*Call EcuM_GoDownHaltPoll() to set system back to sleep.
     */
@@ -207,7 +220,7 @@ FUNC(void, BSWM_CODE)  BswM_WakeupToSleepCallout_Core0(void)
 * Limitations:   None
 ********************************************************************************
 END_FUNCTION_HDR*/
-FUNC(void, BSWM_CODE)  BswM_WriteNvMToSleepCallout_Core0(void)
+FUNC(void, BSWM_CODE) BswM_WriteNvMToSleepCallout_Core0(void)
 {
     /*Call EcuM_GoDownHaltPoll() to set system to sleep or shutdown
       to set system to shutdown.
@@ -230,7 +243,7 @@ FUNC(void, BSWM_CODE)  BswM_WriteNvMToSleepCallout_Core0(void)
 * Limitations:   None
 ********************************************************************************
 END_FUNCTION_HDR*/
-FUNC(void, BSWM_CODE)  BswM_ClearWakeupEventCallout_Core0(void)
+FUNC(void, BSWM_CODE) BswM_ClearWakeupEventCallout_Core0(void)
 {
     /*Call EcuM_ClearWakeupEvent() to clear all validated wakeup sources.
     This is an example:
@@ -256,25 +269,25 @@ FUNC(void, BSWM_CODE)  BswM_ClearWakeupEventCallout_Core0(void)
 * Limitations:   None
 ********************************************************************************
 END_FUNCTION_HDR*/
-FUNC(void, BSWM_CODE)  BswM_NvMReadAllCallout_Core0(void)
+FUNC(void, BSWM_CODE) BswM_NvMReadAllCallout_Core0(void)
 {
     /*Call NvM_ReadAll() to restore data from non-volatile devices. This function
       will be called after power-on and after wakeup, so you should decide when
       to read or not.
     */
     /*BswM_NvMReadAllCallout_Core0 User Code start*/
-    NvM_RequestResultType Result = NVM_REQ_NOT_OK;
-    uint32 ReadAllTimeout = 0U;
+    NvM_RequestResultType Result         = NVM_REQ_NOT_OK;
+    uint32                ReadAllTimeout = 0U;
 
     NvM_ReadAll();
     do
     {
-      NvM_MainFunction();
-      Fee_MainFunction();
-      Fls_MainFunction();
-      NvM_GetErrorStatus(0, &Result);
-      ReadAllTimeout++;
-    }while((Result == NVM_REQ_PENDING) && (ReadAllTimeout< 0xFFFFFFFFU));
+        NvM_MainFunction();
+        Fee_MainFunction();
+        Fls_MainFunction();
+        NvM_GetErrorStatus(0, &Result);
+        ReadAllTimeout++;
+    } while ((Result == NVM_REQ_PENDING) && (ReadAllTimeout < 0xFFFFFFFFU));
     /*BswM_NvMReadAllCallout_Core0 User Code end*/
 }
 
@@ -291,30 +304,26 @@ FUNC(void, BSWM_CODE)  BswM_NvMReadAllCallout_Core0(void)
 * Limitations:   None
 ********************************************************************************
 END_FUNCTION_HDR*/
-FUNC(void, BSWM_CODE)  BswM_NvMWriteAllCallout_Core0(void)
+FUNC(void, BSWM_CODE) BswM_NvMWriteAllCallout_Core0(void)
 {
     /*Call NvM_WriteAll() to save data to non-volatile devices. This function
       will be called before power-off and sleep, so you should decide when
       to write or not.
     */
     /*BswM_NvMWriteAllCallout_Core0 User Code start*/
-    NvM_RequestResultType Result = NVM_REQ_NOT_OK;
-    uint32 WriteAllTimeout = 0U;
-    Dem_Shutdown();    
+    NvM_RequestResultType Result          = NVM_REQ_NOT_OK;
+    uint32                WriteAllTimeout = 0U;
+    Dem_Shutdown();
     NvM_WriteAll();
     do
     {
-      NvM_MainFunction();
-      Fee_MainFunction();
-      Fls_MainFunction();
-      NvM_GetErrorStatus(0, &Result);
-      WriteAllTimeout++;
-    }while((Result == NVM_REQ_PENDING) &&(WriteAllTimeout < 0xFFFFFFFFU));
+        NvM_MainFunction();
+        Fee_MainFunction();
+        Fls_MainFunction();
+        NvM_GetErrorStatus(0, &Result);
+        WriteAllTimeout++;
+    } while ((Result == NVM_REQ_PENDING) && (WriteAllTimeout < 0xFFFFFFFFU));
     /*BswM_NvMWriteAllCallout_Core0 User Code end*/
 }
 #define BSWM_STOP_SEC_CODE
 #include "BswM_MemMap.h"
-
-
-
-

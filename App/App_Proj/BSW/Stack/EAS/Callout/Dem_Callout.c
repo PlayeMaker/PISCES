@@ -20,7 +20,7 @@
 *******************************************************************************/
 #include "Dem_Types.h"
 /*Dem_Callout.c Header File User Code start*/
-
+#include "Rte_Com.h"
 /*Dem_Callout.c Header File User Code end*/
 #define DEM_START_SEC_CODE
 #include "Dem_MemMap.h"
@@ -189,9 +189,11 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dem_DataServices_DataElement1_Year_ReadD
     uint8 i;
     uint8 length = 1;
     /*Rte_Call_Dem_DataServices_DataElement1_Year_ReadData User Code start*/
-    for(i = 0; i < length; i++)
+    uint8 year[1] = { 0 };
+    Rte_Read_Yr_Yr(year);
+    for (i = 0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = year[i];
     }
     return E_OK;
     /*Rte_Call_Dem_DataServices_DataElement1_Year_ReadData User Code end*/
@@ -205,9 +207,11 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dem_DataServices_DataElement2_Month_Read
     uint8 i;
     uint8 length = 1;
     /*Rte_Call_Dem_DataServices_DataElement2_Month_ReadData User Code start*/
-    for(i = 0; i < length; i++)
+    uint8 month[1] = { 0 };
+    Rte_Read_Mth_Mth(month);
+    for (i = 0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = month[i];
     }
     return E_OK;
     /*Rte_Call_Dem_DataServices_DataElement2_Month_ReadData User Code end*/
@@ -221,9 +225,11 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dem_DataServices_DataElement3_Day_ReadDa
     uint8 i;
     uint8 length = 1;
     /*Rte_Call_Dem_DataServices_DataElement3_Day_ReadData User Code start*/
-    for(i = 0; i < length; i++)
+    uint8 day[1] = { 0 };
+    Rte_Read_Day_Day(day);
+    for (i = 0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = day[i];
     }
     return E_OK;
     /*Rte_Call_Dem_DataServices_DataElement3_Day_ReadData User Code end*/
@@ -237,9 +243,11 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dem_DataServices_DataElement4_Hour_ReadD
     uint8 i;
     uint8 length = 1;
     /*Rte_Call_Dem_DataServices_DataElement4_Hour_ReadData User Code start*/
-    for(i = 0; i < length; i++)
+    uint8 hour[1] = { 0 };
+    Rte_Read_Hr_Hr(hour);
+    for (i = 0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = hour[i];
     }
     return E_OK;
     /*Rte_Call_Dem_DataServices_DataElement4_Hour_ReadData User Code end*/
@@ -253,9 +261,11 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dem_DataServices_DataElement5_Minute_Rea
     uint8 i;
     uint8 length = 1;
     /*Rte_Call_Dem_DataServices_DataElement5_Minute_ReadData User Code start*/
-    for(i = 0; i < length; i++)
+    uint8 minute[1] = { 0 };
+    Rte_Read_Min_Min(minute);
+    for (i = 0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = minute[i];
     }
     return E_OK;
     /*Rte_Call_Dem_DataServices_DataElement5_Minute_ReadData User Code end*/
@@ -269,9 +279,11 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dem_DataServices_DataElement6_Second_Rea
     uint8 i;
     uint8 length = 1;
     /*Rte_Call_Dem_DataServices_DataElement6_Second_ReadData User Code start*/
-    for(i = 0; i < length; i++)
+    uint8 second[1] = { 0 };
+    Rte_Read_Sec_Sec(second);
+    for (i = 0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = second[i];
     }
     return E_OK;
     /*Rte_Call_Dem_DataServices_DataElement6_Second_ReadData User Code end*/
