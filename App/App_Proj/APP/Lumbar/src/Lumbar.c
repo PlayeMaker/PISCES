@@ -159,7 +159,11 @@ static void _Snf_Lumbar_Top_Write_Cmd(uint8_t position)
     }
 
     config_ptr = (lumbar_config_t*)&lumbar_config[position];
+#if defined(PISCES_MCM_D)
     Rte_Write_DrvLumbarTopWorkSts_DrvLumbarTopWorkSts(config_ptr->mode);
+#elif defined(PISCES_MCM_P)
+    Rte_Write_PassLumbarTopWorkSts_PassLumbarTopWorkSts(config_ptr->mode);
+#endif
 }
 /**
  * @brief  Lumbar bottom write command for lumbar
@@ -176,7 +180,11 @@ static void _Snf_Lumbar_Bottom_Write_Cmd(uint8_t position)
     }
 
     config_ptr = (lumbar_config_t*)&lumbar_config[position];
+#if defined(PISCES_MCM_D)
     Rte_Write_DrvLumbarBottomWorkSts_DrvLumbarBottomWorkSts(config_ptr->mode);
+#elif defined(PISCES_MCM_P)
+    Rte_Write_PassLumbarBottomWorkSts_PassLumbarBottomWorkSts(config_ptr->mode);
+#endif
 }
 
 /**
