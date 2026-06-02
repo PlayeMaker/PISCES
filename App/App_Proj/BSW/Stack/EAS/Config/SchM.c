@@ -69,7 +69,7 @@ Use of #include directive after code fragment.
 
 
 /*SchM.c Var User Code start*/
-
+#include "Basic_Config.h"
 /*SchM.c Var User Code end*/
 
 /*******************************************************************************
@@ -78,11 +78,14 @@ Use of #include directive after code fragment.
 #define RTE_START_SEC_CODE
 #include "Rte_MemMap.h"
 
+uint8 shm_buff_init[2] = {0,1};
 FUNC(void, RTE_CODE) SchM_Init(P2CONST(uint8, AUTOMATIC, RTE_CONST) ConfigPtr)
 {
-    Rte_VarCfgPtr = ConfigPtr;
-
-
+#if defined(PISCES_MCM_D)
+    Rte_VarCfgPtr = &shm_buff_init[0];
+#elif defined(PISCES_MCM_P)
+    Rte_VarCfgPtr = &shm_buff_init[1];
+#endif
 }
 
 

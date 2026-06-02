@@ -112,15 +112,18 @@ The issue with the indentation method will be uniformly modified.
 #include "Rte_MemMap.h"
 P2CONST(uint8, AUTOMATIC, RTE_CONST) Rte_VarCfgPtr;
 
-CONST(uint8, RTE_CONST) Rte_Config_0 =
-{
-    0U
-};
+// CONST(uint8, RTE_CONST) Rte_Config_0 =
+// {
+//     0U
+// };
 
-CONST(uint8, RTE_CONST) Rte_Config_1 =
-{
-    1U
-};
+// CONST(uint8, RTE_CONST) Rte_Config_1 =
+// {
+//     1U
+// };
+
+uint8 Rte_Config_0 = 0U;
+uint8 Rte_Config_1 = 1U;
 
 #define RTE_STOP_SEC_CONST_UNSPECIFIED
 #include "Rte_MemMap.h"

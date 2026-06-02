@@ -421,7 +421,7 @@ CONST(Dem_DTCAttributesType, DEM_CONST) Dem_DTCAttributesTable[DEM_NUM_OF_DTCATB
         NULL_PTR,
         (uint8)0,
         (uint8)0,
-        (uint16)0x011F
+        (uint16)0x001F
     }
 };
 
