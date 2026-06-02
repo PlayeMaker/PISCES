@@ -548,7 +548,11 @@ FUNC(void, RTE_CODE) Rte_COMCbk_Com_Cfg_D_Rx_BODY_LE1_CAN_Zone_FL_MCM_01_DrvSeat
 )
 {
     /*Rte_COMCbk_Com_Cfg_D_Rx_BODY_LE1_CAN_Zone_FL_MCM_01_DrvSeatmassgValve1Cmd User Code start*/
-
+#if defined(PISCES_MCM_D)
+    Rte_Call_Event_Cfg_D_Event_0xF1D187_SetEventStatus(DEM_EVENT_STATUS_PASSED);
+#elif defined(PISCES_MCM_P)
+    Rte_Call_Event_Cfg_P_Event_0xF1D187_SetEventStatus(DEM_EVENT_STATUS_PASSED);
+#endif
     /*Rte_COMCbk_Com_Cfg_D_Rx_BODY_LE1_CAN_Zone_FL_MCM_01_DrvSeatmassgValve1Cmd User Code end*/
 }
 
@@ -1224,7 +1228,11 @@ FUNC(void, RTE_CODE) Rte_COMCbk_Com_Cfg_D_Rx_BODY_LE1_CAN_Zone_FL_MCM_02_DrvPump
 )
 {
     /*Rte_COMCbk_Com_Cfg_D_Rx_BODY_LE1_CAN_Zone_FL_MCM_02_DrvPumpCmd User Code start*/
-
+#if defined(PISCES_MCM_D)
+    Rte_Call_Event_Cfg_D_Event_0xF1D287_SetEventStatus(DEM_EVENT_STATUS_PASSED);
+#elif defined(PISCES_MCM_P)
+    Rte_Call_Event_Cfg_P_Event_0xF1D287_SetEventStatus(DEM_EVENT_STATUS_PASSED);
+#endif
     /*Rte_COMCbk_Com_Cfg_D_Rx_BODY_LE1_CAN_Zone_FL_MCM_02_DrvPumpCmd User Code end*/
 }
 
@@ -1407,7 +1415,11 @@ FUNC(void, RTE_CODE) Rte_COMCbk_Com_Cfg_D_Rx_BODY_LE1_CAN_ZONE_3B2_Yr
 )
 {
     /*Rte_COMCbk_Com_Cfg_D_Rx_BODY_LE1_CAN_ZONE_3B2_Yr User Code start*/
-
+#if defined(PISCES_MCM_D)
+    Rte_Call_Event_Cfg_D_Event_0xF3B287_SetEventStatus(DEM_EVENT_STATUS_PASSED);
+#elif defined(PISCES_MCM_P)
+    Rte_Call_Event_Cfg_P_Event_0xF3B287_SetEventStatus(DEM_EVENT_STATUS_PASSED);
+#endif
     /*Rte_COMCbk_Com_Cfg_D_Rx_BODY_LE1_CAN_ZONE_3B2_Yr User Code end*/
 }
 
@@ -2878,7 +2890,11 @@ FUNC(void, RTE_CODE) Rte_COMCbk_Com_Cfg_P_Rx_BODY_LE1_CAN_ZONE_13C_ZONE_13C_CRC
 )
 {
     /*Rte_COMCbk_Com_Cfg_P_Rx_BODY_LE1_CAN_ZONE_13C_ZONE_13C_CRC User Code start*/
-
+#if defined(PISCES_MCM_D)
+    Rte_Call_Event_Cfg_D_Event_0xF13C87_SetEventStatus(DEM_EVENT_STATUS_PASSED);
+#elif defined(PISCES_MCM_P)
+    Rte_Call_Event_Cfg_P_Event_0xF13C87_SetEventStatus(DEM_EVENT_STATUS_PASSED);
+#endif
     /*Rte_COMCbk_Com_Cfg_P_Rx_BODY_LE1_CAN_ZONE_13C_ZONE_13C_CRC User Code end*/
 }
 
@@ -4165,7 +4181,11 @@ FUNC(void, RTE_CODE) Rte_COMCbk_Com_Cfg_P_Rx_BODY_LE1_CAN_ZONE_3A9_VehOdometer
 )
 {
     /*Rte_COMCbk_Com_Cfg_P_Rx_BODY_LE1_CAN_ZONE_3A9_VehOdometer User Code start*/
-
+#if defined(PISCES_MCM_D)
+    Rte_Call_Event_Cfg_D_Event_0xF3A987_SetEventStatus(DEM_EVENT_STATUS_PASSED);
+#elif defined(PISCES_MCM_P)
+    Rte_Call_Event_Cfg_P_Event_0xF3A987_SetEventStatus(DEM_EVENT_STATUS_PASSED);
+#endif
     /*Rte_COMCbk_Com_Cfg_P_Rx_BODY_LE1_CAN_ZONE_3A9_VehOdometer User Code end*/
 }
 
