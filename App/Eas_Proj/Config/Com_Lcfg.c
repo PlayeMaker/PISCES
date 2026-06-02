@@ -4153,7 +4153,7 @@ CONST(Com_CfgRxPduTableType, COM_CONST) ComRxPduCfgTable0[11] =
         &Com_Cfg_D_Rx_BODY_LE1_CAN_ZONE_3B2_IpduGroupPtr[0],/* pduGroupPtr */
         TRUE,/* timeout enable */
         (uint16)50,/* first timeout */
-        (uint16)50,/* timeout */
+        (uint16)600,/* timeout */
         NULL_PTR, /* RxPduCbkRxTOutFun */
         Com_RxPduSignal_Cfg_D_Rx_BODY_LE1_CAN_ZONE_3B2, /* data ptr*/
         (PduLengthType)8 /* data length*/
@@ -4299,7 +4299,7 @@ CONST(Com_CfgRxPduTableType, COM_CONST) ComRxPduCfgTable1[11] =
         &Com_Cfg_P_Rx_BODY_LE1_CAN_ZONE_3B2_IpduGroupPtr[0],/* pduGroupPtr */
         TRUE,/* timeout enable */
         (uint16)50,/* first timeout */
-        (uint16)50,/* timeout */
+        (uint16)600,/* timeout */
         NULL_PTR, /* RxPduCbkRxTOutFun */
         Com_RxPduSignal_Cfg_P_Rx_BODY_LE1_CAN_ZONE_3B2, /* data ptr*/
         (PduLengthType)8 /* data length*/

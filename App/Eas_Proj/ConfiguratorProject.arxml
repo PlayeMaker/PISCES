@@ -18736,7 +18736,7 @@
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComIPdu/PduTimeoutValue</DEFINITION-REF>
-                      <VALUE>500</VALUE>
+                      <VALUE>6000</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/EAS/Com/ComConfig/ComIPdu/ComMetaDataDefault</DEFINITION-REF>
@@ -41130,7 +41130,7 @@
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComTimeout</DEFINITION-REF>
-                      <VALUE>500</VALUE>
+                      <VALUE>6000</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComUpdateBitPosition</DEFINITION-REF>
@@ -41282,7 +41282,7 @@
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComTimeout</DEFINITION-REF>
-                      <VALUE>500</VALUE>
+                      <VALUE>6000</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComUpdateBitPosition</DEFINITION-REF>
@@ -41434,7 +41434,7 @@
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComTimeout</DEFINITION-REF>
-                      <VALUE>500</VALUE>
+                      <VALUE>6000</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComUpdateBitPosition</DEFINITION-REF>
@@ -41586,7 +41586,7 @@
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComTimeout</DEFINITION-REF>
-                      <VALUE>500</VALUE>
+                      <VALUE>6000</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComUpdateBitPosition</DEFINITION-REF>
@@ -41738,7 +41738,7 @@
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComTimeout</DEFINITION-REF>
-                      <VALUE>500</VALUE>
+                      <VALUE>6000</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComUpdateBitPosition</DEFINITION-REF>
@@ -41890,7 +41890,7 @@
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComTimeout</DEFINITION-REF>
-                      <VALUE>500</VALUE>
+                      <VALUE>6000</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComUpdateBitPosition</DEFINITION-REF>
@@ -42042,7 +42042,7 @@
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComTimeout</DEFINITION-REF>
-                      <VALUE>500</VALUE>
+                      <VALUE>6000</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComUpdateBitPosition</DEFINITION-REF>
@@ -52080,7 +52080,7 @@
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComIPdu/PduTimeoutValue</DEFINITION-REF>
-                      <VALUE>500</VALUE>
+                      <VALUE>6000</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/EAS/Com/ComConfig/ComIPdu/ComMetaDataDefault</DEFINITION-REF>
@@ -74474,7 +74474,7 @@
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComTimeout</DEFINITION-REF>
-                      <VALUE>500</VALUE>
+                      <VALUE>6000</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComUpdateBitPosition</DEFINITION-REF>
@@ -74626,7 +74626,7 @@
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComTimeout</DEFINITION-REF>
-                      <VALUE>500</VALUE>
+                      <VALUE>6000</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComUpdateBitPosition</DEFINITION-REF>
@@ -74778,7 +74778,7 @@
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComTimeout</DEFINITION-REF>
-                      <VALUE>500</VALUE>
+                      <VALUE>6000</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComUpdateBitPosition</DEFINITION-REF>
@@ -74930,7 +74930,7 @@
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComTimeout</DEFINITION-REF>
-                      <VALUE>500</VALUE>
+                      <VALUE>6000</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComUpdateBitPosition</DEFINITION-REF>
@@ -75082,7 +75082,7 @@
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComTimeout</DEFINITION-REF>
-                      <VALUE>500</VALUE>
+                      <VALUE>6000</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComUpdateBitPosition</DEFINITION-REF>
@@ -75234,7 +75234,7 @@
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComTimeout</DEFINITION-REF>
-                      <VALUE>500</VALUE>
+                      <VALUE>6000</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComUpdateBitPosition</DEFINITION-REF>
@@ -75386,7 +75386,7 @@
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComTimeout</DEFINITION-REF>
-                      <VALUE>500</VALUE>
+                      <VALUE>6000</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/EAS/Com/ComConfig/ComSignal/ComUpdateBitPosition</DEFINITION-REF>
