@@ -52,7 +52,7 @@ Use of #include directive after code fragment.
 
 
 /*Input File User Code start*/
-
+#include "Rte_Dem.h"
 /*Input File User Code end*/
 #define CANSM_START_SEC_CODE
 #include "CanSM_MemMap.h"
@@ -86,7 +86,7 @@ FUNC(void, CANSM_CODE) CanSM_BORSuccess_Indication
 {
 
 /*CanSM_BORSuccess_Indication User Code start*/
-
+    Rte_Call_Event_Cfg_P_Event_0xC00B88_SetEventStatus(DEM_EVENT_STATUS_PREPASSED);
 /*CanSM_BORSuccess_Indication User Code end*/
 }
 
@@ -97,7 +97,7 @@ FUNC(void, CANSM_CODE) CanSM_BusOff_Indication
 {
 
 /*CanSM_BusOff_Indication User Code start*/
-
+    Rte_Call_Event_Cfg_P_Event_0xC00B88_SetEventStatus(DEM_EVENT_STATUS_PREFAILED);
 /*CanSM_BusOff_Indication User Code end*/
 }
 
