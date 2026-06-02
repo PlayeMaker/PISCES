@@ -30,12 +30,20 @@ typedef struct
     uint32_t      step_index;
     uint32_t      last_timer_ms;  // 上一次执行的时间,单位ms
 } valve_ramp_group_t;
+
+typedef struct
+{
+    valve_work_state_e state;            // 阀工作状态
+    uint32_t           valve_work_mask;  // 阀工作掩码,用于判断哪些模块需要开启阀电源
+} valve_config_t;
 /************************ External Variables ************************/
 
 /************************ Function Declarations ************************/
-bool Snf_Valve_Set_Config(uint8_t index, valve_state_e state);
-void Snf_Valve_Task_Init(void);
-void Snf_Valve_Task(void);
+bool               Snf_Valve_Set_Config(uint8_t index, valve_state_e state);
+void               Snf_Valve_Set_Work_State(valve_work_state_e state, uint32_t work_mask);
+valve_work_state_e Snf_Valve_Get_Work_State(void);
+void               Snf_Valve_Task_Init(void);
+void               Snf_Valve_Task(void);
 
 #ifdef __cplusplus
 }

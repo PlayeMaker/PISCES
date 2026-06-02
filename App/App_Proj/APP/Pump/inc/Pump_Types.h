@@ -1,5 +1,5 @@
-#ifndef _VALVE_TYPES_H_
-#define _VALVE_TYPES_H_
+#ifndef _PUMP_TYPES_H_
+#define _PUMP_TYPES_H_
 
 #ifdef __cplusplus
 extern "C"
@@ -9,22 +9,17 @@ extern "C"
 /************************ Include Files ************************/
 
 /************************ Macro Definitions ************************/
-#define VALVE_LUMBAR_WORK_MASK  0x01
-#define VALVE_MASSAGE_WORK_MASK 0x02
+#define PUMP_LUMBAR_WORK_MASK  0x01
+#define PUMP_MASSAGE_WORK_MASK 0x02
 /************************ Type Definitions ************************/
+/**
+* @brief 气泵状态枚举
+*/
 typedef enum
 {
-    POWER_VALVE_STATE_RAMP_UP,
-    POWER_VALVE_STATE_RAMP_UP_DONE,
-    POWER_VALVE_STATE_RAMP_DOWN,
-    POWER_VALVE_STATE_RAMP_DOWN_DONE,
-} valve_state_e;
-
-typedef enum
-{
-    VALVE_WORK_STATE_OFF,  // 工作状态-关
-    VALVE_WORK_STATE_ON,   // 工作状态-开
-} valve_work_state_e;
+    PUMP_WORK_STATE_OFF,  // 工作状态-关
+    PUMP_WORK_STATE_ON,   // 工作状态-开
+} pump_work_state_e;
 /************************ External Variables ************************/
 
 /************************ Function Declarations ************************/
@@ -33,4 +28,4 @@ typedef enum
 }
 #endif
 
-#endif /* _VALVE_TYPES_H_ */
+#endif /* _PUMP_TYPES_H_ */

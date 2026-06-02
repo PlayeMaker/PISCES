@@ -231,6 +231,16 @@ void Snf_Power_Reset(void)
 }
 
 /**
+ * @brief  Get battery status
+ * @param  None
+ * @return Battery status
+ */
+power_bat_status_e Snf_Power_Bat_Get_State(void)
+{
+    return power_bat_status;
+}
+
+/**
  * @brief  Initialize power task function
  * @param  None
  * @return None

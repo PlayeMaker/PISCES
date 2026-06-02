@@ -7,6 +7,8 @@
 #include "Rte_Pwm_If.h"
 #include "Rte_Swc.h"
 #include "Rte_Log.h"
+
+#if defined(HIGH_CONFIGURATION)
 /************************ Macro Definitions ************************/
 #ifdef MASSAGE_PRINTF_ENABLE
 #define MASSAGE_PRINTF RTE_LOG_PRINTF
@@ -170,3 +172,4 @@ void Snf_Massage_Task(void)
     //     Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(PwmConf_PwmChannel_PwmChannel_RNR2_EN, POWER_VALVE_STATE_RAMP_DOWN);
     // }
 }
+#endif

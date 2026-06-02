@@ -8,6 +8,7 @@ extern "C"
 
 /************************ Include Files ************************/
 #include <stdint.h>
+#include "Power_Types.h"
 /************************ Macro Definitions ************************/
 // 电池电压检测相关参数
 #define POWER_BAT_INVALID_VOLT         0xFFFFU
@@ -33,13 +34,6 @@ typedef enum
 
 typedef enum
 {
-    POWER_BAT_STATUS_NORMAL,
-    POWER_BAT_STATUS_LOW_VOLT,
-    POWER_BAT_STATUS_OVER_VOLT,
-} power_bat_status_e;
-
-typedef enum
-{
     POWER_LOAD_STATUS_NORMAL,
     POWER_LOAD_STATUS_PUMP_OPEN_CIRCUIT,
     POWER_LOAD_STATUS_PUMP_SHORT_CIRCUIT,
@@ -54,13 +48,23 @@ typedef struct
     power_bat_status_e         status;              // 电池状态
     power_decection_callback_f decection_callback;  // 电池状态检测回调函数
 } power_bat_decection_t;
+
+typedef struct
+{
+    uint16_t                   circuit_min;          // 电流值，单位mA
+    uint16_t                   circuit_max;          // 电流值，单位mA
+    power_load_status_e        status;               // 负载状态
+    power_decection_callback_f precection_callback;  // 负载状态检测前置条件回调函数
+    power_decection_callback_f decection_callback;   // 负载状态检测回调函数
+} power_load_decection_t;
 /************************ External Variables ************************/
 
 /************************ Function Declarations ************************/
-void     Snf_Power_Task_Init(void);
-void     Snf_Power_Task(void);
-void     Snf_Power_Reset(void);
-uint16_t Snf_Power_Get_Bat_Voltage(void);
+void               Snf_Power_Task_Init(void);
+void               Snf_Power_Task(void);
+void               Snf_Power_Reset(void);
+uint16_t           Snf_Power_Get_Bat_Voltage(void);
+power_bat_status_e Snf_Power_Bat_Get_State(void);
 
 #ifdef __cplusplus
 }

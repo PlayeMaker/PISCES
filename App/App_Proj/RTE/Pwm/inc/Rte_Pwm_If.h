@@ -18,7 +18,7 @@ extern "C"
 #define RTE_PWM_DUTY_MAX 100
 #define RTE_PWM_DUTY_MIN 0
 
-#ifdef PISCES_MCM_D
+#ifdef HIGH_CONFIGURATION
 #define RTE_PWM_CHANNEL_YT2  PwmConf_PwmChannel_PwmChannel_YT2_EN   //对应气路图通道16
 #define RTE_PWM_CHANNEL_AM1  PwmConf_PwmChannel_PwmChannel_AM1_EN   //对应气路图通道8
 #define RTE_PWM_CHANNEL_AM8  PwmConf_PwmChannel_PwmChannel_AM8_EN   //对应气路图通道12
@@ -44,7 +44,7 @@ extern "C"
 #define RTE_PWM_CHANNEL_YTR2 PwmConf_PwmChannel_PwmChannel_YTR2_EN  //对应气路图通道16-1
 #define RTE_PWM_CHANNEL_AM11 PwmConf_PwmChannel_PwmChannel_AM11_EN  //对应气路图通道17
 #define RTE_PWM_CHANNEL_AM12 PwmConf_PwmChannel_PwmChannel_AM12_EN  //对应气路图通道18
-#elif defined(PISCES_MCM_P)
+#elif defined(LOW_CONFIGURATION)
 #define RTE_PWM_CHANNEL_YT1  PwmConf_PwmChannel_PwmChannel_AM5_EN
 #define RTE_PWM_CHANNEL_YTR1 PwmConf_PwmChannel_PwmChannel_AM13_EN
 #define RTE_PWM_CHANNEL_YT2  PwmConf_PwmChannel_PwmChannel_AM6_EN
@@ -55,6 +55,7 @@ extern "C"
 #define RTE_PWM_CHANNEL_YTR4 PwmConf_PwmChannel_PwmChannel_YTR2_EN
 #define RTE_PWM_CHANNEL_YT5  PwmConf_PwmChannel_PwmChannel_RNR2_EN
 #define RTE_PWM_CHANNEL_YTR5 PwmConf_PwmChannel_PwmChannel_YTR1_EN
+#define RTE_PWM_CHANNEL_PUMP PwmConf_PwmChannel_PwmChannel_PUMP_EN
 #endif
 /************************ External Variables ************************/
 

@@ -7,7 +7,9 @@
 #include "Valve.h"
 #include "System.h"
 #include "Power.h"
+#if defined(HIGH_CONFIGURATION)
 #include "Massage.h"
+#endif
 #include "Pump.h"
 #include "Lumbar.h"
 #include "Printf.h"
@@ -84,7 +86,9 @@ void Rte_Call_Sync_C_App_Task_S_Power_Task_Scheduler(void)
   */
 void Rte_Call_Sync_C_App_Task_S_Massage_Task_Init(void)
 {
+#if defined(HIGH_CONFIGURATION)
     Snf_Massage_Task_Init();
+#endif
 }
 /**
   * @brief  Massage Task
@@ -93,7 +97,9 @@ void Rte_Call_Sync_C_App_Task_S_Massage_Task_Init(void)
   */
 void Rte_Call_Sync_C_App_Task_S_Massage_Task_Scheduler(void)
 {
+#if defined(HIGH_CONFIGURATION)
     Snf_Massage_Task();
+#endif
 }
 /**
   * @brief  Pump Task
@@ -186,4 +192,42 @@ bool Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(uint8_t index, valve_state_e st
 bool Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(uint8_t index, valve_state_e state)
 {
     return Snf_Valve_Set_Config(index, state);
+}
+/**
+  * @brief  Get the current battery states (Pump->Power)
+  * @param  None
+  * @return power_bat_status_e: The current battery status
+  */
+power_bat_status_e Rte_Call_Sync_C_Pump_S_Power_Get_Bat_States(void)
+{
+    return Snf_Power_Bat_Get_State();
+}
+/**
+  * @brief  Get the current battery states (Valve->Power)
+  * @param  None
+  * @return power_bat_status_e: The current battery status
+  */
+power_bat_status_e Rte_Call_Sync_C_Valve_S_Power_Get_Bat_States(void)
+{
+    return Snf_Power_Bat_Get_State();
+}
+/**
+  * @brief  Set the work states of the pump (Lumbar->Pump)
+  * @param  state: The work state to set
+  * @param  work_mask: The mask indicating which modules need the pump to work
+  * @return None
+  */
+void Rte_Call_Sync_C_Lumbar_S_Pump_Set_Work_States(pump_work_state_e state, uint32_t work_mask)
+{
+    Snf_Pump_Set_Work_State(state, work_mask);
+}
+/**
+  * @brief  Set the work states of the valve (Lumbar->Valve)
+  * @param  state: The work state to set
+  * @param  work_mask: The mask indicating which modules need the valve to work
+  * @return None
+  */
+void Rte_Call_Sync_C_Lumbar_S_Valve_Set_Work_States(valve_work_state_e state, uint32_t work_mask)
+{
+    Snf_Valve_Set_Work_State(state, work_mask);
 }

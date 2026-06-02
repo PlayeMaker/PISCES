@@ -8,6 +8,7 @@ extern "C"
 
 /************************ Include Files ************************/
 #include <stdint.h>
+#include "Pump_Types.h"
 /************************ Macro Definitions ************************/
 #define PUMP_CONSTANT_PUMP_UPDATE_CYCLE      100U    // 气泵恒压更新周期,单位ms
 #define PUMP_CONSTANT_PUMP_TARGET_VOLTAGE    12000U  // 气泵目标电压,单位mV
@@ -16,19 +17,17 @@ extern "C"
     ((vbat) <= PUMP_CONSTANT_PUMP_TARGET_VOLTAGE ? PUMP_CONSTANT_VOLTAGE_DUTY_CYCLE_MAX \
                                                  : ((float)PUMP_CONSTANT_PUMP_TARGET_VOLTAGE / (vbat) * 100.0f))
 /************************ Type Definitions ************************/
-/**
-* @brief 气泵状态枚举
-*/
-typedef enum
+typedef struct
 {
-    PUMP_STATE_IDLE          = 0U,  // 气泵空闲状态
-    PUMP_STATE_AIR_INFLATION = 1U,  // 气泵充气
-    PUMP_STATE_AIR_DEFLATION = 2U,  // 气泵抽气
-} pump_state_e;
+    pump_work_state_e state;           // 气泵工作状态
+    uint32_t          pump_work_mask;  // 气泵工作掩码,用于判断哪些模块需要开启气泵电源
+} pump_config_t;
 /************************ External Variables ************************/
 
 /************************ Function Declarations ************************/
-void Snf_Pump_Task(void);
+void              Snf_Pump_Task(void);
+void              Snf_Pump_Set_Work_State(pump_work_state_e state, uint32_t work_mask);
+pump_work_state_e Snf_Pump_Get_Work_State(void);
 
 #ifdef __cplusplus
 }
