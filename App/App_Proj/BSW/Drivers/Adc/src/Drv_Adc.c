@@ -1,11 +1,13 @@
 /************************ Include Files ************************/
 #include <stdbool.h>
+#include <stdint.h>
 #include "Drv_Adc.h"
 #include "Mcal.h"
+#include "pSIP_Eadc.h"
 /************************ Macro Definitions ************************/
 
 /************************ Private Global Variables ************************/
-Adc_ValueGroupType   Adc0_Group0_Buf[AdcGroup_0_CHANNEL_NUMBER] = {0};
+Adc_ValueGroupType   Adc0_Group0_Buf[AdcGroup_0_CHANNEL_NUMBER] = { 0 };
 static volatile bool adc_conversion_flag                        = false;
 /************************ Public Global Variables ************************/
 
@@ -33,9 +35,15 @@ void Snf_Drv_Adc_Init(void)
  */
 void Snf_Drv_Adc_Conversion(void)
 {
+    uint32_t err_cnt    = 0;
     adc_conversion_flag = false;
     Adc_StartGroupConversion(AdcConf_AdcConfigSet_AdcGroup_0);
-    while (true != adc_conversion_flag);
+    while (true != adc_conversion_flag)
+    {
+        err_cnt++;
+        if (err_cnt > DRV_ADC_CONVERT_TIMEOUT)
+        break;
+    }
 }
 
 /**
@@ -65,6 +73,7 @@ uint16_t Snf_Drv_Adc_Get_Value(uint8_t instance, uint8_t channel)
  */
 void ADC0_Group0CallBack(void)
 {
+    eADC_STS_EOC(1);
     if (ADC_STREAM_COMPLETED == Adc_GetGroupStatus(AdcConf_AdcConfigSet_AdcGroup_0))
     {
         /*The group will automatically restart the conversion after read*/

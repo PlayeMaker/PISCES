@@ -13,6 +13,7 @@ extern "C"
 #define DRV_ADC_RESOLUTION 12U /* ADC分辨率 */
 #define DRV_ADC_CONVERT_TO_MV(value) \
     (((value) * (DRV_ADC_VREF) * 1000) / ((1U << DRV_ADC_RESOLUTION) - 1)) /* 将ADC值转换为mv */
+#define DRV_ADC_CONVERT_TIMEOUT 0xFFFFU                                    /* ADC转换超时时间 */
 /************************ Type Definitions ************************/
 typedef enum
 {
