@@ -8,6 +8,7 @@ extern "C"
 
 /************************ Include Files ************************/
 #include <stdint.h>
+#include "Basic_Config.h"
 #include "Power_Types.h"
 /************************ Macro Definitions ************************/
 // 电池电压检测相关参数
@@ -15,13 +16,20 @@ extern "C"
 #define POWER_BAT_AD_TO_VOLT(ad_value) ((ad_value) * 61 / 10)
 
 // 电源故障诊断相关参数
-#define POWER_BAT_DETECTION_UPDATE_CYCLE     100U  // 电源故障诊断更新周期,单位ms
-#define POWER_LOAD_DETECTION_UPDATE_CYCLE    100U  // 负载故障诊断更新周期,单位ms
-#define POWER_VCS_K                          5450U
-#define POWER_PUMP_VALVE_AD_TO_VCS(ad_value) ((ad_value) * POWER_VCS_K / 6800)
-#define POWER_PUMP_OPEN_CIRCUIT              10    // 泵开路电流对应的AD值，单位为mA
+#define POWER_BAT_DETECTION_UPDATE_CYCLE  100U  // 电源故障诊断更新周期,单位ms
+#define POWER_LOAD_DETECTION_UPDATE_CYCLE 100U  // 负载故障诊断更新周期,单位ms
+#define POWER_VCS_K                       5404U
+#if defined(HIGH_CONFIGURATION)
+#define POWER_VCS_R 3300U
+#elif defined(LOW_CONFIGURATION)
+#define POWER_VCS_R 2000U
+#endif
+#define POWER_PUMP_VALVE_AD_TO_VCS(ad_value) ((ad_value) * POWER_VCS_K / POWER_VCS_R)
+#define POWER_PUMP_OPEN_CIRCUIT              1     // 泵开路电流对应的AD值，单位为mA
 #define POWER_PUMP_SHORT_CIRCUIT             1200  // 泵短路电流对应的AD值，单位为mA
+#define POWER_VALVE_OPEN_CIRCUIT             1     // 阀开路电流对应的AD值，单位为mA
 #define POWER_VALVE_SHORT_CIRCUIT            2000  // 阀短路电流对应的AD值，单位为mA
+#define POWER_LOAD_CFG_SIZE                  2     // 负载配置数量
 /************************ Type Definitions ************************/
 typedef void (*power_decection_callback_f)(void);
 

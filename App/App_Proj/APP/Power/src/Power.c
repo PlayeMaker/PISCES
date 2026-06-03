@@ -1,6 +1,5 @@
 /************************ Include Files ************************/
 #include <stddef.h>
-#include "Basic_Config.h"
 #include "Power.h"
 #include "Power_Message_Box.h"
 #include "Rte_Mcu.h"
@@ -10,7 +9,9 @@
 #include "Rte_Pwm.h"
 #include "Rte_Pwm_If.h"
 #include "Rte_Os.h"
+#include "Rte_Swc.h"
 #include "Rte_Private.h"
+#include "Rte_Dem.h"
 /************************ Macro Definitions ************************/
 #ifdef POWER_PRINTF_ENABLE
 #define POWER_PRINTF RTE_LOG_PRINTF
@@ -34,8 +35,8 @@ static uint32_t            power_load_det_last_update_time = 0;
 
 static const power_bat_decection_t power_bat_detection[] = {
     { 0,     8000,                   POWER_BAT_STATUS_LOW_VOLT,  _Snf_Power_Bat_Low_Voltage_Callback    },
-    { 8000,  16000,                  POWER_BAT_STATUS_NORMAL,    _Snf_Power_Bat_Normal_Voltage_Callback },
-    { 16000, POWER_BAT_INVALID_VOLT, POWER_BAT_STATUS_OVER_VOLT, _Snf_Power_Bat_Over_Voltage_Callback   },
+    { 9000,  16000,                  POWER_BAT_STATUS_NORMAL,    _Snf_Power_Bat_Normal_Voltage_Callback },
+    { 17000, POWER_BAT_INVALID_VOLT, POWER_BAT_STATUS_OVER_VOLT, _Snf_Power_Bat_Over_Voltage_Callback   },
 };
 
 static const uint8_t power_bat_detection_size = sizeof(power_bat_detection) / sizeof(power_bat_decection_t);
@@ -59,6 +60,13 @@ static void _Snf_Power_Get_Response(void)
  */
 void _Snf_Power_Bat_Low_Voltage_Callback(void)
 {
+#if defined(PISCES_MCM_D)
+    Rte_Call_Event_Cfg_D_Event_0x800116_SetEventStatus(DEM_EVENT_STATUS_PREFAILED);
+#elif defined(PISCES_MCM_P)
+    Rte_Call_Event_Cfg_P_Event_0x800116_SetEventStatus(DEM_EVENT_STATUS_PREFAILED);
+#endif
+    Rte_Call_Sync_C_Power_S_Valve_Set_Work_States(VALVE_WORK_STATE_OFF, VALVE_ALL_MODULE_DISABLE_WORK_MASK);
+    Rte_Call_Sync_C_Power_S_Pump_Set_Work_States(PUMP_WORK_STATE_OFF, PUMP_ALL_MODULE_DISABLE_WORK_MASK);
 }
 /**
  * @brief  Callback function for normal battery voltage
@@ -67,6 +75,13 @@ void _Snf_Power_Bat_Low_Voltage_Callback(void)
  */
 void _Snf_Power_Bat_Normal_Voltage_Callback(void)
 {
+#if defined(PISCES_MCM_D)
+    Rte_Call_Event_Cfg_D_Event_0x800116_SetEventStatus(DEM_EVENT_STATUS_PREFAILED);
+    Rte_Call_Event_Cfg_D_Event_0x800117_SetEventStatus(DEM_EVENT_STATUS_PREPASSED);
+#elif defined(PISCES_MCM_P)
+    Rte_Call_Event_Cfg_P_Event_0x800116_SetEventStatus(DEM_EVENT_STATUS_PREFAILED);
+    Rte_Call_Event_Cfg_P_Event_0x800117_SetEventStatus(DEM_EVENT_STATUS_PREPASSED);
+#endif
 }
 /**
  * @brief  Callback function for over battery voltage
@@ -75,6 +90,13 @@ void _Snf_Power_Bat_Normal_Voltage_Callback(void)
  */
 void _Snf_Power_Bat_Over_Voltage_Callback(void)
 {
+#if defined(PISCES_MCM_D)
+    Rte_Call_Event_Cfg_D_Event_0x800117_SetEventStatus(DEM_EVENT_STATUS_PREFAILED);
+#elif defined(PISCES_MCM_P)
+    Rte_Call_Event_Cfg_P_Event_0x800117_SetEventStatus(DEM_EVENT_STATUS_PREFAILED);
+#endif
+    Rte_Call_Sync_C_Power_S_Valve_Set_Work_States(VALVE_WORK_STATE_OFF, VALVE_ALL_MODULE_DISABLE_WORK_MASK);
+    Rte_Call_Sync_C_Power_S_Pump_Set_Work_States(PUMP_WORK_STATE_OFF, PUMP_ALL_MODULE_DISABLE_WORK_MASK);
 }
 
 /**
@@ -161,12 +183,16 @@ static void _Snf_Power_Load_Detection(void)
         else if (POWER_LOAD_STATUS_PUMP_OPEN_CIRCUIT == power_load_status ||
                  POWER_LOAD_STATUS_VALVE_OPEN_CIRCUIT == power_load_status)
         {
-            RTE_PWM_SET_DUTY(RTE_PWM_CHANNEL_PUMP, RTE_PWM_DUTY_MIN);
+            // RTE_PWM_SET_DUTY(RTE_PWM_CHANNEL_PUMP, RTE_PWM_DUTY_MIN);
+            // RTE_GPIO_VALVE_DISABLE();
+            // RTE_GPIO_PUMP_DISABLE();
         }
         else if (POWER_LOAD_STATUS_PUMP_SHORT_CIRCUIT == power_load_status ||
                  POWER_LOAD_STATUS_VALVE_SHORT_CIRCUIT == power_load_status)
         {
-            RTE_PWM_SET_DUTY(RTE_PWM_CHANNEL_PUMP, RTE_PWM_DUTY_MIN);
+            // RTE_PWM_SET_DUTY(RTE_PWM_CHANNEL_PUMP, RTE_PWM_DUTY_MIN);
+            // RTE_GPIO_VALVE_DISABLE();
+            // RTE_GPIO_PUMP_DISABLE();
         }
     }
 }
