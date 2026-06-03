@@ -12,21 +12,21 @@ extern "C"
 /*EOL*/
 //内部版本号，需要内部维护
 #if defined(HIGH_CONFIGURATION) && defined(PISCES_MCM_D)
-#define BOOTLOADER_INSIDE_VERSION      "010"
-#define SOFTWARE_DRIVER_INSIDE_VERSION "101"
-#define HARDWARE_INSIDE_VERSION        "110"
+#define BOOTLOADER_INSIDE_VERSION "010"
+#define SOFTWARE_INSIDE_VERSION   "010"
+#define HARDWARE_INSIDE_VERSION   "010"
 #elif defined(HIGH_CONFIGURATION) && defined(PISCES_MCM_P)
-#define BOOTLOADER_INSIDE_VERSION      "010"
-#define SOFTWARE_DRIVER_INSIDE_VERSION "102"
-#define HARDWARE_INSIDE_VERSION        "110"
+#define BOOTLOADER_INSIDE_VERSION "010"
+#define SOFTWARE_INSIDE_VERSION   "010"
+#define HARDWARE_INSIDE_VERSION   "010"
 #elif defined(LOW_CONFIGURATION) && defined(PISCES_MCM_D)
-#define BOOTLOADER_INSIDE_VERSION      "010"
-#define SOFTWARE_DRIVER_INSIDE_VERSION "101"
-#define HARDWARE_INSIDE_VERSION        "110"
+#define BOOTLOADER_INSIDE_VERSION "010"
+#define SOFTWARE_INSIDE_VERSION   "010"
+#define HARDWARE_INSIDE_VERSION   "010"
 #elif defined(LOW_CONFIGURATION) && defined(PISCES_MCM_P)
-#define BOOTLOADER_INSIDE_VERSION      "010"
-#define SOFTWARE_DRIVER_INSIDE_VERSION "102"
-#define HARDWARE_INSIDE_VERSION        "110"
+#define BOOTLOADER_INSIDE_VERSION "010"
+#define SOFTWARE_INSIDE_VERSION   "010"
+#define HARDWARE_INSIDE_VERSION   "010"
 #endif
 
 // 构建时间
@@ -37,16 +37,16 @@ extern "C"
 
 // DATE得到的月数，__DATA__[0-2]表示月的缩写,判断月的缩写的第3位，如果第3位相同的，则判断第1位或者第0位
 //[1]Jan [2]Feb  [3]Mar  [4]Apr  [5]May  [6]Jun  [7]Jul  [8]Aug  [9]Sept   [10]Oct  [11]Nov  [12]Dec
-#define BUILD_MONTH                                                                                        \
-    (__DATE__[2] == 'n'   ? (__DATE__[1] == 'a' ? 1 : 6)                                                   \
-     : __DATE__[2] == 'b' ? 2                                                                              \
-     : __DATE__[2] == 'r' ? (__DATE__[0] == 'M' ? 3 : 4)                                                   \
-     : __DATE__[2] == 'y' ? 5                                                                              \
-     : __DATE__[2] == 'l' ? 7                                                                              \
-     : __DATE__[2] == 'g' ? 8                                                                              \
-     : __DATE__[2] == 'p' ? 9                                                                              \
-     : __DATE__[2] == 't' ? 10                                                                             \
-     : __DATE__[2] == 'v' ? 11                                                                             \
+#define BUILD_MONTH                                      \
+    (__DATE__[2] == 'n'   ? (__DATE__[1] == 'a' ? 1 : 6) \
+     : __DATE__[2] == 'b' ? 2                            \
+     : __DATE__[2] == 'r' ? (__DATE__[0] == 'M' ? 3 : 4) \
+     : __DATE__[2] == 'y' ? 5                            \
+     : __DATE__[2] == 'l' ? 7                            \
+     : __DATE__[2] == 'g' ? 8                            \
+     : __DATE__[2] == 'p' ? 9                            \
+     : __DATE__[2] == 't' ? 10                           \
+     : __DATE__[2] == 'v' ? 11                           \
                           : 12)
 
 // 求取日期：__DATE__ [4]十位，__DATE__ [5]个位。十位为空，则直接用__DATE__ [5]-'0'表示个位。否则十位*10 +

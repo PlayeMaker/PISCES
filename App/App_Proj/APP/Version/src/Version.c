@@ -6,13 +6,8 @@
 /************************ Private Global Variables ************************/
 /*EOL*/
 static char bootloader_inside_version[3] = BOOTLOADER_INSIDE_VERSION;
-#ifdef PISCES_MCM_D
-static char software_inside_version[3] = SOFTWARE_DRIVER_INSIDE_VERSION;
-#endif
-#ifdef PISCES_MCM_P
-static char software_inside_version[3] = SOFTWARE_PASSENGER_INSIDE_VERSION;
-#endif
-static char hardware_inside_version[3] = HARDWARE_INSIDE_VERSION;
+static char software_inside_version[3]   = SOFTWARE_INSIDE_VERSION;
+static char hardware_inside_version[3]   = HARDWARE_INSIDE_VERSION;
 
 static char build_time_version[6] = { BUILD_YEAR_L, BUILD_MONTH, BUILD_DAY, BUILD_HOUR, BUILD_MINUTE, BUILD_SECOND };
 
