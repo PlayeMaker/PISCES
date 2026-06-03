@@ -18,204 +18,435 @@
 /************************ Public Global Variables ************************/
 
 /************************ Private Function Declarations ************************/
-void _Snf_Massage_Press_Counter_Clockwise(massage_action_config_t* massage_action_cfg);
+
 /************************ Private Function Implementations ************************/
-/**
- * @brief  Set massage press counter clockwise
- * @param  None
- * @return None
- */
-void _Snf_Massage_Press_Counter_Clockwise(massage_action_config_t* massage_action_cfg)
+static void _Snf_Massage_Point_Press_Double_Intensity_Low(massage_config_t *massage_config)
 {
-}
+#define SUPPORT_INFLATE()   Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel, POWER_VALVE_STATE_RAMP_UP);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel_r, POWER_VALVE_STATE_RAMP_DOWN)
 
-/************************ Public Function Implementations ************************/
-/**
- * @brief  Multi-point massage, compatible with both airbag-supported and non-airbag-supported models
- * @param  [in] massage_cfg: Massage configuration structure pointer
- * @return None
- */
-void Snf_Massage_Multi_Press(massage_config_t* massage_cfg)
-{
-    massage_action_config_t* massage_action_cfg = &massage_cfg->action_cfg;
-    massage_air_bag_config_t* air_bag_cfg_ptr = NULL;
-    for (uint8_t i = 0; i < massage_action_cfg->air_bag_num; i++)
+#define SUPPORT_KEEP()      Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel_r, POWER_VALVE_STATE_RAMP_DOWN)
+
+#define ALL_INFLATE()       Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP)
+
+#define ALL_DEFLATE()       Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel_r, POWER_VALVE_STATE_RAMP_UP)
+
+    if (massage_config->press_count < massage_config->massage_times)
     {
-        air_bag_cfg_ptr = &massage_action_cfg->air_bag_config_list[i];
-        switch (massage_action_cfg->action_step)
+        if (massage_config->support_flag)
         {
-            case MASSAGE_ACTION_STEP_PRE_CHARGE:
+            if (massage_config->press_poll_time < MASSAGE_AIR_BAG_TIME_MS(4000))
             {
-                if (MASSAGE_AIR_BAG_TYPE_SUPPORT == air_bag_cfg_ptr->air_bag_type)
+                if (massage_config->press_poll_time < MASSAGE_AIR_BAG_TIME_MS(2000))
                 {
-                    if (MASSAGE_AIR_BAG_NONE == air_bag_cfg_ptr->air_bag_mode)
-                    {
-                        air_bag_cfg_ptr->air_bag_last_uptime = RTE_OS_GET_TICK();
-                        air_bag_cfg_ptr->air_bag_mode        = MASSAGE_AIR_BAG_INFLATION;
-                        Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(
-                            air_bag_cfg_ptr->air_bag_pwm_channel[MASSAGE_AIR_BAG_SUPPORT_FRONT_VAVLE_IDX],
-                            POWER_VALVE_STATE_RAMP_UP);
-                        Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(
-                            air_bag_cfg_ptr->air_bag_pwm_channel[MASSAGE_AIR_BAG_SUPPORT_REAR_VAVLE_IDX],
-                            POWER_VALVE_STATE_RAMP_DOWN);
-                    }
-                    else if (MASSAGE_AIR_BAG_INFLATION == air_bag_cfg_ptr->air_bag_mode)
-                    {
-                        if (RTE_OS_IS_TIMEOUT(air_bag_cfg_ptr->air_bag_last_uptime, air_bag_cfg_ptr->air_bag_inflation_time))
-                        {
-                            air_bag_cfg_ptr->air_bag_mode   = MASSAGE_AIR_BAG_KEEP;
-                            massage_action_cfg->action_step = MASSAGE_ACTION_STEP_CYCLE;
-                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(
-                                air_bag_cfg_ptr->air_bag_pwm_channel[MASSAGE_AIR_BAG_SUPPORT_FRONT_VAVLE_IDX],
-                                POWER_VALVE_STATE_RAMP_UP);
-                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(
-                                air_bag_cfg_ptr->air_bag_pwm_channel[MASSAGE_AIR_BAG_SUPPORT_REAR_VAVLE_IDX],
-                                POWER_VALVE_STATE_RAMP_DOWN);
-                        }
-                    }
+                    SUPPORT_INFLATE();
+                    massage_config->press_poll_time++;
                 }
-                break;
+                else
+                {
+                    SUPPORT_KEEP();
+                    ALL_INFLATE();
+                    massage_config->press_poll_time++;
+                }
             }
-            case MASSAGE_ACTION_STEP_CYCLE:
+            else
             {
-                if (MASSAGE_AIR_BAG_TYPE_STANDARD == air_bag_cfg_ptr->air_bag_type)
-                {
-                    if (MASSAGE_AIR_BAG_NONE == air_bag_cfg_ptr->air_bag_mode)
-                    {
-                        air_bag_cfg_ptr->air_bag_last_uptime = RTE_OS_GET_TICK();
-                        air_bag_cfg_ptr->air_bag_mode        = MASSAGE_AIR_BAG_INFLATION;
-                        Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(air_bag_cfg_ptr->air_bag_pwm_channel[0],
-                                                                     POWER_VALVE_STATE_RAMP_UP);
-                    }
-                    else if (MASSAGE_AIR_BAG_INFLATION == air_bag_cfg_ptr->air_bag_mode)
-                    {
-                        if (RTE_OS_IS_TIMEOUT(air_bag_cfg_ptr->air_bag_last_uptime, air_bag_cfg_ptr->air_bag_inflation_time))
-                        {
-                            air_bag_cfg_ptr->air_bag_mode   = MASSAGE_AIR_BAG_DEFLATION;
-                            massage_action_cfg->action_step = MASSAGE_ACTION_STEP_END;
-                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(air_bag_cfg_ptr->air_bag_pwm_channel[0],
-                                                                         POWER_VALVE_STATE_RAMP_DOWN);
-                        }
-                    }
-                }
-                break;
+                ALL_DEFLATE();
+                massage_config->press_poll_time = 0;
+                massage_config->press_count++;
             }
-            case MASSAGE_ACTION_STEP_END:
-            {
-                if (MASSAGE_AIR_BAG_INFLATION == air_bag_cfg_ptr->air_bag_mode ||
-                    MASSAGE_AIR_BAG_KEEP == air_bag_cfg_ptr->air_bag_mode)
-                {
-                    air_bag_cfg_ptr->air_bag_mode = MASSAGE_AIR_BAG_DEFLATION;
-
-                    if (MASSAGE_AIR_BAG_TYPE_STANDARD == air_bag_cfg_ptr->air_bag_type)
-                    {
-                        Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(air_bag_cfg_ptr->air_bag_pwm_channel[0],
-                                                                     POWER_VALVE_STATE_RAMP_DOWN);
-                    }
-                    else if (MASSAGE_AIR_BAG_TYPE_SUPPORT == air_bag_cfg_ptr->air_bag_type)
-                    {
-                        Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(
-                            air_bag_cfg_ptr->air_bag_pwm_channel[MASSAGE_AIR_BAG_SUPPORT_FRONT_VAVLE_IDX],
-                            POWER_VALVE_STATE_RAMP_DOWN);
-                        Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(
-                            air_bag_cfg_ptr->air_bag_pwm_channel[MASSAGE_AIR_BAG_SUPPORT_REAR_VAVLE_IDX],
-                            POWER_VALVE_STATE_RAMP_UP);
-                    }
-                }
-                else if (MASSAGE_AIR_BAG_DEFLATION == air_bag_cfg_ptr->air_bag_mode)
-                {
-                    if (RTE_OS_IS_TIMEOUT(air_bag_cfg_ptr->air_bag_last_uptime, air_bag_cfg_ptr->air_bag_inflation_time))
-                    {
-                        air_bag_cfg_ptr->air_bag_mode   = MASSAGE_AIR_BAG_NONE;
-                        massage_action_cfg->action_step = MASSAGE_ACTION_STEP_NONE;
-                    }
-                }
-                break;
-            }
-            default:
-                break;
         }
-
-        if (MASSAGE_AIR_BAG_TYPE_SUPPORT == air_bag_cfg_ptr->air_bag_type &&
-            MASSAGE_AIR_BAG_INFLATION == air_bag_cfg_ptr->air_bag_mode)
+        else
         {
-            break;  // 支撑气袋正在充气，先不处理后续的气袋
+            if (massage_config->press_poll_time < MASSAGE_AIR_BAG_TIME_MS(4000))
+            {
+                ALL_INFLATE();
+                massage_config->press_poll_time++;
+            }
+            else
+            {
+                ALL_DEFLATE();
+                massage_config->press_poll_time = 0;
+                massage_config->press_count++;
+            }
         }
     }
 }
 
-/**
- * @brief  Single-point massage
- * @param  [in] massage_cfg: Massage configuration structure pointer
- * @return None
- */
-void Snf_Massage_Single_Press(massage_config_t* massage_cfg)
+static void _Snf_Massage_Point_Press_Double_Intensity_High(massage_config_t *massage_config)
 {
-    massage_action_config_t* massage_action_cfg = &massage_cfg->action_cfg;
-    massage_air_bag_config_t* air_bag_cfg_ptr = NULL;
-    for (uint8_t i = 0; i < massage_action_cfg->air_bag_num; i++)
-    {
-        air_bag_cfg_ptr = &massage_action_cfg->air_bag_config_list[i];
-        switch (massage_action_cfg->action_step)
-        {
-            case MASSAGE_ACTION_STEP_CYCLE:
-            {
-                if (MASSAGE_AIR_BAG_TYPE_STANDARD == air_bag_cfg_ptr->air_bag_type)
-                {
-                    if (MASSAGE_AIR_BAG_NONE == air_bag_cfg_ptr->air_bag_mode)
-                    {
-                        air_bag_cfg_ptr->air_bag_last_uptime = RTE_OS_GET_TICK();
-                        air_bag_cfg_ptr->air_bag_mode        = MASSAGE_AIR_BAG_INFLATION;
-                        Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(air_bag_cfg_ptr->air_bag_pwm_channel[0],
-                                                                     POWER_VALVE_STATE_RAMP_UP);
-                    }
-                    else if (MASSAGE_AIR_BAG_INFLATION == air_bag_cfg_ptr->air_bag_mode)
-                    {
-                        if (RTE_OS_IS_TIMEOUT(air_bag_cfg_ptr->air_bag_last_uptime, air_bag_cfg_ptr->air_bag_inflation_time))
-                        {
-                            air_bag_cfg_ptr->air_bag_mode   = MASSAGE_AIR_BAG_DEFLATION;
-                            massage_action_cfg->action_step = MASSAGE_ACTION_STEP_END;
-                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(air_bag_cfg_ptr->air_bag_pwm_channel[0],
-                                                                         POWER_VALVE_STATE_RAMP_DOWN);
-                        }
-                    }
-                }
-                break;
-            }
-            case MASSAGE_ACTION_STEP_END:
-            {
-                if (MASSAGE_AIR_BAG_INFLATION == air_bag_cfg_ptr->air_bag_mode ||
-                    MASSAGE_AIR_BAG_KEEP == air_bag_cfg_ptr->air_bag_mode)
-                {
-                    air_bag_cfg_ptr->air_bag_mode = MASSAGE_AIR_BAG_DEFLATION;
+#define SUPPORT_INFLATE()   Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel, POWER_VALVE_STATE_RAMP_UP);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel_r, POWER_VALVE_STATE_RAMP_DOWN)
 
-                    if (MASSAGE_AIR_BAG_TYPE_STANDARD == air_bag_cfg_ptr->air_bag_type)
-                    {
-                        Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(air_bag_cfg_ptr->air_bag_pwm_channel[0],
-                                                                     POWER_VALVE_STATE_RAMP_DOWN);
-                    }
-                    else if (MASSAGE_AIR_BAG_TYPE_SUPPORT == air_bag_cfg_ptr->air_bag_type)
-                    {
-                        Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(
-                            air_bag_cfg_ptr->air_bag_pwm_channel[MASSAGE_AIR_BAG_SUPPORT_FRONT_VAVLE_IDX],
-                            POWER_VALVE_STATE_RAMP_DOWN);
-                        Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(
-                            air_bag_cfg_ptr->air_bag_pwm_channel[MASSAGE_AIR_BAG_SUPPORT_REAR_VAVLE_IDX],
-                            POWER_VALVE_STATE_RAMP_UP);
-                    }
-                }
-                else if (MASSAGE_AIR_BAG_DEFLATION == air_bag_cfg_ptr->air_bag_mode)
+#define SUPPORT_KEEP()      Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel_r, POWER_VALVE_STATE_RAMP_DOWN)
+
+#define ALL_INFLATE()       Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP)
+
+#define ALL_DEFLATE()       Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel_r, POWER_VALVE_STATE_RAMP_UP)
+
+    if (massage_config->press_count < massage_config->massage_times)
+    {
+        if (massage_config->support_flag)
+        {
+            if (massage_config->press_poll_time < MASSAGE_AIR_BAG_TIME_MS(6000))
+            {
+                if (massage_config->press_poll_time < MASSAGE_AIR_BAG_TIME_MS(3000))
                 {
-                    if (RTE_OS_IS_TIMEOUT(air_bag_cfg_ptr->air_bag_last_uptime, air_bag_cfg_ptr->air_bag_inflation_time))
-                    {
-                        air_bag_cfg_ptr->air_bag_mode   = MASSAGE_AIR_BAG_NONE;
-                        massage_action_cfg->action_step = MASSAGE_ACTION_STEP_NONE;
-                    }
+                    SUPPORT_INFLATE();
+                    massage_config->press_poll_time++;
                 }
-                break;
+                else
+                {
+                    SUPPORT_KEEP();
+                    ALL_INFLATE();
+                    massage_config->press_poll_time++;
+                }
             }
-            default:
-                break;
+            else
+            {
+                ALL_DEFLATE();
+                massage_config->press_poll_time = 0;
+                massage_config->press_count++;
+            }
+        }
+        else
+        {
+            if (massage_config->press_poll_time < MASSAGE_AIR_BAG_TIME_MS(6000))
+            {
+                ALL_INFLATE();
+                massage_config->press_poll_time++;
+            }
+            else
+            {
+                ALL_DEFLATE();
+                massage_config->press_poll_time = 0;
+                massage_config->press_count++;
+            }
+        }
+    }
+}
+
+static void _Snf_Massage_Point_Press_Single_Intensity_Low(massage_config_t *massage_config)
+{
+#define SUPPORT_INFLATE()   Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel, POWER_VALVE_STATE_RAMP_UP);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel_r, POWER_VALVE_STATE_RAMP_DOWN)
+
+#define SUPPORT_KEEP()      Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel_r, POWER_VALVE_STATE_RAMP_DOWN)
+
+#define ALL_INFLATE()       Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP)
+
+#define ALL_DEFLATE()       Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel_r, POWER_VALVE_STATE_RAMP_UP)
+
+    if (massage_config->press_count < massage_config->massage_times)
+    {
+        if (massage_config->support_flag)
+        {
+            if (massage_config->press_poll_time < MASSAGE_AIR_BAG_TIME_MS(2500))
+            {
+                if (massage_config->press_poll_time < MASSAGE_AIR_BAG_TIME_MS(1000))
+                {
+                    SUPPORT_INFLATE();
+                }
+                else
+                {
+                    SUPPORT_KEEP();
+                    ALL_INFLATE();
+                }
+                massage_config->press_poll_time++;
+            }
+            else
+            {
+                ALL_DEFLATE();
+                massage_config->press_poll_time = 0;
+                massage_config->press_count++;
+            }
+        }
+        else
+        {
+            if (massage_config->press_poll_time < MASSAGE_AIR_BAG_TIME_MS(2000))
+            {
+                ALL_INFLATE();
+                massage_config->press_poll_time++;
+            }
+            else
+            {
+                ALL_DEFLATE();
+                massage_config->press_poll_time = 0;
+                massage_config->press_count++;
+            }
+        }
+    }
+}
+
+static void _Snf_Massage_Point_Press_Single_Intensity_High(massage_config_t *massage_config)
+{
+#define SUPPORT_INFLATE()   Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel, POWER_VALVE_STATE_RAMP_UP);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel_r, POWER_VALVE_STATE_RAMP_DOWN)
+
+#define SUPPORT_KEEP()      Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel_r, POWER_VALVE_STATE_RAMP_DOWN)
+
+#define ALL_INFLATE()       Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP)
+
+#define ALL_DEFLATE()       Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel, POWER_VALVE_STATE_RAMP_DOWN);\
+                            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->support_channel_r, POWER_VALVE_STATE_RAMP_UP)
+
+    if (massage_config->press_count < massage_config->massage_times)
+    {
+        if (massage_config->support_flag)
+        {
+            if (massage_config->press_poll_time < MASSAGE_AIR_BAG_TIME_MS(3500))
+            {
+                if (massage_config->press_poll_time < MASSAGE_AIR_BAG_TIME_MS(1500))
+                {
+                    SUPPORT_INFLATE();
+                    massage_config->press_poll_time++;
+                }
+                else
+                {
+                    SUPPORT_KEEP();
+                    ALL_INFLATE();
+                    massage_config->press_poll_time++;
+                }
+            }
+            else
+            {
+                ALL_DEFLATE();
+                massage_config->press_poll_time = 0;
+                massage_config->press_count++;
+            }
+        }
+        else
+        {
+            if (massage_config->press_poll_time < MASSAGE_AIR_BAG_TIME_MS(3000))
+            {
+                ALL_INFLATE();
+                massage_config->press_poll_time++;
+            }
+            else
+            {
+                ALL_DEFLATE();
+                massage_config->press_poll_time = 0;
+                massage_config->press_count++;
+            }
+        }
+    }
+}
+/************************ Public Function Implementations ************************/
+void Snf_Massage_3_Point_Press(massage_config_t *massage_config)
+{
+    if (massage_config->massage_lvl == MASSAGE_INTENSITY_IDLE || massage_config->massage_times == 0)
+    {
+        return;
+    }
+    if (massage_config->double_flag)
+    {
+        if (massage_config->massage_lvl == MASSAGE_INTENSITY_LOW)
+        {
+            _Snf_Massage_Point_Press_Double_Intensity_Low(massage_config);
+        }
+        else if (massage_config->massage_lvl == MASSAGE_INTENSITY_HIGH)
+        {
+            _Snf_Massage_Point_Press_Double_Intensity_High(massage_config);
+        }
+    }
+    else
+    {
+        if (massage_config->massage_lvl == MASSAGE_INTENSITY_LOW)
+        {
+            _Snf_Massage_Point_Press_Single_Intensity_Low(massage_config);
+        }
+        else if (massage_config->massage_lvl == MASSAGE_INTENSITY_HIGH)
+        {
+            _Snf_Massage_Point_Press_Single_Intensity_High(massage_config);
+        }
+    }
+}
+
+void Snf_Massage_Shoulder_Bag_Point_Press(massage_config_t *massage_config)
+{
+    if (massage_config->press_count < massage_config->massage_times)
+    {
+        if (massage_config->press_shoulder_time < MASSAGE_AIR_BAG_TIME_MS(3000))
+        {
+            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->single_channel, POWER_VALVE_STATE_RAMP_UP);
+            massage_config->press_shoulder_time++;
+        }
+        else
+        {
+            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->single_channel, POWER_VALVE_STATE_RAMP_DOWN);
+        }
+    }
+}
+
+void Snf_Knead_Bag_Cyclic_Press_Clockwise(massage_config_t *massage_config)
+{
+#define NO_ACTION       0
+#define ACTION          1
+#define COMPLETE_ACTION 0xFF
+
+    if (massage_config->press_count < massage_config->massage_times)
+    {
+        //头点按
+        if (massage_config->press_top_time < MASSAGE_AIR_BAG_TIME_MS(3000))
+        {
+            if (massage_config->press_top_time >= MASSAGE_AIR_BAG_TIME_MS(2500))
+            {
+                massage_config->press_right_action_flag = ACTION;
+            }
+            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);
+            massage_config->press_top_time++;
+        }
+        else
+        {
+            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_DOWN);
+        }
+
+        //右点按
+        if (massage_config->press_right_action_flag == ACTION)
+        {
+            if (massage_config->press_right_time < MASSAGE_AIR_BAG_TIME_MS(3000))
+            {
+                if (massage_config->press_right_time >= MASSAGE_AIR_BAG_TIME_MS(2500))
+                {
+                    massage_config->press_left_action_flag = ACTION;
+                }
+                Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);
+                massage_config->press_right_time++;
+            }
+            else
+            {
+                massage_config->press_right_action_flag = COMPLETE_ACTION;
+                Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_DOWN);
+            }
+        }
+
+        //左点按
+        if (massage_config->press_left_action_flag == ACTION)
+        {
+            if (massage_config->press_left_time < MASSAGE_AIR_BAG_TIME_MS(3000))
+            {
+                Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP);
+                massage_config->press_left_time++;
+            }
+            else
+            {
+                massage_config->press_left_action_flag = COMPLETE_ACTION;
+                Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_DOWN);
+            }
+        }
+
+        //全部点按完成
+        if (massage_config->press_left_action_flag == COMPLETE_ACTION)
+        {
+            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_DOWN);
+            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_DOWN);
+            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_DOWN);
+            massage_config->press_top_time = 0;
+            massage_config->press_left_time = 0;
+            massage_config->press_right_time = 0;
+            massage_config->press_right_action_flag = NO_ACTION;
+            massage_config->press_left_action_flag = NO_ACTION;
+            massage_config->press_count++;
+        }
+    }
+}
+
+void Snf_Knead_Bag_Cyclic_Press_Anticlockwise(massage_config_t *massage_config)
+{
+#define NO_ACTION       0
+#define ACTION          1
+#define COMPLETE_ACTION 0xFF
+
+    if (massage_config->press_count < massage_config->massage_times)
+    {
+        //头点按
+        if (massage_config->press_top_time < MASSAGE_AIR_BAG_TIME_MS(3000))
+        {
+            if (massage_config->press_top_time >= MASSAGE_AIR_BAG_TIME_MS(2500))
+            {
+                massage_config->press_left_action_flag = ACTION;
+            }
+            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);
+            massage_config->press_top_time++;
+        }
+        else
+        {
+            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_DOWN);
+        }
+
+        //左点按
+        if (massage_config->press_left_action_flag == ACTION)
+        {
+            if (massage_config->press_left_time < MASSAGE_AIR_BAG_TIME_MS(3000))
+            {
+                if (massage_config->press_left_time >= MASSAGE_AIR_BAG_TIME_MS(2500))
+                {
+                    massage_config->press_right_action_flag = ACTION;
+                }
+                Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP);
+                massage_config->press_left_time++;
+            }
+            else
+            {
+                massage_config->press_right_action_flag = ACTION;
+                Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_DOWN);
+            }
+        }
+
+        //右点按
+        if (massage_config->press_right_action_flag == ACTION)
+        {
+            if (massage_config->press_right_time < MASSAGE_AIR_BAG_TIME_MS(3000))
+            {
+                Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);
+                massage_config->press_right_time++;
+            }
+            else
+            {
+                massage_config->press_right_action_flag = COMPLETE_ACTION;
+                Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_DOWN);
+            }
+        }
+
+        //全部点按完成
+        if (massage_config->press_right_action_flag == COMPLETE_ACTION)
+        {
+            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_DOWN);
+            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_DOWN);
+            Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_DOWN);
+            massage_config->press_top_time = 0;
+            massage_config->press_left_time = 0;
+            massage_config->press_right_time = 0;
+            massage_config->press_right_action_flag = NO_ACTION;
+            massage_config->press_left_action_flag = NO_ACTION;
+            massage_config->press_count++;
         }
     }
 }

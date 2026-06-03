@@ -13,11 +13,16 @@ extern "C"
 /************************ Function Declarations ************************/
 
 /************************ Type Definitions ************************/
-
+typedef enum
+{
+    INFLATE_STATUS,
+    CYCLIC_STATUS,
+    DEFLATE_STATUS,
+}massage_knead_status_e;
 /************************ External Variables ************************/
 
 /************************ Function Declarations ************************/
-void Snf_Massage_Knead_Handle(massage_config_t* massage_cfg);
+void _Snf_Massage_Knead_Handle(massage_config_t *massage_config);
 
 #ifdef __cplusplus
 }
