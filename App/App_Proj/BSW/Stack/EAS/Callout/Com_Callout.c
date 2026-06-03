@@ -533,11 +533,7 @@ FUNC(void, RTE_CODE) Rte_COMCbkRxTOut_Com_Cfg_D_Rx_BODY_LE1_CAN_Zone_FL_MCM_01_D
 )
 {
     /*Rte_COMCbkRxTOut_Com_Cfg_D_Rx_BODY_LE1_CAN_Zone_FL_MCM_01_DrvSeatmassgValve1Cmd User Code start*/
-#if defined(PISCES_MCM_D)
     Rte_Call_Event_Cfg_D_Event_0xF1D187_SetEventStatus(DEM_EVENT_STATUS_FAILED);
-#elif defined(PISCES_MCM_P)
-    Rte_Call_Event_Cfg_P_Event_0xF1D187_SetEventStatus(DEM_EVENT_STATUS_FAILED);
-#endif
     /*Rte_COMCbkRxTOut_Com_Cfg_D_Rx_BODY_LE1_CAN_Zone_FL_MCM_01_DrvSeatmassgValve1Cmd User Code end*/
 }
 
@@ -548,11 +544,7 @@ FUNC(void, RTE_CODE) Rte_COMCbk_Com_Cfg_D_Rx_BODY_LE1_CAN_Zone_FL_MCM_01_DrvSeat
 )
 {
     /*Rte_COMCbk_Com_Cfg_D_Rx_BODY_LE1_CAN_Zone_FL_MCM_01_DrvSeatmassgValve1Cmd User Code start*/
-#if defined(PISCES_MCM_D)
     Rte_Call_Event_Cfg_D_Event_0xF1D187_SetEventStatus(DEM_EVENT_STATUS_PASSED);
-#elif defined(PISCES_MCM_P)
-    Rte_Call_Event_Cfg_P_Event_0xF1D187_SetEventStatus(DEM_EVENT_STATUS_PASSED);
-#endif
     /*Rte_COMCbk_Com_Cfg_D_Rx_BODY_LE1_CAN_Zone_FL_MCM_01_DrvSeatmassgValve1Cmd User Code end*/
 }
 
@@ -1213,11 +1205,7 @@ FUNC(void, RTE_CODE) Rte_COMCbkRxTOut_Com_Cfg_D_Rx_BODY_LE1_CAN_Zone_FL_MCM_02_D
 )
 {
     /*Rte_COMCbkRxTOut_Com_Cfg_D_Rx_BODY_LE1_CAN_Zone_FL_MCM_02_DrvPumpCmd User Code start*/
-#if defined(PISCES_MCM_D)
     Rte_Call_Event_Cfg_D_Event_0xF1D287_SetEventStatus(DEM_EVENT_STATUS_FAILED);
-#elif defined(PISCES_MCM_P)
-    Rte_Call_Event_Cfg_P_Event_0xF1D287_SetEventStatus(DEM_EVENT_STATUS_FAILED);
-#endif
     /*Rte_COMCbkRxTOut_Com_Cfg_D_Rx_BODY_LE1_CAN_Zone_FL_MCM_02_DrvPumpCmd User Code end*/
 }
 
@@ -1228,11 +1216,7 @@ FUNC(void, RTE_CODE) Rte_COMCbk_Com_Cfg_D_Rx_BODY_LE1_CAN_Zone_FL_MCM_02_DrvPump
 )
 {
     /*Rte_COMCbk_Com_Cfg_D_Rx_BODY_LE1_CAN_Zone_FL_MCM_02_DrvPumpCmd User Code start*/
-#if defined(PISCES_MCM_D)
     Rte_Call_Event_Cfg_D_Event_0xF1D287_SetEventStatus(DEM_EVENT_STATUS_PASSED);
-#elif defined(PISCES_MCM_P)
-    Rte_Call_Event_Cfg_P_Event_0xF1D287_SetEventStatus(DEM_EVENT_STATUS_PASSED);
-#endif
     /*Rte_COMCbk_Com_Cfg_D_Rx_BODY_LE1_CAN_Zone_FL_MCM_02_DrvPumpCmd User Code end*/
 }
 
@@ -3336,7 +3320,7 @@ FUNC(void, RTE_CODE) Rte_COMCbkRxTOut_Com_Cfg_P_Rx_BODY_LE1_CAN_Zone_FL_MCM_03_P
 )
 {
     /*Rte_COMCbkRxTOut_Com_Cfg_P_Rx_BODY_LE1_CAN_Zone_FL_MCM_03_PassSeatmassgValve1Cmd User Code start*/
-
+    Rte_Call_Event_Cfg_P_Event_0xF1D387_SetEventStatus(DEM_EVENT_STATUS_FAILED);
     /*Rte_COMCbkRxTOut_Com_Cfg_P_Rx_BODY_LE1_CAN_Zone_FL_MCM_03_PassSeatmassgValve1Cmd User Code end*/
 }
 
@@ -3347,7 +3331,7 @@ FUNC(void, RTE_CODE) Rte_COMCbk_Com_Cfg_P_Rx_BODY_LE1_CAN_Zone_FL_MCM_03_PassSea
 )
 {
     /*Rte_COMCbk_Com_Cfg_P_Rx_BODY_LE1_CAN_Zone_FL_MCM_03_PassSeatmassgValve1Cmd User Code start*/
-
+    Rte_Call_Event_Cfg_P_Event_0xF1D387_SetEventStatus(DEM_EVENT_STATUS_PASSED);
     /*Rte_COMCbk_Com_Cfg_P_Rx_BODY_LE1_CAN_Zone_FL_MCM_03_PassSeatmassgValve1Cmd User Code end*/
 }
 
@@ -4008,7 +3992,7 @@ FUNC(void, RTE_CODE) Rte_COMCbkRxTOut_Com_Cfg_P_Rx_BODY_LE1_CAN_Zone_FL_MCM_04_P
 )
 {
     /*Rte_COMCbkRxTOut_Com_Cfg_P_Rx_BODY_LE1_CAN_Zone_FL_MCM_04_PassPumpCmd User Code start*/
-
+    Rte_Call_Event_Cfg_P_Event_0xF1D487_SetEventStatus(DEM_EVENT_STATUS_FAILED);
     /*Rte_COMCbkRxTOut_Com_Cfg_P_Rx_BODY_LE1_CAN_Zone_FL_MCM_04_PassPumpCmd User Code end*/
 }
 
@@ -4019,7 +4003,7 @@ FUNC(void, RTE_CODE) Rte_COMCbk_Com_Cfg_P_Rx_BODY_LE1_CAN_Zone_FL_MCM_04_PassPum
 )
 {
     /*Rte_COMCbk_Com_Cfg_P_Rx_BODY_LE1_CAN_Zone_FL_MCM_04_PassPumpCmd User Code start*/
-
+    Rte_Call_Event_Cfg_P_Event_0xF1D487_SetEventStatus(DEM_EVENT_STATUS_PASSED);
     /*Rte_COMCbk_Com_Cfg_P_Rx_BODY_LE1_CAN_Zone_FL_MCM_04_PassPumpCmd User Code end*/
 }
 
