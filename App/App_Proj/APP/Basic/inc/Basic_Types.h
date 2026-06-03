@@ -18,14 +18,16 @@ extern "C"
 #define TRUE 1
 #endif
 
-#define RSHIFT(x, n)  (x >> n)
-#define LSHIFT(x, n)  (x << n)
+#define RSHIFT(x, n) (x >> n)
+#define LSHIFT(x, n) (x << n)
 
 #define SNF_GET_BIT(x, bit) ((x & (1 << bit)) >> bit)
 #define SNF_SET_BIT(x, bit) (x |= (1 << bit))
 #define SNF_CLR_BIT(x, bit) (x &= ~(1 << bit))
 
 #define SNF_ABS_DIFF(a, b) ((a) > (b) ? (a) - (b) : (b) - (a))
+
+#define SNF_UINT8_TO_BCD(x_) (((x_ / 10) % 10) << 4) | ((x_ % 10) & 0x0F);
 /************************ Type Definitions ************************/
 
 /************************ External Variables ************************/

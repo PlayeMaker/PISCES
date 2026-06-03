@@ -485,9 +485,10 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dcm_DataServices_DspData_0xFD05_0_ReadDa
 
     uint8 i;
     uint8 length = (uint8)6;
+    char* time = Snf_Build_Time_Inside_Version_Get();
     for(i = (uint8)0; i < length; i++)
     {
-        Data[i] = i + 1;
+        Data[i] = time[i];
     }
     return E_OK;
     /*Rte_Call_Dcm_DataServices_DspData_0xFD05_0_ReadData User Code end*/

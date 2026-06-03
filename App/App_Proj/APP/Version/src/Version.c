@@ -1,5 +1,6 @@
 /************************ Include Files ************************/
 #include "Version.h"
+#include "Basic_Types.h"
 /************************ Macro Definitions ************************/
 
 /************************ Private Global Variables ************************/
@@ -12,16 +13,19 @@ static char software_inside_version[3] = SOFTWARE_DRIVER_INSIDE_VERSION;
 static char software_inside_version[3] = SOFTWARE_PASSENGER_INSIDE_VERSION;
 #endif
 static char hardware_inside_version[3] = HARDWARE_INSIDE_VERSION;
+
+static char build_time_version[6] = { BUILD_YEAR_L, BUILD_MONTH, BUILD_DAY, BUILD_HOUR, BUILD_MINUTE, BUILD_SECOND };
+
 /*Basic*/
-static char software_version[11] = SOFTWARE_VERSION;
-static char hardware_version[11] = HARDWARE_VERSION;
-static char software_baseline[2] = SOFTWARE_BASELINE;
-static char hardware_baseline[2] = HARDWARE_BASELINE;
-static char supplier_number[8] = SUPPLIER_NUMBER;
-static char manufacturing_date[3] = MANUFACTURING_DATE;
-static char diag_database_version[3] = DIAG_DATABASE_VERSION;
-static char bootloader_number[3] = BOOTLOADER_VERSION;
-static char serial_number[16] = SERIAL_NUMBER;
+static char software_version[11]        = SOFTWARE_VERSION;
+static char hardware_version[11]        = HARDWARE_VERSION;
+static char software_baseline[2]        = SOFTWARE_BASELINE;
+static char hardware_baseline[2]        = HARDWARE_BASELINE;
+static char supplier_number[8]          = SUPPLIER_NUMBER;
+static char manufacturing_date[3]       = MANUFACTURING_DATE;
+static char diag_database_version[3]    = DIAG_DATABASE_VERSION;
+static char bootloader_number[3]        = BOOTLOADER_VERSION;
+static char serial_number[16]           = SERIAL_NUMBER;
 static char supplier_hardware_number[3] = SUPPLIER_HARDWARE_NUMBER;
 static char supplier_software_number[3] = SUPPLIER_SOFTWARE_NUMBER;
 /************************ Public Global Variables ************************/
@@ -59,6 +63,20 @@ char* Snf_Software_Inside_Version_Get(void)
 char* Snf_Hardware_Inside_Version_Get(void)
 {
     return hardware_inside_version;
+}
+
+/**
+ * @brief  Get EOL build time inside version
+ * @param  None
+ * @return bootloader inside version array pointer
+ */
+char* Snf_Build_Time_Inside_Version_Get(void)
+{
+    for (uint8_t i = 0; i < 6; i++)
+    {
+        build_time_version[i] = SNF_UINT8_TO_BCD(build_time_version[i]);
+    }
+    return build_time_version;
 }
 
 /**
