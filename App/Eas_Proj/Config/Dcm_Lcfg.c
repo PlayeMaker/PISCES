@@ -487,7 +487,7 @@ CONST(Dcm_DspComControlType, DCM_CONST) Dcm_DspComControl[DCM_CFG_NUM_OF_STAB] =
     }
 };
 
-STATIC CONST(Dcm_DspDataTableType, DCM_CONST) Dcm_DspDataTable_0[18] =
+STATIC CONST(Dcm_DspDataTableType, DCM_CONST) Dcm_DspDataTable_0[19] =
 {
     {/*0*/
         (uint16)4,
@@ -668,12 +668,22 @@ STATIC CONST(Dcm_DspDataTableType, DCM_CONST) Dcm_DspDataTable_0[18] =
         NULL_PTR,
         Dcm_DataServices_0xFD03_0_ReadData,
         (NvM_BlockIdType)0
+    },
+    {/*18*/
+        (uint16)6,
+        DCM_UINT8_N,
+        DCM_USE_DATA_ASYNCH_CLIENT_SERVER_ERROR,
+        FALSE,
+        NULL_PTR,
+        NULL_PTR,
+        Dcm_DataServices_0xFD05_0_ReadData,
+        (NvM_BlockIdType)0
     }
 };
 CONST(Dcm_DspDataType, DCM_CONST) Dcm_DspData[DCM_CFG_NUM_OF_STAB] =
 {
     {
-        (uint16)18,
+        (uint16)19,
         Dcm_DspDataTable_0
     }
 };
@@ -803,6 +813,13 @@ STATIC CONST(Dcm_DspDidSignalType, DCM_CONST) Dcm_DspDidSignal_0xFD03_0[1] =
         (uint16)17
     }
 };
+STATIC CONST(Dcm_DspDidSignalType, DCM_CONST) Dcm_DspDidSignal_0xFD05_0[1] =
+{
+    {
+        (uint16)0,
+        (uint16)18
+    }
+};
 STATIC CONST(Dcm_DspDidReadType, DCM_CONST) Dcm_DspDidRead_0xF010_0 =
 {
     DCM_REQ_PHY_FUN_MASK,
@@ -911,7 +928,13 @@ STATIC CONST(Dcm_DspDidReadType, DCM_CONST) Dcm_DspDidRead_0xFD03_0 =
     DCM_LOCKED_MASK | DCM_L2_MASK,
     DCM_DEFAULT_MASK | DCM_EXTENDED_MASK
 };
-STATIC CONST(Dcm_DspDidTableType, DCM_CONST) Dcm_DspDidTable_0[18] =
+STATIC CONST(Dcm_DspDidReadType, DCM_CONST) Dcm_DspDidRead_0xFD05_0 =
+{
+    DCM_REQ_PHY_FUN_MASK,
+    DCM_LOCKED_MASK | DCM_L2_MASK,
+    DCM_DEFAULT_MASK | DCM_EXTENDED_MASK
+};
+STATIC CONST(Dcm_DspDidTableType, DCM_CONST) Dcm_DspDidTable_0[19] =
 {
     {/*0*/
         (uint16)0xF010,
@@ -1074,12 +1097,21 @@ STATIC CONST(Dcm_DspDidTableType, DCM_CONST) Dcm_DspDidTable_0[18] =
         },
         (uint16)1,
         Dcm_DspDidSignal_0xFD03_0
+    },
+    {/*18*/
+        (uint16)0xFD05,
+        (uint16)0x6,
+        {
+            &Dcm_DspDidRead_0xFD05_0,
+        },
+        (uint16)1,
+        Dcm_DspDidSignal_0xFD05_0
     }
 };
 CONST(Dcm_DspDidType, DCM_CONST) Dcm_DspDid[DCM_CFG_NUM_OF_STAB] =
 {
     {
-        (uint16)18,
+        (uint16)19,
         Dcm_DspDidTable_0
     }
 };

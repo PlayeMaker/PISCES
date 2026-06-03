@@ -414,6 +414,22 @@ FUNC(Std_ReturnType, RTE_CODE) Dcm_DataServices_0xFD03_0_ReadData
 }
 
 
+FUNC(Std_ReturnType, RTE_CODE) Dcm_DataServices_0xFD05_0_ReadData
+(
+    Dcm_OpStatusType OpStatus,
+    P2VAR(uint8, AUTOMATIC, DCM_VAR) Data,
+    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, DCM_VAR) ErrorCode
+)
+{
+    Std_ReturnType ret = E_OK;
+
+
+    ret = Dcm_Rte_DataServices_DspData_0xFD05_0_ReadData(OpStatus, Data, ErrorCode);
+
+    return ret;
+}
+
+
 FUNC(Std_ReturnType, RTE_CODE) Dcm_RoutineServices_0x0203_Start
 (
     P2VAR(uint8, AUTOMATIC, DCM_VAR) DataIn,

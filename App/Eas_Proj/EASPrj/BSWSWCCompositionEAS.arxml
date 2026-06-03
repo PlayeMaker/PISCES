@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 http://autosar.org/schema/r4.0/autosar40/swc/composition">
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 http://autosar.org/schema/r4.0/autosar40/s#//datamapping">
   <AR-PACKAGES>
     <AR-PACKAGE UUID="">
       <SHORT-NAME>BSWSWCCompositionEAS</SHORT-NAME>
@@ -7,63 +7,63 @@
         <COMPOSITION-SW-COMPONENT-TYPE UUID="">
           <SHORT-NAME>BSWSWCCompositionEAS</SHORT-NAME>
           <COMPONENTS>
-            <SW-COMPONENT-PROTOTYPE UUID="4dfd274f-9f3a-471b-8f8a-b4ebee5f3139">
+            <SW-COMPONENT-PROTOTYPE UUID="993a840b-e6a6-4e76-8363-3e90fc31bc49">
               <SHORT-NAME>BswM</SHORT-NAME>
               <TYPE-TREF DEST="SERVICE-SW-COMPONENT-TYPE">BSW/SWCs/BswM</TYPE-TREF>
             </SW-COMPONENT-PROTOTYPE>
-            <SW-COMPONENT-PROTOTYPE UUID="64db18fb-bf8d-49b2-8c79-5a0b3a2b31c8">
+            <SW-COMPONENT-PROTOTYPE UUID="0b8a830e-8ee2-47e3-9504-0e658ca59219">
               <SHORT-NAME>Com</SHORT-NAME>
               <TYPE-TREF DEST="SERVICE-SW-COMPONENT-TYPE">BSW/SWCs/Com</TYPE-TREF>
             </SW-COMPONENT-PROTOTYPE>
-            <SW-COMPONENT-PROTOTYPE UUID="238353db-6e23-44e7-9237-c5eec7fd8555">
+            <SW-COMPONENT-PROTOTYPE UUID="521520d6-a4c8-4e64-ab2e-2a07dfe7693c">
               <SHORT-NAME>ComM</SHORT-NAME>
               <TYPE-TREF DEST="SERVICE-SW-COMPONENT-TYPE">BSW/SWCs/ComM</TYPE-TREF>
             </SW-COMPONENT-PROTOTYPE>
-            <SW-COMPONENT-PROTOTYPE UUID="8f7b2bf9-83b8-40ca-a4ca-c9ded95c149f">
+            <SW-COMPONENT-PROTOTYPE UUID="391ee362-ea98-427a-9454-6b9b4f785809">
               <SHORT-NAME>Dcm</SHORT-NAME>
               <TYPE-TREF DEST="SERVICE-SW-COMPONENT-TYPE">BSW/SWCs/Dcm</TYPE-TREF>
             </SW-COMPONENT-PROTOTYPE>
-            <SW-COMPONENT-PROTOTYPE UUID="327cfca7-559b-425d-8374-f841c49c58b7">
+            <SW-COMPONENT-PROTOTYPE UUID="5c4e2728-10cf-492e-9c1c-75f5aca3fdf4">
               <SHORT-NAME>Dem</SHORT-NAME>
               <TYPE-TREF DEST="SERVICE-SW-COMPONENT-TYPE">BSW/SWCs/Dem</TYPE-TREF>
             </SW-COMPONENT-PROTOTYPE>
-            <SW-COMPONENT-PROTOTYPE UUID="9aa2cb19-e3de-4539-bc15-807a1e63422e">
+            <SW-COMPONENT-PROTOTYPE UUID="10de09bc-b2c4-4c39-b72c-d186d93d453c">
               <SHORT-NAME>Det</SHORT-NAME>
               <TYPE-TREF DEST="SERVICE-SW-COMPONENT-TYPE">BSW/SWCs/Det</TYPE-TREF>
             </SW-COMPONENT-PROTOTYPE>
-            <SW-COMPONENT-PROTOTYPE UUID="472d0da0-2ff1-4387-9051-81dd116ddb5d">
+            <SW-COMPONENT-PROTOTYPE UUID="d330df59-d893-4fc3-a1a3-ef549b0c438c">
               <SHORT-NAME>EcuM</SHORT-NAME>
               <TYPE-TREF DEST="SERVICE-SW-COMPONENT-TYPE">BSW/SWCs/EcuM</TYPE-TREF>
             </SW-COMPONENT-PROTOTYPE>
-            <SW-COMPONENT-PROTOTYPE UUID="205a6e07-9ac4-4503-8fb1-efdf35ad84e4">
+            <SW-COMPONENT-PROTOTYPE UUID="ad88dea2-7d41-49ba-b486-bdb796d2f157">
               <SHORT-NAME>NvM</SHORT-NAME>
               <TYPE-TREF DEST="SERVICE-SW-COMPONENT-TYPE">BSW/SWCs/NvM</TYPE-TREF>
             </SW-COMPONENT-PROTOTYPE>
-            <SW-COMPONENT-PROTOTYPE UUID="370bc393-c9dd-4e00-b0ae-cec1aa584a16">
+            <SW-COMPONENT-PROTOTYPE UUID="67e0e671-e552-4ad8-a48e-4053f5342f85">
               <SHORT-NAME>AppSWC_BswM</SHORT-NAME>
               <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">BSW/SWCs/AppSWC_BswM</TYPE-TREF>
             </SW-COMPONENT-PROTOTYPE>
-            <SW-COMPONENT-PROTOTYPE UUID="8fc10d73-0a55-44fe-86c1-6c8c1c9cf55c">
+            <SW-COMPONENT-PROTOTYPE UUID="b7059e7f-fba5-45ad-bf54-7da73e128485">
               <SHORT-NAME>AppSWC_ComM</SHORT-NAME>
               <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">BSW/SWCs/AppSWC_ComM</TYPE-TREF>
             </SW-COMPONENT-PROTOTYPE>
-            <SW-COMPONENT-PROTOTYPE UUID="cce8d295-8ee8-41ad-8bcd-f3db80fb0328">
+            <SW-COMPONENT-PROTOTYPE UUID="2467bba5-6bef-4487-b2be-4c108ab65608">
               <SHORT-NAME>AppSWC_Dcm</SHORT-NAME>
               <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">BSW/SWCs/AppSWC_Dcm</TYPE-TREF>
             </SW-COMPONENT-PROTOTYPE>
-            <SW-COMPONENT-PROTOTYPE UUID="bade3343-43fb-4830-8fbe-b050a7322ce0">
+            <SW-COMPONENT-PROTOTYPE UUID="ec97f415-6dc1-4ffc-919a-e67dbe91ea47">
               <SHORT-NAME>AppSWC_Dem</SHORT-NAME>
               <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">BSW/SWCs/AppSWC_Dem</TYPE-TREF>
             </SW-COMPONENT-PROTOTYPE>
-            <SW-COMPONENT-PROTOTYPE UUID="8418c425-caef-4cf8-be90-8c3bba2deecc">
+            <SW-COMPONENT-PROTOTYPE UUID="d15d663e-4a72-4fd6-a7e8-1fc25984c1e9">
               <SHORT-NAME>AppSWC_Det</SHORT-NAME>
               <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">BSW/SWCs/AppSWC_Det</TYPE-TREF>
             </SW-COMPONENT-PROTOTYPE>
-            <SW-COMPONENT-PROTOTYPE UUID="b2ae36e3-a5c2-4820-82fc-757c676a22ac">
+            <SW-COMPONENT-PROTOTYPE UUID="4011606a-13ad-465a-ae52-4e011742c2cd">
               <SHORT-NAME>AppSWC_EcuM</SHORT-NAME>
               <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">BSW/SWCs/AppSWC_EcuM</TYPE-TREF>
             </SW-COMPONENT-PROTOTYPE>
-            <SW-COMPONENT-PROTOTYPE UUID="2aaa4640-4110-48e5-b96a-5da501911c75">
+            <SW-COMPONENT-PROTOTYPE UUID="428beaf4-e64e-45d7-8573-fd1022f6a816">
               <SHORT-NAME>AppSWC_NvM</SHORT-NAME>
               <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">BSW/SWCs/AppSWC_NvM</TYPE-TREF>
             </SW-COMPONENT-PROTOTYPE>

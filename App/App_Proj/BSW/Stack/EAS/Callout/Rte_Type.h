@@ -469,6 +469,8 @@ typedef uint8 Dcm_DataElement_DspData_0xFD02_0_ArrayType[3];
 typedef Dcm_DataElement_DspData_0xFD02_0_ArrayType Dcm_DataElement_DspData_0xFD02_0Type;
 typedef uint8 Dcm_DataElement_DspData_0xFD03_0_ArrayType[2];
 typedef Dcm_DataElement_DspData_0xFD03_0_ArrayType Dcm_DataElement_DspData_0xFD03_0Type;
+typedef uint8 Dcm_DataElement_DspData_0xFD05_0_ArrayType[6];
+typedef Dcm_DataElement_DspData_0xFD05_0_ArrayType Dcm_DataElement_DspData_0xFD05_0Type;
 typedef uint8 Dcm_DidSupportedType;
 typedef uint8 Dcm_KeyArray_L2Type[4];
 typedef uint8 Dcm_SeedArray_L2Type[4];
