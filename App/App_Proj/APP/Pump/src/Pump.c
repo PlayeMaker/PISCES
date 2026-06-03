@@ -14,7 +14,7 @@
 #define PUMP_PRINTF(...)
 #endif
 /************************ Private Global Variables ************************/
-static pump_config_t pump_config = { .state = PUMP_WORK_STATE_OFF, .pump_work_mask = 0 };
+static pump_config_t pump_config = { .state = PUMP_WORK_STATE_OFF, .pump_work_mask = PUMP_ALL_MODULE_DISABLE_WORK_MASK };
 /************************ Public Global Variables ************************/
 
 /************************ Private Function Declarations ************************/
@@ -48,6 +48,15 @@ void Snf_Pump_Set_Work_State(pump_work_state_e state, uint32_t work_mask)
 {
     power_bat_status_e bat_status      = Rte_Call_Sync_C_Pump_S_Power_Get_Bat_States();
     pump_config_t*     pump_config_ptr = &pump_config;
+
+    // 紧急处理：当工作掩码为全0时，强制关闭泵电源；
+    if (PUMP_WORK_STATE_OFF == state && PUMP_ALL_MODULE_DISABLE_WORK_MASK == work_mask)
+    {
+        pump_config_ptr->pump_work_mask = PUMP_ALL_MODULE_DISABLE_WORK_MASK;
+        RTE_GPIO_PUMP_DISABLE();
+        return;
+    }
+
     if (POWER_BAT_STATUS_NORMAL != bat_status)
     {
         return;
@@ -72,7 +81,7 @@ void Snf_Pump_Set_Work_State(pump_work_state_e state, uint32_t work_mask)
         }
         else
         {
-            if (0 == pump_config_ptr->pump_work_mask)  // 只有当所有模块都不需要泵时才关闭泵电源
+            if (PUMP_ALL_MODULE_DISABLE_WORK_MASK == pump_config_ptr->pump_work_mask)  // 只有当所有模块都不需要泵时才关闭泵电源
             {
                 RTE_GPIO_PUMP_DISABLE();
             }

@@ -9,8 +9,10 @@ extern "C"
 /************************ Include Files ************************/
 
 /************************ Macro Definitions ************************/
-#define PUMP_LUMBAR_WORK_MASK  0x01
-#define PUMP_MASSAGE_WORK_MASK 0x02
+#define PUMP_ALL_MODULE_DISABLE_WORK_MASK 0
+#define PUMP_ALL_MODULE_ENABLE_WORK_MASK  0xFFFFFFFF
+#define PUMP_LUMBAR_WORK_MASK             0x01
+#define PUMP_MASSAGE_WORK_MASK            0x02
 /************************ Type Definitions ************************/
 /**
 * @brief 气泵状态枚举

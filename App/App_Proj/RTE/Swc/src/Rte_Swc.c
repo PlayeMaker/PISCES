@@ -231,3 +231,41 @@ void Rte_Call_Sync_C_Lumbar_S_Valve_Set_Work_States(valve_work_state_e state, ui
 {
     Snf_Valve_Set_Work_State(state, work_mask);
 }
+/**
+  * @brief  Set the work states of the pump (Power->Pump)
+  * @param  state: The work state to set
+  * @param  work_mask: The mask indicating which modules need the pump to work
+  * @return None
+  */
+void Rte_Call_Sync_C_Power_S_Pump_Set_Work_States(pump_work_state_e state, uint32_t work_mask)
+{
+    Snf_Pump_Set_Work_State(state, work_mask);
+}
+/**
+  * @brief  Get the work states of the pump (Power->Pump)
+  * @param  None
+  * @return pump_work_state_e: The current work state of the pump
+  */
+pump_work_state_e Rte_Call_Sync_C_Power_S_Pump_Get_Work_States(void)
+{
+    return Snf_Pump_Get_Work_State();
+}
+/**
+  * @brief  Set the work states of the Valve (Power->Valve)
+  * @param  state: The work state to set
+  * @param  work_mask: The mask indicating which modules need the valve to work
+  * @return None
+  */
+void Rte_Call_Sync_C_Power_S_Valve_Set_Work_States(valve_work_state_e state, uint32_t work_mask)
+{
+    Snf_Valve_Set_Work_State(state, work_mask);
+}
+/**
+  * @brief  Get the work states of the valve (Power->Valve)
+  * @param  None
+  * @return valve_work_state_e: The current work state of the valve
+  */
+valve_work_state_e Rte_Call_Sync_C_Power_S_Valve_Get_Work_States(void)
+{
+    return Snf_Valve_Get_Work_State();
+}

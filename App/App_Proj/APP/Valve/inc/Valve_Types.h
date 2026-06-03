@@ -9,8 +9,10 @@ extern "C"
 /************************ Include Files ************************/
 
 /************************ Macro Definitions ************************/
-#define VALVE_LUMBAR_WORK_MASK  0x01
-#define VALVE_MASSAGE_WORK_MASK 0x02
+#define VALVE_ALL_MODULE_DISABLE_WORK_MASK 0
+#define VALVE_ALL_MODULE_ENABLE_WORK_MASK  0xFFFFFFFF
+#define VALVE_LUMBAR_WORK_MASK             0x01
+#define VALVE_MASSAGE_WORK_MASK            0x02
 /************************ Type Definitions ************************/
 typedef enum
 {

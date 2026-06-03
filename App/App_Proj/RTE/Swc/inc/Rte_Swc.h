@@ -44,7 +44,10 @@ power_bat_status_e Rte_Call_Sync_C_Pump_S_Power_Get_Bat_States(void);
 power_bat_status_e Rte_Call_Sync_C_Valve_S_Power_Get_Bat_States(void);
 void Rte_Call_Sync_C_Lumbar_S_Pump_Set_Work_States(pump_work_state_e state, uint32_t work_mask);
 void Rte_Call_Sync_C_Lumbar_S_Valve_Set_Work_States(valve_work_state_e state, uint32_t work_mask);
-
+void Rte_Call_Sync_C_Power_S_Pump_Set_Work_States(pump_work_state_e state, uint32_t work_mask);
+pump_work_state_e Rte_Call_Sync_C_Power_S_Pump_Get_Work_States(void);
+void Rte_Call_Sync_C_Power_S_Valve_Set_Work_States(valve_work_state_e state, uint32_t work_mask);
+valve_work_state_e Rte_Call_Sync_C_Power_S_Valve_Get_Work_States(void);
 #ifdef __cplusplus
 }
 #endif

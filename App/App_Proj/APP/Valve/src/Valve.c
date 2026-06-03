@@ -32,7 +32,7 @@ static const uint8_t valve_ramp_down_step_size = sizeof(valve_ramp_down_step) / 
 
 static valve_ramp_group_t valve_ramp_group[VALVE_RAMP_MEMBER_NUM] = { 0 };
 
-static valve_config_t valve_config = { .state = VALVE_WORK_STATE_OFF, .valve_work_mask = 0 };
+static valve_config_t valve_config = { .state = VALVE_WORK_STATE_OFF, .valve_work_mask = VALVE_ALL_MODULE_DISABLE_WORK_MASK };
 /************************ Public Global Variables ************************/
 
 /************************ Private Function Declarations ************************/
@@ -50,6 +50,12 @@ static void _Snf_Valve_Process_Ramp(void)
     uint8_t             ramp_config_size = 0;
     uint16_t            vol              = 0;
     uint8_t             duty_cycle       = 0;
+    valve_config_t*     valve_config_ptr = &valve_config;
+
+    if (VALVE_WORK_STATE_OFF == valve_config_ptr->state)
+    {
+        return;
+    }
 
     for (uint8_t i = 0; i < VALVE_RAMP_MEMBER_NUM; i++)
     {
@@ -96,12 +102,13 @@ static void _Snf_Valve_Process_Ramp(void)
  */
 bool Snf_Valve_Set_Config(uint8_t index, valve_state_e state)
 {
-    valve_ramp_group_t* ramp_group_ptr  = NULL;
-    valve_ramp_step_t*  ramp_config_ptr = NULL;
-    uint16_t            vol             = 0;
-    uint8_t             duty_cycle      = 0;
+    valve_ramp_group_t* ramp_group_ptr   = NULL;
+    valve_ramp_step_t*  ramp_config_ptr  = NULL;
+    uint16_t            vol              = 0;
+    uint8_t             duty_cycle       = 0;
+    valve_config_t*     valve_config_ptr = &valve_config;
 
-    if (index >= VALVE_RAMP_MEMBER_NUM)
+    if (index >= VALVE_RAMP_MEMBER_NUM || VALVE_WORK_STATE_OFF == valve_config_ptr->state)
     {
         return false;
     }
@@ -140,6 +147,15 @@ void Snf_Valve_Set_Work_State(valve_work_state_e state, uint32_t work_mask)
 {
     power_bat_status_e bat_status       = Rte_Call_Sync_C_Valve_S_Power_Get_Bat_States();
     valve_config_t*    valve_config_ptr = &valve_config;
+
+    // 紧急处理：当工作掩码为全0时，强制关闭泵电源；
+    if (VALVE_WORK_STATE_OFF == state && VALVE_ALL_MODULE_DISABLE_WORK_MASK == work_mask)
+    {
+        valve_config_ptr->valve_work_mask = VALVE_ALL_MODULE_DISABLE_WORK_MASK;
+        RTE_GPIO_VALVE_DISABLE();
+        return;
+    }
+
     if (POWER_BAT_STATUS_NORMAL != bat_status)
     {
         return;
@@ -164,7 +180,8 @@ void Snf_Valve_Set_Work_State(valve_work_state_e state, uint32_t work_mask)
         }
         else
         {
-            if (0 == valve_config_ptr->valve_work_mask)  // 只有当所有模块都不需要阀时才关闭阀电源
+            if (VALVE_ALL_MODULE_DISABLE_WORK_MASK ==
+                valve_config_ptr->valve_work_mask)  // 只有当所有模块都不需要阀时才关闭阀电源
             {
                 RTE_GPIO_VALVE_DISABLE();
             }

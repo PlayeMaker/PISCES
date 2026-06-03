@@ -75,7 +75,7 @@ static void _Snf_Lumbar_Deflation(uint8_t position)
     }
 
     config_ptr = (lumbar_config_t*)&lumbar_config[position];
-    if (LUMBAR_MODE_DEFLATION == config_ptr->mode)
+    if (LUMBAR_MODE_DEFLATION == config_ptr->mode || LUMBAR_MODE_RESERVED == config_ptr->mode)
     {
         return;
     }
