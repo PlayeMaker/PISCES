@@ -52,9 +52,9 @@ static massage_config_t massage_area[6] = {
         .press_left_action_flag = NO_ACTION,
     },
     [AREA_7] = {
-        .top_channel = RTE_PWM_CHANNEL_AM2,
-        .right_channel = RTE_PWM_CHANNEL_AM3,
-        .left_channel = RTE_PWM_CHANNEL_AM1,
+        .top_channel = RTE_PWM_CHANNEL_AM3,
+        .right_channel = RTE_PWM_CHANNEL_AM1,
+        .left_channel = RTE_PWM_CHANNEL_AM2,
         .support_channel = RTE_PWM_CHANNEL_RN1,
         .support_channel_r = RTE_PWM_CHANNEL_RNR1,
         .single_channel = NONE_CHANNEL,
