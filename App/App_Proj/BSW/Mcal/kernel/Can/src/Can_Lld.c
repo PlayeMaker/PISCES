@@ -3720,8 +3720,7 @@ CAN_FUNC LOCAL_INLINE void Can_Lld_IrqProcessMailBox(uint8 IrqId, uint8 HwObjId,
         {
             /* Comlate tx */
             Can_Lld_ClrMailBoxIntFlag(ChConfigPtr->ChBaseAddr, RegisterIdx, FlagIdx);
-            /* Callback to CanIf layer to confirmation tx */
-            CanIf_TxConfirmation(Can_ChHwObjPduId[CanChannelId][RegionId][MailBoxId]);
+
             Callback = Can_ConfigPtr->CanTransmitCallback;
             if (NULL_PTR != Callback)
             {
@@ -3729,6 +3728,7 @@ CAN_FUNC LOCAL_INLINE void Can_Lld_IrqProcessMailBox(uint8 IrqId, uint8 HwObjId,
             }
             /* Unlock mailbox */
             Can_Lld_UpdateIdleState(CanChannelId, (uint8)RegionId, MailBoxId);
+            /* Callback to CanIf layer to confirmation tx */
             CanIf_TxConfirmation(Can_ChHwObjPduId[CanChannelId][RegionId][MailBoxId]);
         }
     }
