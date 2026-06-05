@@ -151,6 +151,7 @@ void Snf_Valve_Set_Work_State(valve_work_state_e state, uint32_t work_mask)
     // 紧急处理：当工作掩码为全0时，强制关闭泵电源；
     if (VALVE_WORK_STATE_OFF == state && VALVE_ALL_MODULE_DISABLE_WORK_MASK == work_mask)
     {
+        valve_config_ptr->state = VALVE_WORK_STATE_OFF;
         valve_config_ptr->valve_work_mask = VALVE_ALL_MODULE_DISABLE_WORK_MASK;
         RTE_GPIO_VALVE_DISABLE();
         return;
@@ -172,10 +173,11 @@ void Snf_Valve_Set_Work_State(valve_work_state_e state, uint32_t work_mask)
 
     if (valve_config_ptr->state != state)
     {
-        valve_config_ptr->state = state;
+
         VALVE_PRINTF("Valve work state: %d,%d\n", valve_config_ptr->state, work_mask);
-        if (VALVE_WORK_STATE_ON == valve_config_ptr->state)
+        if (VALVE_WORK_STATE_ON == state)
         {
+            valve_config_ptr->state = VALVE_WORK_STATE_ON;
             RTE_GPIO_VALVE_ENABLE();
         }
         else
@@ -183,6 +185,7 @@ void Snf_Valve_Set_Work_State(valve_work_state_e state, uint32_t work_mask)
             if (VALVE_ALL_MODULE_DISABLE_WORK_MASK ==
                 valve_config_ptr->valve_work_mask)  // 只有当所有模块都不需要阀时才关闭阀电源
             {
+                valve_config_ptr->state = VALVE_WORK_STATE_OFF;
                 RTE_GPIO_VALVE_DISABLE();
             }
         }
