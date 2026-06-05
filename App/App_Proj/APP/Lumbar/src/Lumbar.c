@@ -83,7 +83,7 @@ static void _Snf_Lumbar_Deflation(uint8_t position)
     LUMBAR_PRINTF("Deflation lumbar position: %d\n", position);
     config_ptr->mode = LUMBAR_MODE_DEFLATION;
     Rte_Call_Sync_C_Lumbar_S_Valve_Set_Work_States(VALVE_WORK_STATE_ON, VALVE_LUMBAR_WORK_MASK);
-    Rte_Call_Sync_C_Lumbar_S_Pump_Set_Work_States(PUMP_WORK_STATE_ON, PUMP_LUMBAR_WORK_MASK);
+    Rte_Call_Sync_C_Lumbar_S_Pump_Set_Work_States(PUMP_WORK_STATE_OFF, PUMP_LUMBAR_WORK_MASK);
     Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_fornt, POWER_VALVE_STATE_RAMP_DOWN);
     Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_rear, POWER_VALVE_STATE_RAMP_UP);
 }
@@ -110,7 +110,7 @@ static void _Snf_Lumbar_Keep(uint8_t position)
     LUMBAR_PRINTF("Keep lumbar position: %d\n", position);
     config_ptr->mode = LUMBAR_MODE_NO_ACTION;
     Rte_Call_Sync_C_Lumbar_S_Valve_Set_Work_States(VALVE_WORK_STATE_ON, VALVE_LUMBAR_WORK_MASK);
-    Rte_Call_Sync_C_Lumbar_S_Pump_Set_Work_States(PUMP_WORK_STATE_ON, PUMP_LUMBAR_WORK_MASK);
+    Rte_Call_Sync_C_Lumbar_S_Pump_Set_Work_States(PUMP_WORK_STATE_OFF, PUMP_LUMBAR_WORK_MASK);
     Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_fornt, POWER_VALVE_STATE_RAMP_DOWN);
     Rte_Call_Sync_C_Lumbar_S_Valve_Ramp_Control(config_ptr->pwm_channel_rear, POWER_VALVE_STATE_RAMP_DOWN);
 }
