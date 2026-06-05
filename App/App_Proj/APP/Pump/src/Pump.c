@@ -52,6 +52,7 @@ void Snf_Pump_Set_Work_State(pump_work_state_e state, uint32_t work_mask)
     // 紧急处理：当工作掩码为全0时，强制关闭泵电源；
     if (PUMP_WORK_STATE_OFF == state && PUMP_ALL_MODULE_DISABLE_WORK_MASK == work_mask)
     {
+        pump_config_ptr->state = PUMP_WORK_STATE_OFF;
         pump_config_ptr->pump_work_mask = PUMP_ALL_MODULE_DISABLE_WORK_MASK;
         RTE_GPIO_PUMP_DISABLE();
         return;
@@ -73,16 +74,18 @@ void Snf_Pump_Set_Work_State(pump_work_state_e state, uint32_t work_mask)
 
     if (pump_config_ptr->state != state)
     {
-        pump_config_ptr->state = state;
+
         PUMP_PRINTF("Pump work state: %d,%d\n", pump_config_ptr->state, work_mask);
-        if (PUMP_WORK_STATE_ON == pump_config_ptr->state)
+        if (PUMP_WORK_STATE_ON == state)
         {
+            pump_config_ptr->state = PUMP_WORK_STATE_ON;
             RTE_GPIO_PUMP_ENABLE();
         }
         else
         {
             if (PUMP_ALL_MODULE_DISABLE_WORK_MASK == pump_config_ptr->pump_work_mask)  // 只有当所有模块都不需要泵时才关闭泵电源
             {
+                pump_config_ptr->state = PUMP_WORK_STATE_OFF;
                 RTE_GPIO_PUMP_DISABLE();
             }
         }
