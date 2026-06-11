@@ -16,7 +16,7 @@ extern "C"
 #define MASSAGE_AIR_BAG_GROUP_NUM_MAX           4  //一组气袋最大数量
 #define MASSAGE_AIR_BAG_SUPPORT_FRONT_VAVLE_IDX 0  //支撑气袋前阀索引
 #define MASSAGE_AIR_BAG_SUPPORT_REAR_VAVLE_IDX  1  //支撑气袋后阀索引
-#define MASSAGE_AIR_BAG_TIME_MS(tmp)     (tmp / 5)  //单位为ms,task周期为5ms
+#define MASSAGE_TIME_MS(tmp)     (tmp / 5)  //单位为ms,task周期为5ms
 #define NO_ACTION       0
 #define ACTION          1
 #define COMPLETE_ACTION 0xFF
@@ -115,6 +115,9 @@ typedef enum
     MASSAGE_AIR_BAG_DEFLATION,  //泄气
 } massage_air_bag_mode_e;
 
+/**
+ * @brief 按摩气袋方向枚举
+ */
 typedef enum
 {
     CLOCKWISE,
@@ -149,17 +152,8 @@ typedef struct
 } massage_action_config_t;
 
 /**
-* @brief 按摩配置结构体
+* @brief 揉捏气袋的叩击状态
 */
-// typedef struct
-// {
-//     massage_zone_e          zone;             //按摩区域
-//     massage_mode_e          mode;             //按摩模式
-//     uint32_t                action_sum_time;  //按摩动作总时间，单位毫秒
-//     massage_action_config_t action_cfg;       //按摩动作配置
-// } massage_config_t;
-
-//揉捏气袋的叩击状态
 typedef enum
 {
     RAP_INFLATE_STATUS,
@@ -182,10 +176,14 @@ typedef enum
     SHOD_END_STATUS,
 }massage_rap_shoulder_status_e;
 
+/**
+* @brief 按摩配置结构体
+*/
 typedef struct
 {
     //重置时间
-    uint16_t reset_time;
+    uint16_t valve_close_time;
+    bool valve_close_flag;
 
     //外发按摩时间
     uint16_t massage_output_time;

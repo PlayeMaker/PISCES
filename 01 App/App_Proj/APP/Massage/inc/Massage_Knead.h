@@ -15,9 +15,9 @@ extern "C"
 /************************ Type Definitions ************************/
 typedef enum
 {
-    INFLATE_STATUS,
-    CYCLIC_STATUS,
-    DEFLATE_STATUS,
+    KNEAD_INFLATE_STATUS,
+    KNEAD_CYCLIC_STATUS,
+    KNEAD_DEFLATE_STATUS,
 }massage_knead_status_e;
 /************************ External Variables ************************/
 

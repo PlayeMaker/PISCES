@@ -10,6 +10,7 @@
 #include "Rte_Swc.h"
 #include "Valve.h"
 #include "Valve_Types.h"
+#include "Rte_Os.h"
 
 #include <Rte_Com.h>
 
@@ -33,10 +34,11 @@ static massage_config_t massage_area[6] = {
         .knead_inflate_time = 0,
         .knead_cyclic_count = 0,
         .knead_cyclic_time = 0,
-        .knead_status = INFLATE_STATUS,
+        .knead_status = KNEAD_INFLATE_STATUS,
         .press_right_action_flag = NO_ACTION,
         .press_left_action_flag = NO_ACTION,
-        .reset_time = 0,
+        .valve_close_time = 0,
+        .valve_close_flag = true,
     },
     [AREA_6] = {
         .top_channel = RTE_PWM_CHANNEL_AM8,
@@ -48,10 +50,11 @@ static massage_config_t massage_area[6] = {
         .knead_inflate_time = 0,
         .knead_cyclic_count = 0,
         .knead_cyclic_time = 0,
-        .knead_status = INFLATE_STATUS,
+        .knead_status = KNEAD_INFLATE_STATUS,
         .press_right_action_flag = NO_ACTION,
         .press_left_action_flag = NO_ACTION,
-        .reset_time = 0,
+        .valve_close_time = 0,
+        .valve_close_flag = true,
     },
     [AREA_7] = {
         .top_channel = RTE_PWM_CHANNEL_AM3,
@@ -63,10 +66,11 @@ static massage_config_t massage_area[6] = {
         .knead_inflate_time = 0,
         .knead_cyclic_count = 0,
         .knead_cyclic_time = 0,
-        .knead_status = INFLATE_STATUS,
+        .knead_status = KNEAD_INFLATE_STATUS,
         .press_right_action_flag = NO_ACTION,
         .press_left_action_flag = NO_ACTION,
-        .reset_time = 0,
+        .valve_close_time = 0,
+        .valve_close_flag = true,
     },
     [AREA_8] = {
         .top_channel = RTE_PWM_CHANNEL_AM4,
@@ -78,10 +82,11 @@ static massage_config_t massage_area[6] = {
         .knead_inflate_time = 0,
         .knead_cyclic_count = 0,
         .knead_cyclic_time = 0,
-        .knead_status = INFLATE_STATUS,
+        .knead_status = KNEAD_INFLATE_STATUS,
         .press_right_action_flag = NO_ACTION,
         .press_left_action_flag = NO_ACTION,
-        .reset_time = 0,
+        .valve_close_time = 0,
+        .valve_close_flag = true,
     },
     [AREA_9] = {
         .top_channel = NONE_CHANNEL,
@@ -90,7 +95,8 @@ static massage_config_t massage_area[6] = {
         .support_channel = NONE_CHANNEL,
         .support_channel_r = NONE_CHANNEL,
         .single_channel = RTE_PWM_CHANNEL_AM14,
-        .reset_time = 0,
+        .valve_close_time = 0,
+        .valve_close_flag = true,
     },
     [AREA_10] = {
         .top_channel = NONE_CHANNEL,
@@ -99,7 +105,8 @@ static massage_config_t massage_area[6] = {
         .support_channel = NONE_CHANNEL,
         .support_channel_r = NONE_CHANNEL,
         .single_channel = RTE_PWM_CHANNEL_AM7,
-        .reset_time = 0,
+        .valve_close_time = 0,
+        .valve_close_flag = true,
     }
 };
 massage_config_t last_massage_area[6]= {
@@ -138,8 +145,12 @@ massage_config_t last_massage_area[6]= {
 
 /************************ Private Function Declarations ************************/
 static void _Snf_Massage_Handle(void);
-static void _Snf_Massage_Action_Area_Get(void);
 /************************ Private Function Implementations ************************/
+/**
+ * @brief  Get every area action from singles
+ * @param  None
+ * @return None
+ */
 static void _Snf_Massage_Action_Area_Get(void)
 {
     for (int i = 0; i < AREA_MAX; i++)
@@ -224,6 +235,11 @@ static void _Snf_Massage_Action_Area_Get(void)
     }
 }
 
+/**
+ * @brief  Get every area single or double action
+ * @param  None
+ * @return None
+ */
 static void _Snf_Massage_Single_Double_Get(void)
 {
     if ((massage_area[AREA_5].massage_skills == massage_area[AREA_6].massage_skills)
@@ -264,13 +280,18 @@ static void _Snf_Massage_Single_Double_Get(void)
     }
 }
 
+/**
+ * @brief  Init every area status
+ * @param  None
+ * @return None
+ */
 static void _Snf_Massage_Status_Init(massage_config_t *massage_config)
 {
     //揉捏
     massage_config->knead_inflate_time = 0;
     massage_config->knead_cyclic_count = 0;
     massage_config->knead_cyclic_time = 0;
-    massage_config->knead_status = INFLATE_STATUS;
+    massage_config->knead_status = KNEAD_INFLATE_STATUS;
     //点按
     massage_config->press_count = 0;
     massage_config->press_shoulder_time = 0;
@@ -292,7 +313,12 @@ static void _Snf_Massage_Status_Init(massage_config_t *massage_config)
     massage_config->rap_shoulder_cyclic_time = 0;
 }
 
-static void _Snf_Massage_Changed_Init(void)
+/**
+ * @brief  Reset every area status
+ * @param  None
+ * @return None
+ */
+static void _Snf_Massage_Status_Reset(void)
 {
     for (int i = 0; i < AREA_MAX; i++)
     {
@@ -308,14 +334,19 @@ static void _Snf_Massage_Changed_Init(void)
     }
 }
 
-static void _Snf_Massage_Reset(void)
+/**
+ * @brief  Close each area massage
+ * @param  None
+ * @return None
+ */
+static void _Snf_Massage_Close(void)
 {
     for (int i = 0; i < AREA_MAX; i++)
     {
         if (massage_area[i].massage_lvl == 0 && massage_area[i].massage_times == 0)
         {
             massage_area[i].massage_output_time = 0;
-            if (massage_area[i].reset_time >= MASSAGE_AIR_BAG_TIME_MS(4000))
+            if (massage_area[i].valve_close_time >= MASSAGE_TIME_MS(10000))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_area[i].top_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_area[i].right_channel, POWER_VALVE_STATE_RAMP_DOWN);
@@ -323,10 +354,11 @@ static void _Snf_Massage_Reset(void)
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_area[i].support_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_area[i].support_channel_r, POWER_VALVE_STATE_RAMP_DOWN);
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_area[i].single_channel, POWER_VALVE_STATE_RAMP_DOWN);
+                massage_area[i].valve_close_flag = true;
             }
             else
             {
-                massage_area[i].reset_time++;
+                massage_area[i].valve_close_time++;
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_area[i].top_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_area[i].right_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_area[i].left_channel, POWER_VALVE_STATE_RAMP_DOWN);
@@ -338,20 +370,61 @@ static void _Snf_Massage_Reset(void)
     }
 }
 
-static bool _Snf_Massage_Pump_Valve_Control(void)
+/**
+ * @brief  Control pump and valve
+ * @param  None
+ * @return None
+ */
+uint8 tmp_value = 0;
+static void _Snf_Massage_Pump_Valve_Control(void)
 {
-    bool pump_open_flag = false;
+#define CLOSE                  0
+#define OPEN                   1
+#define PUMP_CLOSE             0b00
+#define PUMP_OPEN              0b10
+#define VALVE_OPEN             0b01
+#define VALVE_CLOSE            0b00
+
+    uint8 pump_valve_control_flag = 0;
 
     for (int i = 0; i < AREA_MAX; i++)
     {
         if (massage_area[i].massage_lvl != 0 && massage_area[i].massage_times != 0 && massage_area[i].massage_skills != 0)
         {
-            pump_open_flag = true;
+            pump_valve_control_flag = pump_valve_control_flag | PUMP_OPEN;
+        }
+        if (massage_area[i].valve_close_flag == false)
+        {
+            pump_valve_control_flag = pump_valve_control_flag | VALVE_OPEN;
         }
     }
-    return pump_open_flag;
+
+    if (pump_valve_control_flag >> 1)
+    {
+        Snf_Pump_Set_Work_State(PUMP_WORK_STATE_ON, PUMP_MASSAGE_WORK_MASK);
+    }
+    else
+    {
+        Snf_Pump_Set_Work_State(PUMP_WORK_STATE_OFF, PUMP_MASSAGE_WORK_MASK);
+    }
+
+    if (pump_valve_control_flag & 0b01)
+    {
+        Snf_Valve_Set_Work_State(VALVE_WORK_STATE_ON, VALVE_MASSAGE_WORK_MASK);
+    }
+    else
+    {
+        Snf_Valve_Set_Work_State(VALVE_WORK_STATE_OFF, VALVE_MASSAGE_WORK_MASK);
+    }
+    tmp_value = pump_valve_control_flag;
+
 }
 
+/**
+ * @brief  Massage can output
+ * @param  None
+ * @return None
+ */
 static void _Snf_Massage_Output(void)
 {
     //手法外发
@@ -416,13 +489,7 @@ static void _Snf_Massage_Output(void)
  */
 void Snf_Massage_Task_Init(void)
 {
-    Snf_Valve_Set_Work_State(VALVE_WORK_STATE_ON, VALVE_MASSAGE_WORK_MASK);
-    for (int i = 0; i < AREA_MAX; i++)
-    {
-        last_massage_area[i].massage_skills = 0;
-        last_massage_area[i].massage_times = 0;
-        last_massage_area[i].massage_lvl = 0;
-    }
+
 }
 
 /**
@@ -434,23 +501,15 @@ static void _Snf_Massage_Handle(void)
 {
     _Snf_Massage_Action_Area_Get();
     _Snf_Massage_Single_Double_Get();
-    _Snf_Massage_Changed_Init();
-
-    if (_Snf_Massage_Pump_Valve_Control())
-    {
-        Snf_Pump_Set_Work_State(PUMP_WORK_STATE_ON, PUMP_MASSAGE_WORK_MASK);
-    }
-    else
-    {
-        Snf_Pump_Set_Work_State(PUMP_WORK_STATE_OFF, PUMP_MASSAGE_WORK_MASK);
-    }
+    _Snf_Massage_Status_Reset();
+    _Snf_Massage_Close();
+    _Snf_Massage_Pump_Valve_Control();
 
     for (int i = 0; i < AREA_MAX; i++)
     {
         switch (massage_area[i].massage_skills)
         {
             case MASSAGE_MODE_IDLE:
-                _Snf_Massage_Reset();
                 break;
             case MASSAGE_MODE_KNEADING_CLOCKWISE:
                 if (i == AREA_7 || i == AREA_8)
@@ -465,7 +524,6 @@ static void _Snf_Massage_Handle(void)
                 {
                     continue;
                 }
-                massage_area[i].reset_time = 0;
                 massage_area[i].clockwise = CLOCKWISE;
                 _Snf_Massage_Knead_Handle(&massage_area[i]);
                 break;
@@ -482,7 +540,6 @@ static void _Snf_Massage_Handle(void)
                 {
                     continue;
                 }
-                massage_area[i].reset_time = 0;
                 massage_area[i].clockwise = ANTICLOCKWISE;
                 _Snf_Massage_Knead_Handle(&massage_area[i]);
                 break;
@@ -491,7 +548,6 @@ static void _Snf_Massage_Handle(void)
                 {
                     continue;
                 }
-                massage_area[i].reset_time = 0;
                 massage_area[i].support_flag = false;
                 Snf_Massage_3_Point_Press(&massage_area[i]);
                 break;
@@ -504,11 +560,9 @@ static void _Snf_Massage_Handle(void)
                 {
                     continue;
                 }
-                massage_area[i].reset_time = 0;
                 Snf_Massage_3_Point_Press(&massage_area[i]);
                 break;
             case MASSAGE_MODE_RAP_CLOCKWISE:
-                massage_area[i].reset_time = 0;
                 massage_area[i].clockwise = CLOCKWISE;
                 if (i == AREA_9 || i == AREA_10)
                 {
@@ -528,7 +582,6 @@ static void _Snf_Massage_Handle(void)
                 }
                 break;
             case MASSAGE_MODE_RAP_ANTICLOCKWISE:
-                massage_area[i].reset_time = 0;
                 massage_area[i].clockwise = ANTICLOCKWISE;
                 if (i == AREA_9 || i == AREA_10)
                 {
@@ -548,7 +601,6 @@ static void _Snf_Massage_Handle(void)
                 }
                 break;
             case MASSAGE_MODE_POINT_MASSAGE:
-                massage_area[i].reset_time = 0;
                 if (i == AREA_5 || i == AREA_7)
                 {
                     Snf_Knead_Bag_Cyclic_Press_Clockwise(&massage_area[i]);

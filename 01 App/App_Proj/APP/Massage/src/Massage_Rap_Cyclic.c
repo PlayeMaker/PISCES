@@ -2,13 +2,17 @@
 #include "Rte_Swc.h"
 
 #include <stdbool.h>
-/***********************************双区域强度高************************************************************/
+/**
+ * @brief  双侧高强度叩击上气袋循环控制函数。先进行预充气，然后按指定时序控制上气袋进行充放气循环。
+ * @param  massage_config - 按摩配置结构体指针
+ * @return bool - 循环进行中返回true，循环完成返回false
+ */
 bool Snf_Cyclic_Top_Double_Intensity_High(massage_config_t *massage_config)
 {
     if (massage_config->support_flag)
     {
         //循环前的充气时间
-        if (massage_config->rap_top_pre_time < MASSAGE_AIR_BAG_TIME_MS(3000))
+        if (massage_config->rap_top_pre_time < MASSAGE_TIME_MS(3000))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_top_pre_time++;
@@ -18,12 +22,12 @@ bool Snf_Cyclic_Top_Double_Intensity_High(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_top_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_top_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(200))
+            if (massage_config->rap_top_cyclic_time < MASSAGE_TIME_MS(200))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_top_cyclic_time++;
             }
-            else if (massage_config->rap_top_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(340))
+            else if (massage_config->rap_top_cyclic_time < MASSAGE_TIME_MS(340))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_top_cyclic_time++;
@@ -41,7 +45,7 @@ bool Snf_Cyclic_Top_Double_Intensity_High(massage_config_t *massage_config)
     else
     {
         //循环前的充气时间
-        if (massage_config->rap_top_pre_time < MASSAGE_AIR_BAG_TIME_MS(2700))
+        if (massage_config->rap_top_pre_time < MASSAGE_TIME_MS(2700))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_top_pre_time++;
@@ -51,12 +55,12 @@ bool Snf_Cyclic_Top_Double_Intensity_High(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_top_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_top_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(180))
+            if (massage_config->rap_top_cyclic_time < MASSAGE_TIME_MS(180))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_top_cyclic_time++;
             }
-            else if (massage_config->rap_top_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(320))
+            else if (massage_config->rap_top_cyclic_time < MASSAGE_TIME_MS(320))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_top_cyclic_time++;
@@ -73,12 +77,17 @@ bool Snf_Cyclic_Top_Double_Intensity_High(massage_config_t *massage_config)
     }
 }
 
+/**
+ * @brief  双侧高强度叩击右气袋循环控制函数。先进行预充气，然后按指定时序控制右气袋进行充放气循环。
+ * @param  massage_config - 按摩配置结构体指针
+ * @return bool - 循环进行中返回true，循环完成返回false
+ */
 bool Snf_Cyclic_Right_Double_Intensity_High(massage_config_t *massage_config)
 {
     if (massage_config->support_flag)
     {
         //循环前的充气时间
-        if (massage_config->rap_right_pre_time < MASSAGE_AIR_BAG_TIME_MS(3000))
+        if (massage_config->rap_right_pre_time < MASSAGE_TIME_MS(3000))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_right_pre_time++;
@@ -88,12 +97,12 @@ bool Snf_Cyclic_Right_Double_Intensity_High(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_right_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_right_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(200))
+            if (massage_config->rap_right_cyclic_time < MASSAGE_TIME_MS(200))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_right_cyclic_time++;
             }
-            else if (massage_config->rap_right_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(340))
+            else if (massage_config->rap_right_cyclic_time < MASSAGE_TIME_MS(340))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_right_cyclic_time++;
@@ -111,7 +120,7 @@ bool Snf_Cyclic_Right_Double_Intensity_High(massage_config_t *massage_config)
     else
     {
         //循环前的充气时间
-        if (massage_config->rap_right_pre_time < MASSAGE_AIR_BAG_TIME_MS(2700))
+        if (massage_config->rap_right_pre_time < MASSAGE_TIME_MS(2700))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_right_pre_time++;
@@ -121,12 +130,12 @@ bool Snf_Cyclic_Right_Double_Intensity_High(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_right_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_right_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(180))
+            if (massage_config->rap_right_cyclic_time < MASSAGE_TIME_MS(180))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_right_cyclic_time++;
             }
-            else if (massage_config->rap_right_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(320))
+            else if (massage_config->rap_right_cyclic_time < MASSAGE_TIME_MS(320))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_right_cyclic_time++;
@@ -143,12 +152,17 @@ bool Snf_Cyclic_Right_Double_Intensity_High(massage_config_t *massage_config)
     }
 }
 
+/**
+ * @brief  双侧高强度叩击左气袋循环控制函数。先进行预充气，然后按指定时序控制左气袋进行充放气循环。
+ * @param  massage_config - 按摩配置结构体指针
+ * @return bool - 循环进行中返回true，循环完成返回false
+ */
 bool Snf_Cyclic_Left_Double_Intensity_High(massage_config_t *massage_config)
 {
     if (massage_config->support_flag)
     {
         //循环前的充气时间
-        if (massage_config->rap_left_pre_time < MASSAGE_AIR_BAG_TIME_MS(3000))
+        if (massage_config->rap_left_pre_time < MASSAGE_TIME_MS(3000))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_left_pre_time++;
@@ -158,12 +172,12 @@ bool Snf_Cyclic_Left_Double_Intensity_High(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_left_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_left_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(200))
+            if (massage_config->rap_left_cyclic_time < MASSAGE_TIME_MS(200))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_left_cyclic_time++;
             }
-            else if (massage_config->rap_left_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(340))
+            else if (massage_config->rap_left_cyclic_time < MASSAGE_TIME_MS(340))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_left_cyclic_time++;
@@ -181,7 +195,7 @@ bool Snf_Cyclic_Left_Double_Intensity_High(massage_config_t *massage_config)
     else
     {
         //循环前的充气时间
-        if (massage_config->rap_left_pre_time < MASSAGE_AIR_BAG_TIME_MS(2700))
+        if (massage_config->rap_left_pre_time < MASSAGE_TIME_MS(2700))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_left_pre_time++;
@@ -191,12 +205,12 @@ bool Snf_Cyclic_Left_Double_Intensity_High(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_left_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_left_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(180))
+            if (massage_config->rap_left_cyclic_time < MASSAGE_TIME_MS(180))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_left_cyclic_time++;
             }
-            else if (massage_config->rap_left_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(320))
+            else if (massage_config->rap_left_cyclic_time < MASSAGE_TIME_MS(320))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_left_cyclic_time++;
@@ -212,13 +226,18 @@ bool Snf_Cyclic_Left_Double_Intensity_High(massage_config_t *massage_config)
         return false;
     }
 }
-/***********************************双区域强度低************************************************************/
+
+/**
+ * @brief  双侧低强度叩击上气袋循环控制函数。先进行预充气，然后按指定时序控制上气袋进行充放气循环，循环速度比高强度慢。
+ * @param  massage_config - 按摩配置结构体指针
+ * @return bool - 循环进行中返回true，循环完成返回false
+ */
 bool Snf_Cyclic_Top_Double_Intensity_Low(massage_config_t *massage_config)
 {
     if (massage_config->support_flag)
     {
         //循环前的充气时间
-        if (massage_config->rap_top_pre_time < MASSAGE_AIR_BAG_TIME_MS(2400))
+        if (massage_config->rap_top_pre_time < MASSAGE_TIME_MS(2400))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_top_pre_time++;
@@ -228,12 +247,12 @@ bool Snf_Cyclic_Top_Double_Intensity_Low(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_top_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_top_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(300))
+            if (massage_config->rap_top_cyclic_time < MASSAGE_TIME_MS(300))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_top_cyclic_time++;
             }
-            else if (massage_config->rap_top_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(480))
+            else if (massage_config->rap_top_cyclic_time < MASSAGE_TIME_MS(480))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_top_cyclic_time++;
@@ -251,7 +270,7 @@ bool Snf_Cyclic_Top_Double_Intensity_Low(massage_config_t *massage_config)
     else
     {
         //循环前的充气时间
-        if (massage_config->rap_top_pre_time < MASSAGE_AIR_BAG_TIME_MS(2100))
+        if (massage_config->rap_top_pre_time < MASSAGE_TIME_MS(2100))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_top_pre_time++;
@@ -261,12 +280,12 @@ bool Snf_Cyclic_Top_Double_Intensity_Low(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_top_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_top_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(280))
+            if (massage_config->rap_top_cyclic_time < MASSAGE_TIME_MS(280))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_top_cyclic_time++;
             }
-            else if (massage_config->rap_top_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(460))
+            else if (massage_config->rap_top_cyclic_time < MASSAGE_TIME_MS(460))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_top_cyclic_time++;
@@ -283,12 +302,17 @@ bool Snf_Cyclic_Top_Double_Intensity_Low(massage_config_t *massage_config)
     }
 }
 
+/**
+ * @brief  双侧低强度叩击右气袋循环控制函数。先进行预充气，然后按指定时序控制右气袋进行充放气循环，循环速度比高强度慢。
+ * @param  massage_config - 按摩配置结构体指针
+ * @return bool - 循环进行中返回true，循环完成返回false
+ */
 bool Snf_Cyclic_Right_Double_Intensity_Low(massage_config_t *massage_config)
 {
     if (massage_config->support_flag)
     {
         //循环前的充气时间
-        if (massage_config->rap_right_pre_time < MASSAGE_AIR_BAG_TIME_MS(2400))
+        if (massage_config->rap_right_pre_time < MASSAGE_TIME_MS(2400))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_right_pre_time++;
@@ -298,12 +322,12 @@ bool Snf_Cyclic_Right_Double_Intensity_Low(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_right_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_right_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(300))
+            if (massage_config->rap_right_cyclic_time < MASSAGE_TIME_MS(300))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_right_cyclic_time++;
             }
-            else if (massage_config->rap_right_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(480))
+            else if (massage_config->rap_right_cyclic_time < MASSAGE_TIME_MS(480))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_right_cyclic_time++;
@@ -321,7 +345,7 @@ bool Snf_Cyclic_Right_Double_Intensity_Low(massage_config_t *massage_config)
     else
     {
         //循环前的充气时间
-        if (massage_config->rap_right_pre_time < MASSAGE_AIR_BAG_TIME_MS(2100))
+        if (massage_config->rap_right_pre_time < MASSAGE_TIME_MS(2100))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_right_pre_time++;
@@ -331,12 +355,12 @@ bool Snf_Cyclic_Right_Double_Intensity_Low(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_right_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_right_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(280))
+            if (massage_config->rap_right_cyclic_time < MASSAGE_TIME_MS(280))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_right_cyclic_time++;
             }
-            else if (massage_config->rap_right_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(460))
+            else if (massage_config->rap_right_cyclic_time < MASSAGE_TIME_MS(460))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_right_cyclic_time++;
@@ -353,12 +377,17 @@ bool Snf_Cyclic_Right_Double_Intensity_Low(massage_config_t *massage_config)
     }
 }
 
+/**
+ * @brief  双侧低强度叩击左气袋循环控制函数。先进行预充气，然后按指定时序控制左气袋进行充放气循环，循环速度比高强度慢。
+ * @param  massage_config - 按摩配置结构体指针
+ * @return bool - 循环进行中返回true，循环完成返回false
+ */
 bool Snf_Cyclic_Left_Double_Intensity_Low(massage_config_t *massage_config)
 {
     if (massage_config->support_flag)
     {
         //循环前的充气时间
-        if (massage_config->rap_left_pre_time < MASSAGE_AIR_BAG_TIME_MS(2400))
+        if (massage_config->rap_left_pre_time < MASSAGE_TIME_MS(2400))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_left_pre_time++;
@@ -368,12 +397,12 @@ bool Snf_Cyclic_Left_Double_Intensity_Low(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_left_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_left_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(300))
+            if (massage_config->rap_left_cyclic_time < MASSAGE_TIME_MS(300))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_left_cyclic_time++;
             }
-            else if (massage_config->rap_left_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(480))
+            else if (massage_config->rap_left_cyclic_time < MASSAGE_TIME_MS(480))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_left_cyclic_time++;
@@ -391,7 +420,7 @@ bool Snf_Cyclic_Left_Double_Intensity_Low(massage_config_t *massage_config)
     else
     {
         //循环前的充气时间
-        if (massage_config->rap_left_pre_time < MASSAGE_AIR_BAG_TIME_MS(2100))
+        if (massage_config->rap_left_pre_time < MASSAGE_TIME_MS(2100))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_left_pre_time++;
@@ -401,12 +430,12 @@ bool Snf_Cyclic_Left_Double_Intensity_Low(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_left_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_left_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(280))
+            if (massage_config->rap_left_cyclic_time < MASSAGE_TIME_MS(280))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_left_cyclic_time++;
             }
-            else if (massage_config->rap_left_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(460))
+            else if (massage_config->rap_left_cyclic_time < MASSAGE_TIME_MS(460))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_left_cyclic_time++;
@@ -422,13 +451,18 @@ bool Snf_Cyclic_Left_Double_Intensity_Low(massage_config_t *massage_config)
         return false;
     }
 }
-/***********************************单区域强度高************************************************************/
+
+/**
+ * @brief  单侧高强度叩击上气袋循环控制函数。先进行预充气，然后按指定时序控制上气袋进行充放气循环。
+ * @param  massage_config - 按摩配置结构体指针
+ * @return bool - 循环进行中返回true，循环完成返回false
+ */
 bool Snf_Cyclic_Top_Single_Intensity_High(massage_config_t *massage_config)
 {
     if (massage_config->support_flag)
     {
         //循环前的充气时间
-        if (massage_config->rap_top_pre_time < MASSAGE_AIR_BAG_TIME_MS(1800))
+        if (massage_config->rap_top_pre_time < MASSAGE_TIME_MS(1800))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_top_pre_time++;
@@ -438,12 +472,12 @@ bool Snf_Cyclic_Top_Single_Intensity_High(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_top_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_top_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(200))
+            if (massage_config->rap_top_cyclic_time < MASSAGE_TIME_MS(200))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_top_cyclic_time++;
             }
-            else if (massage_config->rap_top_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(340))
+            else if (massage_config->rap_top_cyclic_time < MASSAGE_TIME_MS(340))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_top_cyclic_time++;
@@ -461,7 +495,7 @@ bool Snf_Cyclic_Top_Single_Intensity_High(massage_config_t *massage_config)
     else
     {
         //循环前的充气时间
-        if (massage_config->rap_top_pre_time < MASSAGE_AIR_BAG_TIME_MS(1600))
+        if (massage_config->rap_top_pre_time < MASSAGE_TIME_MS(1600))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_top_pre_time++;
@@ -471,12 +505,12 @@ bool Snf_Cyclic_Top_Single_Intensity_High(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_top_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_top_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(180))
+            if (massage_config->rap_top_cyclic_time < MASSAGE_TIME_MS(180))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_top_cyclic_time++;
             }
-            else if (massage_config->rap_top_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(320))
+            else if (massage_config->rap_top_cyclic_time < MASSAGE_TIME_MS(320))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_top_cyclic_time++;
@@ -493,12 +527,17 @@ bool Snf_Cyclic_Top_Single_Intensity_High(massage_config_t *massage_config)
     }
 }
 
+/**
+ * @brief  单侧高强度叩击右气袋循环控制函数。先进行预充气，然后按指定时序控制右气袋进行充放气循环。
+ * @param  massage_config - 按摩配置结构体指针
+ * @return bool - 循环进行中返回true，循环完成返回false
+ */
 bool Snf_Cyclic_Right_Single_Intensity_High(massage_config_t *massage_config)
 {
     if (massage_config->support_flag)
     {
         //循环前的充气时间
-        if (massage_config->rap_right_pre_time < MASSAGE_AIR_BAG_TIME_MS(1800))
+        if (massage_config->rap_right_pre_time < MASSAGE_TIME_MS(1800))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_right_pre_time++;
@@ -508,12 +547,12 @@ bool Snf_Cyclic_Right_Single_Intensity_High(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_right_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_right_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(200))
+            if (massage_config->rap_right_cyclic_time < MASSAGE_TIME_MS(200))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_right_cyclic_time++;
             }
-            else if (massage_config->rap_right_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(340))
+            else if (massage_config->rap_right_cyclic_time < MASSAGE_TIME_MS(340))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_right_cyclic_time++;
@@ -531,7 +570,7 @@ bool Snf_Cyclic_Right_Single_Intensity_High(massage_config_t *massage_config)
     else
     {
         //循环前的充气时间
-        if (massage_config->rap_right_pre_time < MASSAGE_AIR_BAG_TIME_MS(1600))
+        if (massage_config->rap_right_pre_time < MASSAGE_TIME_MS(1600))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_right_pre_time++;
@@ -541,12 +580,12 @@ bool Snf_Cyclic_Right_Single_Intensity_High(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_right_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_right_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(180))
+            if (massage_config->rap_right_cyclic_time < MASSAGE_TIME_MS(180))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_right_cyclic_time++;
             }
-            else if (massage_config->rap_right_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(320))
+            else if (massage_config->rap_right_cyclic_time < MASSAGE_TIME_MS(320))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_right_cyclic_time++;
@@ -563,12 +602,17 @@ bool Snf_Cyclic_Right_Single_Intensity_High(massage_config_t *massage_config)
     }
 }
 
+/**
+ * @brief  单侧高强度叩击左气袋循环控制函数。先进行预充气，然后按指定时序控制左气袋进行充放气循环。
+ * @param  massage_config - 按摩配置结构体指针
+ * @return bool - 循环进行中返回true，循环完成返回false
+ */
 bool Snf_Cyclic_Left_Single_Intensity_High(massage_config_t *massage_config)
 {
     if (massage_config->support_flag)
     {
         //循环前的充气时间
-        if (massage_config->rap_left_pre_time < MASSAGE_AIR_BAG_TIME_MS(1800))
+        if (massage_config->rap_left_pre_time < MASSAGE_TIME_MS(1800))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_left_pre_time++;
@@ -578,12 +622,12 @@ bool Snf_Cyclic_Left_Single_Intensity_High(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_left_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_left_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(200))
+            if (massage_config->rap_left_cyclic_time < MASSAGE_TIME_MS(200))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_left_cyclic_time++;
             }
-            else if (massage_config->rap_left_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(340))
+            else if (massage_config->rap_left_cyclic_time < MASSAGE_TIME_MS(340))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_left_cyclic_time++;
@@ -601,7 +645,7 @@ bool Snf_Cyclic_Left_Single_Intensity_High(massage_config_t *massage_config)
     else
     {
         //循环前的充气时间
-        if (massage_config->rap_left_pre_time < MASSAGE_AIR_BAG_TIME_MS(1600))
+        if (massage_config->rap_left_pre_time < MASSAGE_TIME_MS(1600))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_left_pre_time++;
@@ -611,12 +655,12 @@ bool Snf_Cyclic_Left_Single_Intensity_High(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_left_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_left_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(180))
+            if (massage_config->rap_left_cyclic_time < MASSAGE_TIME_MS(180))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_left_cyclic_time++;
             }
-            else if (massage_config->rap_left_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(320))
+            else if (massage_config->rap_left_cyclic_time < MASSAGE_TIME_MS(320))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_left_cyclic_time++;
@@ -632,13 +676,18 @@ bool Snf_Cyclic_Left_Single_Intensity_High(massage_config_t *massage_config)
         return false;
     }
 }
-/***********************************单区域强度低************************************************************/
+
+/**
+ * @brief  单侧低强度叩击上气袋循环控制函数。先进行预充气，然后按指定时序控制上气袋进行充放气循环，循环速度比高强度慢。
+ * @param  massage_config - 按摩配置结构体指针
+ * @return bool - 循环进行中返回true，循环完成返回false
+ */
 bool Snf_Cyclic_Top_Single_Intensity_Low(massage_config_t *massage_config)
 {
     if (massage_config->support_flag)
     {
         //循环前的充气时间
-        if (massage_config->rap_top_pre_time < MASSAGE_AIR_BAG_TIME_MS(1600))
+        if (massage_config->rap_top_pre_time < MASSAGE_TIME_MS(1600))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_top_pre_time++;
@@ -648,12 +697,12 @@ bool Snf_Cyclic_Top_Single_Intensity_Low(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_top_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_top_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(300))
+            if (massage_config->rap_top_cyclic_time < MASSAGE_TIME_MS(300))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_top_cyclic_time++;
             }
-            else if (massage_config->rap_top_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(480))
+            else if (massage_config->rap_top_cyclic_time < MASSAGE_TIME_MS(480))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_top_cyclic_time++;
@@ -671,7 +720,7 @@ bool Snf_Cyclic_Top_Single_Intensity_Low(massage_config_t *massage_config)
     else
     {
         //循环前的充气时间
-        if (massage_config->rap_top_pre_time < MASSAGE_AIR_BAG_TIME_MS(1300))
+        if (massage_config->rap_top_pre_time < MASSAGE_TIME_MS(1300))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_top_pre_time++;
@@ -681,12 +730,12 @@ bool Snf_Cyclic_Top_Single_Intensity_Low(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_top_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_top_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(280))
+            if (massage_config->rap_top_cyclic_time < MASSAGE_TIME_MS(280))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_top_cyclic_time++;
             }
-            else if (massage_config->rap_top_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(460))
+            else if (massage_config->rap_top_cyclic_time < MASSAGE_TIME_MS(460))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->top_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_top_cyclic_time++;
@@ -703,12 +752,17 @@ bool Snf_Cyclic_Top_Single_Intensity_Low(massage_config_t *massage_config)
     }
 }
 
+/**
+ * @brief  单侧低强度叩击右气袋循环控制函数。先进行预充气，然后按指定时序控制右气袋进行充放气循环，循环速度比高强度慢。
+ * @param  massage_config - 按摩配置结构体指针
+ * @return bool - 循环进行中返回true，循环完成返回false
+ */
 bool Snf_Cyclic_Right_Single_Intensity_Low(massage_config_t *massage_config)
 {
     if (massage_config->support_flag)
     {
         //循环前的充气时间
-        if (massage_config->rap_right_pre_time < MASSAGE_AIR_BAG_TIME_MS(1600))
+        if (massage_config->rap_right_pre_time < MASSAGE_TIME_MS(1600))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_right_pre_time++;
@@ -718,12 +772,12 @@ bool Snf_Cyclic_Right_Single_Intensity_Low(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_right_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_right_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(300))
+            if (massage_config->rap_right_cyclic_time < MASSAGE_TIME_MS(300))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_right_cyclic_time++;
             }
-            else if (massage_config->rap_right_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(480))
+            else if (massage_config->rap_right_cyclic_time < MASSAGE_TIME_MS(480))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_right_cyclic_time++;
@@ -741,7 +795,7 @@ bool Snf_Cyclic_Right_Single_Intensity_Low(massage_config_t *massage_config)
     else
     {
         //循环前的充气时间
-        if (massage_config->rap_right_pre_time < MASSAGE_AIR_BAG_TIME_MS(1300))
+        if (massage_config->rap_right_pre_time < MASSAGE_TIME_MS(1300))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_right_pre_time++;
@@ -751,12 +805,12 @@ bool Snf_Cyclic_Right_Single_Intensity_Low(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_right_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_right_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(280))
+            if (massage_config->rap_right_cyclic_time < MASSAGE_TIME_MS(280))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_right_cyclic_time++;
             }
-            else if (massage_config->rap_right_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(460))
+            else if (massage_config->rap_right_cyclic_time < MASSAGE_TIME_MS(460))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->right_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_right_cyclic_time++;
@@ -773,12 +827,17 @@ bool Snf_Cyclic_Right_Single_Intensity_Low(massage_config_t *massage_config)
     }
 }
 
+/**
+ * @brief  单侧低强度叩击左气袋循环控制函数。先进行预充气，然后按指定时序控制左气袋进行充放气循环，循环速度比高强度慢。
+ * @param  massage_config - 按摩配置结构体指针
+ * @return bool - 循环进行中返回true，循环完成返回false
+ */
 bool Snf_Cyclic_Left_Single_Intensity_Low(massage_config_t *massage_config)
 {
     if (massage_config->support_flag)
     {
         //循环前的充气时间
-        if (massage_config->rap_left_pre_time < MASSAGE_AIR_BAG_TIME_MS(1600))
+        if (massage_config->rap_left_pre_time < MASSAGE_TIME_MS(1600))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_left_pre_time++;
@@ -788,12 +847,12 @@ bool Snf_Cyclic_Left_Single_Intensity_Low(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_left_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_left_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(300))
+            if (massage_config->rap_left_cyclic_time < MASSAGE_TIME_MS(300))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_left_cyclic_time++;
             }
-            else if (massage_config->rap_left_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(480))
+            else if (massage_config->rap_left_cyclic_time < MASSAGE_TIME_MS(480))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_left_cyclic_time++;
@@ -811,7 +870,7 @@ bool Snf_Cyclic_Left_Single_Intensity_Low(massage_config_t *massage_config)
     else
     {
         //循环前的充气时间
-        if (massage_config->rap_left_pre_time < MASSAGE_AIR_BAG_TIME_MS(1300))
+        if (massage_config->rap_left_pre_time < MASSAGE_TIME_MS(1300))
         {
             Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP);
             massage_config->rap_left_pre_time++;
@@ -821,12 +880,12 @@ bool Snf_Cyclic_Left_Single_Intensity_Low(massage_config_t *massage_config)
         //循环次数
         if (massage_config->rap_left_cyclic_count < massage_config->massage_times)
         {
-            if (massage_config->rap_left_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(280))
+            if (massage_config->rap_left_cyclic_time < MASSAGE_TIME_MS(280))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 massage_config->rap_left_cyclic_time++;
             }
-            else if (massage_config->rap_left_cyclic_time < MASSAGE_AIR_BAG_TIME_MS(460))
+            else if (massage_config->rap_left_cyclic_time < MASSAGE_TIME_MS(460))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_config->left_channel, POWER_VALVE_STATE_RAMP_UP);
                 massage_config->rap_left_cyclic_time++;
