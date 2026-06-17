@@ -87,8 +87,8 @@ extern "C"
 
 #define SUPPLIER_NUMBER          "00000000"
 #define MANUFACTURING_DATE       "000"
-#define DIAG_DATABASE_VERSION    "000"
-#define SERIAL_NUMBER            "0000000000000000"
+#define DIAG_DATABASE_VERSION    {0x03, 0x01, 0x01}
+#define SERIAL_NUMBER            "0123456789ABCDEF"
 /************************ Type Definitions ************************/
 // 硬件版本映射表
 typedef struct {
