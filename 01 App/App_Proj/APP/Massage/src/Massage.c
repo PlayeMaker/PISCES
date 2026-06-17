@@ -153,81 +153,126 @@ static void _Snf_Massage_Handle(void);
  */
 static void _Snf_Massage_Action_Area_Get(void)
 {
+    uint8 massage_skills = 0;
+    uint8 massage_lvl = 0;
+    uint8 massage_times = 0;
     for (int i = 0; i < AREA_MAX; i++)
     {
         switch (i)
         {
             case AREA_5:
                 #ifdef PISCES_MCM_D
-                Rte_Read_DrvKneadingMassgSkillsCmd5_DrvKneadingMassgSkillsCmd5(&(massage_area[i].massage_skills));
-                Rte_Read_DrvKneadingMassgLvlCmd5_DrvKneadingMassgLvlCmd5(&(massage_area[i].massage_lvl));
-                Rte_Read_DrvKneadingMassgTimesCmd5_DrvKneadingMassgTimesCmd5(&massage_area[i].massage_times);
+                Rte_Read_DrvKneadingMassgSkillsCmd5_DrvKneadingMassgSkillsCmd5(&massage_skills);
+                Rte_Read_DrvKneadingMassgLvlCmd5_DrvKneadingMassgLvlCmd5(&massage_lvl);
+                Rte_Read_DrvKneadingMassgTimesCmd5_DrvKneadingMassgTimesCmd5(&massage_times);
                 #endif
                 #ifdef PISCES_MCM_P
-                Rte_Read_PassKneadingMassgSkillsCmd5_PassKneadingMassgSkillsCmd5(&(massage_area[i].massage_skills));
-                Rte_Read_PassKneadingMassgLvlCmd5_PassKneadingMassgLvlCmd5(&(massage_area[i].massage_lvl));
-                Rte_Read_PassKneadingMassgTimesCmd5_PassKneadingMassgTimesCmd5(&massage_area[i].massage_times);
+                Rte_Read_PassKneadingMassgSkillsCmd5_PassKneadingMassgSkillsCmd5(&massage_skills);
+                Rte_Read_PassKneadingMassgLvlCmd5_PassKneadingMassgLvlCmd5(&massage_lvl);
+                Rte_Read_PassKneadingMassgTimesCmd5_PassKneadingMassgTimesCmd5(&massage_times);
                 #endif
+                if ((massage_skills != 0 && massage_times != 0 && massage_lvl != 0)
+                    || (massage_skills == 0 && massage_times == 0 && massage_lvl == 0))
+                {
+                    massage_area[i].massage_skills = massage_skills;
+                    massage_area[i].massage_lvl = massage_lvl;
+                    massage_area[i].massage_times = massage_times;
+                }
                 break;
             case AREA_6:
                 #ifdef PISCES_MCM_D
-                Rte_Read_DrvKneadingMassgSkillsCmd6_DrvKneadingMassgSkillsCmd6(&(massage_area[i].massage_skills));
-                Rte_Read_DrvKneadingMassgLvlCmd6_DrvKneadingMassgLvlCmd6(&(massage_area[i].massage_lvl));
-                Rte_Read_DrvKneadingMassgTimesCmd6_DrvKneadingMassgTimesCmd6(&massage_area[i].massage_times);
+                Rte_Read_DrvKneadingMassgSkillsCmd6_DrvKneadingMassgSkillsCmd6(&massage_skills);
+                Rte_Read_DrvKneadingMassgLvlCmd6_DrvKneadingMassgLvlCmd6(&massage_lvl);
+                Rte_Read_DrvKneadingMassgTimesCmd6_DrvKneadingMassgTimesCmd6(&massage_times);
                 #endif
                 #ifdef PISCES_MCM_P
-                Rte_Read_PassKneadingMassgSkillsCmd6_PassKneadingMassgSkillsCmd6(&(massage_area[i].massage_skills));
-                Rte_Read_PassKneadingMassgLvlCmd6_PassKneadingMassgLvlCmd6(&(massage_area[i].massage_lvl));
-                Rte_Read_PassKneadingMassgTimesCmd6_PassKneadingMassgTimesCmd6(&massage_area[i].massage_times);
+                Rte_Read_PassKneadingMassgSkillsCmd6_PassKneadingMassgSkillsCmd6(&massage_skills);
+                Rte_Read_PassKneadingMassgLvlCmd6_PassKneadingMassgLvlCmd6(&massage_lvl);
+                Rte_Read_PassKneadingMassgTimesCmd6_PassKneadingMassgTimesCmd6(&massage_times);
                 #endif
+                if ((massage_skills != 0 && massage_times != 0 && massage_lvl != 0)
+                    || (massage_skills == 0 && massage_times == 0 && massage_lvl == 0))
+                {
+                    massage_area[i].massage_skills = massage_skills;
+                    massage_area[i].massage_lvl = massage_lvl;
+                    massage_area[i].massage_times = massage_times;
+                }
                 break;
             case AREA_7:
                 #ifdef PISCES_MCM_D
-                Rte_Read_DrvKneadingMassgSkillsCmd7_DrvKneadingMassgSkillsCmd7(&(massage_area[i].massage_skills));
-                Rte_Read_DrvKneadingMassgLvlCmd7_DrvKneadingMassgLvlCmd7(&(massage_area[i].massage_lvl));
-                Rte_Read_DrvKneadingMassgTimesCmd7_DrvKneadingMassgTimesCmd7(&massage_area[i].massage_times);
+                Rte_Read_DrvKneadingMassgSkillsCmd7_DrvKneadingMassgSkillsCmd7(&massage_skills);
+                Rte_Read_DrvKneadingMassgLvlCmd7_DrvKneadingMassgLvlCmd7(&massage_lvl);
+                Rte_Read_DrvKneadingMassgTimesCmd7_DrvKneadingMassgTimesCmd7(&massage_times);
                 #endif
                 #ifdef PISCES_MCM_P
-                Rte_Read_PassKneadingMassgSkillsCmd7_PassKneadingMassgSkillsCmd7(&(massage_area[i].massage_skills));
-                Rte_Read_PassKneadingMassgLvlCmd7_PassKneadingMassgLvlCmd7(&(massage_area[i].massage_lvl));
-                Rte_Read_PassKneadingMassgTimesCmd7_PassKneadingMassgTimesCmd7(&massage_area[i].massage_times);
+                Rte_Read_PassKneadingMassgSkillsCmd7_PassKneadingMassgSkillsCmd7(&massage_skills);
+                Rte_Read_PassKneadingMassgLvlCmd7_PassKneadingMassgLvlCmd7(&massage_lvl);
+                Rte_Read_PassKneadingMassgTimesCmd7_PassKneadingMassgTimesCmd7(&massage_times);
                 #endif
+                if ((massage_skills != 0 && massage_times != 0 && massage_lvl != 0)
+                    || (massage_skills == 0 && massage_times == 0 && massage_lvl == 0))
+                {
+                    massage_area[i].massage_skills = massage_skills;
+                    massage_area[i].massage_lvl = massage_lvl;
+                    massage_area[i].massage_times = massage_times;
+                }
                 break;
             case AREA_8:
                 #ifdef PISCES_MCM_D
-                Rte_Read_DrvKneadingMassgSkillsCmd8_DrvKneadingMassgSkillsCmd8(&(massage_area[i].massage_skills));
-                Rte_Read_DrvKneadingMassgLvlCmd8_DrvKneadingMassgLvlCmd8(&(massage_area[i].massage_lvl));
-                Rte_Read_DrvKneadingMassgTimesCmd8_DrvKneadingMassgTimesCmd8(&massage_area[i].massage_times);
+                Rte_Read_DrvKneadingMassgSkillsCmd8_DrvKneadingMassgSkillsCmd8(&massage_skills);
+                Rte_Read_DrvKneadingMassgLvlCmd8_DrvKneadingMassgLvlCmd8(&massage_lvl);
+                Rte_Read_DrvKneadingMassgTimesCmd8_DrvKneadingMassgTimesCmd8(&massage_times);
                 #endif
                 #ifdef PISCES_MCM_P
-                Rte_Read_PassKneadingMassgSkillsCmd8_PassKneadingMassgSkillsCmd8(&(massage_area[i].massage_skills));
-                Rte_Read_PassKneadingMassgLvlCmd8_PassKneadingMassgLvlCmd8(&(massage_area[i].massage_lvl));
-                Rte_Read_PassKneadingMassgTimesCmd8_PassKneadingMassgTimesCmd8(&massage_area[i].massage_times);
+                Rte_Read_PassKneadingMassgSkillsCmd8_PassKneadingMassgSkillsCmd8(&massage_skills);
+                Rte_Read_PassKneadingMassgLvlCmd8_PassKneadingMassgLvlCmd8(&massage_lvl);
+                Rte_Read_PassKneadingMassgTimesCmd8_PassKneadingMassgTimesCmd8(&massage_times);
                 #endif
+                if ((massage_skills != 0 && massage_times != 0 && massage_lvl != 0)
+                    || (massage_skills == 0 && massage_times == 0 && massage_lvl == 0))
+                {
+                    massage_area[i].massage_skills = massage_skills;
+                    massage_area[i].massage_lvl = massage_lvl;
+                    massage_area[i].massage_times = massage_times;
+                }
                 break;
             case AREA_9:
                 #ifdef PISCES_MCM_D
-                Rte_Read_DrvKneadingMassgSkillsCmd9_DrvKneadingMassgSkillsCmd9(&(massage_area[i].massage_skills));
-                Rte_Read_DrvKneadingMassgLvlCmd9_DrvKneadingMassgLvlCmd9(&(massage_area[i].massage_lvl));
-                Rte_Read_DrvKneadingMassgTimesCmd9_DrvKneadingMassgTimesCmd9(&massage_area[i].massage_times);
+                Rte_Read_DrvKneadingMassgSkillsCmd9_DrvKneadingMassgSkillsCmd9(&massage_skills);
+                Rte_Read_DrvKneadingMassgLvlCmd9_DrvKneadingMassgLvlCmd9(&massage_lvl);
+                Rte_Read_DrvKneadingMassgTimesCmd9_DrvKneadingMassgTimesCmd9(&massage_times);
                 #endif
                 #ifdef PISCES_MCM_P
-                Rte_Read_PassKneadingMassgSkillsCmd9_PassKneadingMassgSkillsCmd9(&(massage_area[i].massage_skills));
-                Rte_Read_PassKneadingMassgLvlCmd9_PassKneadingMassgLvlCmd9(&(massage_area[i].massage_lvl));
-                Rte_Read_PassKneadingMassgTimesCmd9_PassKneadingMassgTimesCmd9(&massage_area[i].massage_times);
+                Rte_Read_PassKneadingMassgSkillsCmd9_PassKneadingMassgSkillsCmd9(&massage_skills);
+                Rte_Read_PassKneadingMassgLvlCmd9_PassKneadingMassgLvlCmd9(&massage_lvl);
+                Rte_Read_PassKneadingMassgTimesCmd9_PassKneadingMassgTimesCmd9(&massage_times);
                 #endif
+                if ((massage_skills != 0 && massage_times != 0 && massage_lvl != 0)
+                    || (massage_skills == 0 && massage_times == 0 && massage_lvl == 0))
+                {
+                    massage_area[i].massage_skills = massage_skills;
+                    massage_area[i].massage_lvl = massage_lvl;
+                    massage_area[i].massage_times = massage_times;
+                }
                 break;
             case AREA_10:
                 #ifdef PISCES_MCM_D
-                Rte_Read_DrvKneadingMassgSkillsCmd10_DrvKneadingMassgSkillsCmd10(&(massage_area[i].massage_skills));
-                Rte_Read_DrvKneadingMassgLvlCmd10_DrvKneadingMassgLvlCmd10(&(massage_area[i].massage_lvl));
-                Rte_Read_DrvKneadingMassgTimesCmd10_DrvKneadingMassgTimesCmd10(&massage_area[i].massage_times);
+                Rte_Read_DrvKneadingMassgSkillsCmd10_DrvKneadingMassgSkillsCmd10(&massage_skills);
+                Rte_Read_DrvKneadingMassgLvlCmd10_DrvKneadingMassgLvlCmd10(&massage_lvl);
+                Rte_Read_DrvKneadingMassgTimesCmd10_DrvKneadingMassgTimesCmd10(&massage_times);
                 #endif
                 #ifdef PISCES_MCM_P
-                Rte_Read_PassKneadingMassgSkillsCmd10_PassKneadingMassgSkillsCmd10(&(massage_area[i].massage_skills));
-                Rte_Read_PassKneadingMassgLvlCmd10_PassKneadingMassgLvlCmd10(&(massage_area[i].massage_lvl));
-                Rte_Read_PassKneadingMassgTimesCmd10_PassKneadingMassgTimesCmd10(&massage_area[i].massage_times);
+                Rte_Read_PassKneadingMassgSkillsCmd10_PassKneadingMassgSkillsCmd10(&massage_skills);
+                Rte_Read_PassKneadingMassgLvlCmd10_PassKneadingMassgLvlCmd10(&massage_lvl);
+                Rte_Read_PassKneadingMassgTimesCmd10_PassKneadingMassgTimesCmd10(&massage_times);
                 #endif
+                if ((massage_skills != 0 && massage_times != 0 && massage_lvl != 0)
+                    || (massage_skills == 0 && massage_times == 0 && massage_lvl == 0))
+                {
+                    massage_area[i].massage_skills = massage_skills;
+                    massage_area[i].massage_lvl = massage_lvl;
+                    massage_area[i].massage_times = massage_times;
+                }
                 break;
             default:
                 break;
@@ -346,7 +391,7 @@ static void _Snf_Massage_Close(void)
         if (massage_area[i].massage_lvl == 0 && massage_area[i].massage_times == 0)
         {
             massage_area[i].massage_output_time = 0;
-            if (massage_area[i].valve_close_time >= MASSAGE_TIME_MS(10000))
+            if (massage_area[i].valve_close_time >= MASSAGE_TIME_MS(30000))
             {
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_area[i].top_channel, POWER_VALVE_STATE_RAMP_DOWN);
                 Rte_Call_Sync_C_Massage_S_Valve_Ramp_Control(massage_area[i].right_channel, POWER_VALVE_STATE_RAMP_DOWN);
@@ -375,7 +420,6 @@ static void _Snf_Massage_Close(void)
  * @param  None
  * @return None
  */
-uint8 tmp_value = 0;
 static void _Snf_Massage_Pump_Valve_Control(void)
 {
 #define CLOSE                  0
@@ -416,8 +460,6 @@ static void _Snf_Massage_Pump_Valve_Control(void)
     {
         Snf_Valve_Set_Work_State(VALVE_WORK_STATE_OFF, VALVE_MASSAGE_WORK_MASK);
     }
-    tmp_value = pump_valve_control_flag;
-
 }
 
 /**
