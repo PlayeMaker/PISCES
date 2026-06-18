@@ -209,7 +209,6 @@ bl_Return_t Acc_UdsDemoVerifyKey(const bl_Buffer_t *key)
         ret = BL_ERR_OK;
     }
 
-    ret = BL_ERR_OK; /*test*/
 
     return ret;
 }

@@ -126,6 +126,8 @@ extern "C"{
 #define PortConf_PortPin_FLEXCAN0_STB_PTC9   ((Port_PinType)(((2)<<8)|9))
 #define PortConf_PortPin_FLEXCAN0_TXD_PTB1   ((Port_PinType)(((1)<<8)|1))
 #define PortConf_PortPin_FLEXCAN0_RXD_PTB0   ((Port_PinType)(((1)<<8)|0))
+#define PortConf_PortPin_BAT_VOL_AD_EN_PTB12   ((Port_PinType)(((1)<<8)|12))
+#define PortConf_PortPin_BAT_VOL_AD_PTD4   ((Port_PinType)(((3)<<8)|4))
 
 #ifdef __cplusplus
 }

@@ -1155,7 +1155,7 @@ CAN_FUNC void Can_Lld_PeriodPollingRead(Can_HwHandleType Hrh)
                     const uint8 MbPayloadSize = Can_ConfigPtr->CanChCfgPtr[ChnLogicId].PayloadConfigPtr->MbRegionConfig[RegionId].PayloadSize;
                     uint32 RamArray[CAN_MB_RAM_MAX_WORD_SIZE];
                     Can_Lld_CopyMsg(MbAddr, RamArray, MbPayloadSize);
-                    Can_Lld_ClrMailBoxIntFlag(Can_ConfigPtr->CanChCfgPtr[ChnLogicId].ChBaseAddr, RegisterIdx, FlagIdx);
+                    //Can_Lld_ClrMailBoxIntFlag(Can_ConfigPtr->CanChCfgPtr[ChnLogicId].ChBaseAddr, RegisterIdx, FlagIdx);
                     Can_Lld_HandleMsg(RamArray, Hrh, &Can_ConfigPtr->CanChCfgPtr[ChnLogicId]);
                 }
                 ++HwObjFlagId;
@@ -1192,13 +1192,15 @@ void Can_Lld_PeriodPollingWrite(Can_HwHandleType Hth)
         if (0U != ((FlagValue >> FlagIdx) & (uint32)1U))
         {
             Can_Lld_ClrMailBoxIntFlag(Can_ConfigPtr->CanChCfgPtr[ChLogicId].ChBaseAddr, RegisterIdx, FlagIdx);
-            CanIf_TxConfirmation(Can_ChHwObjPduId[ChLogicId][RegionId][HwObjMailBoxId]);
+
             Callback = Can_ConfigPtr->CanTransmitCallback;
             if (NULL_PTR != Callback)
             {
                 Callback(Can_ChHwObjPduId[ChLogicId][RegionId][HwObjMailBoxId]);
             }
             Can_Lld_UpdateIdleState(ChLogicId, (uint8)RegionId, HwObjMailBoxId);
+            /*Callback to CanIf layer to confirmation tx*/
+            CanIf_TxConfirmation(Can_ChHwObjPduId[ChLogicId][RegionId][HwObjMailBoxId]);
         }
         ++HwObjFlagId;
         ++HwObjMailBoxId;
@@ -2388,7 +2390,11 @@ CAN_FUNC LOCAL_INLINE void Can_Lld_ClrMailBoxIntFlag(uint32 BaseAddr, uint8 Regi
     uint32 FlagRegAddress;
     FlagRegAddress = BaseAddr + Can_Table_IrqFlagIdToOffsetAddr[RegisterIdx]; /* NOSONAR: RegionFlagId is always smaller than 4 */
     /* Set 1 to clear interrupt flag */
-    CAN32_WRITE(FlagRegAddress, (uint32)1U << FlagIdx);
+    if(FlagIdx <33)
+    {
+        CAN32_WRITE(FlagRegAddress, (uint32)1U << FlagIdx);
+    }
+
 }
 
 CAN_FUNC LOCAL_INLINE Std_ReturnType Can_Lld_ResetChn(uint32 BaseAddr)
@@ -3729,7 +3735,6 @@ CAN_FUNC LOCAL_INLINE void Can_Lld_IrqProcessMailBox(uint8 IrqId, uint8 HwObjId,
             }
             /* Unlock mailbox */
             Can_Lld_UpdateIdleState(CanChannelId, (uint8)RegionId, MailBoxId);
-            CanIf_TxConfirmation(Can_ChHwObjPduId[CanChannelId][RegionId][MailBoxId]);
         }
     }
 }

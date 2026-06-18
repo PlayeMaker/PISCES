@@ -227,6 +227,8 @@ void Rte_PreInit(void)
     g_RteInfo.timerOps->Init();
 #endif
 
+    Dflash_Init();
+
     (void)Lbm_Init();
 
     return ;
@@ -276,7 +278,7 @@ bl_Return_t Rte_PostInit(void)
         Secm_Init();
     }
 
-    DIDdata_Init();
+    // DIDdata_Init();
 
     return ret;
 }

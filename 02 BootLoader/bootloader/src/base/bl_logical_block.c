@@ -1359,6 +1359,8 @@ static bl_Return_t _Lbm_IsValidHash(const bl_DownContext_t *dct,
         {
 
             SecM_FreeHashContext(&gs_HNSHashContext);
+			ret = SecM_VerifySignature(HNS_HASH_ALGORITHM_ID, HNS_SEGMENT_HASH_LENGTH,
+								 hash, size, buf);
 
         }
     }

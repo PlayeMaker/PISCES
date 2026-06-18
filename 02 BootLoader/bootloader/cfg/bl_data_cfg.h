@@ -85,13 +85,13 @@
 #define DM_DATA_5_TYPE              DM_DATA_TYPE_READ_AND_WRITE
 #define DM_DATA_5_MEMID             (2)
 #define DM_DATA_5_LOCAL_ADDR        (0x0200F810UL)
-#define DM_DATA_5_SIZE              (4UL)
+#define DM_DATA_5_SIZE              (3UL)
 #define DM_DATA_5_DDP               BL_NULL_PTR
 
 /*Access fail flag FAA */
 #define DM_DATA_6_TYPE              DM_DATA_TYPE_READ_AND_WRITE
 #define DM_DATA_6_MEMID             (2)
-#define DM_DATA_6_LOCAL_ADDR        (0x0200F824UL)
+#define DM_DATA_6_LOCAL_ADDR        (0x0200FA14UL)
 #define DM_DATA_6_SIZE              (4UL)
 #define DM_DATA_6_DDP               (&gs_defaultDataList[8])
 

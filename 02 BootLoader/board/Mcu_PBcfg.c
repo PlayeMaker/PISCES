@@ -203,8 +203,8 @@ MCU_CONST const Mcu_IpcConfigType Mcu_RootIpcConfig_0[37] = {
     {
         .PeripheralIndex = MCU_IPC_eADC0_INDEX,
         .ClockEnable = (boolean)STD_ON,
-        .ClockSource = MCU_IPC_CLK_SRC_OFF,
-        .ClockDiv = 0U,
+        .ClockSource = MCU_IPC_CLK_SRC_PLL, /*ADC drive*/
+        .ClockDiv = 4U,
     },
     {
         .PeripheralIndex = MCU_IPC_ACMP0_INDEX,

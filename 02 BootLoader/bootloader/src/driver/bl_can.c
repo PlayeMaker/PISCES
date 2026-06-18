@@ -161,9 +161,11 @@ bl_u32_t g_dummy;
  *  \since V2.0.0
  *
  *****************************************************************************/
-ECU_MODE CURRENT_MCU = MCM_P;
+ECU_MODE CURRENT_MCU = MCM_D;
 bl_Return_t bl_Can_Init(void)
 {
+    extern Adc_ValueGroupType Adc0_Group0_Buf[AdcGroup_0_CHANNEL_NUMBER];
+
     bl_Return_t ret = BL_ERR_NOT_OK;
 
     bl_Buffer_t data_MCMD[4] = {0xA5,0xA5,0xA5,0xA5};
@@ -171,9 +173,9 @@ bl_Return_t bl_Can_Init(void)
     bl_Buffer_t dest[4];
     bl_Size_t i;
 
-    Bl_MemCpy(&dest[0],(const bl_Buffer_t *)REP_FLAG_ADDRESS,REP_FLAG_SIZE);
+    Bl_MemCpy(&dest[0],(const bl_Buffer_t *)MCM_DATA_ADDR,MCM_DATA_SIZE);
 
-    for(i = 0; i < REP_FLAG_SIZE ; i++)
+    for(i = 0; i < MCM_DATA_SIZE ; i++)
 	{
 		if((dest[i] == data_MCMD[i]) || (dest[i] == data_MCMP[i]))
 		{
@@ -216,6 +218,12 @@ bl_Return_t bl_Can_Init(void)
     }
 #endif
 
+    Adc_Init(&Adc_Config);
+
+    Adc_SetupResultBuffer(AdcConf_AdcConfigSet_AdcGroup_0, Adc0_Group0_Buf);
+    Dio_WriteChannel(DioConf_DioChannel_BAT_VOL_AD_EN, STD_HIGH);
+    Adc_StartGroupConversion(AdcConf_AdcConfigSet_AdcGroup_0);
+    
     return ret;
 }
 

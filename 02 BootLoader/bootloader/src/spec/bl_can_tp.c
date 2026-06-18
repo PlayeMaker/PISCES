@@ -12,8 +12,8 @@
  *  \author     rui.guo <rui.guo@hirain.com>
  *              mingqing.tang <mingqing.tang@hirain.com>
  *
- *  \version    5.1.0
- *  \date       27/03/2014
+ *  \version    5.7.0
+ *  \date       25/06/2021
  *
  *  \par        Changelist
  *      Version  | Date       | Authors          | CR# | Descriptions
@@ -23,6 +23,8 @@
  *      05.00.00 | 19/06/2013 | rui.guo          | N/A | Boot050001
  *      05.01.00 | 27/03/2014 | mingqing.tang    | N/A | Boot050002
  *      05.02.02 | 14/04/2015 | xin.shang        | N/A | BootSpec050003
+ *      05.02.04 | 15/03/2016 | beibei.xing      | N/A | BootSpec050005
+ *      05.03.00 | 10/09/2019 | lele.liu         | N/A | BootSpec050021
  *
  *****************************************************************************/
 #include "bl_common.h"
@@ -30,7 +32,7 @@
 #include "bl_dcm.h"
 #include "bl_can_if.h"
 #include "bl_can_tp_cfg.h"
-#include "bl_typedefs.h"
+#include "bl_can.h"
 /*****************************************************************************
  *  QAC Suppression
  *****************************************************************************/
@@ -162,6 +164,7 @@
 #define CANTP_MIN_STMIN_VALUE_US        (0xF0u)
 #define CANTP_MAX_STMIN_VALUE_US        (0xFAu)
 
+#define CANTP_INIT_STMIN_VALUE_US       (0x00u)
 /** \brief The Idle status of a channel.*/
 #define CANTP_STATUS_IDLE               (0x00u)
 /** \brief The recvSF status of a Rx channel.*/
@@ -194,17 +197,12 @@
 /** \brief the mask of data size in the Single Frame.*/
 #define CANTP_FRAME_SF_DATASIZE_MASK    (0x0Fu)
 
-/** \brief Get the data size in the Single Frame for Classical Can.*/
+/** \brief Get the data size in the Single Frame.*/
 #define CANTP_GET_SF_DATASIZE(data)     BL_GET_LOW_HALF(data)
-/*added by zhl at 151120*/
-/** \brief Get the data size in the Single Frame for CanFD.*/
-#define CANTP_GET_SF_DL_CANFD(data)     (data)
-/** \brief Get the data size in the First Frame for Classical Can.*/
+/** \brief Get the data size in the First Frame.*/
 #define CANTP_GET_FF_DATASIZE(p)        (BL_BE16_TO_MCU(p) \
                                             & CANTP_FRAME_FF_DATASIZE_MASK)
-/*added by zhl at 151120*/
-/** \brief Get the data size in the First Frame for CanFD.*/
-#define CANTP_GET_FF_DL_CANFD(p)        (BL_BE32_TO_MCU(p))
+
 /** \brief Get the SN in the Consecutive Frame.*/
 #define CANTP_GET_CF_SN(pci,buf)      BL_GET_LOW_HALF((buf)[(pci)->pciPos])
 
@@ -218,30 +216,30 @@
 #define CANTP_GET_FC_STMIN(pci,buf)     ((buf)[(pci)->fcStPos])
 
 
-/** \brief If the status of a channle is Idle return TRUE.*/
+/** \brief If the status of a channel is Idle return TRUE.*/
 #define CANTP_STATUS_IS_IDLE(chn)       (CANTP_STATUS_IDLE == (chn)->status)
-/** \brief If the status of a channle is recvSF return TRUE.*/
+/** \brief If the status of a channel is recvSF return TRUE.*/
 #define CANTP_STATUS_IS_RECVSF(chn)     (CANTP_STATUS_RECEIVING_SF \
                                             == (chn)->status)
-/** \brief If the status of a channle is recvFF return TRUE.*/
+/** \brief If the status of a channel is recvFF return TRUE.*/
 #define CANTP_STATUS_IS_RECVFF(chn)     (CANTP_STATUS_RECEIVING_FF \
                                             == (chn)->status)
-/** \brief If the status of a channle is recvCF return TRUE.*/
+/** \brief If the status of a channel is recvCF return TRUE.*/
 #define CANTP_STATUS_IS_RECVCF(chn)     (CANTP_STATUS_RECEIVING_CF \
                                             == (chn)->status)
-/** \brief If the status of a channle is recvFC return TRUE.*/
+/** \brief If the status of a channel is recvFC return TRUE.*/
 #define CANTP_STATUS_IS_RECVFC(chn)     (CANTP_STATUS_RECEIVING_FC \
                                             == (chn)->status)
-/** \brief If the status of a channle is tranSF return TRUE.*/
+/** \brief If the status of a channel is tranSF return TRUE.*/
 #define CANTP_STATUS_IS_TRANSF(chn)     (CANTP_STATUS_TRANSMITTING_SF \
                                             == (chn)->status)
-/** \brief If the status of a channle is tranFF return TRUE.*/
+/** \brief If the status of a channel is tranFF return TRUE.*/
 #define CANTP_STATUS_IS_TRANFF(chn)     (CANTP_STATUS_TRANSMITTING_FF \
                                             == (chn)->status)
-/** \brief If the status of a channle is tranCF return TRUE.*/
+/** \brief If the status of a channel is tranCF return TRUE.*/
 #define CANTP_STATUS_IS_TRANCF(chn)     (CANTP_STATUS_TRANSMITTING_CF \
                                             == (chn)->status)
-/** \brief If the status of a channle is tranFC return TRUE.*/
+/** \brief If the status of a channel is tranFC return TRUE.*/
 #define CANTP_STATUS_IS_TRANFC(chn)     (CANTP_STATUS_TRANSMITTING_FC \
                                             == (chn)->status)
 
@@ -252,41 +250,41 @@
 #define CANTP_IS_GETTING_BUFFER(chn)    ((chn)->status > \
                                             CANTP_STATUS_RECEIVING_FF)
 
-/** \brief If the status of a channle is NOT Idle return TRUE.*/
+/** \brief If the status of a channel is NOT Idle return TRUE.*/
 #define CANTP_STATUS_IS_NOT_IDLE(chn)   (!CANTP_STATUS_IS_IDLE(chn))
 
-/** \brief If the status of a channle is NOT recvSF return TRUE.*/
+/** \brief If the status of a channel is NOT recvSF return TRUE.*/
 #define CANTP_STATUS_IS_NOT_RECVSF(chn) (!CANTP_STATUS_IS_RECVSF(chn))
-/** \brief If the status of a channle is NOT recvFF return TRUE.*/
+/** \brief If the status of a channel is NOT recvFF return TRUE.*/
 #define CANTP_STATUS_IS_NOT_RECVFF(chn) (!CANTP_STATUS_IS_RECVFF(chn))
-/** \brief If the status of a channle is NOT recvCF return TRUE.*/
+/** \brief If the status of a channel is NOT recvCF return TRUE.*/
 #define CANTP_STATUS_IS_NOT_RECVCF(chn) (!CANTP_STATUS_IS_RECVCF(chn))
-/** \brief If the status of a channle is NOT recvFC return TRUE.*/
+/** \brief If the status of a channel is NOT recvFC return TRUE.*/
 #define CANTP_STATUS_IS_NOT_RECVFC(chn) (!CANTP_STATUS_IS_RECVFC(chn))
-/** \brief If the status of a channle is NOT tranSF return TRUE.*/
+/** \brief If the status of a channel is NOT tranSF return TRUE.*/
 #define CANTP_STATUS_IS_NOT_TRANSF(chn) (!CANTP_STATUS_IS_TRANSF(chn))
-/** \brief If the status of a channle is NOT tranFF return TRUE.*/
+/** \brief If the status of a channel is NOT tranFF return TRUE.*/
 #define CANTP_STATUS_IS_NOT_TRANFF(chn) (!CANTP_STATUS_IS_TRANFF(chn))
-/** \brief If the status of a channle is NOT tranCF return TRUE.*/
+/** \brief If the status of a channel is NOT tranCF return TRUE.*/
 #define CANTP_STATUS_IS_NOT_TRANCF(chn) (!CANTP_STATUS_IS_TRANCF(chn))
-/** \brief If the status of a channle is NOT tranFC return TRUE.*/
+/** \brief If the status of a channel is NOT tranFC return TRUE.*/
 #define CANTP_STATUS_IS_NOT_TRANFC(chn) (!CANTP_STATUS_IS_TRANFC(chn))
 
-/** \brief If the sub status of a channle is Idle return TRUE.*/
+/** \brief If the sub status of a channel is Idle return TRUE.*/
 #define CANTP_SUB_STATUS_IS_IDLE(chn)   (CANTP_SUB_STATUS_IDLE \
                                             == (chn)->subStatus)
-/** \brief If the sub status of a channle is Receiving return TRUE.*/
+/** \brief If the sub status of a channel is Receiving return TRUE.*/
 #define CANTP_SUB_STATUS_IS_RECV(chn)   (CANTP_SUB_STATUS_RECEIVING \
                                                 == (chn)->subStatus)
-/** \brief If the sub status of a channle is Transmitting return TRUE.*/
+/** \brief If the sub status of a channel is Transmitting return TRUE.*/
 #define CANTP_SUB_STATUS_IS_TRAN(chn)   (CANTP_SUB_STATUS_TRANSMITTING \
                                                 == (chn)->subStatus)
 
-/** \brief If the sub status of a channle is NOT Idle return TRUE.*/
+/** \brief If the sub status of a channel is NOT Idle return TRUE.*/
 #define CANTP_SUB_STATUS_IS_NOT_IDLE(chn)   (!CANTP_SUB_STATUS_IS_IDLE(chn))
-/** \brief If the sub status of a channle is NOT Receiving return TRUE.*/
+/** \brief If the sub status of a channel is NOT Receiving return TRUE.*/
 #define CANTP_SUB_STATUS_IS_NOT_RECV(chn)   (!CANTP_SUB_STATUS_IS_RECV(chn))
-/** \brief If the sub status of a channle is NOT Transmitting return TRUE.*/
+/** \brief If the sub status of a channel is NOT Transmitting return TRUE.*/
 #define CANTP_SUB_STATUS_IS_NOT_TRAN(chn)   (!CANTP_SUB_STATUS_IS_TRAN(chn))
 
 /** \brief Set the status of a channel to Idle.*/
@@ -431,13 +429,11 @@ typedef void (*bl_CanTpTxConfirm_t)(bl_CanTpChannel_t *channel);
 struct _tag_CanTpPciInfo
 {
     bl_u8_t pciPos;     /**< The PCI position in a can frame.*/
-    bl_u8_t sfDataPos;    /**< The valid data position in a SF frame.*/
-    bl_u8_t cfDataPos;    /**< The valid data position in a CF frame.*/
+    bl_u8_t dataPos;    /**< The valid data position in a SF or CF frame.*/
     bl_u8_t ffDataPos;  /**< The valid data position in a FF frame.*/
     bl_u8_t fcBsPos;    /**< The BS position in a FC frame.*/
     bl_u8_t fcStPos;    /**< The STmin position in a FC frame.*/
-    bl_u8_t maxSFDataSize;/**< The max size of data in a SF or CF frame.*/
-    bl_u8_t maxCFDataSize;
+    bl_u8_t maxDataSize;/**< The max size of data in a SF or CF frame.*/
     bl_u8_t maxFFDataSize;  /**< The max size of data in a FF frame.*/
     bl_u8_t maxFCDataSize;  /**< The max size of data in a FC frame.*/
 };
@@ -458,12 +454,9 @@ struct _tag_CanTpChannel
     bl_Buffer_t frame[CANTP_MAX_FRAME_SIZE];  /**< The local frame buffer.*/
     bl_u16_t timer;     /**< The timer*/
     bl_u16_t cfCnt;     /**< The counter of CF frames.*/
-    bl_BufferSize_t datalen;/**< CF Frame remaining length*/
-    bl_BufferSize_t FFSize;
     bl_BufferSize_t totalSize; /**< The total size of Tx or Rx.*/
     const struct _tag_CanTpChannelCfg *chnCfg; /**< Channel configurations*/
-    /*modified by zhl at 151123*/
-    struct _tag_CanTpPciInfo *pciInfo;   /**< PCI information*/
+    const struct _tag_CanTpPciInfo *pciInfo;   /**< PCI information*/
 };
 
 /** \brief The period process interface of the CAN TP channel.*/
@@ -514,15 +507,15 @@ static void _Cantp_MakePciOfFF(bl_CanTpChannel_t *channel);
 static void _Cantp_MakePciOfCF(bl_CanTpChannel_t *channel);
 /** \brief Make the PCI of FC into the local frame.*/
 static void _Cantp_MakePciOfFC(bl_CanTpChannel_t *channel);
-/** \brief The Tx comfrimation function used for the Idle status of a channel.*/
+/** \brief The Tx confirmation function used for the Idle status of a channel.*/
 static void _Cantp_TxConfirmIdle(bl_CanTpChannel_t *channel);
-/** \brief The Tx comfrimation function used for the tranSF status of a channel.*/
+/** \brief The Tx confirmation function used for the tranSF status of a channel.*/
 static void _Cantp_TxConfirmSF(bl_CanTpChannel_t *channel);
-/** \brief The Tx comfrimation function used for the tranFF status of a channel.*/
+/** \brief The Tx confirmation function used for the tranFF status of a channel.*/
 static void _Cantp_TxConfirmFF(bl_CanTpChannel_t *channel);
-/** \brief The Tx comfrimation function used for the tranCF status of a channel.*/
+/** \brief The Tx confirmation function used for the tranCF status of a channel.*/
 static void _Cantp_TxConfirmCF(bl_CanTpChannel_t *channel);
-/** \brief The Tx comfrimation function used for the tranFC status of a channel.*/
+/** \brief The Tx confirmation function used for the tranFC status of a channel.*/
 static void _Cantp_TxConfirmFC(bl_CanTpChannel_t *channel);
 /** \brief The Change the status of a channel to Idle.*/
 static void _Cantp_GotoIdle(bl_CanTpChannel_t *channel);
@@ -548,10 +541,6 @@ static bl_Return_t _Cantp_ReceiveCF(bl_CanTpChannel_t *channel,
                                     const bl_Buffer_t *buffer);
 /** \brief Receive a Flow Control Frame.*/
 static bl_Return_t _Cantp_ReceiveFC(bl_CanTpChannel_t *channel,
-                                    bl_BufferSize_t size,
-                                    const bl_Buffer_t *buffer);
-
-static bl_Return_t CanTp_GetCFValidData(bl_CanTpChannel_t *channel,
                                     bl_BufferSize_t size,
                                     const bl_Buffer_t *buffer);
 
@@ -591,34 +580,23 @@ static bl_Return_t _Cantp_TimeoutTranCF(bl_CanTpChannel_t *channel);
 static void _Cantp_PeriodRecvFC(bl_CanTpChannel_t *channel);
 /** \brief The timeout function of the RecvFC status of a channel.*/
 static bl_Return_t _Cantp_TimeoutRecvFC(bl_CanTpChannel_t *channel);
-#if (CANTP_FUN_TX_FRAME_PADDING == BL_FUN_ON)
-/** \brief The CAN FD padding function is used for calculate the padding length.*/
-static bl_BufferSize_t _Cantp_PaddingLengthCalculate(bl_BufferSize_t frameSize);
-#endif
-/** \brief The SF_DL check function is used for check the SF_DL of CanFd. */
-static bl_Return_t _Cantp_CanFd_SFDL_Check(bl_BufferSize_t can_dl,bl_u8_t sf_dl,bl_u8_t Addressing_type);
 
 /*****************************************************************************
  *  Internal Variable Definitions
  *****************************************************************************/
 /** \brief The PCI used to standard, extanded or mixed channel.*/
-/*modified by zhl at 151123*/
-static bl_CanTpPciInfo_t gs_CanTpPciInfo[CANTP_NUMBER_OF_PCI_INFO] =
+static const bl_CanTpPciInfo_t gs_CanTpPciInfo[CANTP_NUMBER_OF_PCI_INFO] =
 {
     /*The channel type is CANTP_TYPE_STANDARD.*/
     {
-        0,1,1,2,1,2,7,7,6,3
+        0,1,2,1,2,7,6,3
     },
     /*The channel type is CANTP_TYPE_EXTENDED or CANTP_TYPE_MIXED.*/
     {
-        1,2,2,3,2,3,6,6,5,4
+        1,2,3,2,3,6,5,4
     },
 };
-/*added by zhl at 151120*/
-/*static const bl_BufferSize_t gs_CanTpDL[8] = 
-{
-    8, 12, 16, 20, 24, 32, 48, 64
-};*/
+
 /** \brief The period schedule interface of the Rx channel.*/
 static const bl_CanTpPeriodIF_t gs_RxPeriodList[CANTP_NUMBER_OF_RX_STATUS] =
 {
@@ -677,25 +655,7 @@ static const bl_CanTpRxProcess_t gs_RxProcessList[CANTP_NUMBER_OF_FRAME_TYPE] =
     &_Cantp_ReceiveFC
 };
 
-static const bl_u8_t CanFDDlcMap[16] =
-{
-    (bl_u8_t)0,
-    (bl_u8_t)1,
-    (bl_u8_t)2,
-    (bl_u8_t)3,
-    (bl_u8_t)4,
-    (bl_u8_t)5,
-    (bl_u8_t)6,
-    (bl_u8_t)7,
-    (bl_u8_t)8,
-    (bl_u8_t)12,
-    (bl_u8_t)16,
-    (bl_u8_t)20,
-    (bl_u8_t)24,
-    (bl_u8_t)32,
-    (bl_u8_t)48,
-    (bl_u8_t)64
-};
+
 /** \brief The Rx channel list.*/
 static bl_CanTpChannel_t gs_CanTpRxChannel[CANTP_NUMBER_OF_RX_CHANNEL];
 /** \brief The Tx channel list.*/
@@ -761,7 +721,7 @@ bl_Return_t Cantp_Transmit(bl_CanTpHandle_t handle, bl_BufferSize_t size)
 {
     bl_Return_t  ret = BL_ERR_NOT_OK;
     bl_CanTpChannel_t *channel;
-    bl_CanTpPciInfo_t *pci;
+    const bl_CanTpPciInfo_t *pci;
 
     BL_DEBUG_ASSERT_PARAM(handle < CANTP_NUMBER_OF_TX_CHANNEL);
     BL_DEBUG_ASSERT_PARAM(size != 0);
@@ -771,26 +731,7 @@ bl_Return_t Cantp_Transmit(bl_CanTpHandle_t handle, bl_BufferSize_t size)
     {
         pci = channel->pciInfo;
 
-        /*modified by yq at 160125*/
-        if (channel->chnCfg->type != CANTP_TYPE_STANDARD)
-        {
-            pci->sfDataPos = 2;
-        }
-        else
-        {
-            pci->sfDataPos = 1;
-        }
-
-        if((size > CANTP_CANFD_BOUNDARY) && (CANTP_MAX_FRAME_SIZE > CANTP_CANFD_BOUNDARY))
-        {
-            (pci->sfDataPos) += 1;
-        }
-        
-        pci->maxSFDataSize = CANTP_MAX_FRAME_SIZE - pci->sfDataPos;
-        /*Added by yq at 20160302*/
-        pci->maxCFDataSize = CANTP_MAX_FRAME_SIZE - pci->cfDataPos;
-
-        if (size > pci->maxSFDataSize)
+        if (size > pci->maxDataSize)
         {
             if (CANTP_IS_PHYSICAL_CHANNEL(channel))
             {
@@ -830,12 +771,12 @@ void Cantp_RxIndication(bl_ComIfHandle_t handle,
                             bl_BufferSize_t size,
                             const bl_Buffer_t *buffer)
 {
-    bl_CanTpChannel_t *channel;    
+    bl_CanTpChannel_t *channel;
     bl_Return_t ret;
-    
+
     /*Check whether the parameters are valid.*/
 #if (CANTP_FUN_RX_FRAME_PADDING == BL_FUN_ON)
-    if ((CANTP_CANFD_BOUNDARY <= size) && (buffer != BL_NULL_PTR))
+    if ((CANTP_MAX_FRAME_SIZE == size) && (buffer != BL_NULL_PTR))
 #else
     if ((size > 0) && (buffer != BL_NULL_PTR))
 #endif
@@ -846,7 +787,7 @@ void Cantp_RxIndication(bl_ComIfHandle_t handle,
         ret = _Cantp_RxIndToTxChannel(channel,size,buffer);
         if (ret != BL_ERR_OK)   /*the Tx channel is not process this frame.*/
         {
-            channel = _Cantp_GetChannelByRxId( handle,
+            channel = _Cantp_GetChannelByRxId(handle,
                                                 CANTP_NUMBER_OF_RX_CHANNEL,
                                                 gs_CanTpRxChannel);
             (void)_Cantp_RxIndToRxChannel(channel,size,buffer);
@@ -1008,15 +949,15 @@ static void _Cantp_SetMultipleFrameSize(bl_CanTpChannel_t *channel,
 {
     bl_BufferSize_t tmpSize;
     bl_u16_t tmpCnt;
-    bl_CanTpPciInfo_t *pci = channel->pciInfo;
+    const bl_CanTpPciInfo_t *pci = channel->pciInfo;
 
-    BL_DEBUG_ASSERT_NO_RET(size > pci->maxCFDataSize);
-    BL_DEBUG_ASSERT_NO_RET(pci->maxCFDataSize != 0);
+    BL_DEBUG_ASSERT_NO_RET(size > pci->maxDataSize);
+    BL_DEBUG_ASSERT_NO_RET(pci->maxDataSize != 0);
 
-    tmpCnt = size / pci->maxCFDataSize;
+    tmpCnt = size / pci->maxDataSize;
 
-    tmpSize = (size % pci->maxCFDataSize) + 1u;
-    
+    tmpSize = (size % pci->maxDataSize) + 1u;
+
     CANTP_SET_TOTAL_SIZE(channel,size);
     CANTP_SET_LAST_SIZE(channel,tmpSize);
     CANTP_SET_CFCNT(channel,tmpCnt);
@@ -1095,7 +1036,7 @@ static void _Cantp_PeriodFunction(bl_u16_t num,
         channel = &channelList[i];
         if (CANTP_IS_TIMEOUT(channel))
         {
-            ret = periodList[channel->status].Timeout(channel); 
+            ret = periodList[channel->status].Timeout(channel);
             if (BL_ERR_OK == ret)
             {
                 _Cantp_GotoIdle(channel);
@@ -1206,10 +1147,9 @@ static bl_Return_t _Cantp_ReceiveSF(bl_CanTpChannel_t *channel,
                                     bl_BufferSize_t size,
                                     const bl_Buffer_t *buffer)
 {
-    bl_CanTpPciInfo_t *pci;
+    const bl_CanTpPciInfo_t *pci;
     bl_Return_t ret = BL_ERR_NOT_OK;
     bl_u8_t tmpSize;
-    bl_Return_t check_flag = BL_ERR_OK;
 
     pci = channel->pciInfo;
 #if(CANTP_IGNORE_UNEXPECTED_N_PDU == BL_FUN_ON)
@@ -1217,47 +1157,26 @@ static bl_Return_t _Cantp_ReceiveSF(bl_CanTpChannel_t *channel,
         || (CANTP_IS_FUNCTIONAL_CHANNEL(channel)))
     {
 #endif
-
-        if((size > CANTP_MAX_FRAME_SIZE) || (buffer[0]>0x7) || ((buffer[0]!=0)&&(buffer[0]<=0x7)&&(size>0x8)))
+        if(CANTP_STATUS_IS_RECVSF(channel) 
+           && (!(channel->frame[0] == 0x3E  && channel->frame[1] == 0x80 && channel->lastSize == 0x02)))
         {
-            ret = BL_ERR_NOT_OK;
+             ret = BL_ERR_NOT_OK;
         }
         else
         {
             tmpSize = CANTP_GET_SF_DATASIZE(buffer[pci->pciPos]);
-
-            /*modified by yq at 160125*/
-            if (channel->chnCfg->type != CANTP_TYPE_STANDARD)
+            if ((tmpSize != 0) && (tmpSize <= pci->maxDataSize) && (tmpSize < size))
             {
-                pci->sfDataPos = 2;
-            }
-            else
-            {
-                pci->sfDataPos = 1;
-            }
-
-            /*added by zhl at 151120*/
-            if((0 == tmpSize) && (size > CANTP_CANFD_BOUNDARY))
-            {
-                tmpSize = CANTP_GET_SF_DL_CANFD(buffer[pci->sfDataPos]);
-                (pci->sfDataPos) += 1;
-                check_flag = _Cantp_CanFd_SFDL_Check(size,tmpSize,channel->chnCfg->type);
-            }
-            
-            pci->maxSFDataSize = size - (pci->sfDataPos);
-            
-            if ((tmpSize != 0) && (tmpSize <= pci->maxSFDataSize) && (BL_ERR_OK == check_flag))
-            {
-                /*  When continuous SF is received in one channel during
-                    a timeout period,It maybe break other channel.
-                    So If a channel do not get the buffer from DCM module,
-                    do NOT indicate.*/
+            /*  When continuous SF is received in one channel during
+                a timeout period,It maybe break other channel.
+                So If a channel do not get the buffer from DCM module,
+                do NOT indicate.*/
                 if(CANTP_IS_GETTING_BUFFER(channel))
                 {
                     Dcm_RxIndication(channel->taType, BL_ERR_UNEXPECTED_FRAME);
                 }
 
-                Bl_MemCpy(channel->frame,&buffer[pci->sfDataPos],(bl_Size_t)tmpSize);
+                Bl_MemCpy(channel->frame,&buffer[pci->dataPos],(bl_Size_t)tmpSize);
 
                 channel->lastSize = tmpSize;
 
@@ -1265,9 +1184,8 @@ static bl_Return_t _Cantp_ReceiveSF(bl_CanTpChannel_t *channel,
                 CANTP_INIT_TIMER_B(channel);
 
                 ret = BL_ERR_OK;
-            }
+            }           
         }
-
 #if(CANTP_IGNORE_UNEXPECTED_N_PDU == BL_FUN_ON)
     }
 #endif
@@ -1292,11 +1210,9 @@ static bl_Return_t _Cantp_ReceiveFF(bl_CanTpChannel_t *channel,
                                     bl_BufferSize_t size,
                                     const bl_Buffer_t *buffer)
 {
-    bl_Size_t dataSize = 0;
-    bl_CanTpPciInfo_t *pci;
-    bl_Return_t ret = BL_ERR_OK;
+    const bl_CanTpPciInfo_t *pci;
+    bl_Return_t ret = BL_ERR_NOT_OK;
     bl_BufferSize_t totalSize;
-    bl_BufferSize_t FF_DLmin;
 
     if (CANTP_IS_PHYSICAL_CHANNEL(channel))
     {
@@ -1305,60 +1221,12 @@ static bl_Return_t _Cantp_ReceiveFF(bl_CanTpChannel_t *channel,
         if(CANTP_STATUS_IS_IDLE(&gs_CanTpTxChannel[CANTP_TATYPE_PHYSICAL]))
         {
 #endif
-    if(size > CANTP_MAX_FRAME_SIZE)
-    {
-        ret = BL_ERR_NOT_OK;
-    }
-    else
-    {
-        totalSize = CANTP_GET_FF_DATASIZE(&buffer[pci->pciPos]);
-
-        /*modified by yq at 160125*/
-        if (channel->chnCfg->type != CANTP_TYPE_STANDARD)
-        {
-            pci->ffDataPos = 3;
-            if(size > CANTP_CANFD_BOUNDARY)
-            {
-                FF_DLmin = size - 2;
-            }
-            else
-            {
-                FF_DLmin = CANTP_CANFD_BOUNDARY - 1; /* TX_DL equal to 8. */
-            }
-        }
-        else
-        {
-            pci->ffDataPos = 2;
-            if(size > CANTP_CANFD_BOUNDARY)
-            {
-                FF_DLmin = size - 1;
-            }
-            else
-            {
-                FF_DLmin = CANTP_CANFD_BOUNDARY; /* TX_DL equal to 8. */
-            }
-        }
-            
-        /*added by zhl at 151120*/
-        if(0 == totalSize)
-        {
-            totalSize = CANTP_GET_FF_DL_CANFD(&buffer[pci->ffDataPos]);
-            (pci->ffDataPos) += 4;
-            
-            if((totalSize < CANTP_MAX_SEGMSG_SIZE)||(size < 63))
-            {
-                ret = BL_ERR_NOT_OK;
-            }  
-        }
-        
-        dataSize = size - (pci->ffDataPos);
-        pci->maxFFDataSize = dataSize;
-        pci->maxCFDataSize = size - (pci->cfDataPos);
-        
-        channel->FFSize = size;
-        channel->datalen = totalSize - pci->maxFFDataSize; /*added by cht at 230815*/
-
-        if ((totalSize >= FF_DLmin) && (BL_ERR_OK == ret))
+            totalSize = CANTP_GET_FF_DATASIZE(&buffer[pci->pciPos]);
+#if (CANTP_FUN_RX_FRAME_PADDING == BL_FUN_ON)
+        if (totalSize > pci->maxDataSize)
+#else
+        if ((totalSize > pci->maxDataSize) && (CANTP_MAX_FRAME_SIZE == size))
+#endif
         {
             /*  When continuous FF is received in one channel during
                 a timeout period,It maybe break other physical channel.
@@ -1371,20 +1239,17 @@ static bl_Return_t _Cantp_ReceiveFF(bl_CanTpChannel_t *channel,
 
             Bl_MemCpy(channel->frame,
                         &buffer[pci->ffDataPos],
-                        dataSize);
+                        (bl_Size_t)(size - pci->pciPos));
 
             _Cantp_SetMultipleFrameSize(channel,totalSize);
 
             CANTP_INIT_SN(channel);
             CANTP_INIT_MAXWFT_BY_CFG(channel,channel->chnCfg);
             CANTP_STATUS_GOTO_RECVFF(channel);
-            CANTP_INIT_TIMER_B(channel); 
-        }
-        else
-        {
-            ret = BL_ERR_NOT_OK;
-        }
-    }
+            CANTP_INIT_TIMER_B(channel);
+
+                ret = BL_ERR_OK;
+            }
 #if(CANTP_IGNORE_UNEXPECTED_N_PDU == BL_FUN_ON)
         }
 #endif
@@ -1412,25 +1277,24 @@ static bl_Return_t _Cantp_ReceiveCF(bl_CanTpChannel_t *channel,
                                     bl_BufferSize_t size,
                                     const bl_Buffer_t *buffer)
 {
-    bl_CanTpPciInfo_t *pci;
+    const bl_CanTpPciInfo_t *pci;
     bl_Return_t ret = BL_ERR_NOT_OK;
     bl_u8_t expectedSN;
     bl_u8_t recvSN;
     bl_u8_t tmpSize;
-
 
     pci = channel->pciInfo;
 #if(CANTP_IGNORE_UNEXPECTED_N_PDU == BL_FUN_ON)
     if(CANTP_STATUS_IS_IDLE(&gs_CanTpTxChannel[CANTP_TATYPE_PHYSICAL]))
     {
 #endif
-    do
-    {
-        if (CANTP_STATUS_IS_NOT_RECVCF(channel)
-            || (0 == channel->cfCnt))   /*avoid unwanted CF*/
+        do
         {
-            break;
-        }
+            if (CANTP_STATUS_IS_NOT_RECVCF(channel)
+                || (0 == channel->cfCnt))   /*avoid unwanted CF*/
+            {
+                break;
+            }
 #if (CANTP_FUN_RX_FRAME_PADDING == BL_FUN_OFF)
         if (1 == channel->cfCnt)        /*the last CF*/
         {
@@ -1439,7 +1303,6 @@ static bl_Return_t _Cantp_ReceiveCF(bl_CanTpChannel_t *channel,
                 break;
             }
         }
-        /*modified by yq at 160302*/
         else
         {
             if (size < CANTP_MAX_FRAME_SIZE)
@@ -1448,14 +1311,8 @@ static bl_Return_t _Cantp_ReceiveCF(bl_CanTpChannel_t *channel,
             }
         }
 #else
-    (void)size;
+        (void)size;
 #endif
-        ret = CanTp_GetCFValidData(channel,size,buffer);
-        if (ret == BL_ERR_NOT_OK)
-        {
-            break;
-        }
-        ret = BL_ERR_NOT_OK;
 
         expectedSN = BL_GET_LOW_HALF(channel->sn + 1);
         recvSN = CANTP_GET_CF_SN(pci,buffer);
@@ -1471,41 +1328,38 @@ static bl_Return_t _Cantp_ReceiveCF(bl_CanTpChannel_t *channel,
         }
 
         channel->cfCnt -= 1;
-        
         if (0 == channel->cfCnt)
         {
             tmpSize = channel->lastSize;
-
         }
         else
         {
-            tmpSize = pci->maxCFDataSize;
+            tmpSize = pci->maxDataSize;
         }
 
         /*Immediately copy data to buffer avoid continuous CF during a period*/
-        ret = Dcm_CopyRxData(tmpSize,&buffer[pci->cfDataPos]);
-        channel->datalen = channel->datalen - tmpSize;
+        ret = Dcm_CopyRxData(tmpSize,&buffer[pci->dataPos]);
         if (BL_ERR_OK == ret)
         {
             /*reset the timer of this channel.*/
             CANTP_INIT_TIMER_C(channel);
 
-            if (channel->bs != 0)
-            {
-                channel->bs -= 1;
-                if (0 == channel->bs)
+                if ((channel->bs != 0) && (channel->cfCnt != 0))
                 {
-                    _Cantp_GotoTranFC(channel, CANTP_FC_FRAME_CTS);
+                    channel->bs -= 1;
+                    if (0 == channel->bs)
+                    {
+                        _Cantp_GotoTranFC(channel, CANTP_FC_FRAME_CTS);
+                    }
                 }
             }
-        }
-        else
-        {
-            BL_DEBUG_ASSERT_NO_RET(0);
-            Dcm_RxIndication(channel->taType, BL_ERR_NOT_OK);
-            _Cantp_GotoIdle(channel);
-        }
-    }while(0);/*lint !e717*/
+            else
+            {
+                BL_DEBUG_ASSERT_NO_RET(0);
+                Dcm_RxIndication(channel->taType, BL_ERR_NOT_OK);
+                _Cantp_GotoIdle(channel);
+            }
+        }while(0);/*lint !e717*/
 #if(CANTP_IGNORE_UNEXPECTED_N_PDU == BL_FUN_ON)
     }
 #endif
@@ -1531,7 +1385,7 @@ static bl_Return_t _Cantp_ReceiveFC(bl_CanTpChannel_t *channel,
                                     bl_BufferSize_t size,
                                     const bl_Buffer_t *buffer)
 {
-    bl_CanTpPciInfo_t *pci;
+    const bl_CanTpPciInfo_t *pci;
     bl_Return_t ret = BL_ERR_NOT_OK;
     bl_u8_t fs;
     bl_u8_t tmpSt;
@@ -1541,7 +1395,7 @@ static bl_Return_t _Cantp_ReceiveFC(bl_CanTpChannel_t *channel,
     if(CANTP_STATUS_IS_IDLE(&gs_CanTpRxChannel[CANTP_TATYPE_PHYSICAL]))
     {
 #endif
-    /*if the status of this channel is not waiting for FC*/
+        /*if the status of this channel is not waiting for FC*/
 #if (CANTP_FUN_RX_FRAME_PADDING == BL_FUN_OFF)
     if (CANTP_STATUS_IS_RECVFC(channel) && (size >= pci->maxFCDataSize))
 #else
@@ -1558,6 +1412,10 @@ static bl_Return_t _Cantp_ReceiveFC(bl_CanTpChannel_t *channel,
                 channel->bs = CANTP_GET_FC_BS(channel->pciInfo,buffer);
                 tmpSt = CANTP_GET_FC_STMIN(pci,buffer);
                 channel->st = _Cantp_GetSTMinFromFC(tmpSt);
+                if(channel->st >= 126)
+                {
+                    channel->st = channel->st + 1;
+                }
 
                 _Cantp_GotoTranCF(channel);
                 break;
@@ -1574,8 +1432,8 @@ static bl_Return_t _Cantp_ReceiveFC(bl_CanTpChannel_t *channel,
                 break;
         }
 
-        ret = BL_ERR_OK;
-    }
+            ret = BL_ERR_OK;
+        }
 #if(CANTP_IGNORE_UNEXPECTED_N_PDU == BL_FUN_ON)
     }
 #endif
@@ -1606,9 +1464,6 @@ static void _Cantp_TransmitCF(bl_CanTpChannel_t *channel)
     bl_Buffer_t *frame;
     bl_ComIfHandle_t handle;
     bl_u16_t cfCounter;
-#if (CANTP_FUN_TX_FRAME_PADDING == BL_FUN_ON)
-    bl_BufferSize_t PaddingSize;
-#endif
 
     _Cantp_MakePciOfCF(channel);
 
@@ -1619,11 +1474,11 @@ static void _Cantp_TransmitCF(bl_CanTpChannel_t *channel)
     }
     else
     {
-        dataSize = channel->pciInfo->maxCFDataSize;
+        dataSize = channel->pciInfo->maxDataSize;
     }
 
     frame = channel->frame;
-    dataPos = channel->pciInfo->cfDataPos;
+    dataPos = channel->pciInfo->dataPos;
     handle = channel->chnCfg->txId;
     frameSize = dataSize + dataPos;
 
@@ -1635,37 +1490,15 @@ static void _Cantp_TransmitCF(bl_CanTpChannel_t *channel)
     BL_DEBUG_ASSERT_NO_RET(BL_ERR_OK == ret);
 
 #if (CANTP_FUN_TX_FRAME_PADDING == BL_FUN_ON)
-    if(CANTP_MAX_FRAME_SIZE > CANTP_CANFD_BOUNDARY)
-    {
-        /* CAN FD */ 
-        if(frameSize < CANTP_MAX_FRAME_SIZE)
-        {
-            PaddingSize = _Cantp_PaddingLengthCalculate(frameSize);
+    Bl_MemSet(&frame[frameSize],
+                CANTP_FRAME_PADDING_VALUE,
+                (bl_Size_t)(CANTP_MAX_FRAME_SIZE - frameSize));
 
-        }
-        else
-        {
-            PaddingSize = CANTP_MAX_FRAME_SIZE;
-        } 
-
-        Bl_MemSet(&frame[frameSize],
-            CANTP_FRAME_PADDING_VALUE,
-            (bl_Size_t)(PaddingSize - frameSize));
-
-        ret = Canif_Write(handle, PaddingSize, frame);        
-    }
-    else
-    {
-        /* Classical CAN */ 
-        Bl_MemSet(&frame[frameSize],
-            CANTP_FRAME_PADDING_VALUE,
-            (bl_Size_t)(CANTP_MAX_FRAME_SIZE - frameSize));
-
-        ret = Canif_Write(handle, CANTP_MAX_FRAME_SIZE, frame);
-    } 
+    ret = Canif_Write(handle, CANTP_MAX_FRAME_SIZE, frame);
 #else
     ret = Canif_Write(handle, frameSize, frame);
 #endif
+
 
     if (BL_ERR_OK == ret)
     {
@@ -1691,7 +1524,7 @@ static void _Cantp_TransmitCF(bl_CanTpChannel_t *channel)
  *****************************************************************************/
 static void _Cantp_MakePciOfSF(bl_CanTpChannel_t *channel)
 {
-    bl_CanTpPciInfo_t *pci = channel->pciInfo;
+    const bl_CanTpPciInfo_t *pci = channel->pciInfo;
     bl_Buffer_t *frame = channel->frame;
 
     if (channel->chnCfg->type != CANTP_TYPE_STANDARD)
@@ -1699,15 +1532,7 @@ static void _Cantp_MakePciOfSF(bl_CanTpChannel_t *channel)
         frame[CANTP_TA_OFFSET] = channel->chnCfg->ta;
     }
 
-    
-    if(channel->lastSize <= CANTP_CANFD_BOUNDARY)
-    {
-        frame[pci->pciPos] = BL_GET_LOW_HALF(channel->lastSize);
-    }
-    else
-    {
-        BL_MCU_TO_BE16(&frame[pci->pciPos],(bl_u16_t)(channel->lastSize));
-    }
+    frame[pci->pciPos] = BL_GET_LOW_HALF(channel->lastSize);
 
     return ;
 }
@@ -1726,41 +1551,19 @@ static void _Cantp_MakePciOfSF(bl_CanTpChannel_t *channel)
  *****************************************************************************/
 static void _Cantp_MakePciOfFF(bl_CanTpChannel_t *channel)
 {
-    bl_CanTpPciInfo_t *pci = channel->pciInfo;
+    const bl_CanTpPciInfo_t *pci = channel->pciInfo;
     bl_Buffer_t *frame = channel->frame;
     bl_BufferSize_t totalSize = channel->totalSize;
 
     if (channel->chnCfg->type != CANTP_TYPE_STANDARD)
     {
-       
         frame[CANTP_TA_OFFSET] = channel->chnCfg->ta;
     }
-    
-    /*modified by yq at 160125*/
-    if (channel->chnCfg->type != CANTP_TYPE_STANDARD)
-    {
-        pci->ffDataPos = 3;
-    }
-    else
-    {
-        pci->ffDataPos = 2;
-    }
-    
-    if(totalSize < CANTP_MAX_SEGMSG_SIZE)
-    {
-        totalSize = (totalSize & CANTP_FRAME_FF_DATASIZE_MASK)
-                    + CANTP_FRAME_FF_VAULE_16BITS;
-        BL_MCU_TO_BE16(&frame[pci->pciPos],totalSize);
-        
-    }
-    else
-    {
-        BL_MCU_TO_BE16(&frame[pci->pciPos],CANTP_FRAME_FF_VAULE_16BITS);
-        BL_MCU_TO_BE32(&frame[pci->ffDataPos],totalSize);
-        (pci->ffDataPos) += 4;
-    }
-    
-    pci->maxFFDataSize = CANTP_MAX_FRAME_SIZE - pci->ffDataPos;
+
+    totalSize = (totalSize & CANTP_FRAME_FF_DATASIZE_MASK)
+                + CANTP_FRAME_FF_VAULE_16BITS;
+    BL_MCU_TO_BE16(&frame[pci->pciPos],totalSize);
+
     return ;
 }
 
@@ -1778,7 +1581,7 @@ static void _Cantp_MakePciOfFF(bl_CanTpChannel_t *channel)
  *****************************************************************************/
 static void _Cantp_MakePciOfCF(bl_CanTpChannel_t *channel)
 {
-    bl_CanTpPciInfo_t *pci = channel->pciInfo;
+    const bl_CanTpPciInfo_t *pci = channel->pciInfo;
     bl_Buffer_t *frame = channel->frame;
 
     if (channel->chnCfg->type != CANTP_TYPE_STANDARD)
@@ -1805,7 +1608,7 @@ static void _Cantp_MakePciOfCF(bl_CanTpChannel_t *channel)
  *****************************************************************************/
 static void _Cantp_MakePciOfFC(bl_CanTpChannel_t *channel)
 {
-    bl_CanTpPciInfo_t *pci = channel->pciInfo;
+    const bl_CanTpPciInfo_t *pci = channel->pciInfo;
     bl_Buffer_t *frame = channel->frame;
 
     if (channel->chnCfg->type != CANTP_TYPE_STANDARD)
@@ -1920,13 +1723,14 @@ static void _Cantp_TxConfirmCF(bl_CanTpChannel_t *channel)
             }
             else
             {
-            	CANTP_SET_TIMER(channel,CANTP_CHNNEL_RX_CR);
+
+            	CANTP_INIT_TIMER_A(channel);
             	CANTP_INIT_TXDELAY(channel);
             }
         }
         else
         {
-            CANTP_SET_TIMER(channel,CANTP_CHNNEL_RX_CR);
+            CANTP_INIT_TIMER_A(channel);
             CANTP_INIT_TXDELAY(channel);
         }
     }
@@ -2065,8 +1869,8 @@ static void _Cantp_GotoTranCF(bl_CanTpChannel_t *channel)
 {
     CANTP_STATUS_GOTO_TRANCF(channel);
     CANTP_SUB_STATUS_GOTO_IDLE(channel);
-    CANTP_SET_TIMER(channel,CANTP_CHNNEL_RX_CR);
-    CANTP_INIT_TXDELAY(channel);
+    CANTP_INIT_TIMER_A(channel);
+    CANTP_SET_TXDELAY(channel,CANTP_INIT_STMIN_VALUE_US);
 
     return ;
 }
@@ -2308,9 +2112,7 @@ static void _Cantp_PeriodTranFC(bl_CanTpChannel_t *channel)
     bl_BufferSize_t frameSize;
     bl_Buffer_t *frame;
     bl_ComIfHandle_t handle;
-#if (CANTP_FUN_TX_FRAME_PADDING == BL_FUN_ON)
-    bl_BufferSize_t PaddingSize;
-#endif
+
 
     BL_DEBUG_ASSERT_NO_RET(channel != BL_NULL_PTR);
     BL_DEBUG_ASSERT_NO_RET(CANTP_STATUS_IS_TRANFC(channel));
@@ -2326,34 +2128,11 @@ static void _Cantp_PeriodTranFC(bl_CanTpChannel_t *channel)
         BL_DEBUG_ASSERT_NO_RET(frameSize != 0);
 
 #if (CANTP_FUN_TX_FRAME_PADDING == BL_FUN_ON)
-    if(CANTP_MAX_FRAME_SIZE > CANTP_CANFD_BOUNDARY)
-    {
-        /* CAN FD */ 
-        if(frameSize < CANTP_MAX_FRAME_SIZE)
-        {
-            PaddingSize = _Cantp_PaddingLengthCalculate(frameSize);
-
-        }
-        else
-        {
-            PaddingSize = CANTP_MAX_FRAME_SIZE;
-        } 
-
         Bl_MemSet(&frame[frameSize],
-            CANTP_FRAME_PADDING_VALUE,
-            (bl_Size_t)(PaddingSize - frameSize));
-
-        ret = Canif_Write(handle, PaddingSize, frame);        
-    }
-    else
-    {
-        /* Classical CAN */ 
-        Bl_MemSet(&frame[frameSize],
-            CANTP_FRAME_PADDING_VALUE,
-            (bl_Size_t)(CANTP_MAX_FRAME_SIZE - frameSize));
+                    CANTP_FRAME_PADDING_VALUE,
+                    (bl_Size_t)(CANTP_MAX_FRAME_SIZE - frameSize));
 
         ret = Canif_Write(handle, CANTP_MAX_FRAME_SIZE, frame);
-    } 
 #else
         ret = Canif_Write(handle, frameSize, frame);
 #endif
@@ -2415,9 +2194,6 @@ static void _Cantp_PeriodTranSF(bl_CanTpChannel_t *channel)
     bl_BufferSize_t frameSize;
     bl_Buffer_t *frame;
     bl_ComIfHandle_t handle;
-#if (CANTP_FUN_TX_FRAME_PADDING == BL_FUN_ON)
-    bl_BufferSize_t PaddingSize;
-#endif
 
     BL_DEBUG_ASSERT_NO_RET(channel != BL_NULL_PTR);
     BL_DEBUG_ASSERT_NO_RET(CANTP_STATUS_IS_NOT_TRANSF(channel));
@@ -2428,7 +2204,7 @@ static void _Cantp_PeriodTranSF(bl_CanTpChannel_t *channel)
 
         dataSize = channel->lastSize;
         frame = channel->frame;
-        dataPos = channel->pciInfo->sfDataPos;
+        dataPos = channel->pciInfo->dataPos;
         handle = channel->chnCfg->txId;
         frameSize = dataSize + dataPos;
 
@@ -2440,34 +2216,11 @@ static void _Cantp_PeriodTranSF(bl_CanTpChannel_t *channel)
         BL_DEBUG_ASSERT_NO_RET(BL_ERR_OK == ret);
 
 #if (CANTP_FUN_TX_FRAME_PADDING == BL_FUN_ON)
-        if(CANTP_MAX_FRAME_SIZE > CANTP_CANFD_BOUNDARY)
-        {
-            /* CAN FD */ 
-            if(frameSize < CANTP_MAX_FRAME_SIZE)
-            {
-                PaddingSize = _Cantp_PaddingLengthCalculate(frameSize);
+        Bl_MemSet(&frame[frameSize],
+                    CANTP_FRAME_PADDING_VALUE,
+                    (bl_Size_t)(CANTP_MAX_FRAME_SIZE - frameSize));
 
-            }
-            else
-            {
-                PaddingSize = CANTP_MAX_FRAME_SIZE;
-            } 
-
-            Bl_MemSet(&frame[frameSize],
-                CANTP_FRAME_PADDING_VALUE,
-                (bl_Size_t)(PaddingSize - frameSize));
-
-            ret = Canif_Write(handle, PaddingSize, frame);        
-        }
-        else
-        {
-            /* Classical CAN */ 
-            Bl_MemSet(&frame[frameSize],
-                CANTP_FRAME_PADDING_VALUE,
-                (bl_Size_t)(CANTP_MAX_FRAME_SIZE - frameSize));
-
-            ret = Canif_Write(handle, CANTP_MAX_FRAME_SIZE, frame);
-        } 
+        ret = Canif_Write(handle, CANTP_MAX_FRAME_SIZE, frame);
 #else
         ret = Canif_Write(handle, frameSize, frame);
 #endif
@@ -2496,6 +2249,7 @@ static void _Cantp_PeriodTranSF(bl_CanTpChannel_t *channel)
 static bl_Return_t _Cantp_TimeoutTranSF(bl_CanTpChannel_t *channel)
 {
     (void)channel;
+
     /*The As timeout.*/
     Dcm_TxConfirmation(BL_ERR_TIMEROUT_A);
     return BL_ERR_OK;
@@ -2564,6 +2318,7 @@ static void _Cantp_PeriodTranFF(bl_CanTpChannel_t *channel)
 static bl_Return_t _Cantp_TimeoutTranFF(bl_CanTpChannel_t *channel)
 {
     (void)channel;
+
     /*The As timeout.*/
     Dcm_TxConfirmation(BL_ERR_TIMEROUT_A);
     return BL_ERR_OK;
@@ -2659,157 +2414,3 @@ static bl_Return_t _Cantp_TimeoutRecvFC(bl_CanTpChannel_t *channel)
     return BL_ERR_OK;
 }
 
-#if (CANTP_FUN_TX_FRAME_PADDING == BL_FUN_ON)
-/**************************************************************************//**
- *
- *  \details    The CAN FD padding function is used for calculate the padding length.
- *
- *  \param[in/out]  frameSize - the frame size.
- *
- *  \return Return frame size after padded.
- *
- *  \since  V5.1.0
- *
- *****************************************************************************/
-static bl_BufferSize_t _Cantp_PaddingLengthCalculate(bl_BufferSize_t frameSize)
-{
-    bl_BufferSize_t PaddingSize;
-
-     if(frameSize <= 8)
-    {
-        PaddingSize = 8;
-    }
-    else if((frameSize > 8)&&(frameSize <= 12))
-    {
-        PaddingSize = 12;
-    }
-    else if((frameSize > 12)&&(frameSize <= 16))
-    {
-        PaddingSize = 16;
-    }
-    else if((frameSize > 16)&&(frameSize <= 20))
-    {
-        PaddingSize = 20;
-    }
-    else if((frameSize > 20)&&(frameSize <= 24))
-    {
-        PaddingSize = 24;
-    }
-    else if((frameSize > 24)&&(frameSize <= 32))
-    {
-        PaddingSize = 32;
-    }
-    else if((frameSize > 32)&&(frameSize <= 48))
-    {
-        PaddingSize = 48;
-    }
-    else if((frameSize > 48)&&(frameSize <= 64))
-    {
-        PaddingSize = 64;
-    }
-    else 
-    {
-        
-    }
-    return PaddingSize;
-}
-#endif
-
-/**************************************************************************//**
- *
- *  \details The SF_DL check function is used for check the SF_DL of CanFd.
- *
- *  \param[in/out]  can_dl - the canfd size.
- *                  sf_dl  - the sf_dl of single frame.
- *                  Addressing_type  - the addressing type of channel.
- *
- *  \return If the SF_DL checked ok  return BL_ERR_OK, otherwise
- *          return BL_ERR_NOT_OK.
- *
- *  \since  V5.1.0
- *
- *****************************************************************************/
-static bl_Return_t _Cantp_CanFd_SFDL_Check(bl_BufferSize_t can_dl,bl_u8_t sf_dl,bl_u8_t Addressing_type)
-{
-    bl_Return_t ret = BL_ERR_NOT_OK;
-    bl_u8_t add_val;
-
-    if(CANTP_TYPE_STANDARD == Addressing_type)
-    {
-        add_val= 1;
-    }
-    else
-    {
-        add_val= 0;
-    }
-    
-    switch(can_dl)
-    {
-        case 12:
-            if((sf_dl >= 7+add_val)&&(sf_dl <= 9+add_val)){ ret = BL_ERR_OK;}
-            break;
-        case 16:
-            if((sf_dl >= 10+add_val)&&(sf_dl <= 13+add_val)){ ret = BL_ERR_OK;}
-            break;
-        case 20:
-            if((sf_dl >= 14+add_val)&&(sf_dl <= 17+add_val)){ ret = BL_ERR_OK;}
-            break;
-        case 24:
-            if((sf_dl >= 18+add_val)&&(sf_dl <= 21+add_val)){ ret = BL_ERR_OK;}
-            break;
-        case 32:
-            if((sf_dl >= 22+add_val)&&(sf_dl <= 29+add_val)){ ret = BL_ERR_OK;}
-            break;
-        case 48:
-            if((sf_dl >= 30+add_val)&&(sf_dl <= 45+add_val)){ ret = BL_ERR_OK;}
-            break;
-        case 64:
-            if((sf_dl >= 46+add_val)&&(sf_dl <= 61+add_val)){ ret = BL_ERR_OK;}
-            break;
-        default: break;            
-    }
-    return ret;    
-}
-/*by cht 20230815*/
-static bl_Return_t CanTp_GetCFValidData(bl_CanTpChannel_t *channel,
-                                    bl_BufferSize_t size,
-                                    const bl_Buffer_t *buffer)
-{
-    bl_Return_t ret = BL_ERR_NOT_OK;
-    bl_CanTpPciInfo_t *pci;
-    bl_u8_t CanFD_Index;
-    pci = channel->pciInfo;
-    if((channel->datalen) <= ((channel->FFSize) - (pci->cfDataPos))) 
-    {
-        for(CanFD_Index = 0; CanFD_Index < 16; CanFD_Index++)
-        {
-            if(size == CanFDDlcMap[CanFD_Index])
-            {
-                if(size <= CANTP_CANFD_BOUNDARY)
-                {
-                    if(size >= ((channel->datalen) + (pci->cfDataPos)))                    
-                    {
-                        ret = BL_ERR_OK;
-                    }
-                }
-                else
-                {
-                    if(((channel->datalen) <= (size -(pci->cfDataPos))) && \
-                     ((channel->datalen) > (CanFDDlcMap[CanFD_Index - 1] - (pci->cfDataPos))))
-                    {
-                        ret = BL_ERR_OK;
-                    }
-                }
-                break;
-            }            
-        }
-    }
-    else
-    {
-        if(size == channel->FFSize)
-        {
-            ret = BL_ERR_OK;
-        }
-    }  
-    return ret;
-}

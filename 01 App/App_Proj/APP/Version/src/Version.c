@@ -6,7 +6,7 @@
 
 /************************ Private Global Variables ************************/
 /*EOL*/
-static char bootloader_inside_version[3] = BOOTLOADER_INSIDE_VERSION;
+static char bootloader_inside_version[3] = BOOTLOADER_VERSION;
 static char software_inside_version[3]   = SOFTWARE_INSIDE_VERSION;
 static char hardware_inside_version[3]   = HARDWARE_INSIDE_VERSION;
 

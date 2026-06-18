@@ -55,7 +55,7 @@
 #define CAN_STATUS_IDLE                 (1u)
 #define CAN_STATUS_TRANSMITTING         (2u)
 
-#define CAN_MAX_SIZE_OF_DATA            (0x40u)
+#define CAN_MAX_SIZE_OF_DATA            (0x8u)
 #define CAN_MAX_NUMBER_OF_CONTROLLER    (3u)
 
 #define CAN_USED_CONTROLLER_NUMBER      (1u)

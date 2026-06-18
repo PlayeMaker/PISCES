@@ -55,7 +55,7 @@
 
 #define ADPT_F110_SIZE                   (11UL)
 #define ADPT_F111_SIZE                   (2UL)
-#define ADPT_F150_SIZE                   (4UL)
+#define ADPT_F150_SIZE                   (3UL)
 #define ADPT_F15A_SIZE                   (12UL)
 #define ADPT_F010_SIZE                   (4UL)
 #define ADPT_F18E_SIZE                   (11UL)

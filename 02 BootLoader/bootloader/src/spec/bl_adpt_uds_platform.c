@@ -53,6 +53,8 @@
 #include "bl_adpt_uds_platform_cfg.h"
 #include "bl_adapter_cfg.h"
 #include "bl_dflash.h"
+#include "bl_data_cfg.h"
+#include "bl_powerCheck.h"
 /*****************************************************************************
  *  QAC Suppression
  *****************************************************************************/
@@ -1320,7 +1322,7 @@ bl_ResponseCode_t Adpt_UdsCallbackEraseMemory(bl_BufferSize_t size,
                 Attempter_Counter[2] = MaxRepNumber >> 8;
                 Attempter_Counter[3] = (bl_u8_t)(MaxRepNumber & 0x000000FF);
                 Dm_WriteData(ADPT_F010_FLAGID, (bl_Size_t)ADPT_F010_SIZE, &Attempter_Counter[0]);
-            }           
+            }
         }
 
         ret = Adpt_EraseLB(&g_DownContext, address, eraseSize);
@@ -1392,7 +1394,7 @@ bl_ResponseCode_t Adpt_UdsCallbackCheckSum(bl_BufferSize_t size,
         gs_UdsPrivateData.serviceId = ADPT_UDS_31_SERVICE_ID;
         serviceid = gs_UdsPrivateData.serviceId;
         _Adpt_TimeOutCallBack(ADPT_UDS_31_SERVICE_ID);
-         
+
         ret = Adpt_VerifyData(&g_DownContext, (bl_Size_t)size, buffer); 
     
         if(BL_ERR_OK == ret)
@@ -1728,6 +1730,11 @@ bl_ResponseCode_t Adpt_UdsCallback36(bl_BufferSize_t size,
         {
             /*last service and data size is ok.*/
             Rte_SetDownStatus(&g_DownContext, ADPT_STATUS_END_OF_TRANS_DATA);
+        }
+        resCode = powercheckDrv();
+        if(DCM_E_POSITIVERESPONSE != resCode)
+        {
+            break;
         }
 
         /*send 0x78.*/

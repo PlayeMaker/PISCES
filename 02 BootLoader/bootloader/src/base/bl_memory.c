@@ -308,6 +308,10 @@ bl_Return_t Mem_Write(bl_u16_t id,
         if (MEM_IS_WRITABLE_MEMORY(id))
         {
             ret = MEM_WRITE(id,address,size,buffer);
+            // if(ret != BL_ERR_OK)
+            // {
+            //     ret = BL_ERR_NOT_OK;
+            // }
         }
         else
         {

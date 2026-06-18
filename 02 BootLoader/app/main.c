@@ -38,7 +38,7 @@
 #include "bl_security.h"
 #include "bl_rte_cfg.h"
 #include "bl_adpt_uds_platform.h"
-#include "bl_dflash.h"
+//#include "bl_dflash.h"
 #include "bl_flash_if.h"
 #include "bl_data_cfg.h"
 #include "bl_timer.h"
@@ -87,8 +87,8 @@ int main(void)
 
     Rte_PreInit();
 
-    Dflash_Init();
-    
+    DIDdata_Init();
+
     /*Initialize system*/
     flag = Bootm_CheckBootingRequirement();
     if (BOOTING_FLAG_APPLICATION_VALID == flag)

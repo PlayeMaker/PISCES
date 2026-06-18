@@ -62,6 +62,10 @@
 #define REP_FLAG_DATA                 (*(volatile bl_u32_t *)(0x0200FC00u))
 #define REP_CLERA_DATA                (0x00000000u)
 
+/* Driver's seat or Passenger seat */
+#define MCM_DATA_ADDR                 (0x0200FA18UL)
+#define MCM_DATA_SIZE                 (4UL)
+
 /*****************************************************************************
  *  Type Declarations
  *****************************************************************************/

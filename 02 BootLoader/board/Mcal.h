@@ -39,6 +39,10 @@ extern "C"{
 #include "Can_PBcfg.h"
 #include "Mcu.h"
 #include "Mcu_PBcfg.h"
+#include "Adc.h"
+#include "Adc_PBcfg.h"
+#include "Dio.h"
+
 
 #ifdef PORT_CONFIG_PB
 PORT_CONFIG_PB
@@ -48,6 +52,9 @@ CAN_CONFIG_PB
 #endif
 #ifdef MCU_CONFIG_PB
 MCU_CONFIG_PB
+#endif
+#ifdef ADC_CONFIG_PB
+ADC_CONFIG_PB
 #endif
 
 /*==================================================================================================

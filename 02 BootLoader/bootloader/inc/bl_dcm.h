@@ -156,6 +156,8 @@
 #define DCM_E_REQUESTCORRECTLYRECEIVED_RESPONSEPENDING  (0x78u)
 #define DCM_E_SUBFUNCTIONNOTSUPPORTEDINACTIVESESSION    (0x7Eu)
 #define DCM_E_SERVICENOTSUPPORTEDINACTIVESESSION        (0x7Fu)
+#define DCM_E_VOLTAGE_TOOL_HIGH                         (0x92u)
+#define DCM_E_VOLTAGE_TOOL_LOW                          (0x93u)
 
 /*****************************************************************************
  *  Type Declarations

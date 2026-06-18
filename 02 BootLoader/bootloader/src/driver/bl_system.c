@@ -28,9 +28,7 @@
 #include "bl_dflash.h"
 #include "bl_adpt_uds_platform_cfg.h"
 #include "bl_data.h"
-#include "bl_flash_if_funcfg.h"
 #include "bl_timer.h"
-#include "bl_typedefs.h"
 #include "bl_watchdog.h"
 #include "sdk_project_config.h"
 #include "cache_driver.h"
@@ -86,8 +84,26 @@
 
 #define WakeUpFlag               (*(volatile uint64_t*)(0x20407E00ul))
 
+#define HIGH_CONFIGURATION  // 高配版本
+// #define LOW_CONFIGURATION // 低配版本
 
 
+#define PISCES_MCM_D  // 主驾
+// #define PISCES_MCM_P // 副驾
+
+#if defined(HIGH_CONFIGURATION) && defined(PISCES_MCM_D)
+#define HARDWARE_VERSION         "P0441087 AA"
+#define BOOTLOADER_VERSION       "101"
+#elif defined(HIGH_CONFIGURATION) && defined(PISCES_MCM_P)
+#define HARDWARE_VERSION         "P0441094 AA"
+#define BOOTLOADER_VERSION       "102"
+#elif defined(LOW_CONFIGURATION) && defined(PISCES_MCM_D)
+#define HARDWARE_VERSION         "P0441079 AA"
+#define BOOTLOADER_VERSION       "101"
+#elif defined(LOW_CONFIGURATION) && defined(PISCES_MCM_P)
+#define HARDWARE_VERSION         "P0441079 AA"
+#define BOOTLOADER_VERSION       "102"
+#endif
 /*****************************************************************************
  *  Internal Type Definitions
  *****************************************************************************/
@@ -114,7 +130,7 @@ void Sys_InitClock(void)
 {
     for(bl_u32_t i = 0; i < 0x1000; i = i+4)
     {
-        *(bl_u32_t*)(FLASHIF_DRIVER_STARTADDRESS+i) = (bl_u32_t)0x5A5A5A5A;
+        *(bl_u32_t *)(FLASHIF_DRIVER_STARTADDRESS+i) = (bl_u32_t)0x5A5A5A5A;
     }
 
     Mcu_Init(&Mcu_Config);
@@ -207,13 +223,13 @@ void Sys_ProtectBootloader(void)
  *  \return None.
  *****************************************************************************/
 /*Map the data of DID_F111/F150/F18E to correct address*/
-const bl_u8_t DIDF110_HardWareNumber[11] __attribute__((section(".ARM.__at_""0xFFD0"))) = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
+const bl_u8_t DIDF110_HardWareNumber[11] = HARDWARE_VERSION;
 
-const bl_u8_t DIDF111_VehManuHardWareBaseline[2] __attribute__((section(".ARM.__at_""0xFFD0"))) = {0xFF, 0xFF};
+const bl_u8_t DIDF111_VehManuHardWareBaseline[2] = {0x20, 0x20};
 
-const bl_u8_t DIDF150_BT_SofteWareVersion[4] __attribute__((section(".ARM.__at_""0xFFD0"))) = {0xFF, 0xFF, 0xFF, 0xFF};
+const bl_u8_t DIDF150_BT_SofteWareVersion[3] = BOOTLOADER_VERSION;
 
-const bl_u8_t DIDF18E_VehManuKitAssemblyPartVer[11] __attribute__((section(".ARM.__at_""0xFFD0"))) = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
+const bl_u8_t DIDF18E_VehManuKitAssemblyPartVer[11] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
 
 void DIDdata_Init(void)
 {
@@ -244,7 +260,8 @@ void DIDdata_Init(void)
         Dm_WriteData(ADPT_F111_FLAGID, (bl_Size_t)ADPT_F111_SIZE, &DIDF111_VehManuHardWareBaseline[0]);
         dataFlag[ADPT_F111_FLAGID] = 1;
 
+
         Dflash_Write(0x0200F880,0x20,&dataFlag[0]);
-        
+
     }
 }

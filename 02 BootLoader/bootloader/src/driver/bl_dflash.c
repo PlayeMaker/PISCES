@@ -629,24 +629,24 @@ bl_Return_t Dflash_Write(bl_Address_t address, bl_Size_t size, const bl_Buffer_t
         tempSectorNum = (bl_u32_t)((address-dflash_store_start)/dflash_sector_size);
         tempstartAddr = dflash_store_start + tempSectorNum*dflash_sector_size;
 
-        if((BL_ERR_OK) != Dflash_Read(tempstartAddr,dflash_store_size,&dest1[tempstartAddr-dflash_store_start]))
+        if((BL_ERR_OK) != Dflash_Read(tempstartAddr,dflash_store_size,&dest1[0]))
         {
             return BL_ERR_NOT_OK;
         }
-        Bl_MemCpy(&dest1[dest-dflash_store_start],buffer,size);
+        Bl_MemCpy(&dest1[dest-tempstartAddr],buffer,size);
 
         if((BL_ERR_OK) == Dflash_Erase(tempstartAddr,dflash_sector_size))
         {
             for(i = 0; i < dflash_store_size/CLIB_FLASH_D_PAGE_LENGTH; i++)
             {
-                if((STATUS_SUCCESS) == (FLASH_DRV_Program(FLASH_INST,tempstartAddr+i*CLIB_FLASH_D_PAGE_LENGTH,CLIB_FLASH_D_PAGE_LENGTH,&dest1[(tempstartAddr-dflash_store_start)+i*CLIB_FLASH_D_PAGE_LENGTH])))
+                if((STATUS_SUCCESS) == (FLASH_DRV_Program(FLASH_INST,tempstartAddr+i*CLIB_FLASH_D_PAGE_LENGTH,CLIB_FLASH_D_PAGE_LENGTH,&dest1[i*CLIB_FLASH_D_PAGE_LENGTH])))
                 {
                     ret = BL_ERR_OK;
                 }
             }
             if(dflash_store_size % CLIB_FLASH_D_PAGE_LENGTH != 0)
             {
-                if((STATUS_SUCCESS) == (FLASH_DRV_Program(FLASH_INST,tempstartAddr+i*CLIB_FLASH_D_PAGE_LENGTH,CLIB_FLASH_D_PAGE_LENGTH,&dest1[(tempstartAddr-dflash_store_start)+i*CLIB_FLASH_D_PAGE_LENGTH])))
+                if((STATUS_SUCCESS) == (FLASH_DRV_Program(FLASH_INST,tempstartAddr+i*CLIB_FLASH_D_PAGE_LENGTH,CLIB_FLASH_D_PAGE_LENGTH,&dest1[i*CLIB_FLASH_D_PAGE_LENGTH])))
                 {
                     ret = BL_ERR_OK;
                 }

@@ -183,8 +183,7 @@ void Bootm_GotoApplication(void)
 bl_Return_t Bootm_ReprogramFlagChecker(bl_BootingFlag_t *flag)
 {
     bl_Return_t ret = BL_ERR_OK;
-    bl_Buffer_t data_MCMD[4] = {0xA5,0xA5,0xA5,0xA5};
-    bl_Buffer_t data_MCMP[4] = {0xB5,0xB5,0xB5,0xB5};
+    bl_Buffer_t ReprogramFlag[4] = {0xA5,0xA5,0xA5,0xA5};
     bl_Buffer_t dest[4];
     bl_Buffer_t tempData[4] = {0x00};
     bl_Size_t i;
@@ -192,18 +191,15 @@ bl_Return_t Bootm_ReprogramFlagChecker(bl_BootingFlag_t *flag)
     Bl_MemCpy(&dest[0],(const bl_Buffer_t *)REP_FLAG_ADDRESS,REP_FLAG_SIZE);
     for(i = 0; i < REP_FLAG_SIZE ; i++)
     {
-        if((dest[i] == data_MCMD[i]) || (dest[i] == data_MCMP[i]))
+        if(dest[i] != ReprogramFlag[i])
         {
-        	;
-        }
-        else
-        {
-            ret = BL_ERR_NOT_OK;
+        	ret = BL_ERR_NOT_OK;
             break;
         }
     }
     if (BL_ERR_OK == ret)
     {
+        //REP_FLAG_DATA = REP_CLERA_DATA;
         Dflash_Write(REP_FLAG_ADDRESS, REP_FLAG_SIZE, tempData);
 
         *flag = (bl_BootingFlag_t)BOOTING_FLAG_REPROGRAM_VALID;

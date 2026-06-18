@@ -23,13 +23,13 @@
 /* MEMORY MAP */
 MEMORY
 {
-    IVT   (RX) : ORIGIN = 0x0, LENGTH = 0x400
-    TEXT   (RX) : ORIGIN = 0x400, LENGTH = 0x20000
+    IVT   (RX) : ORIGIN = 0x4000, LENGTH = 0x400
+    TEXT   (RX) : ORIGIN = 0x4400, LENGTH = 0x13bff
     FEE   (RX) : ORIGIN = 0x2000000, LENGTH = 0x10000
     IVT_RAM   (RW) : ORIGIN = 0x1fff0000, LENGTH = 0x400
-    STACK   (RW) : ORIGIN = 0x1fffe400, LENGTH = 0xc00
-    RAM   (RW) : ORIGIN = 0x1fff0400, LENGTH = 0xe000
-    FLASHRAM (RW) : ORIGIN = 0x1fffF000, LENGTH = 0x200
+    STACK   (RW) : ORIGIN = 0x1fffd400, LENGTH = 0x1c00
+    RAM   (RW) : ORIGIN = 0x1fff0400, LENGTH = 0xd000
+    FLASHRAM (RW) : ORIGIN = 0x1ffff000, LENGTH = 0x200
     FLASHRAM_CODE (RW) : ORIGIN = 0x1ffff200, LENGTH = 0x800
 }
 /* SECTIONS */
@@ -108,6 +108,18 @@ SECTIONS
    
     DATA_RAM_rom_end = DATA_RAM_rom_start + DATA_RAM_ram_end - DATA_RAM_ram_start;
 
+    
+    .TEST_DATA : {
+        
+        TTEST_DATA_start = .;
+        TEST_DATA_region_start = .;
+        *(.TEST_DATA)
+        *(.TEST_DATA*)
+        TEST_DATA_region_end = .;
+        
+        TEST_DATA_end = .;
+    } > TEXT_FLASH_DATA
+
     FLASHDATA_RAM_rom_start_not_align = .;
     FLASHDATA_RAM_rom_start = FLASHDATA_RAM_rom_start_not_align + (4 - FLASHDATA_RAM_rom_start_not_align % 4);
    
@@ -135,7 +147,7 @@ SECTIONS
     .STACK  : {
         
         STACK_start = .;
-        . += 1024;
+        . += 6144;
         STACK_end = .;
     } > STACK
    
@@ -238,8 +250,8 @@ SECTIONS
     IVT_memory_end = ORIGIN(IVT) + LENGTH(IVT);
     IVT_memory_size = LENGTH(IVT);
     TEXT_memory_start = ORIGIN(TEXT);
-    TEXT_memory_end = ORIGIN(TEXT) + LENGTH(TEXT);
-    TEXT_memory_size = LENGTH(TEXT);
+    TEXT_memory_end = ORIGIN(TEXT) + LENGTH(TEXT) + LENGTH(TEXT_FLASH_DATA) ;
+    TEXT_memory_size = LENGTH(TEXT) + LENGTH(TEXT_FLASH_DATA) ;
     FEE_memory_start = ORIGIN(FEE);
     FEE_memory_end = ORIGIN(FEE) + LENGTH(FEE);
     FEE_memory_size = LENGTH(FEE);
