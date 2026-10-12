@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-2-2.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="2d66934e-9746-4adb-9d67-c413d2f8ef5e">
+      <SHORT-NAME>BSW</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="f10c54b0-dbc7-40a2-90fa-851dfa008c06">
+          <SHORT-NAME>BaseTypes</SHORT-NAME>
+          <ELEMENTS>
+            <SW-BASE-TYPE UUID="9ea754f0-3b1a-40a4-9edf-376fea8428f5">
+              <SHORT-NAME>boolean</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>BOOLEAN</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>unsigned char</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="c4b103f5-5701-45fc-b4ba-ba471adf884d">
+              <SHORT-NAME>float32</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>float</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="92338068-a091-4e84-b49c-e24b405b7d13">
+              <SHORT-NAME>float64</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>64</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>double</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="8ba43f76-d187-44a3-bd3b-0d23af2e3fea">
+              <SHORT-NAME>sint16</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>16</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>signed short</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="1b7f7a7a-76ca-49c7-abd6-b9a18b9ac159">
+              <SHORT-NAME>sint32</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>signed int</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="4a8cd0b0-b925-433e-b7ff-a399e7ee4d2f">
+              <SHORT-NAME>sint64</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>64</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>signed long</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="2a29fa73-9cf2-48c8-8ea9-6dcdfe6b9533">
+              <SHORT-NAME>sint8</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>signed char</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="58450a9a-a553-4bb0-ba20-e2406d33b0a1">
+              <SHORT-NAME>uint16</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>16</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>unsigned short</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="bf9920f2-a873-4c9d-bc98-9eefb02b22e8">
+              <SHORT-NAME>uint32</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>unsigned int</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="4f61eede-3a4c-4b25-b554-a836019290c8">
+              <SHORT-NAME>uint64</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>64</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>unsigned long</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="5c9b76fc-5d13-4291-94b7-a9beebc2a0eb">
+              <SHORT-NAME>uint8</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>unsigned char</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="46e8f561-0a3f-440b-8edc-f79b14c14418">
+              <SHORT-NAME>void</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>VOID</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>void</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE UUID="bf7fed40-b7b2-4db5-8dcb-3ab7c6998067">
+          <SHORT-NAME>CompuMethods</SHORT-NAME>
+          <ELEMENTS>
+            <COMPU-METHOD UUID="b2700088-37cb-4d41-a649-875663fae773">
+              <SHORT-NAME>NvM_BlockRequestType</SHORT-NAME>
+              <CATEGORY>TEXTTABLE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <COMPU-INTERNAL-TO-PHYS>
+                <COMPU-SCALES>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT>0x00</LOWER-LIMIT>
+                    <UPPER-LIMIT>0x00</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>NVM_READ_BLOCK</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT>0x01</LOWER-LIMIT>
+                    <UPPER-LIMIT>0x01</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>NVM_WRITE_BLOCK</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT>0x02</LOWER-LIMIT>
+                    <UPPER-LIMIT>0x02</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>NVM_RESTORE_BLOCK_DEFAULTS</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT>0x03</LOWER-LIMIT>
+                    <UPPER-LIMIT>0x03</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>NVM_ERASE_NV_BLOCK</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT>0x04</LOWER-LIMIT>
+                    <UPPER-LIMIT>0x04</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>NVM_INVALIDATE_NV_BLOCK</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT>0x05</LOWER-LIMIT>
+                    <UPPER-LIMIT>0x05</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>NVM_READ_ALL_BLOCK</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT>0x06</LOWER-LIMIT>
+                    <UPPER-LIMIT>0x06</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>NVM_WRITE_ALL_BLOCK</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                </COMPU-SCALES>
+              </COMPU-INTERNAL-TO-PHYS>
+            </COMPU-METHOD>
+            <COMPU-METHOD UUID="2c508f83-fe15-4fd4-9371-12f601589797">
+              <SHORT-NAME>NvM_InitBlockRequestType</SHORT-NAME>
+              <CATEGORY>TEXTTABLE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <COMPU-INTERNAL-TO-PHYS>
+                <COMPU-SCALES>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT>0x00</LOWER-LIMIT>
+                    <UPPER-LIMIT>0x00</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>NVM_INIT_READ_BLOCK</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT>0x01</LOWER-LIMIT>
+                    <UPPER-LIMIT>0x01</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>NVM_INIT_RESTORE_BLOCK_DEFAULTS</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT>0x02</LOWER-LIMIT>
+                    <UPPER-LIMIT>0x02</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>NVM_INIT_READ_ALL_BLOCK</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT>0x03</LOWER-LIMIT>
+                    <UPPER-LIMIT>0x03</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>NVM_INIT_FIRST_INIT_ALL</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                </COMPU-SCALES>
+              </COMPU-INTERNAL-TO-PHYS>
+            </COMPU-METHOD>
+            <COMPU-METHOD UUID="d8340d80-99db-4538-b26f-c918b08b3316">
+              <SHORT-NAME>NvM_RequestResultType</SHORT-NAME>
+              <CATEGORY>TEXTTABLE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <COMPU-INTERNAL-TO-PHYS>
+                <COMPU-SCALES>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT>0x00</LOWER-LIMIT>
+                    <UPPER-LIMIT>0x00</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>NVM_REQ_OK</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT>0x01</LOWER-LIMIT>
+                    <UPPER-LIMIT>0x01</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>NVM_REQ_NOT_OK</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT>0x02</LOWER-LIMIT>
+                    <UPPER-LIMIT>0x02</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>NVM_REQ_PENDING</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT>0x03</LOWER-LIMIT>
+                    <UPPER-LIMIT>0x03</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>NVM_REQ_INTEGRITY_FAILED</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT>0x04</LOWER-LIMIT>
+                    <UPPER-LIMIT>0x04</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>NVM_REQ_BLOCK_SKIPPED</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT>0x05</LOWER-LIMIT>
+                    <UPPER-LIMIT>0x05</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>NVM_REQ_NV_INVALIDATED</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT>0x06</LOWER-LIMIT>
+                    <UPPER-LIMIT>0x06</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>NVM_REQ_CANCELED</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT>0x08</LOWER-LIMIT>
+                    <UPPER-LIMIT>0x08</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>NVM_REQ_RESTORED_DEFAULTS</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                </COMPU-SCALES>
+              </COMPU-INTERNAL-TO-PHYS>
+            </COMPU-METHOD>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE UUID="01b93dac-a238-4f97-a7c8-89895c8016d3">
+          <SHORT-NAME>ImplementationDataTypes</SHORT-NAME>
+          <ELEMENTS>
+            <IMPLEMENTATION-DATA-TYPE UUID="1acd49f3-6c96-4244-b9c6-4c4974013ddd">
+              <SHORT-NAME>ConstVoidPtr</SHORT-NAME>
+              <CATEGORY>DATA_REFERENCE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <SW-POINTER-TARGET-PROPS>
+                      <TARGET-CATEGORY>VALUE</TARGET-CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <BASE-TYPE-REF DEST="SW-BASE-TYPE">/BSW/BaseTypes/void</BASE-TYPE-REF>
+                            <SW-IMPL-POLICY>CONST</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                    </SW-POINTER-TARGET-PROPS>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="6919974f-7f8e-4145-9a8b-423a1fc23301">
+              <SHORT-NAME>NvM_BlockIdType</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/BSW/BaseTypes/uint16</BASE-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="3b1bc27b-c4a5-49ac-8d82-8c53a180cf14">
+              <SHORT-NAME>NvM_BlockRequestType</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <COMPU-METHOD-REF DEST="COMPU-METHOD">/BSW/CompuMethods/NvM_BlockRequestType</COMPU-METHOD-REF>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="16464fd3-432e-48ce-ab0b-d74738823703">
+              <SHORT-NAME>NvM_InitBlockRequestType</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <COMPU-METHOD-REF DEST="COMPU-METHOD">/BSW/CompuMethods/NvM_InitBlockRequestType</COMPU-METHOD-REF>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="c27e2807-0833-4fa6-a2d2-98368b94156f">
+              <SHORT-NAME>NvM_RequestResultType</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <COMPU-METHOD-REF DEST="COMPU-METHOD">/BSW/CompuMethods/NvM_RequestResultType</COMPU-METHOD-REF>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/BSW/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="aecf55ef-b3e8-45fa-8f91-ac213699c6ed">
+              <SHORT-NAME>VoidPtr</SHORT-NAME>
+              <CATEGORY>DATA_REFERENCE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <SW-POINTER-TARGET-PROPS>
+                      <TARGET-CATEGORY>VALUE</TARGET-CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <BASE-TYPE-REF DEST="SW-BASE-TYPE">/BSW/BaseTypes/void</BASE-TYPE-REF>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                    </SW-POINTER-TARGET-PROPS>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="d0555302-19b8-435d-ab85-6c26d90adcb9">
+              <SHORT-NAME>uint8</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/BSW/BaseTypes/uint8</BASE-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="aa916f74-74e8-4b24-910f-1b017f4e4bc4">
+              <SHORT-NAME>void</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">NvM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/BSW/BaseTypes/void</BASE-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE UUID="4ca48d05-c3b1-4610-994a-407c34769a9e">
+          <SHORT-NAME>PortInterfaces</SHORT-NAME>
+          <ELEMENTS>
+            <CLIENT-SERVER-INTERFACE UUID="f990e7a9-feee-4998-b3f1-c9b53c7d0e9c">
+              <SHORT-NAME>NvM_ReadAll</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">True</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SERVICE-KIND>NON-VOLATILE-RAM-MANAGER</SERVICE-KIND>
+              <OPERATIONS>
+                <CLIENT-SERVER-OPERATION UUID="4bcd2b63-2b04-4263-9ce2-acdc1f69f8bf">
+                  <SHORT-NAME>ReadAll</SHORT-NAME>
+                  <POSSIBLE-ERROR-REFS>
+                    <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/NvM_ReadAll/E_NOT_OK</POSSIBLE-ERROR-REF>
+                    <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/NvM_ReadAll/E_OK</POSSIBLE-ERROR-REF>
+                  </POSSIBLE-ERROR-REFS>
+                </CLIENT-SERVER-OPERATION>
+              </OPERATIONS>
+              <POSSIBLE-ERRORS>
+                <APPLICATION-ERROR UUID="38f269a8-d2e2-44fc-9435-322aef8f1921">
+                  <SHORT-NAME>E_NOT_OK</SHORT-NAME>
+                  <ERROR-CODE>1</ERROR-CODE>
+                </APPLICATION-ERROR>
+                <APPLICATION-ERROR UUID="21b2fafb-4645-4ef2-97d4-917ee8c594d6">
+                  <SHORT-NAME>E_OK</SHORT-NAME>
+                  <ERROR-CODE>0</ERROR-CODE>
+                </APPLICATION-ERROR>
+              </POSSIBLE-ERRORS>
+            </CLIENT-SERVER-INTERFACE>
+            <CLIENT-SERVER-INTERFACE UUID="3b94fb4a-d34e-46bd-9361-aeb38f4406d6">
+              <SHORT-NAME>NvM_WriteAll</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">True</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SERVICE-KIND>NON-VOLATILE-RAM-MANAGER</SERVICE-KIND>
+              <OPERATIONS>
+                <CLIENT-SERVER-OPERATION UUID="8bb5b763-ccd5-4374-8998-928ffaa57077">
+                  <SHORT-NAME>WriteAll</SHORT-NAME>
+                  <POSSIBLE-ERROR-REFS>
+                    <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/NvM_WriteAll/E_NOT_OK</POSSIBLE-ERROR-REF>
+                    <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/BSW/PortInterfaces/NvM_WriteAll/E_OK</POSSIBLE-ERROR-REF>
+                  </POSSIBLE-ERROR-REFS>
+                </CLIENT-SERVER-OPERATION>
+              </OPERATIONS>
+              <POSSIBLE-ERRORS>
+                <APPLICATION-ERROR UUID="be9d0724-5137-4db5-899c-5b603504c9a8">
+                  <SHORT-NAME>E_NOT_OK</SHORT-NAME>
+                  <ERROR-CODE>1</ERROR-CODE>
+                </APPLICATION-ERROR>
+                <APPLICATION-ERROR UUID="694a91e7-8b6f-4f81-a1a8-8e292340557d">
+                  <SHORT-NAME>E_OK</SHORT-NAME>
+                  <ERROR-CODE>0</ERROR-CODE>
+                </APPLICATION-ERROR>
+              </POSSIBLE-ERRORS>
+            </CLIENT-SERVER-INTERFACE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE UUID="578531ef-aa09-467b-bc2c-793e621a5bce">
+          <SHORT-NAME>SWCs</SHORT-NAME>
+          <ELEMENTS>
+            <COMPOSITION-SW-COMPONENT-TYPE UUID="28703fbc-04ea-4c9f-ab76-1a30c8f58d52">
+              <SHORT-NAME>TopComposition</SHORT-NAME>
+              <PORTS>
+                <R-PORT-PROTOTYPE UUID="67552c93-ba92-4f53-8d4c-2a12d942ae47">
+                  <SHORT-NAME>ReadAll</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="BSW">
+                        <SD GID="isBSW">True</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/NvM_ReadAll</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="5f04a121-b5d3-490b-880d-cf5b77b8fb0a">
+                  <SHORT-NAME>WriteAll</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="BSW">
+                        <SD GID="isBSW">True</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/BSW/PortInterfaces/NvM_WriteAll</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+              </PORTS>
+            </COMPOSITION-SW-COMPONENT-TYPE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

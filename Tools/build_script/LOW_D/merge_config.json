@@ -1,0 +1,10 @@
+{
+    "ProjectName": "PISCES",
+    "Config": "LOW_D",
+    "AppVersion": "1.63",
+    "BootVersion": "1.40",
+    "ChipName": "YTM32B1MD24",
+    "AppSoftVersion": "P0440954 AF",
+    "BootSoftVersion": "P0440954 AF",
+    "FlashDriverSoftVersion": "P0440954 AF"
+}

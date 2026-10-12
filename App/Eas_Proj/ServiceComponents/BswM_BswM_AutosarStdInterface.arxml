@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-2-2.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="4170ab48-eb72-47d9-b375-636067047f95">
+      <SHORT-NAME>BSW</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="e7bc7ebb-3642-4c3e-a18f-27528e62cde5">
+          <SHORT-NAME>BaseTypes</SHORT-NAME>
+          <ELEMENTS>
+            <SW-BASE-TYPE UUID="947290d5-d02e-4870-b325-5d4b684acc17">
+              <SHORT-NAME>boolean</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">BswM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>BOOLEAN</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>unsigned char</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="6be54b96-5a8b-4688-bc71-4e310e356298">
+              <SHORT-NAME>float32</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">BswM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>float</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="d0d45bc5-94bc-4d66-b191-898b461da2ed">
+              <SHORT-NAME>float64</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">BswM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>64</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>double</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="a3720862-b285-46a8-8720-05ceaff0eb3e">
+              <SHORT-NAME>sint16</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">BswM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>16</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>signed short</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="8efe531b-e47c-4e4a-b95e-abe95469126a">
+              <SHORT-NAME>sint32</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">BswM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>signed int</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="0bc5cead-8656-4966-a02a-b8898592153e">
+              <SHORT-NAME>sint64</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">BswM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>64</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>signed long</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="d8cbbbef-5e13-4341-bbd4-673e8b07bc4c">
+              <SHORT-NAME>sint8</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">BswM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>signed char</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="4eee811a-87c5-40bb-8830-2e79cb148128">
+              <SHORT-NAME>uint16</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">BswM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>16</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>unsigned short</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="d9bb29f1-73d3-4e15-8d9c-fbfefa4fbaf3">
+              <SHORT-NAME>uint32</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">BswM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>unsigned int</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="2d711764-a0e2-495f-a99d-5f28057a5e54">
+              <SHORT-NAME>uint64</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">BswM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>64</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>unsigned long</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="0fa4b1a1-2a51-40a3-a858-9025acddcdad">
+              <SHORT-NAME>uint8</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">BswM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>unsigned char</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="418096bc-5f1a-44aa-9504-f688efd8ceea">
+              <SHORT-NAME>void</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">BswM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>VOID</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>void</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE UUID="a3a8616d-d122-4526-8794-1320cc3fcba1">
+          <SHORT-NAME>ImplementationDataTypes</SHORT-NAME>
+          <ELEMENTS>
+            <IMPLEMENTATION-DATA-TYPE UUID="5dfe59fa-1f9a-46a4-b896-93cc8d3668c1">
+              <SHORT-NAME>uint8</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="BSW">
+                    <SD GID="isBSW">BswM</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/BSW/BaseTypes/uint8</BASE-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE UUID="5bb251e3-80ea-4803-870a-f1261df3ae7e">
+          <SHORT-NAME>SWCs</SHORT-NAME>
+          <ELEMENTS>
+            <COMPOSITION-SW-COMPONENT-TYPE UUID="67a801bd-76b3-4c2b-92ca-d6c5bd4d7b89">
+              <SHORT-NAME>TopComposition</SHORT-NAME>
+            </COMPOSITION-SW-COMPONENT-TYPE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

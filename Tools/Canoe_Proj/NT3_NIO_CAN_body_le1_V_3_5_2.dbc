@@ -1,0 +1,1839 @@
+VERSION "v00.03.00_00"
+
+
+NS_ :
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER_
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: MCM_D MCM_P ZONE_LE
+
+        
+BO_ 438 MCM_D_1B6: 8 MCM_D
+ SG_ DrvKneadingMassgSkillsSts5 : 3|4@0+ (1,0) [0|15] "" ZONE_LE
+ SG_ DrvKneadingMassgSkillsSts6 : 7|4@0+ (1,0) [0|15] "" ZONE_LE
+ SG_ DrvKneadingMassgSkillsSts7 : 19|4@0+ (1,0) [0|15] "" ZONE_LE
+ SG_ DrvKneadingMassgSkillsSts8 : 23|4@0+ (1,0) [0|15] "" ZONE_LE
+ SG_ DrvKneadingMassgTime5 : 47|8@0+ (0.1,0) [0|25.5] "" ZONE_LE
+ SG_ DrvKneadingMassgTime6 : 55|8@0+ (0.1,0) [0|25.5] "" ZONE_LE
+ SG_ DrvKneadingMassgTime7 : 63|8@0+ (0.1,0) [0|25.5] "" ZONE_LE
+ SG_ DrvKneadingMassgTime8 : 31|8@0+ (0.1,0) [0|25.5] "" ZONE_LE
+ SG_ DrvKneadingMassglvlSts5 : 9|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvKneadingMassglvlSts6 : 11|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvKneadingMassglvlSts7 : 13|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvKneadingMassglvlSts8 : 15|2@0+ (1,0) [0|3] "" ZONE_LE
+        
+BO_ 479 MCM_D_1DF: 8 MCM_D
+ SG_ DrvMassSwitchSts : 1|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvSeatBlosterValueSts : 13|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvSeatBolsterValueBLPos : 47|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DrvSeatBolsterValueBRPos : 55|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DrvSeatCushionValue6Pos : 63|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DrvSeatCushionValueSts : 11|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvSeatLumbarBottomPos : 39|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DrvSeatLumbarMidPos : 31|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DrvSeatLumbarTopPos : 23|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DrvSeatLumbarValueSts : 5|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvSeatUpperValueSts : 9|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvSeatmassgHeatCSts : 3|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvSeatmassgValveSts : 7|2@0+ (1,0) [0|3] "" ZONE_LE
+        
+BO_ 480 MCM_D_1E0: 8 MCM_D
+ SG_ DrvPumpSts : 63|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DrvSeatCushionValue1Pos : 31|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DrvSeatCushionValue2Pos : 23|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DrvSeatCushionValue4Pos : 15|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DrvSeatCushionValue5Pos : 7|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DrvSeatUpperValueLPos : 39|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DrvSeatUpperValueMPos : 47|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DrvSeatUpperValueRPos : 55|8@0+ (1,0) [0|255] "" ZONE_LE
+        
+BO_ 481 MCM_D_1E1: 8 MCM_D
+ SG_ DrvHeat1Sts : 39|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvHeat2Sts : 41|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvHeat3Sts : 43|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvHeat4Sts : 45|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvHeat5ErrSts : 53|4@0+ (1,0) [0|15] "" ZONE_LE
+ SG_ DrvHeat5Sts : 47|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvHeat6Sts : 49|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvKneadingMassgSkillsSts9 : 11|4@0+ (1,0) [0|15] "" ZONE_LE
+ SG_ DrvKneadingMassgTime9 : 63|8@0+ (0.1,0) [0|25.5] "" ZONE_LE
+ SG_ DrvKneadingMassglvlSts9 : 55|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvLumControlSts : 18|3@0+ (1,0) [0|7] "" ZONE_LE
+ SG_ DrvLumSwitchSts : 21|3@0+ (1,0) [0|7] "" ZONE_LE
+ SG_ DrvLumbarBottomWorkSts : 37|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvLumbarMidWorkSts : 35|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvLumbarTopWorkSts : 33|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvSeatCushionValue3Pos : 31|8@0+ (1,0) [0|100] "" ZONE_LE
+ SG_ DrvSeatMassFailr : 23|1@0+ (1,0) [0|1] "" ZONE_LE
+ SG_ DrvSystemFailr : 22|1@0+ (1,0) [0|1] "" ZONE_LE
+        
+BO_ 488 MCM_D_1E8: 8 MCM_D
+ SG_ DrvKneadingMassgSkillsSts10 : 11|4@0+ (1,0) [0|15] "" ZONE_LE
+ SG_ DrvKneadingMassgTime10 : 7|8@0+ (0.1,0) [0|25.5] "" ZONE_LE
+ SG_ DrvKneadingMassglvlSts10 : 13|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ DrvMassageHeatNTC1 : 23|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ DrvMassageHeatNTC2 : 31|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ DrvMassageHeatNTC3 : 39|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ DrvMassageHeatNTC4 : 47|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ DrvMassageHeatNTC5 : 55|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ DrvMassageHeatNTC6 : 63|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+        
+BO_ 492 MCM_D_1EC: 8 MCM_D
+ SG_ DrvMassageHeatNTC10 : 47|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ DrvMassageHeatNTC11 : 55|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ DrvMassageHeatNTC12 : 63|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ DrvMassageHeatNTC7 : 23|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ DrvMassageHeatNTC8 : 31|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ DrvMassageHeatNTC9 : 39|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+        
+BO_ 1699 DIAG_RESP_MCM_D: 8 MCM_D
+ SG_ DiagRespData0_MCM_D : 7|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DiagRespData1_MCM_D : 15|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DiagRespData2_MCM_D : 23|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DiagRespData3_MCM_D : 31|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DiagRespData4_MCM_D : 39|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DiagRespData5_MCM_D : 47|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DiagRespData6_MCM_D : 55|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DiagRespData7_MCM_D : 63|8@0+ (1,0) [0|255] "" ZONE_LE
+        
+BO_ 439 MCM_P_1B7: 8 MCM_P
+ SG_ PassKneadingMassgLvlSts5 : 5|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassKneadingMassgLvlSts6 : 7|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassKneadingMassgLvlSts7 : 45|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassKneadingMassgLvlSts8 : 47|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassKneadingMassgSkillsSts5 : 3|4@0+ (1,0) [0|15] "" ZONE_LE
+ SG_ PassKneadingMassgSkillsSts6 : 19|4@0+ (1,0) [0|15] "" ZONE_LE
+ SG_ PassKneadingMassgSkillsSts7 : 23|4@0+ (1,0) [0|15] "" ZONE_LE
+ SG_ PassKneadingMassgSkillsSts8 : 43|4@0+ (1,0) [0|15] "" ZONE_LE
+ SG_ PassKneadingMassgTime5 : 15|8@0+ (0.1,0) [0|25.5] "" ZONE_LE
+ SG_ PassKneadingMassgTime6 : 31|8@0+ (0.1,0) [0|25.5] "" ZONE_LE
+ SG_ PassKneadingMassgTime7 : 39|8@0+ (0.1,0) [0|25.5] "" ZONE_LE
+ SG_ PassKneadingMassgTime8 : 55|8@0+ (0.1,0) [0|25.5] "" ZONE_LE
+        
+BO_ 482 MCM_P_1E2: 8 MCM_P
+ SG_ PassMassSwitchSts : 15|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassSeatBlosterValueSts : 13|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassSeatBolsterValueBLPos : 47|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ PassSeatBolsterValueBRPos : 55|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ PassSeatCushionValue6Pos : 63|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ PassSeatCushionValueSts : 11|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassSeatLumbarBottomPos : 39|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ PassSeatLumbarMidPos : 31|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ PassSeatLumbarTopPos : 23|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ PassSeatLumbarValueSts : 5|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassSeatUpperValueSts : 7|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassSeatmassgHeatCSts : 3|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassSeatmassgValveSts : 1|2@0+ (1,0) [0|3] "" ZONE_LE
+        
+BO_ 483 MCM_P_1E3: 8 MCM_P
+ SG_ PassPumpSts : 63|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ PassSeatCushionValue1Pos : 31|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ PassSeatCushionValue2Pos : 23|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ PassSeatCushionValue4Pos : 15|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ PassSeatCushionValue5Pos : 7|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ PassSeatUpperValueLPos : 39|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ PassSeatUpperValueMPos : 47|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ PassSeatUpperValueRPos : 55|8@0+ (1,0) [0|255] "" ZONE_LE
+        
+BO_ 484 MCM_P_1E4: 8 MCM_P
+ SG_ PassHeat1Sts : 39|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassHeat2Sts : 41|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassHeat3Sts : 43|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassHeat4Sts : 45|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassHeat5ErrSts : 53|4@0+ (1,0) [0|15] "" ZONE_LE
+ SG_ PassHeat5Sts : 47|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassHeat6Sts : 49|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassKneadingMassgLvlSts9 : 55|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassKneadingMassgSkillsSts9 : 11|4@0+ (1,0) [0|15] "" ZONE_LE
+ SG_ PassKneadingMassgTime9 : 63|8@0+ (0.1,0) [0|25.5] "" ZONE_LE
+ SG_ PassLumControlSts : 18|3@0+ (1,0) [0|7] "" ZONE_LE
+ SG_ PassLumSwitchSts : 21|3@0+ (1,0) [0|7] "" ZONE_LE
+ SG_ PassLumbarBottomWorkSts : 37|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassLumbarMidWorkSts : 35|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassLumbarTopWorkSts : 33|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassSeatCushionValue3Pos : 31|8@0+ (1,0) [0|100] "" ZONE_LE
+ SG_ PassSeatMassFailr : 23|1@0+ (1,0) [0|1] "" ZONE_LE
+ SG_ PassSystemFailr : 22|1@0+ (1,0) [0|1] "" ZONE_LE
+        
+BO_ 491 MCM_P_1EB: 8 MCM_P
+ SG_ PassKneadingMassgLvlSts10 : 13|2@0+ (1,0) [0|3] "" ZONE_LE
+ SG_ PassKneadingMassgSkillsSts10 : 11|4@0+ (1,0) [0|15] "" ZONE_LE
+ SG_ PassKneadingMassgTime10 : 7|8@0+ (0.1,0) [0|25.5] "" ZONE_LE
+ SG_ PassMassageHeatNTC1 : 23|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ PassMassageHeatNTC2 : 31|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ PassMassageHeatNTC3 : 39|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ PassMassageHeatNTC4 : 47|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ PassMassageHeatNTC5 : 55|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ PassMassageHeatNTC6 : 63|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+        
+BO_ 493 MCM_P_1ED: 8 MCM_P
+ SG_ PassMassageHeatNTC10 : 47|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ PassMassageHeatNTC11 : 55|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ PassMassageHeatNTC12 : 63|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ PassMassageHeatNTC7 : 23|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ PassMassageHeatNTC8 : 31|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+ SG_ PassMassageHeatNTC9 : 39|8@0+ (0.5,-40) [-40|87.5] "degC" ZONE_LE
+        
+BO_ 1700 DIAG_RESP_MCM_P: 8 MCM_P
+ SG_ DiagRespData0_MCM_P : 7|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DiagRespData1_MCM_P : 15|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DiagRespData2_MCM_P : 23|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DiagRespData3_MCM_P : 31|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DiagRespData4_MCM_P : 39|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DiagRespData5_MCM_P : 47|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DiagRespData6_MCM_P : 55|8@0+ (1,0) [0|255] "" ZONE_LE
+ SG_ DiagRespData7_MCM_P : 63|8@0+ (1,0) [0|255] "" ZONE_LE
+        
+BO_ 286 BCU_11E: 8 ZONE_LE
+ SG_ BCU_11E_CRC : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ BCU_11E_MsgCntr : 11|4@0+ (1,0) [0|14] "" Vector__XXX
+ SG_ VehSpdSts_Rdnt1 : 29|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ VehSpd_Rdnt1 : 28|13@0+ (0.05625,0) [0|360] "km/h" MCM_D,MCM_P
+        
+BO_ 316 ZONE_13C: 8 ZONE_LE
+ SG_ DrvState : 18|3@0+ (1,0) [0|7] "" MCM_D,MCM_P
+ SG_ DrvState_SrvSts : 13|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ OperatorState : 21|3@0+ (1,0) [0|7] "" MCM_D,MCM_P
+ SG_ OperatorState_SrvSts : 12|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ VehModeDef : 31|4@0+ (1,0) [0|15] "" MCM_D,MCM_P
+ SG_ VehStateDetailed : 27|4@0+ (1,0) [0|15] "" MCM_D,MCM_P
+ SG_ VehStateDetailed_SrvSts : 14|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ ZONE_13C_CRC : 7|8@0+ (1,0) [0|255] "" MCM_D,MCM_P
+ SG_ ZONE_13C_MsgCntr : 11|4@0+ (1,0) [0|14] "" MCM_D,MCM_P
+        
+BO_ 436 ZONE_MCM_05: 8 ZONE_LE
+ SG_ DrvKneadingMassgLvlCmd10 : 51|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvKneadingMassgLvlCmd5 : 9|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvKneadingMassgLvlCmd6 : 11|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvKneadingMassgLvlCmd7 : 13|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvKneadingMassgLvlCmd8 : 15|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvKneadingMassgLvlCmd9 : 49|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvKneadingMassgSkillsCmd10 : 59|4@0+ (1,0) [0|15] "" MCM_D
+ SG_ DrvKneadingMassgSkillsCmd5 : 3|4@0+ (1,0) [0|15] "" MCM_D
+ SG_ DrvKneadingMassgSkillsCmd6 : 19|4@0+ (1,0) [0|15] "" MCM_D
+ SG_ DrvKneadingMassgSkillsCmd7 : 27|4@0+ (1,0) [0|15] "" MCM_D
+ SG_ DrvKneadingMassgSkillsCmd8 : 35|4@0+ (1,0) [0|15] "" MCM_D
+ SG_ DrvKneadingMassgSkillsCmd9 : 43|4@0+ (1,0) [0|15] "" MCM_D
+ SG_ DrvKneadingMassgTimesCmd10 : 55|4@0+ (1,0) [0|15] "" MCM_D
+ SG_ DrvKneadingMassgTimesCmd5 : 7|4@0+ (1,0) [0|15] "" MCM_D
+ SG_ DrvKneadingMassgTimesCmd6 : 23|4@0+ (1,0) [0|15] "" MCM_D
+ SG_ DrvKneadingMassgTimesCmd7 : 31|4@0+ (1,0) [0|15] "" MCM_D
+ SG_ DrvKneadingMassgTimesCmd8 : 39|4@0+ (1,0) [0|15] "" MCM_D
+ SG_ DrvKneadingMassgTimesCmd9 : 47|4@0+ (1,0) [0|15] "" MCM_D
+        
+BO_ 437 ZONE_MCM_06: 8 ZONE_LE
+ SG_ PassKneadingMassgLvlCmd10 : 59|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassKneadingMassgLvlCmd5 : 9|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassKneadingMassgLvlCmd6 : 11|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassKneadingMassgLvlCmd7 : 13|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassKneadingMassgLvlCmd8 : 15|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassKneadingMassgLvlCmd9 : 57|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassKneadingMassgSkillsCmd10 : 51|4@0+ (1,0) [0|15] "" MCM_P
+ SG_ PassKneadingMassgSkillsCmd5 : 3|4@0+ (1,0) [0|15] "" MCM_P
+ SG_ PassKneadingMassgSkillsCmd6 : 19|4@0+ (1,0) [0|15] "" MCM_P
+ SG_ PassKneadingMassgSkillsCmd7 : 27|4@0+ (1,0) [0|15] "" MCM_P
+ SG_ PassKneadingMassgSkillsCmd8 : 35|4@0+ (1,0) [0|15] "" MCM_P
+ SG_ PassKneadingMassgSkillsCmd9 : 43|4@0+ (1,0) [0|15] "" MCM_P
+ SG_ PassKneadingMassgTimesCmd10 : 55|4@0+ (1,0) [0|15] "" MCM_P
+ SG_ PassKneadingMassgTimesCmd5 : 7|4@0+ (1,0) [0|15] "" MCM_P
+ SG_ PassKneadingMassgTimesCmd6 : 23|4@0+ (1,0) [0|15] "" MCM_P
+ SG_ PassKneadingMassgTimesCmd7 : 31|4@0+ (1,0) [0|15] "" MCM_P
+ SG_ PassKneadingMassgTimesCmd8 : 39|4@0+ (1,0) [0|15] "" MCM_P
+ SG_ PassKneadingMassgTimesCmd9 : 47|4@0+ (1,0) [0|15] "" MCM_P
+        
+BO_ 457 ZONE_1C9: 8 ZONE_LE
+ SG_ DrvHeat1_pct : 22|7@0+ (1,0) [0|127] "" MCM_D
+ SG_ DrvHeat2_pct : 30|7@0+ (1,0) [0|127] "" MCM_D
+ SG_ DrvHeat3_pct : 38|7@0+ (1,0) [0|127] "" MCM_D
+ SG_ DrvHeat4_pct : 46|7@0+ (1,0) [0|127] "" MCM_D
+ SG_ DrvHeat5_pct : 54|7@0+ (1,0) [0|127] "" MCM_D
+ SG_ DrvHeat6_pct : 62|7@0+ (1,0) [0|127] "" MCM_D
+        
+BO_ 463 ZONE_1CF: 8 ZONE_LE
+ SG_ PassHeat1_pct : 22|7@0+ (1,0) [0|127] "" MCM_P
+ SG_ PassHeat2_pct : 30|7@0+ (1,0) [0|127] "" MCM_P
+ SG_ PassHeat3_pct : 38|7@0+ (1,0) [0|127] "" MCM_P
+ SG_ PassHeat4_pct : 46|7@0+ (1,0) [0|127] "" MCM_P
+ SG_ PassHeat5_pct : 54|7@0+ (1,0) [0|127] "" MCM_P
+ SG_ PassHeat6_pct : 62|7@0+ (1,0) [0|127] "" MCM_P
+        
+BO_ 465 Zone_FL_MCM_01: 8 ZONE_LE
+ SG_ DrvSeatBolsterValueBLCmd : 55|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatBolsterValueBRCmd : 57|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatCushionValue4Cmd : 63|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatCushionValue5Cmd : 61|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatCushionValue6Cmd : 59|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatLumbarBottomValue3Cmd : 53|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatLumbarMidValue2Cmd : 51|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatLumbarTopValue1Cmd : 49|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgHeat10Cmd : 43|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgHeat11Cmd : 45|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgHeat12Cmd : 47|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgHeat1Cmd : 25|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgHeat2Cmd : 27|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgHeat3Cmd : 29|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgHeat4Cmd : 31|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgHeat5Cmd : 33|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgHeat6Cmd : 35|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgHeat7Cmd : 37|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgHeat8Cmd : 39|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgHeat9Cmd : 41|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgValve10Cmd : 19|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgValve11Cmd : 21|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgValve12Cmd : 23|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgValve1Cmd : 1|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgValve2Cmd : 3|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgValve3Cmd : 5|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgValve4Cmd : 7|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgValve5Cmd : 9|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgValve6Cmd : 11|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgValve7Cmd : 13|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgValve8Cmd : 15|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatmassgValve9Cmd : 17|2@0+ (1,0) [0|3] "" MCM_D
+        
+BO_ 466 Zone_FL_MCM_02: 8 ZONE_LE
+ SG_ DrvPumpCmd : 23|7@0+ (1,0) [0|127] "" MCM_D
+ SG_ DrvSeatCushionValue1Cmd : 39|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatCushionValue2Cmd : 29|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatCushionValue3Cmd : 37|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatUpperValueLCmd : 25|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatUpperValueMCmd : 27|2@0+ (1,0) [0|3] "" MCM_D
+ SG_ DrvSeatUpperValueRCmd : 31|2@0+ (1,0) [0|3] "" MCM_D
+        
+BO_ 467 Zone_FL_MCM_03: 8 ZONE_LE
+ SG_ PassSeatBolsterValueBLCmd : 55|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatBolsterValueBRCmd : 57|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatCushionValue4Cmd : 63|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatCushionValue5Cmd : 61|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatCushionValue6Cmd : 59|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatLumbarBottomValue3Cmd : 53|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatLumbarMidValue2Cmd : 51|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatLumbarTopValue1Cmd : 49|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgHeat10Cmd : 43|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgHeat11Cmd : 45|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgHeat12Cmd : 47|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgHeat1Cmd : 25|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgHeat2Cmd : 27|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgHeat3Cmd : 29|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgHeat4Cmd : 31|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgHeat5Cmd : 33|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgHeat6Cmd : 35|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgHeat7Cmd : 37|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgHeat8Cmd : 39|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgHeat9Cmd : 41|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgValve10Cmd : 19|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgValve11Cmd : 21|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgValve12Cmd : 23|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgValve1Cmd : 1|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgValve2Cmd : 3|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgValve3Cmd : 5|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgValve4Cmd : 7|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgValve5Cmd : 9|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgValve6Cmd : 11|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgValve7Cmd : 13|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgValve8Cmd : 15|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatmassgValve9Cmd : 17|2@0+ (1,0) [0|3] "" MCM_P
+        
+BO_ 468 Zone_FL_MCM_04: 8 ZONE_LE
+ SG_ PassPumpCmd : 23|7@0+ (1,0) [0|127] "" MCM_P
+ SG_ PassSeatCushionValue1Cmd : 39|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatCushionValue2Cmd : 31|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatCushionValue3Cmd : 37|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatUpperValueLCmd : 25|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatUpperValueMCmd : 27|2@0+ (1,0) [0|3] "" MCM_P
+ SG_ PassSeatUpperValueRCmd : 29|2@0+ (1,0) [0|3] "" MCM_P
+        
+BO_ 751 ZONE_2EF: 8 ZONE_LE
+ SG_ BattVolt_LBMR : 23|16@0+ (0.001,0) [0|65.535] "V" MCM_D,MCM_P
+        
+BO_ 937 ZONE_3A9: 8 ZONE_LE
+ SG_ VehOdometer : 7|24@0+ (1,0) [0|16777215] "km" MCM_D,MCM_P
+        
+BO_ 946 ZONE_3B2: 8 ZONE_LE
+ SG_ Day : 20|5@0+ (1,0) [0|31] "Day" MCM_D,MCM_P
+ SG_ Hr : 28|5@0+ (1,0) [0|23] "Hour" MCM_D,MCM_P
+ SG_ MSec : 49|10@0+ (1,0) [0|1023] "" MCM_D,MCM_P
+ SG_ Min : 37|6@0+ (1,0) [0|59] "min" MCM_D,MCM_P
+ SG_ Mth : 11|4@0+ (1,0) [0|15] "" MCM_D,MCM_P
+ SG_ Sec : 45|6@0+ (1,0) [0|59] "Sec" MCM_D,MCM_P
+ SG_ Yr : 7|8@0+ (1,2000) [2000|2254] "Year" MCM_D,MCM_P
+        
+BO_ 1271 ZONE_PNC: 8 ZONE_LE
+ SG_ PNC10_Sts : 25|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC11_Sts : 26|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC12_Sts : 27|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC13_Sts : 28|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC14_Sts : 29|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC15_Sts : 30|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC16_Sts : 31|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC17_Sts : 32|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC18_Sts : 33|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC19_Sts : 34|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC1_Sts : 16|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC20_Sts : 35|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC21_Sts : 36|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC22_Sts : 37|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC23_Sts : 38|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC24_Sts : 39|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC25_Sts : 40|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC26_Sts : 41|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC27_Sts : 42|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC28_Sts : 43|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC29_Sts : 44|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC2_Sts : 17|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC30_Sts : 45|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC31_Sts : 46|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC32_Sts : 47|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC33_Sts : 48|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC34_Sts : 49|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC35_Sts : 50|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC36_Sts : 51|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC37_Sts : 52|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC38_Sts : 53|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC39_Sts : 54|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC3_Sts : 18|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC40_Sts : 55|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC41_Sts : 56|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC42_Sts : 58|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC43_Sts : 57|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC44_Sts : 59|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC45_Sts : 60|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC46_Sts : 61|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC47_Sts : 62|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC48_Sts : 63|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC4_Sts : 19|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC5_Sts : 20|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC6_Sts : 21|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC7_Sts : 22|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC8_Sts : 23|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC9_Sts : 24|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+ SG_ PNC_DFT : 15|1@0+ (1,0) [0|1] "" MCM_D,MCM_P
+        
+BO_ 1297 NM_ZONE_LE: 8 ZONE_LE
+ SG_ ActvWakeup_ZONE_LE : 12|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NetMngtCoorn_ZONE_LE : 10|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NetMngtCoorrSleepRdy_ZONE_LE : 11|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN10_ZONE_LE : 25|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN11_ZONE_LE : 26|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN12_ZONE_LE : 27|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN13_ZONE_LE : 28|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN14_ZONE_LE : 29|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN15_ZONE_LE : 30|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN16_ZONE_LE : 31|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN17_ZONE_LE : 32|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN18_ZONE_LE : 33|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN19_ZONE_LE : 34|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN1_ZONE_LE : 16|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN20_ZONE_LE : 35|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN21_ZONE_LE : 36|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN22_ZONE_LE : 37|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN23_ZONE_LE : 38|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN24_ZONE_LE : 39|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN25_ZONE_LE : 40|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN26_ZONE_LE : 41|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN27_ZONE_LE : 42|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN28_ZONE_LE : 43|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN29_ZONE_LE : 44|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN2_ZONE_LE : 17|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN30_ZONE_LE : 45|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN31_ZONE_LE : 46|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN32_ZONE_LE : 47|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN33_ZONE_LE : 48|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN34_ZONE_LE : 49|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN35_ZONE_LE : 50|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN36_ZONE_LE : 51|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN37_ZONE_LE : 52|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN38_ZONE_LE : 53|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN39_ZONE_LE : 54|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN3_ZONE_LE : 18|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN40_ZONE_LE : 55|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN41_ZONE_LE : 56|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN42_ZONE_LE : 57|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN43_ZONE_LE : 58|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN44_ZONE_LE : 59|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN45_ZONE_LE : 60|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN46_ZONE_LE : 61|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN47_ZONE_LE : 62|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN48_ZONE_LE : 63|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN4_ZONE_LE : 19|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN5_ZONE_LE : 20|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN6_ZONE_LE : 21|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN7_ZONE_LE : 22|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN8_ZONE_LE : 23|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PN9_ZONE_LE : 24|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PtlNetInfo_ZONE_LE : 14|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ RepMsgReq_ZONE_LE : 8|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ ResdBit1_ZONE_LE : 13|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ ResdBit2_ZONE_LE : 15|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ ScrNodId_ZONE_LE : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+        
+BO_ 1504 VC_Data_5E0: 8 ZONE_LE
+ SG_ VC_Data_5E0_CRC : 7|8@0+ (1,0) [0|255] "" MCM_D,MCM_P
+ SG_ VC_Data_5E0_MsgCntr : 11|4@0+ (1,0) [0|14] "" MCM_D,MCM_P
+ SG_ VC_Data_5E0_Payload : 23|48@0+ (1,0) [0|281474976710655] "" MCM_D,MCM_P
+        
+BO_ 1537 DIAG_REQ_AllECU: 8 ZONE_LE
+ SG_ DiagReqData0_AllECU : 7|8@0+ (1,0) [0|255] "" MCM_D,MCM_P
+ SG_ DiagReqData1_AllECU : 15|8@0+ (1,0) [0|255] "" MCM_D,MCM_P
+ SG_ DiagReqData2_AllECU : 23|8@0+ (1,0) [0|255] "" MCM_D,MCM_P
+ SG_ DiagReqData3_AllECU : 31|8@0+ (1,0) [0|255] "" MCM_D,MCM_P
+ SG_ DiagReqData4_AllECU : 39|8@0+ (1,0) [0|255] "" MCM_D,MCM_P
+ SG_ DiagReqData5_AllECU : 47|8@0+ (1,0) [0|255] "" MCM_D,MCM_P
+ SG_ DiagReqData6_AllECU : 55|8@0+ (1,0) [0|255] "" MCM_D,MCM_P
+ SG_ DiagReqData7_AllECU : 63|8@0+ (1,0) [0|255] "" MCM_D,MCM_P
+        
+BO_ 1571 DIAG_REQ_MCM_D: 8 ZONE_LE
+ SG_ DiagReqData0_MCM_D : 7|8@0+ (1,0) [0|255] "" MCM_D
+ SG_ DiagReqData1_MCM_D : 15|8@0+ (1,0) [0|255] "" MCM_D
+ SG_ DiagReqData2_MCM_D : 23|8@0+ (1,0) [0|255] "" MCM_D
+ SG_ DiagReqData3_MCM_D : 31|8@0+ (1,0) [0|255] "" MCM_D
+ SG_ DiagReqData4_MCM_D : 39|8@0+ (1,0) [0|255] "" MCM_D
+ SG_ DiagReqData5_MCM_D : 47|8@0+ (1,0) [0|255] "" MCM_D
+ SG_ DiagReqData6_MCM_D : 55|8@0+ (1,0) [0|255] "" MCM_D
+ SG_ DiagReqData7_MCM_D : 63|8@0+ (1,0) [0|255] "" MCM_D
+        
+BO_ 1572 DIAG_REQ_MCM_P: 8 ZONE_LE
+ SG_ DiagReqData0_MCM_P : 7|8@0+ (1,0) [0|255] "" MCM_P
+ SG_ DiagReqData1_MCM_P : 15|8@0+ (1,0) [0|255] "" MCM_P
+ SG_ DiagReqData2_MCM_P : 23|8@0+ (1,0) [0|255] "" MCM_P
+ SG_ DiagReqData3_MCM_P : 31|8@0+ (1,0) [0|255] "" MCM_P
+ SG_ DiagReqData4_MCM_P : 39|8@0+ (1,0) [0|255] "" MCM_P
+ SG_ DiagReqData5_MCM_P : 47|8@0+ (1,0) [0|255] "" MCM_P
+ SG_ DiagReqData6_MCM_P : 55|8@0+ (1,0) [0|255] "" MCM_P
+ SG_ DiagReqData7_MCM_P : 63|8@0+ (1,0) [0|255] "" MCM_P
+
+CM_ SG_ 481 DrvLumbarBottomWorkSts "Driver Seat Lumbar Bottom Bladder Working Status";
+CM_ SG_ 481 DrvLumbarMidWorkSts "Driver Seat Lumbar MidBladder Working Status";
+CM_ SG_ 481 DrvLumbarTopWorkSts "Driver Seat Lumbar TopBladder Working Status";
+CM_ SG_ 488 DrvMassageHeatNTC1 "Driver Seat Massage Heat 1 NTC feedback";
+CM_ SG_ 488 DrvMassageHeatNTC2 "Driver Seat Massage Heat 2 NTC feedback";
+CM_ SG_ 488 DrvMassageHeatNTC3 "Driver Seat Massage Heat 3 NTC feedback";
+CM_ SG_ 488 DrvMassageHeatNTC4 "Driver Seat Massage Heat 4 NTC feedback";
+CM_ SG_ 488 DrvMassageHeatNTC5 "Driver Seat Massage Heat 5 NTC feedback";
+CM_ SG_ 488 DrvMassageHeatNTC6 "Driver Seat Massage Heat 6 NTC feedback";
+CM_ SG_ 492 DrvMassageHeatNTC10 "Driver Seat Massage Heat 10 NTC feedback";
+CM_ SG_ 492 DrvMassageHeatNTC11 "Driver Seat Massage Heat 11 NTC feedback";
+CM_ SG_ 492 DrvMassageHeatNTC12 "Driver Seat Massage Heat 12 NTC feedback";
+CM_ SG_ 492 DrvMassageHeatNTC7 "Driver Seat Massage Heat 7 NTC feedback";
+CM_ SG_ 492 DrvMassageHeatNTC8 "Driver Seat Massage Heat 8 NTC feedback";
+CM_ SG_ 492 DrvMassageHeatNTC9 "Driver Seat Massage Heat 9 NTC feedback";
+CM_ SG_ 484 PassLumbarBottomWorkSts "Passenger Seat Lumbar Bottom Bladder Working Status";
+CM_ SG_ 484 PassLumbarMidWorkSts "Passenger Seat Lumbar Mid Bladder Working Status";
+CM_ SG_ 484 PassLumbarTopWorkSts "Passenger Seat Lumbar Top Bladder Working Status";
+CM_ SG_ 491 PassMassageHeatNTC1 "Passenger Seat Massage Heat 1 NTC feedback";
+CM_ SG_ 491 PassMassageHeatNTC2 "Passenger Seat Massage Heat 2 NTC feedback";
+CM_ SG_ 491 PassMassageHeatNTC3 "Passenger Seat Massage Heat 3 NTC feedback";
+CM_ SG_ 491 PassMassageHeatNTC4 "Passenger Seat Massage Heat 4 NTC feedback";
+CM_ SG_ 491 PassMassageHeatNTC5 "Passenger Seat Massage Heat 5 NTC feedback";
+CM_ SG_ 491 PassMassageHeatNTC6 "Passenger Seat Massage Heat 6 NTC feedback";
+CM_ SG_ 493 PassMassageHeatNTC10 "Passenger Seat Massage Heat 10 NTC feedback";
+CM_ SG_ 493 PassMassageHeatNTC11 "Passenger Seat Massage Heat 11 NTC feedback";
+CM_ SG_ 493 PassMassageHeatNTC12 "Passenger Seat Massage Heat 12 NTC feedback";
+CM_ SG_ 493 PassMassageHeatNTC7 "Passenger Seat Massage Heat 7 NTC feedback";
+CM_ SG_ 493 PassMassageHeatNTC8 "Passenger Seat Massage Heat 8 NTC feedback";
+CM_ SG_ 493 PassMassageHeatNTC9 "Passenger Seat Massage Heat 9 NTC feedback";
+CM_ SG_ 286 BCU_11E_CRC "AUTOSAR E2E profile1, CRC";
+CM_ SG_ 286 BCU_11E_MsgCntr "AUTOSAR E2E profile1, Message Counter";
+CM_ SG_ 286 VehSpdSts_Rdnt1 "Vehicle speed validity and initialization status";
+CM_ SG_ 286 VehSpd_Rdnt1 "Vehicle speed.Invalid value 460.74375";
+CM_ SG_ 937 VehOdometer "Vehicle odometerInvalid value FFFFFF";
+CM_ SG_ 1297 ActvWakeup_ZONE_LE "Control bit vector Active wakeup - Reserved";
+CM_ SG_ 1297 NetMngtCoorn_ZONE_LE "Control bit vector Network management coordination - Reserved";
+CM_ SG_ 1297 NetMngtCoorrSleepRdy_ZONE_LE "Control bit vector Network management coordinator sleep ready - Reserved";
+CM_ SG_ 1297 PtlNetInfo_ZONE_LE "Control bit vector DCM_FL Partial network information - Reserved";
+CM_ SG_ 1297 RepMsgReq_ZONE_LE "Control bit vector DCM_FL Repeat Message Request";
+CM_ SG_ 1297 ResdBit1_ZONE_LE "Control bit vector DCM_FL Reserved";
+CM_ SG_ 1297 ResdBit2_ZONE_LE "Control bit vector DCM_FL Reserved";
+CM_ SG_ 1297 ScrNodId_ZONE_LE "Source node identifier DCM_FL";
+
+BA_DEF_ "Baudrate" INT 0 1000000;
+BA_DEF_ "BusType" STRING;
+BA_DEF_ BO_ "CANFD_BRS" ENUM "0","1";
+BA_DEF_ "DBName" STRING;
+BA_DEF_ BO_ "DiagRequest" ENUM "no","yes";
+BA_DEF_ BO_ "DiagResponse" ENUM "no","yes";
+BA_DEF_ BO_ "DiagState" ENUM "no","yes";
+BA_DEF_ BO_ "DiagUudResponse" ENUM "False","True";
+BA_DEF_ BO_ "DiagUudtResponse" ENUM "false","true";
+BA_DEF_ BO_ "GenMsgCycleTime" INT 0 0;
+BA_DEF_ BO_ "GenMsgCycleTimeFast" INT 0 0;
+BA_DEF_ BO_ "GenMsgDelayTime" INT 0 0;
+BA_DEF_ BO_ "GenMsgFastOnStart" INT 0 65535;
+BA_DEF_ BO_ "GenMsgILSupport" ENUM "no","yes";
+BA_DEF_ BO_ "GenMsgNrOfRepetition" INT 0 0;
+BA_DEF_ BO_ "GenMsgSendType" ENUM "Cyclic","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","IfActive","NoMsgSendType","NotUsed";
+BA_DEF_ BO_ "GenMsgStartDelayTime" INT 0 0;
+BA_DEF_ SG_ "GenSigInactiveValue" INT 0 0;
+BA_DEF_ SG_ "GenSigSendType" ENUM "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed";
+BA_DEF_ SG_ "GenSigStartValue" INT 0 0;
+BA_DEF_REL_ BU_SG_REL_ "GenSigSuprvRespSubValue" INT 0 65535;
+BA_DEF_REL_ BU_SG_REL_ "GenSigTimeoutTime" INT 0 65535;
+BA_DEF_REL_ BU_SG_REL_ "GenSigTimeoutValue" INT 0 65535;
+BA_DEF_ "ILTxTimeout" INT 0 65535;
+BA_DEF_ BU_ "ILUsed" ENUM "no","yes";
+BA_DEF_ "Manufacturer" STRING;
+BA_DEF_ "NmAsrBaseAddress" HEX 0 2047;
+BA_DEF_ BU_ "NmAsrCanMsgCycleOffset" INT 0 65535;
+BA_DEF_ "NmAsrCanMsgCycleTime" INT 1 65535;
+BA_DEF_ BU_ "NmAsrCanMsgReducedTime" INT 0 65535;
+BA_DEF_ BO_ "NmAsrMessage" ENUM "no","yes";
+BA_DEF_ "NmAsrMessageCount" INT 1 256;
+BA_DEF_ BU_ "NmAsrNode" ENUM "no","yes";
+BA_DEF_ BU_ "NmAsrNodeIdentifier" HEX 0 255;
+BA_DEF_ "NmAsrRepeatMessageTime" INT 0 65535;
+BA_DEF_ "NmAsrTimeoutTime" INT 1 65535;
+BA_DEF_ "NmAsrWaitBusSleepTime" INT 0 65535;
+BA_DEF_ BO_ "NmMessage" ENUM "no","yes";
+BA_DEF_ BU_ "NmNode" ENUM "no","yes";
+BA_DEF_ BU_ "NmStationAddress" HEX 0 255;
+BA_DEF_ "NmType" STRING;
+BA_DEF_ BU_ "NodeLayerModules" STRING;
+BA_DEF_ BO_ "Timestamp" ENUM "0","1";
+BA_DEF_ BO_ "TpApplType" STRING;
+BA_DEF_ BO_ "TpTxIndex" INT 0 255;
+BA_DEF_ BO_ "VFrameFormat" ENUM "StandardCAN","ExtendedCAN","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","StandardCAN_FD","ExtendedCAN_FD";
+BA_DEF_ "VersionDay" INT 1 31;
+BA_DEF_ "VersionMonth" INT 1 12;
+BA_DEF_ "VersionYear" INT 0 99;
+
+BA_DEF_DEF_  "Baudrate" 500000;
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "CANFD_BRS" "0";
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "DiagRequest" "no";
+BA_DEF_DEF_  "DiagResponse" "no";
+BA_DEF_DEF_  "DiagState" "no";
+BA_DEF_DEF_  "DiagUudResponse" "False";
+BA_DEF_DEF_  "DiagUudtResponse" "false";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "GenMsgFastOnStart" 0;
+BA_DEF_DEF_  "GenMsgILSupport" "no";
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "GenMsgSendType" "Cyclic";
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_REL_  "GenSigSuprvRespSubValue" 0;
+BA_DEF_DEF_REL_  "GenSigTimeoutTime" 0;
+BA_DEF_DEF_REL_  "GenSigTimeoutValue" 0;
+BA_DEF_DEF_  "ILTxTimeout" 0;
+BA_DEF_DEF_  "ILUsed" "no";
+BA_DEF_DEF_  "Manufacturer" "NIO";
+BA_DEF_DEF_  "NmAsrBaseAddress" 1280;
+BA_DEF_DEF_  "NmAsrCanMsgCycleOffset" 0;
+BA_DEF_DEF_  "NmAsrCanMsgCycleTime" 640;
+BA_DEF_DEF_  "NmAsrCanMsgReducedTime" 0;
+BA_DEF_DEF_  "NmAsrMessage" "no";
+BA_DEF_DEF_  "NmAsrMessageCount" 128;
+BA_DEF_DEF_  "NmAsrNode" "no";
+BA_DEF_DEF_  "NmAsrNodeIdentifier" 50;
+BA_DEF_DEF_  "NmAsrRepeatMessageTime" 3200;
+BA_DEF_DEF_  "NmAsrTimeoutTime" 2000;
+BA_DEF_DEF_  "NmAsrWaitBusSleepTime" 2000;
+BA_DEF_DEF_  "NmMessage" "no";
+BA_DEF_DEF_  "NmNode" "no";
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "NmType" "";
+BA_DEF_DEF_  "NodeLayerModules" " ";
+BA_DEF_DEF_  "Timestamp" "0";
+BA_DEF_DEF_  "TpApplType" "";
+BA_DEF_DEF_  "TpTxIndex" 0;
+BA_DEF_DEF_  "VFrameFormat" "StandardCAN";
+BA_DEF_DEF_  "VersionDay" 22;
+BA_DEF_DEF_  "VersionMonth" 2;
+BA_DEF_DEF_  "VersionYear" 21;
+
+BA_ "ILUsed" BU_ MCM_D 1;
+BA_ "NmAsrNode" BU_ MCM_D 1;
+BA_ "NmAsrNodeIdentifier" BU_ MCM_D 35;
+BA_ "NmStationAddress" BU_ MCM_D 35;
+BA_ "ILUsed" BU_ MCM_P 1;
+BA_ "NmAsrNode" BU_ MCM_P 1;
+BA_ "NmAsrNodeIdentifier" BU_ MCM_P 36;
+BA_ "NmStationAddress" BU_ MCM_P 36;
+BA_ "ILUsed" BU_ ZONE_LE 1;
+BA_ "NmAsrNode" BU_ ZONE_LE 1;
+BA_ "NmAsrNodeIdentifier" BU_ ZONE_LE 17;
+BA_ "NmStationAddress" BU_ ZONE_LE 17;
+BA_ "Baudrate" 500000;
+BA_ "BusType" "CAN";
+BA_ "DBName" "BODY_LE1_CAN";
+BA_ "Manufacturer" "NIO";
+BA_ "NmAsrWaitBusSleepTime" 2000;
+BA_ "NmType" "NmAsr";
+
+BA_ "GenMsgCycleTime" BO_ 438 50;
+BA_ "GenMsgILSupport" BO_ 438 1;
+BA_ "GenMsgSendType" BO_ 438 0;
+BA_ "GenMsgCycleTime" BO_ 479 50;
+BA_ "GenMsgILSupport" BO_ 479 1;
+BA_ "GenMsgSendType" BO_ 479 0;
+BA_ "GenMsgCycleTime" BO_ 480 50;
+BA_ "GenMsgILSupport" BO_ 480 1;
+BA_ "GenMsgSendType" BO_ 480 0;
+BA_ "GenMsgCycleTime" BO_ 481 50;
+BA_ "GenMsgILSupport" BO_ 481 1;
+BA_ "GenMsgSendType" BO_ 481 0;
+BA_ "GenMsgCycleTime" BO_ 488 50;
+BA_ "GenMsgILSupport" BO_ 488 1;
+BA_ "GenMsgSendType" BO_ 488 0;
+BA_ "GenMsgCycleTime" BO_ 492 50;
+BA_ "GenMsgILSupport" BO_ 492 1;
+BA_ "GenMsgSendType" BO_ 492 0;
+BA_ "DiagResponse" BO_ 1699 1;
+BA_ "GenMsgSendType" BO_ 1699 8;
+BA_ "GenMsgCycleTime" BO_ 439 50;
+BA_ "GenMsgILSupport" BO_ 439 1;
+BA_ "GenMsgSendType" BO_ 439 0;
+BA_ "GenMsgCycleTime" BO_ 482 50;
+BA_ "GenMsgILSupport" BO_ 482 1;
+BA_ "GenMsgSendType" BO_ 482 0;
+BA_ "GenMsgCycleTime" BO_ 483 50;
+BA_ "GenMsgILSupport" BO_ 483 1;
+BA_ "GenMsgSendType" BO_ 483 0;
+BA_ "GenMsgCycleTime" BO_ 484 50;
+BA_ "GenMsgILSupport" BO_ 484 1;
+BA_ "GenMsgSendType" BO_ 484 0;
+BA_ "GenMsgCycleTime" BO_ 491 50;
+BA_ "GenMsgILSupport" BO_ 491 1;
+BA_ "GenMsgSendType" BO_ 491 0;
+BA_ "GenMsgCycleTime" BO_ 493 50;
+BA_ "GenMsgILSupport" BO_ 493 1;
+BA_ "GenMsgSendType" BO_ 493 0;
+BA_ "DiagResponse" BO_ 1700 1;
+BA_ "GenMsgSendType" BO_ 1700 8;
+BA_ "GenMsgCycleTime" BO_ 286 20;
+BA_ "GenMsgILSupport" BO_ 286 1;
+BA_ "GenMsgSendType" BO_ 286 0;
+BA_ "Timestamp" BO_ 286 1;
+BA_ "GenMsgCycleTime" BO_ 316 50;
+BA_ "GenMsgILSupport" BO_ 316 1;
+BA_ "GenMsgSendType" BO_ 316 0;
+BA_ "GenMsgCycleTime" BO_ 436 50;
+BA_ "GenMsgILSupport" BO_ 436 1;
+BA_ "GenMsgSendType" BO_ 436 0;
+BA_ "GenMsgCycleTime" BO_ 437 50;
+BA_ "GenMsgILSupport" BO_ 437 1;
+BA_ "GenMsgSendType" BO_ 437 0;
+BA_ "GenMsgCycleTime" BO_ 457 50;
+BA_ "GenMsgILSupport" BO_ 457 1;
+BA_ "GenMsgSendType" BO_ 457 0;
+BA_ "GenMsgCycleTime" BO_ 463 50;
+BA_ "GenMsgILSupport" BO_ 463 1;
+BA_ "GenMsgSendType" BO_ 463 0;
+BA_ "GenMsgCycleTime" BO_ 465 50;
+BA_ "GenMsgILSupport" BO_ 465 1;
+BA_ "GenMsgSendType" BO_ 465 0;
+BA_ "GenMsgCycleTime" BO_ 466 50;
+BA_ "GenMsgILSupport" BO_ 466 1;
+BA_ "GenMsgSendType" BO_ 466 0;
+BA_ "GenMsgCycleTime" BO_ 467 50;
+BA_ "GenMsgILSupport" BO_ 467 1;
+BA_ "GenMsgSendType" BO_ 467 0;
+BA_ "GenMsgCycleTime" BO_ 468 50;
+BA_ "GenMsgILSupport" BO_ 468 1;
+BA_ "GenMsgSendType" BO_ 468 0;
+BA_ "GenMsgCycleTime" BO_ 751 100;
+BA_ "GenMsgILSupport" BO_ 751 1;
+BA_ "GenMsgSendType" BO_ 751 0;
+BA_ "GenMsgCycleTime" BO_ 937 50;
+BA_ "GenMsgILSupport" BO_ 937 1;
+BA_ "GenMsgSendType" BO_ 937 0;
+BA_ "GenMsgCycleTime" BO_ 946 1000;
+BA_ "GenMsgILSupport" BO_ 946 1;
+BA_ "GenMsgSendType" BO_ 946 0;
+BA_ "GenMsgCycleTime" BO_ 1271 200;
+BA_ "GenMsgILSupport" BO_ 1271 1;
+BA_ "GenMsgSendType" BO_ 1271 0;
+BA_ "GenMsgSendType" BO_ 1297 8;
+BA_ "NmAsrMessage" BO_ 1297 1;
+BA_ "GenMsgCycleTime" BO_ 1504 50;
+BA_ "GenMsgILSupport" BO_ 1504 1;
+BA_ "GenMsgSendType" BO_ 1504 0;
+BA_ "GenMsgSendType" BO_ 1537 8;
+BA_ "DiagRequest" BO_ 1571 1;
+BA_ "GenMsgSendType" BO_ 1571 8;
+BA_ "DiagRequest" BO_ 1572 1;
+BA_ "GenMsgSendType" BO_ 1572 8;
+
+BA_ "GenSigSendType" SG_ 438 DrvKneadingMassgSkillsSts5 0;
+BA_ "GenSigSendType" SG_ 438 DrvKneadingMassgSkillsSts6 0;
+BA_ "GenSigSendType" SG_ 438 DrvKneadingMassgSkillsSts7 0;
+BA_ "GenSigSendType" SG_ 438 DrvKneadingMassgSkillsSts8 0;
+BA_ "GenSigSendType" SG_ 438 DrvKneadingMassgTime5 0;
+BA_ "GenSigSendType" SG_ 438 DrvKneadingMassgTime6 0;
+BA_ "GenSigSendType" SG_ 438 DrvKneadingMassgTime7 0;
+BA_ "GenSigSendType" SG_ 438 DrvKneadingMassgTime8 0;
+BA_ "GenSigSendType" SG_ 438 DrvKneadingMassglvlSts5 0;
+BA_ "GenSigSendType" SG_ 438 DrvKneadingMassglvlSts6 0;
+BA_ "GenSigSendType" SG_ 438 DrvKneadingMassglvlSts7 0;
+BA_ "GenSigSendType" SG_ 438 DrvKneadingMassglvlSts8 0;
+BA_ "GenSigInactiveValue" SG_ 479 DrvMassSwitchSts 0;
+BA_ "GenSigSendType" SG_ 479 DrvMassSwitchSts 0;
+BA_ "GenSigStartValue" SG_ 479 DrvMassSwitchSts 0;
+BA_ "GenSigInactiveValue" SG_ 479 DrvSeatBlosterValueSts 0;
+BA_ "GenSigSendType" SG_ 479 DrvSeatBlosterValueSts 0;
+BA_ "GenSigStartValue" SG_ 479 DrvSeatBlosterValueSts 0;
+BA_ "GenSigInactiveValue" SG_ 479 DrvSeatBolsterValueBLPos 0;
+BA_ "GenSigSendType" SG_ 479 DrvSeatBolsterValueBLPos 0;
+BA_ "GenSigStartValue" SG_ 479 DrvSeatBolsterValueBLPos 0;
+BA_ "GenSigInactiveValue" SG_ 479 DrvSeatBolsterValueBRPos 0;
+BA_ "GenSigSendType" SG_ 479 DrvSeatBolsterValueBRPos 0;
+BA_ "GenSigStartValue" SG_ 479 DrvSeatBolsterValueBRPos 0;
+BA_ "GenSigInactiveValue" SG_ 479 DrvSeatCushionValue6Pos 0;
+BA_ "GenSigSendType" SG_ 479 DrvSeatCushionValue6Pos 0;
+BA_ "GenSigStartValue" SG_ 479 DrvSeatCushionValue6Pos 0;
+BA_ "GenSigInactiveValue" SG_ 479 DrvSeatCushionValueSts 0;
+BA_ "GenSigSendType" SG_ 479 DrvSeatCushionValueSts 0;
+BA_ "GenSigStartValue" SG_ 479 DrvSeatCushionValueSts 0;
+BA_ "GenSigInactiveValue" SG_ 479 DrvSeatLumbarBottomPos 0;
+BA_ "GenSigSendType" SG_ 479 DrvSeatLumbarBottomPos 0;
+BA_ "GenSigStartValue" SG_ 479 DrvSeatLumbarBottomPos 0;
+BA_ "GenSigInactiveValue" SG_ 479 DrvSeatLumbarMidPos 0;
+BA_ "GenSigSendType" SG_ 479 DrvSeatLumbarMidPos 0;
+BA_ "GenSigStartValue" SG_ 479 DrvSeatLumbarMidPos 0;
+BA_ "GenSigInactiveValue" SG_ 479 DrvSeatLumbarTopPos 0;
+BA_ "GenSigSendType" SG_ 479 DrvSeatLumbarTopPos 0;
+BA_ "GenSigStartValue" SG_ 479 DrvSeatLumbarTopPos 0;
+BA_ "GenSigInactiveValue" SG_ 479 DrvSeatLumbarValueSts 0;
+BA_ "GenSigSendType" SG_ 479 DrvSeatLumbarValueSts 0;
+BA_ "GenSigStartValue" SG_ 479 DrvSeatLumbarValueSts 0;
+BA_ "GenSigInactiveValue" SG_ 479 DrvSeatUpperValueSts 0;
+BA_ "GenSigSendType" SG_ 479 DrvSeatUpperValueSts 0;
+BA_ "GenSigStartValue" SG_ 479 DrvSeatUpperValueSts 0;
+BA_ "GenSigInactiveValue" SG_ 479 DrvSeatmassgHeatCSts 0;
+BA_ "GenSigSendType" SG_ 479 DrvSeatmassgHeatCSts 0;
+BA_ "GenSigStartValue" SG_ 479 DrvSeatmassgHeatCSts 0;
+BA_ "GenSigSendType" SG_ 479 DrvSeatmassgValveSts 0;
+BA_ "GenSigInactiveValue" SG_ 480 DrvPumpSts 0;
+BA_ "GenSigSendType" SG_ 480 DrvPumpSts 0;
+BA_ "GenSigStartValue" SG_ 480 DrvPumpSts 0;
+BA_ "GenSigInactiveValue" SG_ 480 DrvSeatCushionValue1Pos 0;
+BA_ "GenSigSendType" SG_ 480 DrvSeatCushionValue1Pos 0;
+BA_ "GenSigStartValue" SG_ 480 DrvSeatCushionValue1Pos 0;
+BA_ "GenSigInactiveValue" SG_ 480 DrvSeatCushionValue2Pos 0;
+BA_ "GenSigSendType" SG_ 480 DrvSeatCushionValue2Pos 0;
+BA_ "GenSigStartValue" SG_ 480 DrvSeatCushionValue2Pos 0;
+BA_ "GenSigInactiveValue" SG_ 480 DrvSeatCushionValue4Pos 0;
+BA_ "GenSigSendType" SG_ 480 DrvSeatCushionValue4Pos 0;
+BA_ "GenSigStartValue" SG_ 480 DrvSeatCushionValue4Pos 0;
+BA_ "GenSigSendType" SG_ 480 DrvSeatCushionValue5Pos 0;
+BA_ "GenSigInactiveValue" SG_ 480 DrvSeatUpperValueLPos 0;
+BA_ "GenSigSendType" SG_ 480 DrvSeatUpperValueLPos 0;
+BA_ "GenSigStartValue" SG_ 480 DrvSeatUpperValueLPos 0;
+BA_ "GenSigInactiveValue" SG_ 480 DrvSeatUpperValueMPos 0;
+BA_ "GenSigSendType" SG_ 480 DrvSeatUpperValueMPos 0;
+BA_ "GenSigStartValue" SG_ 480 DrvSeatUpperValueMPos 0;
+BA_ "GenSigInactiveValue" SG_ 480 DrvSeatUpperValueRPos 0;
+BA_ "GenSigSendType" SG_ 480 DrvSeatUpperValueRPos 0;
+BA_ "GenSigStartValue" SG_ 480 DrvSeatUpperValueRPos 0;
+BA_ "GenSigSendType" SG_ 481 DrvHeat1Sts 0;
+BA_ "GenSigSendType" SG_ 481 DrvHeat2Sts 0;
+BA_ "GenSigSendType" SG_ 481 DrvHeat3Sts 0;
+BA_ "GenSigSendType" SG_ 481 DrvHeat4Sts 0;
+BA_ "GenSigSendType" SG_ 481 DrvHeat5ErrSts 0;
+BA_ "GenSigSendType" SG_ 481 DrvHeat5Sts 0;
+BA_ "GenSigSendType" SG_ 481 DrvHeat6Sts 0;
+BA_ "GenSigSendType" SG_ 481 DrvKneadingMassgSkillsSts9 0;
+BA_ "GenSigSendType" SG_ 481 DrvKneadingMassgTime9 0;
+BA_ "GenSigSendType" SG_ 481 DrvKneadingMassglvlSts9 0;
+BA_ "GenSigInactiveValue" SG_ 481 DrvLumControlSts 0;
+BA_ "GenSigSendType" SG_ 481 DrvLumControlSts 0;
+BA_ "GenSigStartValue" SG_ 481 DrvLumControlSts 0;
+BA_ "GenSigInactiveValue" SG_ 481 DrvLumSwitchSts 0;
+BA_ "GenSigSendType" SG_ 481 DrvLumSwitchSts 0;
+BA_ "GenSigStartValue" SG_ 481 DrvLumSwitchSts 0;
+BA_ "GenSigSendType" SG_ 481 DrvLumbarBottomWorkSts 0;
+BA_ "GenSigStartValue" SG_ 481 DrvLumbarBottomWorkSts 0;
+BA_ "GenSigSendType" SG_ 481 DrvLumbarMidWorkSts 0;
+BA_ "GenSigStartValue" SG_ 481 DrvLumbarMidWorkSts 0;
+BA_ "GenSigSendType" SG_ 481 DrvLumbarTopWorkSts 0;
+BA_ "GenSigStartValue" SG_ 481 DrvLumbarTopWorkSts 0;
+BA_ "GenSigInactiveValue" SG_ 481 DrvSeatCushionValue3Pos 0;
+BA_ "GenSigSendType" SG_ 481 DrvSeatCushionValue3Pos 0;
+BA_ "GenSigStartValue" SG_ 481 DrvSeatCushionValue3Pos 0;
+BA_ "GenSigSendType" SG_ 481 DrvSeatMassFailr 0;
+BA_ "GenSigSendType" SG_ 481 DrvSystemFailr 0;
+BA_ "GenSigSendType" SG_ 488 DrvKneadingMassgSkillsSts10 0;
+BA_ "GenSigSendType" SG_ 488 DrvKneadingMassgTime10 0;
+BA_ "GenSigSendType" SG_ 488 DrvKneadingMassglvlSts10 0;
+BA_ "GenSigSendType" SG_ 488 DrvMassageHeatNTC1 0;
+BA_ "GenSigSendType" SG_ 488 DrvMassageHeatNTC2 0;
+BA_ "GenSigStartValue" SG_ 488 DrvMassageHeatNTC2 0;
+BA_ "GenSigSendType" SG_ 488 DrvMassageHeatNTC3 0;
+BA_ "GenSigStartValue" SG_ 488 DrvMassageHeatNTC3 0;
+BA_ "GenSigSendType" SG_ 488 DrvMassageHeatNTC4 0;
+BA_ "GenSigStartValue" SG_ 488 DrvMassageHeatNTC4 0;
+BA_ "GenSigSendType" SG_ 488 DrvMassageHeatNTC5 0;
+BA_ "GenSigStartValue" SG_ 488 DrvMassageHeatNTC5 0;
+BA_ "GenSigSendType" SG_ 488 DrvMassageHeatNTC6 0;
+BA_ "GenSigStartValue" SG_ 488 DrvMassageHeatNTC6 0;
+BA_ "GenSigSendType" SG_ 492 DrvMassageHeatNTC10 0;
+BA_ "GenSigSendType" SG_ 492 DrvMassageHeatNTC11 0;
+BA_ "GenSigStartValue" SG_ 492 DrvMassageHeatNTC11 0;
+BA_ "GenSigSendType" SG_ 492 DrvMassageHeatNTC12 0;
+BA_ "GenSigStartValue" SG_ 492 DrvMassageHeatNTC12 0;
+BA_ "GenSigSendType" SG_ 492 DrvMassageHeatNTC7 0;
+BA_ "GenSigStartValue" SG_ 492 DrvMassageHeatNTC7 0;
+BA_ "GenSigSendType" SG_ 492 DrvMassageHeatNTC8 0;
+BA_ "GenSigStartValue" SG_ 492 DrvMassageHeatNTC8 0;
+BA_ "GenSigSendType" SG_ 492 DrvMassageHeatNTC9 0;
+BA_ "GenSigStartValue" SG_ 492 DrvMassageHeatNTC9 0;
+BA_ "GenSigInactiveValue" SG_ 1699 DiagRespData0_MCM_D 0;
+BA_ "GenSigSendType" SG_ 1699 DiagRespData0_MCM_D 7;
+BA_ "GenSigStartValue" SG_ 1699 DiagRespData0_MCM_D 0;
+BA_ "GenSigInactiveValue" SG_ 1699 DiagRespData1_MCM_D 0;
+BA_ "GenSigSendType" SG_ 1699 DiagRespData1_MCM_D 7;
+BA_ "GenSigStartValue" SG_ 1699 DiagRespData1_MCM_D 0;
+BA_ "GenSigInactiveValue" SG_ 1699 DiagRespData2_MCM_D 0;
+BA_ "GenSigSendType" SG_ 1699 DiagRespData2_MCM_D 7;
+BA_ "GenSigStartValue" SG_ 1699 DiagRespData2_MCM_D 0;
+BA_ "GenSigInactiveValue" SG_ 1699 DiagRespData3_MCM_D 0;
+BA_ "GenSigSendType" SG_ 1699 DiagRespData3_MCM_D 7;
+BA_ "GenSigStartValue" SG_ 1699 DiagRespData3_MCM_D 0;
+BA_ "GenSigInactiveValue" SG_ 1699 DiagRespData4_MCM_D 0;
+BA_ "GenSigSendType" SG_ 1699 DiagRespData4_MCM_D 7;
+BA_ "GenSigStartValue" SG_ 1699 DiagRespData4_MCM_D 0;
+BA_ "GenSigInactiveValue" SG_ 1699 DiagRespData5_MCM_D 0;
+BA_ "GenSigSendType" SG_ 1699 DiagRespData5_MCM_D 7;
+BA_ "GenSigStartValue" SG_ 1699 DiagRespData5_MCM_D 0;
+BA_ "GenSigInactiveValue" SG_ 1699 DiagRespData6_MCM_D 0;
+BA_ "GenSigSendType" SG_ 1699 DiagRespData6_MCM_D 7;
+BA_ "GenSigStartValue" SG_ 1699 DiagRespData6_MCM_D 0;
+BA_ "GenSigInactiveValue" SG_ 1699 DiagRespData7_MCM_D 0;
+BA_ "GenSigSendType" SG_ 1699 DiagRespData7_MCM_D 7;
+BA_ "GenSigStartValue" SG_ 1699 DiagRespData7_MCM_D 0;
+BA_ "GenSigSendType" SG_ 439 PassKneadingMassgLvlSts5 0;
+BA_ "GenSigSendType" SG_ 439 PassKneadingMassgLvlSts6 0;
+BA_ "GenSigSendType" SG_ 439 PassKneadingMassgLvlSts7 0;
+BA_ "GenSigSendType" SG_ 439 PassKneadingMassgLvlSts8 0;
+BA_ "GenSigSendType" SG_ 439 PassKneadingMassgSkillsSts5 0;
+BA_ "GenSigSendType" SG_ 439 PassKneadingMassgSkillsSts6 0;
+BA_ "GenSigSendType" SG_ 439 PassKneadingMassgSkillsSts7 0;
+BA_ "GenSigSendType" SG_ 439 PassKneadingMassgSkillsSts8 0;
+BA_ "GenSigSendType" SG_ 439 PassKneadingMassgTime5 0;
+BA_ "GenSigSendType" SG_ 439 PassKneadingMassgTime6 0;
+BA_ "GenSigSendType" SG_ 439 PassKneadingMassgTime7 0;
+BA_ "GenSigSendType" SG_ 439 PassKneadingMassgTime8 0;
+BA_ "GenSigInactiveValue" SG_ 482 PassMassSwitchSts 0;
+BA_ "GenSigSendType" SG_ 482 PassMassSwitchSts 0;
+BA_ "GenSigStartValue" SG_ 482 PassMassSwitchSts 0;
+BA_ "GenSigInactiveValue" SG_ 482 PassSeatBlosterValueSts 0;
+BA_ "GenSigSendType" SG_ 482 PassSeatBlosterValueSts 0;
+BA_ "GenSigStartValue" SG_ 482 PassSeatBlosterValueSts 0;
+BA_ "GenSigInactiveValue" SG_ 482 PassSeatBolsterValueBLPos 0;
+BA_ "GenSigSendType" SG_ 482 PassSeatBolsterValueBLPos 0;
+BA_ "GenSigStartValue" SG_ 482 PassSeatBolsterValueBLPos 0;
+BA_ "GenSigInactiveValue" SG_ 482 PassSeatBolsterValueBRPos 0;
+BA_ "GenSigSendType" SG_ 482 PassSeatBolsterValueBRPos 0;
+BA_ "GenSigStartValue" SG_ 482 PassSeatBolsterValueBRPos 0;
+BA_ "GenSigInactiveValue" SG_ 482 PassSeatCushionValue6Pos 0;
+BA_ "GenSigSendType" SG_ 482 PassSeatCushionValue6Pos 0;
+BA_ "GenSigStartValue" SG_ 482 PassSeatCushionValue6Pos 0;
+BA_ "GenSigInactiveValue" SG_ 482 PassSeatCushionValueSts 0;
+BA_ "GenSigSendType" SG_ 482 PassSeatCushionValueSts 0;
+BA_ "GenSigStartValue" SG_ 482 PassSeatCushionValueSts 0;
+BA_ "GenSigInactiveValue" SG_ 482 PassSeatLumbarBottomPos 0;
+BA_ "GenSigSendType" SG_ 482 PassSeatLumbarBottomPos 0;
+BA_ "GenSigStartValue" SG_ 482 PassSeatLumbarBottomPos 0;
+BA_ "GenSigInactiveValue" SG_ 482 PassSeatLumbarMidPos 0;
+BA_ "GenSigSendType" SG_ 482 PassSeatLumbarMidPos 0;
+BA_ "GenSigStartValue" SG_ 482 PassSeatLumbarMidPos 0;
+BA_ "GenSigInactiveValue" SG_ 482 PassSeatLumbarTopPos 0;
+BA_ "GenSigSendType" SG_ 482 PassSeatLumbarTopPos 0;
+BA_ "GenSigStartValue" SG_ 482 PassSeatLumbarTopPos 0;
+BA_ "GenSigInactiveValue" SG_ 482 PassSeatLumbarValueSts 0;
+BA_ "GenSigSendType" SG_ 482 PassSeatLumbarValueSts 0;
+BA_ "GenSigStartValue" SG_ 482 PassSeatLumbarValueSts 0;
+BA_ "GenSigSendType" SG_ 482 PassSeatUpperValueSts 0;
+BA_ "GenSigInactiveValue" SG_ 482 PassSeatmassgHeatCSts 0;
+BA_ "GenSigSendType" SG_ 482 PassSeatmassgHeatCSts 0;
+BA_ "GenSigStartValue" SG_ 482 PassSeatmassgHeatCSts 0;
+BA_ "GenSigInactiveValue" SG_ 482 PassSeatmassgValveSts 0;
+BA_ "GenSigSendType" SG_ 482 PassSeatmassgValveSts 0;
+BA_ "GenSigStartValue" SG_ 482 PassSeatmassgValveSts 0;
+BA_ "GenSigInactiveValue" SG_ 483 PassPumpSts 0;
+BA_ "GenSigSendType" SG_ 483 PassPumpSts 0;
+BA_ "GenSigStartValue" SG_ 483 PassPumpSts 0;
+BA_ "GenSigInactiveValue" SG_ 483 PassSeatCushionValue1Pos 0;
+BA_ "GenSigSendType" SG_ 483 PassSeatCushionValue1Pos 0;
+BA_ "GenSigStartValue" SG_ 483 PassSeatCushionValue1Pos 0;
+BA_ "GenSigInactiveValue" SG_ 483 PassSeatCushionValue2Pos 0;
+BA_ "GenSigSendType" SG_ 483 PassSeatCushionValue2Pos 0;
+BA_ "GenSigStartValue" SG_ 483 PassSeatCushionValue2Pos 0;
+BA_ "GenSigInactiveValue" SG_ 483 PassSeatCushionValue4Pos 0;
+BA_ "GenSigSendType" SG_ 483 PassSeatCushionValue4Pos 0;
+BA_ "GenSigStartValue" SG_ 483 PassSeatCushionValue4Pos 0;
+BA_ "GenSigSendType" SG_ 483 PassSeatCushionValue5Pos 0;
+BA_ "GenSigInactiveValue" SG_ 483 PassSeatUpperValueLPos 0;
+BA_ "GenSigSendType" SG_ 483 PassSeatUpperValueLPos 0;
+BA_ "GenSigStartValue" SG_ 483 PassSeatUpperValueLPos 0;
+BA_ "GenSigInactiveValue" SG_ 483 PassSeatUpperValueMPos 0;
+BA_ "GenSigSendType" SG_ 483 PassSeatUpperValueMPos 0;
+BA_ "GenSigStartValue" SG_ 483 PassSeatUpperValueMPos 0;
+BA_ "GenSigInactiveValue" SG_ 483 PassSeatUpperValueRPos 0;
+BA_ "GenSigSendType" SG_ 483 PassSeatUpperValueRPos 0;
+BA_ "GenSigStartValue" SG_ 483 PassSeatUpperValueRPos 0;
+BA_ "GenSigSendType" SG_ 484 PassHeat1Sts 0;
+BA_ "GenSigSendType" SG_ 484 PassHeat2Sts 0;
+BA_ "GenSigSendType" SG_ 484 PassHeat3Sts 0;
+BA_ "GenSigSendType" SG_ 484 PassHeat4Sts 0;
+BA_ "GenSigSendType" SG_ 484 PassHeat5ErrSts 0;
+BA_ "GenSigSendType" SG_ 484 PassHeat5Sts 0;
+BA_ "GenSigSendType" SG_ 484 PassHeat6Sts 0;
+BA_ "GenSigSendType" SG_ 484 PassKneadingMassgLvlSts9 0;
+BA_ "GenSigSendType" SG_ 484 PassKneadingMassgSkillsSts9 0;
+BA_ "GenSigSendType" SG_ 484 PassKneadingMassgTime9 0;
+BA_ "GenSigInactiveValue" SG_ 484 PassLumControlSts 0;
+BA_ "GenSigSendType" SG_ 484 PassLumControlSts 0;
+BA_ "GenSigStartValue" SG_ 484 PassLumControlSts 0;
+BA_ "GenSigInactiveValue" SG_ 484 PassLumSwitchSts 0;
+BA_ "GenSigSendType" SG_ 484 PassLumSwitchSts 0;
+BA_ "GenSigStartValue" SG_ 484 PassLumSwitchSts 0;
+BA_ "GenSigSendType" SG_ 484 PassLumbarBottomWorkSts 0;
+BA_ "GenSigStartValue" SG_ 484 PassLumbarBottomWorkSts 0;
+BA_ "GenSigSendType" SG_ 484 PassLumbarMidWorkSts 0;
+BA_ "GenSigStartValue" SG_ 484 PassLumbarMidWorkSts 0;
+BA_ "GenSigSendType" SG_ 484 PassLumbarTopWorkSts 0;
+BA_ "GenSigStartValue" SG_ 484 PassLumbarTopWorkSts 0;
+BA_ "GenSigInactiveValue" SG_ 484 PassSeatCushionValue3Pos 0;
+BA_ "GenSigSendType" SG_ 484 PassSeatCushionValue3Pos 0;
+BA_ "GenSigStartValue" SG_ 484 PassSeatCushionValue3Pos 0;
+BA_ "GenSigSendType" SG_ 484 PassSeatMassFailr 0;
+BA_ "GenSigSendType" SG_ 484 PassSystemFailr 0;
+BA_ "GenSigSendType" SG_ 491 PassKneadingMassgLvlSts10 0;
+BA_ "GenSigSendType" SG_ 491 PassKneadingMassgSkillsSts10 0;
+BA_ "GenSigSendType" SG_ 491 PassKneadingMassgTime10 0;
+BA_ "GenSigSendType" SG_ 491 PassMassageHeatNTC1 0;
+BA_ "GenSigSendType" SG_ 491 PassMassageHeatNTC2 0;
+BA_ "GenSigStartValue" SG_ 491 PassMassageHeatNTC2 0;
+BA_ "GenSigSendType" SG_ 491 PassMassageHeatNTC3 0;
+BA_ "GenSigStartValue" SG_ 491 PassMassageHeatNTC3 0;
+BA_ "GenSigSendType" SG_ 491 PassMassageHeatNTC4 0;
+BA_ "GenSigStartValue" SG_ 491 PassMassageHeatNTC4 0;
+BA_ "GenSigSendType" SG_ 491 PassMassageHeatNTC5 0;
+BA_ "GenSigStartValue" SG_ 491 PassMassageHeatNTC5 0;
+BA_ "GenSigSendType" SG_ 491 PassMassageHeatNTC6 0;
+BA_ "GenSigStartValue" SG_ 491 PassMassageHeatNTC6 0;
+BA_ "GenSigSendType" SG_ 493 PassMassageHeatNTC10 0;
+BA_ "GenSigSendType" SG_ 493 PassMassageHeatNTC11 0;
+BA_ "GenSigStartValue" SG_ 493 PassMassageHeatNTC11 0;
+BA_ "GenSigSendType" SG_ 493 PassMassageHeatNTC12 0;
+BA_ "GenSigStartValue" SG_ 493 PassMassageHeatNTC12 0;
+BA_ "GenSigSendType" SG_ 493 PassMassageHeatNTC7 0;
+BA_ "GenSigStartValue" SG_ 493 PassMassageHeatNTC7 0;
+BA_ "GenSigSendType" SG_ 493 PassMassageHeatNTC8 0;
+BA_ "GenSigStartValue" SG_ 493 PassMassageHeatNTC8 0;
+BA_ "GenSigSendType" SG_ 493 PassMassageHeatNTC9 0;
+BA_ "GenSigStartValue" SG_ 493 PassMassageHeatNTC9 0;
+BA_ "GenSigInactiveValue" SG_ 1700 DiagRespData0_MCM_P 0;
+BA_ "GenSigSendType" SG_ 1700 DiagRespData0_MCM_P 7;
+BA_ "GenSigStartValue" SG_ 1700 DiagRespData0_MCM_P 0;
+BA_ "GenSigInactiveValue" SG_ 1700 DiagRespData1_MCM_P 0;
+BA_ "GenSigSendType" SG_ 1700 DiagRespData1_MCM_P 7;
+BA_ "GenSigStartValue" SG_ 1700 DiagRespData1_MCM_P 0;
+BA_ "GenSigInactiveValue" SG_ 1700 DiagRespData2_MCM_P 0;
+BA_ "GenSigSendType" SG_ 1700 DiagRespData2_MCM_P 7;
+BA_ "GenSigStartValue" SG_ 1700 DiagRespData2_MCM_P 0;
+BA_ "GenSigInactiveValue" SG_ 1700 DiagRespData3_MCM_P 0;
+BA_ "GenSigSendType" SG_ 1700 DiagRespData3_MCM_P 7;
+BA_ "GenSigStartValue" SG_ 1700 DiagRespData3_MCM_P 0;
+BA_ "GenSigInactiveValue" SG_ 1700 DiagRespData4_MCM_P 0;
+BA_ "GenSigSendType" SG_ 1700 DiagRespData4_MCM_P 7;
+BA_ "GenSigStartValue" SG_ 1700 DiagRespData4_MCM_P 0;
+BA_ "GenSigInactiveValue" SG_ 1700 DiagRespData5_MCM_P 0;
+BA_ "GenSigSendType" SG_ 1700 DiagRespData5_MCM_P 7;
+BA_ "GenSigStartValue" SG_ 1700 DiagRespData5_MCM_P 0;
+BA_ "GenSigInactiveValue" SG_ 1700 DiagRespData6_MCM_P 0;
+BA_ "GenSigSendType" SG_ 1700 DiagRespData6_MCM_P 7;
+BA_ "GenSigStartValue" SG_ 1700 DiagRespData6_MCM_P 0;
+BA_ "GenSigInactiveValue" SG_ 1700 DiagRespData7_MCM_P 0;
+BA_ "GenSigSendType" SG_ 1700 DiagRespData7_MCM_P 7;
+BA_ "GenSigStartValue" SG_ 1700 DiagRespData7_MCM_P 0;
+BA_ "GenSigSendType" SG_ 286 BCU_11E_CRC 0;
+BA_ "GenSigSendType" SG_ 286 BCU_11E_MsgCntr 0;
+BA_ "GenSigSendType" SG_ 286 VehSpdSts_Rdnt1 0;
+BA_ "GenSigSendType" SG_ 286 VehSpd_Rdnt1 0;
+BA_ "GenSigSendType" SG_ 316 DrvState 0;
+BA_ "GenSigSendType" SG_ 316 DrvState_SrvSts 0;
+BA_ "GenSigSendType" SG_ 316 OperatorState 0;
+BA_ "GenSigSendType" SG_ 316 OperatorState_SrvSts 0;
+BA_ "GenSigSendType" SG_ 316 VehModeDef 0;
+BA_ "GenSigSendType" SG_ 316 VehStateDetailed 0;
+BA_ "GenSigSendType" SG_ 316 VehStateDetailed_SrvSts 0;
+BA_ "GenSigSendType" SG_ 316 ZONE_13C_CRC 0;
+BA_ "GenSigSendType" SG_ 316 ZONE_13C_MsgCntr 0;
+BA_ "GenSigSendType" SG_ 436 DrvKneadingMassgLvlCmd10 0;
+BA_ "GenSigSendType" SG_ 436 DrvKneadingMassgLvlCmd5 0;
+BA_ "GenSigSendType" SG_ 436 DrvKneadingMassgLvlCmd6 0;
+BA_ "GenSigSendType" SG_ 436 DrvKneadingMassgLvlCmd7 0;
+BA_ "GenSigSendType" SG_ 436 DrvKneadingMassgLvlCmd8 0;
+BA_ "GenSigSendType" SG_ 436 DrvKneadingMassgLvlCmd9 0;
+BA_ "GenSigSendType" SG_ 436 DrvKneadingMassgSkillsCmd10 0;
+BA_ "GenSigSendType" SG_ 436 DrvKneadingMassgSkillsCmd5 0;
+BA_ "GenSigSendType" SG_ 436 DrvKneadingMassgSkillsCmd6 0;
+BA_ "GenSigSendType" SG_ 436 DrvKneadingMassgSkillsCmd7 0;
+BA_ "GenSigSendType" SG_ 436 DrvKneadingMassgSkillsCmd8 0;
+BA_ "GenSigSendType" SG_ 436 DrvKneadingMassgSkillsCmd9 0;
+BA_ "GenSigSendType" SG_ 436 DrvKneadingMassgTimesCmd10 0;
+BA_ "GenSigSendType" SG_ 436 DrvKneadingMassgTimesCmd5 0;
+BA_ "GenSigSendType" SG_ 436 DrvKneadingMassgTimesCmd6 0;
+BA_ "GenSigSendType" SG_ 436 DrvKneadingMassgTimesCmd7 0;
+BA_ "GenSigSendType" SG_ 436 DrvKneadingMassgTimesCmd8 0;
+BA_ "GenSigSendType" SG_ 436 DrvKneadingMassgTimesCmd9 0;
+BA_ "GenSigSendType" SG_ 437 PassKneadingMassgLvlCmd10 0;
+BA_ "GenSigSendType" SG_ 437 PassKneadingMassgLvlCmd5 0;
+BA_ "GenSigSendType" SG_ 437 PassKneadingMassgLvlCmd6 0;
+BA_ "GenSigSendType" SG_ 437 PassKneadingMassgLvlCmd7 0;
+BA_ "GenSigSendType" SG_ 437 PassKneadingMassgLvlCmd8 0;
+BA_ "GenSigSendType" SG_ 437 PassKneadingMassgLvlCmd9 0;
+BA_ "GenSigSendType" SG_ 437 PassKneadingMassgSkillsCmd10 0;
+BA_ "GenSigSendType" SG_ 437 PassKneadingMassgSkillsCmd5 0;
+BA_ "GenSigSendType" SG_ 437 PassKneadingMassgSkillsCmd6 0;
+BA_ "GenSigSendType" SG_ 437 PassKneadingMassgSkillsCmd7 0;
+BA_ "GenSigSendType" SG_ 437 PassKneadingMassgSkillsCmd8 0;
+BA_ "GenSigSendType" SG_ 437 PassKneadingMassgSkillsCmd9 0;
+BA_ "GenSigSendType" SG_ 437 PassKneadingMassgTimesCmd10 0;
+BA_ "GenSigSendType" SG_ 437 PassKneadingMassgTimesCmd5 0;
+BA_ "GenSigSendType" SG_ 437 PassKneadingMassgTimesCmd6 0;
+BA_ "GenSigSendType" SG_ 437 PassKneadingMassgTimesCmd7 0;
+BA_ "GenSigSendType" SG_ 437 PassKneadingMassgTimesCmd8 0;
+BA_ "GenSigSendType" SG_ 437 PassKneadingMassgTimesCmd9 0;
+BA_ "GenSigSendType" SG_ 457 DrvHeat1_pct 0;
+BA_ "GenSigSendType" SG_ 457 DrvHeat2_pct 0;
+BA_ "GenSigSendType" SG_ 457 DrvHeat3_pct 0;
+BA_ "GenSigSendType" SG_ 457 DrvHeat4_pct 0;
+BA_ "GenSigSendType" SG_ 457 DrvHeat5_pct 0;
+BA_ "GenSigSendType" SG_ 457 DrvHeat6_pct 0;
+BA_ "GenSigSendType" SG_ 463 PassHeat1_pct 0;
+BA_ "GenSigSendType" SG_ 463 PassHeat2_pct 0;
+BA_ "GenSigSendType" SG_ 463 PassHeat3_pct 0;
+BA_ "GenSigSendType" SG_ 463 PassHeat4_pct 0;
+BA_ "GenSigSendType" SG_ 463 PassHeat5_pct 0;
+BA_ "GenSigSendType" SG_ 463 PassHeat6_pct 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatBolsterValueBLCmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatBolsterValueBLCmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatBolsterValueBLCmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatBolsterValueBRCmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatBolsterValueBRCmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatBolsterValueBRCmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatCushionValue4Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatCushionValue4Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatCushionValue4Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatCushionValue5Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatCushionValue5Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatCushionValue5Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatCushionValue6Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatCushionValue6Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatCushionValue6Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatLumbarBottomValue3Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatLumbarBottomValue3Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatLumbarBottomValue3Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatLumbarMidValue2Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatLumbarMidValue2Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatLumbarMidValue2Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatLumbarTopValue1Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatLumbarTopValue1Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatLumbarTopValue1Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgHeat10Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgHeat10Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgHeat10Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgHeat11Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgHeat11Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgHeat11Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgHeat12Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgHeat12Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgHeat12Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgHeat1Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgHeat1Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgHeat1Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgHeat2Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgHeat2Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgHeat2Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgHeat3Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgHeat3Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgHeat3Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgHeat4Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgHeat4Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgHeat4Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgHeat5Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgHeat5Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgHeat5Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgHeat6Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgHeat6Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgHeat6Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgHeat7Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgHeat7Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgHeat7Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgHeat8Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgHeat8Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgHeat8Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgHeat9Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgHeat9Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgHeat9Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgValve10Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgValve10Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgValve10Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgValve11Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgValve11Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgValve11Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgValve12Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgValve12Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgValve12Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgValve1Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgValve1Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgValve1Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgValve2Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgValve2Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgValve2Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgValve3Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgValve3Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgValve3Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgValve4Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgValve4Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgValve4Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgValve5Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgValve5Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgValve5Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgValve6Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgValve6Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgValve6Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgValve7Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgValve7Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgValve7Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgValve8Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgValve8Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgValve8Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 465 DrvSeatmassgValve9Cmd 0;
+BA_ "GenSigSendType" SG_ 465 DrvSeatmassgValve9Cmd 0;
+BA_ "GenSigStartValue" SG_ 465 DrvSeatmassgValve9Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 466 DrvPumpCmd 0;
+BA_ "GenSigSendType" SG_ 466 DrvPumpCmd 0;
+BA_ "GenSigStartValue" SG_ 466 DrvPumpCmd 0;
+BA_ "GenSigInactiveValue" SG_ 466 DrvSeatCushionValue1Cmd 0;
+BA_ "GenSigSendType" SG_ 466 DrvSeatCushionValue1Cmd 0;
+BA_ "GenSigStartValue" SG_ 466 DrvSeatCushionValue1Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 466 DrvSeatCushionValue2Cmd 0;
+BA_ "GenSigSendType" SG_ 466 DrvSeatCushionValue2Cmd 0;
+BA_ "GenSigStartValue" SG_ 466 DrvSeatCushionValue2Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 466 DrvSeatCushionValue3Cmd 0;
+BA_ "GenSigSendType" SG_ 466 DrvSeatCushionValue3Cmd 0;
+BA_ "GenSigStartValue" SG_ 466 DrvSeatCushionValue3Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 466 DrvSeatUpperValueLCmd 0;
+BA_ "GenSigSendType" SG_ 466 DrvSeatUpperValueLCmd 0;
+BA_ "GenSigStartValue" SG_ 466 DrvSeatUpperValueLCmd 0;
+BA_ "GenSigInactiveValue" SG_ 466 DrvSeatUpperValueMCmd 0;
+BA_ "GenSigSendType" SG_ 466 DrvSeatUpperValueMCmd 0;
+BA_ "GenSigStartValue" SG_ 466 DrvSeatUpperValueMCmd 0;
+BA_ "GenSigInactiveValue" SG_ 466 DrvSeatUpperValueRCmd 0;
+BA_ "GenSigSendType" SG_ 466 DrvSeatUpperValueRCmd 0;
+BA_ "GenSigStartValue" SG_ 466 DrvSeatUpperValueRCmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatBolsterValueBLCmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatBolsterValueBLCmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatBolsterValueBLCmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatBolsterValueBRCmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatBolsterValueBRCmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatBolsterValueBRCmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatCushionValue4Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatCushionValue4Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatCushionValue4Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatCushionValue5Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatCushionValue5Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatCushionValue5Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatCushionValue6Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatCushionValue6Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatCushionValue6Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatLumbarBottomValue3Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatLumbarBottomValue3Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatLumbarBottomValue3Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatLumbarMidValue2Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatLumbarMidValue2Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatLumbarMidValue2Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatLumbarTopValue1Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatLumbarTopValue1Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatLumbarTopValue1Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgHeat10Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgHeat10Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgHeat10Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgHeat11Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgHeat11Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgHeat11Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgHeat12Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgHeat12Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgHeat12Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgHeat1Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgHeat1Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgHeat1Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgHeat2Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgHeat2Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgHeat2Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgHeat3Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgHeat3Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgHeat3Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgHeat4Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgHeat4Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgHeat4Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgHeat5Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgHeat5Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgHeat5Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgHeat6Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgHeat6Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgHeat6Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgHeat7Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgHeat7Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgHeat7Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgHeat8Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgHeat8Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgHeat8Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgHeat9Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgHeat9Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgHeat9Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgValve10Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgValve10Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgValve10Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgValve11Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgValve11Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgValve11Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgValve12Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgValve12Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgValve12Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgValve1Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgValve1Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgValve1Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgValve2Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgValve2Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgValve2Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgValve3Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgValve3Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgValve3Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgValve4Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgValve4Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgValve4Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgValve5Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgValve5Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgValve5Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgValve6Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgValve6Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgValve6Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgValve7Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgValve7Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgValve7Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgValve8Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgValve8Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgValve8Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 467 PassSeatmassgValve9Cmd 0;
+BA_ "GenSigSendType" SG_ 467 PassSeatmassgValve9Cmd 0;
+BA_ "GenSigStartValue" SG_ 467 PassSeatmassgValve9Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 468 PassPumpCmd 0;
+BA_ "GenSigSendType" SG_ 468 PassPumpCmd 0;
+BA_ "GenSigStartValue" SG_ 468 PassPumpCmd 0;
+BA_ "GenSigInactiveValue" SG_ 468 PassSeatCushionValue1Cmd 0;
+BA_ "GenSigSendType" SG_ 468 PassSeatCushionValue1Cmd 0;
+BA_ "GenSigStartValue" SG_ 468 PassSeatCushionValue1Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 468 PassSeatCushionValue2Cmd 0;
+BA_ "GenSigSendType" SG_ 468 PassSeatCushionValue2Cmd 0;
+BA_ "GenSigStartValue" SG_ 468 PassSeatCushionValue2Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 468 PassSeatCushionValue3Cmd 0;
+BA_ "GenSigSendType" SG_ 468 PassSeatCushionValue3Cmd 0;
+BA_ "GenSigStartValue" SG_ 468 PassSeatCushionValue3Cmd 0;
+BA_ "GenSigInactiveValue" SG_ 468 PassSeatUpperValueLCmd 0;
+BA_ "GenSigSendType" SG_ 468 PassSeatUpperValueLCmd 0;
+BA_ "GenSigStartValue" SG_ 468 PassSeatUpperValueLCmd 0;
+BA_ "GenSigInactiveValue" SG_ 468 PassSeatUpperValueMCmd 0;
+BA_ "GenSigSendType" SG_ 468 PassSeatUpperValueMCmd 0;
+BA_ "GenSigStartValue" SG_ 468 PassSeatUpperValueMCmd 0;
+BA_ "GenSigInactiveValue" SG_ 468 PassSeatUpperValueRCmd 0;
+BA_ "GenSigSendType" SG_ 468 PassSeatUpperValueRCmd 0;
+BA_ "GenSigStartValue" SG_ 468 PassSeatUpperValueRCmd 0;
+BA_ "GenSigSendType" SG_ 751 BattVolt_LBMR 0;
+BA_ "GenSigSendType" SG_ 937 VehOdometer 0;
+BA_ "GenSigSendType" SG_ 946 Day 0;
+BA_ "GenSigSendType" SG_ 946 Hr 0;
+BA_ "GenSigSendType" SG_ 946 MSec 0;
+BA_ "GenSigSendType" SG_ 946 Min 0;
+BA_ "GenSigSendType" SG_ 946 Mth 0;
+BA_ "GenSigSendType" SG_ 946 Sec 0;
+BA_ "GenSigSendType" SG_ 946 Yr 0;
+BA_ "GenSigSendType" SG_ 1271 PNC10_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC11_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC12_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC13_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC14_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC15_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC16_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC17_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC18_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC19_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC1_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC20_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC21_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC22_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC23_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC24_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC25_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC26_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC27_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC28_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC29_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC2_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC30_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC31_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC32_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC33_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC34_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC35_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC36_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC37_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC38_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC39_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC3_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC40_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC41_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC42_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC43_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC44_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC45_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC46_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC47_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC48_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC4_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC5_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC6_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC7_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC8_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC9_Sts 0;
+BA_ "GenSigSendType" SG_ 1271 PNC_DFT 0;
+BA_ "GenSigSendType" SG_ 1297 ActvWakeup_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 NetMngtCoorn_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 NetMngtCoorrSleepRdy_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN10_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN11_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN12_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN13_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN14_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN15_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN16_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN17_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN18_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN19_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN1_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN20_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN21_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN22_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN23_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN24_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN25_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN26_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN27_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN28_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN29_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN2_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN30_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN31_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN32_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN33_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN34_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN35_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN36_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN37_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN38_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN39_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN3_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN40_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN41_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN42_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN43_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN44_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN45_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN46_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN47_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN48_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN4_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN5_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN6_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN7_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN8_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PN9_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 PtlNetInfo_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 RepMsgReq_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 ResdBit1_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 ResdBit2_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1297 ScrNodId_ZONE_LE 7;
+BA_ "GenSigSendType" SG_ 1504 VC_Data_5E0_CRC 0;
+BA_ "GenSigSendType" SG_ 1504 VC_Data_5E0_MsgCntr 0;
+BA_ "GenSigSendType" SG_ 1504 VC_Data_5E0_Payload 0;
+BA_ "GenSigSendType" SG_ 1537 DiagReqData0_AllECU 7;
+BA_ "GenSigSendType" SG_ 1537 DiagReqData1_AllECU 7;
+BA_ "GenSigSendType" SG_ 1537 DiagReqData2_AllECU 7;
+BA_ "GenSigSendType" SG_ 1537 DiagReqData3_AllECU 7;
+BA_ "GenSigSendType" SG_ 1537 DiagReqData4_AllECU 7;
+BA_ "GenSigSendType" SG_ 1537 DiagReqData5_AllECU 7;
+BA_ "GenSigSendType" SG_ 1537 DiagReqData6_AllECU 7;
+BA_ "GenSigSendType" SG_ 1537 DiagReqData7_AllECU 7;
+BA_ "GenSigInactiveValue" SG_ 1571 DiagReqData0_MCM_D 0;
+BA_ "GenSigSendType" SG_ 1571 DiagReqData0_MCM_D 7;
+BA_ "GenSigStartValue" SG_ 1571 DiagReqData0_MCM_D 0;
+BA_ "GenSigInactiveValue" SG_ 1571 DiagReqData1_MCM_D 0;
+BA_ "GenSigSendType" SG_ 1571 DiagReqData1_MCM_D 7;
+BA_ "GenSigStartValue" SG_ 1571 DiagReqData1_MCM_D 0;
+BA_ "GenSigInactiveValue" SG_ 1571 DiagReqData2_MCM_D 0;
+BA_ "GenSigSendType" SG_ 1571 DiagReqData2_MCM_D 7;
+BA_ "GenSigStartValue" SG_ 1571 DiagReqData2_MCM_D 0;
+BA_ "GenSigInactiveValue" SG_ 1571 DiagReqData3_MCM_D 0;
+BA_ "GenSigSendType" SG_ 1571 DiagReqData3_MCM_D 7;
+BA_ "GenSigStartValue" SG_ 1571 DiagReqData3_MCM_D 0;
+BA_ "GenSigInactiveValue" SG_ 1571 DiagReqData4_MCM_D 0;
+BA_ "GenSigSendType" SG_ 1571 DiagReqData4_MCM_D 7;
+BA_ "GenSigStartValue" SG_ 1571 DiagReqData4_MCM_D 0;
+BA_ "GenSigInactiveValue" SG_ 1571 DiagReqData5_MCM_D 0;
+BA_ "GenSigSendType" SG_ 1571 DiagReqData5_MCM_D 7;
+BA_ "GenSigStartValue" SG_ 1571 DiagReqData5_MCM_D 0;
+BA_ "GenSigInactiveValue" SG_ 1571 DiagReqData6_MCM_D 0;
+BA_ "GenSigSendType" SG_ 1571 DiagReqData6_MCM_D 7;
+BA_ "GenSigStartValue" SG_ 1571 DiagReqData6_MCM_D 0;
+BA_ "GenSigInactiveValue" SG_ 1571 DiagReqData7_MCM_D 0;
+BA_ "GenSigSendType" SG_ 1571 DiagReqData7_MCM_D 7;
+BA_ "GenSigStartValue" SG_ 1571 DiagReqData7_MCM_D 0;
+BA_ "GenSigInactiveValue" SG_ 1572 DiagReqData0_MCM_P 0;
+BA_ "GenSigSendType" SG_ 1572 DiagReqData0_MCM_P 7;
+BA_ "GenSigStartValue" SG_ 1572 DiagReqData0_MCM_P 0;
+BA_ "GenSigInactiveValue" SG_ 1572 DiagReqData1_MCM_P 0;
+BA_ "GenSigSendType" SG_ 1572 DiagReqData1_MCM_P 7;
+BA_ "GenSigStartValue" SG_ 1572 DiagReqData1_MCM_P 0;
+BA_ "GenSigInactiveValue" SG_ 1572 DiagReqData2_MCM_P 0;
+BA_ "GenSigSendType" SG_ 1572 DiagReqData2_MCM_P 7;
+BA_ "GenSigStartValue" SG_ 1572 DiagReqData2_MCM_P 0;
+BA_ "GenSigInactiveValue" SG_ 1572 DiagReqData3_MCM_P 0;
+BA_ "GenSigSendType" SG_ 1572 DiagReqData3_MCM_P 7;
+BA_ "GenSigStartValue" SG_ 1572 DiagReqData3_MCM_P 0;
+BA_ "GenSigInactiveValue" SG_ 1572 DiagReqData4_MCM_P 0;
+BA_ "GenSigSendType" SG_ 1572 DiagReqData4_MCM_P 7;
+BA_ "GenSigStartValue" SG_ 1572 DiagReqData4_MCM_P 0;
+BA_ "GenSigInactiveValue" SG_ 1572 DiagReqData5_MCM_P 0;
+BA_ "GenSigSendType" SG_ 1572 DiagReqData5_MCM_P 7;
+BA_ "GenSigStartValue" SG_ 1572 DiagReqData5_MCM_P 0;
+BA_ "GenSigInactiveValue" SG_ 1572 DiagReqData6_MCM_P 0;
+BA_ "GenSigSendType" SG_ 1572 DiagReqData6_MCM_P 7;
+BA_ "GenSigStartValue" SG_ 1572 DiagReqData6_MCM_P 0;
+BA_ "GenSigInactiveValue" SG_ 1572 DiagReqData7_MCM_P 0;
+BA_ "GenSigSendType" SG_ 1572 DiagReqData7_MCM_P 7;
+BA_ "GenSigStartValue" SG_ 1572 DiagReqData7_MCM_P 0;
+
+
+VAL_ 438 DrvKneadingMassgSkillsSts5 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 438 DrvKneadingMassgSkillsSts6 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 438 DrvKneadingMassgSkillsSts7 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 438 DrvKneadingMassgSkillsSts8 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 438 DrvKneadingMassglvlSts5 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 438 DrvKneadingMassglvlSts6 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 438 DrvKneadingMassglvlSts7 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 438 DrvKneadingMassglvlSts8 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 479 DrvMassSwitchSts 3 "Reserved" 2 "Err" 1 "Press" 0 "No Press" ;
+VAL_ 479 DrvSeatBlosterValueSts 3 "Reserved" 2 "Err" 1 "Action" 0 "Normal" ;
+VAL_ 479 DrvSeatCushionValueSts 3 "Reserved" 2 "Err" 1 "Action" 0 "Normal" ;
+VAL_ 479 DrvSeatLumbarValueSts 3 "Reserved" 2 "Err" 1 "Action" 0 "Normal" ;
+VAL_ 479 DrvSeatUpperValueSts 3 "Reserved" 2 "Err" 1 "Action" 0 "Normal" ;
+VAL_ 479 DrvSeatmassgHeatCSts 3 "Reserved" 2 "Err" 1 "Action" 0 "Normal" ;
+VAL_ 479 DrvSeatmassgValveSts 3 "Reserved" 2 "Err" 1 "Action" 0 "Normal" ;
+VAL_ 481 DrvHeat1Sts 3 "reserved" 2 "err" 1 "action" 0 "no action" ;
+VAL_ 481 DrvHeat2Sts 3 "reserved" 2 "err" 1 "action" 0 "no action" ;
+VAL_ 481 DrvHeat3Sts 3 "reserved" 2 "err" 1 "action" 0 "no action" ;
+VAL_ 481 DrvHeat4Sts 3 "reserved" 2 "err" 1 "action" 0 "no action" ;
+VAL_ 481 DrvHeat5ErrSts 15 "Invalid" 5 "Over Current" 4 "Sensor short to PWR or Sensor Open" 3 "Sensor short to GND" 2 "Heater short to PWR or Heater Open" 1 "Heater Short to GND" 0 "No Error" ;
+VAL_ 481 DrvHeat5Sts 3 "reserved" 2 "err" 1 "action" 0 "no action" ;
+VAL_ 481 DrvHeat6Sts 3 "reserved" 2 "err" 1 "action" 0 "no action" ;
+VAL_ 481 DrvKneadingMassgSkillsSts9 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 481 DrvKneadingMassglvlSts9 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 481 DrvLumControlSts 7 "Reserved" 6 "Reserved" 5 "Reserved" 4 "Reserved" 3 "System failure" 2 "Recall" 1 "Manual control" 0 "No action" ;
+VAL_ 481 DrvLumSwitchSts 5 "Erro" 4 "Down" 3 "Up" 2 "Reward" 1 "Forward" 0 "No Press" ;
+VAL_ 481 DrvLumbarBottomWorkSts 3 "Idle" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 481 DrvLumbarMidWorkSts 3 "Idle" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 481 DrvLumbarTopWorkSts 3 "Idle" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 481 DrvSeatMassFailr 1 "Failure" 0 "no Failure" ;
+VAL_ 481 DrvSystemFailr 1 "Failure" 0 "no Failure" ;
+VAL_ 488 DrvKneadingMassgSkillsSts10 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 488 DrvKneadingMassglvlSts10 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 439 PassKneadingMassgLvlSts5 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 439 PassKneadingMassgLvlSts6 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 439 PassKneadingMassgLvlSts7 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 439 PassKneadingMassgLvlSts8 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 439 PassKneadingMassgSkillsSts5 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 439 PassKneadingMassgSkillsSts6 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 439 PassKneadingMassgSkillsSts7 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 439 PassKneadingMassgSkillsSts8 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 482 PassMassSwitchSts 3 "Reserved" 2 "Err" 1 "Press" 0 "No Press" ;
+VAL_ 482 PassSeatBlosterValueSts 3 "Reserved" 2 "Err" 1 "Action" 0 "Normal" ;
+VAL_ 482 PassSeatCushionValueSts 3 "Reserved" 2 "Err" 1 "Action" 0 "Normal" ;
+VAL_ 482 PassSeatLumbarValueSts 3 "Reserved" 2 "Err" 1 "Action" 0 "Normal" ;
+VAL_ 482 PassSeatUpperValueSts 3 "Reserved" 2 "Err" 1 "Action" 0 "Normal" ;
+VAL_ 482 PassSeatmassgHeatCSts 3 "Reserved" 2 "Err" 1 "Action" 0 "Normal" ;
+VAL_ 482 PassSeatmassgValveSts 3 "Reserved" 2 "Err" 1 "Action" 0 "Normal" ;
+VAL_ 483 PassSeatCushionValue5Pos 101 "invalid" 100 "100%" 0 "0" ;
+VAL_ 484 PassHeat1Sts 3 "reserved" 2 "err" 1 "action" 0 "no action" ;
+VAL_ 484 PassHeat2Sts 3 "reserved" 2 "err" 1 "action" 0 "no action" ;
+VAL_ 484 PassHeat3Sts 3 "reserved" 2 "err" 1 "action" 0 "no action" ;
+VAL_ 484 PassHeat4Sts 3 "reserved" 2 "err" 1 "action" 0 "no action" ;
+VAL_ 484 PassHeat5ErrSts 15 "Invalid" 5 "Over Current" 4 "Sensor short to PWR or Sensor Open" 3 "Sensor short to GND" 2 "Heater short to PWR or Heater Open" 1 "Heater Short to GND" 0 "No Error" ;
+VAL_ 484 PassHeat5Sts 3 "reserved" 2 "err" 1 "action" 0 "no action" ;
+VAL_ 484 PassHeat6Sts 3 "reserved" 2 "err" 1 "action" 0 "no action" ;
+VAL_ 484 PassKneadingMassgLvlSts9 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 484 PassKneadingMassgSkillsSts9 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 484 PassLumControlSts 7 "Reserved" 6 "Reserved" 5 "Reserved" 4 "Reserved" 3 "System failure" 2 "Recall" 1 "Manual control" 0 "No action" ;
+VAL_ 484 PassLumSwitchSts 5 "Erro" 4 "Down" 3 "Up" 2 "Reward" 1 "Forward" 0 "No Press" ;
+VAL_ 484 PassLumbarBottomWorkSts 3 "Idle" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 484 PassLumbarMidWorkSts 3 "Idle" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 484 PassLumbarTopWorkSts 3 "Idle" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 484 PassSeatMassFailr 1 "Failure" 0 "no Failure" ;
+VAL_ 484 PassSystemFailr 1 "Failure" 0 "no Failure" ;
+VAL_ 491 PassKneadingMassgLvlSts10 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 491 PassKneadingMassgSkillsSts10 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 286 VehSpdSts_Rdnt1 1 "Valid" 0 "Inalid" ;
+VAL_ 316 DrvState 7 "DRV_ST_INVALID" 2 "DRV_ST_AD" 1 "DRV_ST_MD" 0 "DRV_ST_NONE" ;
+VAL_ 316 DrvState_SrvSts 1 "valid" 0 "invalid" ;
+VAL_ 316 OperatorState 7 "OPERATOR_ST_INVALID" 3 "OPERATOR_ST_INSIDE" 2 "OPERATOR_ST_AVAILABLE" 1 "OPERATOR_ST_OUTSIDE" 0 "OPERATOR_ST_NONE" ;
+VAL_ 316 OperatorState_SrvSts 1 "valid" 0 "invalid" ;
+VAL_ 316 VehModeDef 15 "VEHMODE_INVALID" 9 "VEHMODE_ENDOFLIFE" 8 "VEHMODE_SVT" 7 "VEHMODE_MAINTENANCE" 6 "VEHMODE_TESTDRIVE" 5 "VEHMODE_DUT" 4 "VEHMODE_REGULAR" 3 "VEHMODE_SHOWROOM" 2 "VEHMODE_TRANSPORT" 1 "VEHMODE_PRODUCTION" 0 "VEHMODE_RESERVED" ;
+VAL_ 316 VehStateDetailed 15 "VEH_ST_INVALID" 5 "VEH_ST_PWRSWAP" 4 "VEH_ST_CHARGING" 3 "VEH_ST_SWUPDATE" 2 "VEH_ST_DRIVING" 1 "VEH_ST_DRVRDY" 0 "VEH_ST_PARKED" ;
+VAL_ 316 VehStateDetailed_SrvSts 1 "valid" 0 "invalid" ;
+VAL_ 436 DrvKneadingMassgLvlCmd10 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 436 DrvKneadingMassgLvlCmd5 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 436 DrvKneadingMassgLvlCmd6 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 436 DrvKneadingMassgLvlCmd7 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 436 DrvKneadingMassgLvlCmd8 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 436 DrvKneadingMassgLvlCmd9 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 436 DrvKneadingMassgSkillsCmd10 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 436 DrvKneadingMassgSkillsCmd5 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 436 DrvKneadingMassgSkillsCmd6 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 436 DrvKneadingMassgSkillsCmd7 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 436 DrvKneadingMassgSkillsCmd8 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 436 DrvKneadingMassgSkillsCmd9 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 437 PassKneadingMassgLvlCmd10 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 437 PassKneadingMassgLvlCmd5 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 437 PassKneadingMassgLvlCmd6 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 437 PassKneadingMassgLvlCmd7 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 437 PassKneadingMassgLvlCmd8 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 437 PassKneadingMassgLvlCmd9 2 "intensity 2" 1 "intensity 1" 0 "Idle" ;
+VAL_ 437 PassKneadingMassgSkillsCmd10 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 437 PassKneadingMassgSkillsCmd5 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 437 PassKneadingMassgSkillsCmd6 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 437 PassKneadingMassgSkillsCmd7 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 437 PassKneadingMassgSkillsCmd8 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 437 PassKneadingMassgSkillsCmd9 7 "1_Point massage" 6 "Rap massage anticlockwise" 5 "Rap massage clockwise" 4 "3_Support_point_pressing  massage" 3 "3_Point_pressing massage" 2 "Kneading massage_anticlockwise" 1 "Kneading massage_clockwise" 0 "Idle" ;
+VAL_ 457 DrvHeat1_pct 127 "Invalid" 100 "100%" 0 "0" ;
+VAL_ 457 DrvHeat2_pct 127 "Invalid" 100 "100" 0 "0" ;
+VAL_ 457 DrvHeat3_pct 127 "Invalid" 100 "100%" 0 "0" ;
+VAL_ 457 DrvHeat4_pct 127 "Invalid" 100 "100" 0 "0" ;
+VAL_ 457 DrvHeat5_pct 127 "Invalid" 100 "100%" 0 "0" ;
+VAL_ 457 DrvHeat6_pct 127 "Invalid" 100 "100%" 0 "0" ;
+VAL_ 463 PassHeat1_pct 127 "Invalid" 100 "100%" 0 "0" ;
+VAL_ 463 PassHeat2_pct 127 "Invalid" 100 "100%" 0 "0" ;
+VAL_ 463 PassHeat3_pct 127 "Invalid" 100 "100%" 0 "0" ;
+VAL_ 463 PassHeat4_pct 127 "Invalid" 100 "100%" 0 "0" ;
+VAL_ 463 PassHeat5_pct 127 "Invalid" 100 "100%" 0 "0" ;
+VAL_ 463 PassHeat6_pct 127 "Invalid" 100 "100%" 0 "0" ;
+VAL_ 465 DrvSeatBolsterValueBLCmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 465 DrvSeatBolsterValueBRCmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 465 DrvSeatCushionValue4Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 465 DrvSeatCushionValue5Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 465 DrvSeatCushionValue6Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 465 DrvSeatLumbarBottomValue3Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 465 DrvSeatLumbarMidValue2Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 465 DrvSeatLumbarTopValue1Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 465 DrvSeatmassgHeat10Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 465 DrvSeatmassgHeat11Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 465 DrvSeatmassgHeat12Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 465 DrvSeatmassgHeat1Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 465 DrvSeatmassgHeat2Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 465 DrvSeatmassgHeat3Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 465 DrvSeatmassgHeat4Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 465 DrvSeatmassgHeat5Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 465 DrvSeatmassgHeat6Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 465 DrvSeatmassgHeat7Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 465 DrvSeatmassgHeat8Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 465 DrvSeatmassgHeat9Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 465 DrvSeatmassgValve10Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 465 DrvSeatmassgValve11Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 465 DrvSeatmassgValve12Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 465 DrvSeatmassgValve1Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 465 DrvSeatmassgValve2Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 465 DrvSeatmassgValve3Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 465 DrvSeatmassgValve4Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 465 DrvSeatmassgValve5Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 465 DrvSeatmassgValve6Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 465 DrvSeatmassgValve7Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 465 DrvSeatmassgValve8Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 465 DrvSeatmassgValve9Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 466 DrvSeatCushionValue1Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 466 DrvSeatCushionValue2Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 466 DrvSeatCushionValue3Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 466 DrvSeatUpperValueLCmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 466 DrvSeatUpperValueMCmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 466 DrvSeatUpperValueRCmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatBolsterValueBLCmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatBolsterValueBRCmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatCushionValue4Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatCushionValue5Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatCushionValue6Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatLumbarBottomValue3Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatLumbarMidValue2Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatLumbarTopValue1Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatmassgHeat10Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 467 PassSeatmassgHeat11Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 467 PassSeatmassgHeat12Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 467 PassSeatmassgHeat1Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 467 PassSeatmassgHeat2Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 467 PassSeatmassgHeat3Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 467 PassSeatmassgHeat4Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 467 PassSeatmassgHeat5Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 467 PassSeatmassgHeat6Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 467 PassSeatmassgHeat7Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 467 PassSeatmassgHeat8Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 467 PassSeatmassgHeat9Cmd 3 "Reserved" 2 "Heat Close" 1 "Heat open" 0 "No action" ;
+VAL_ 467 PassSeatmassgValve10Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatmassgValve11Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatmassgValve12Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatmassgValve1Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatmassgValve2Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatmassgValve3Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatmassgValve4Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatmassgValve5Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatmassgValve6Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatmassgValve7Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatmassgValve8Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 467 PassSeatmassgValve9Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 468 PassSeatCushionValue1Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 468 PassSeatCushionValue2Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 468 PassSeatCushionValue3Cmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 468 PassSeatUpperValueLCmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 468 PassSeatUpperValueMCmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 468 PassSeatUpperValueRCmd 3 "Reserved" 2 "Deflation" 1 "Inflation" 0 "No action" ;
+VAL_ 946 Mth 15 "Invalid" 14 "Reserved" 13 "Reserved" 12 "December" 11 "November" 10 "October" 9 "September" 8 "August" 7 "July" 6 "June" 5 "May" 4 "April" 3 "March" 2 "February" 1 "January" 0 "Unknown" ;
+VAL_ 1271 PNC10_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC11_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC12_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC13_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC14_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC15_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC16_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC17_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC18_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC19_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC1_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC20_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC21_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC22_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC23_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC24_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC25_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC26_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC27_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC28_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC29_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC2_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC30_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC31_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC32_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC33_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC34_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC35_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC36_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC37_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC38_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC39_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC3_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC40_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC41_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC42_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC43_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC44_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC45_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC46_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC47_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC48_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC4_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC5_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC6_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC7_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC8_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC9_Sts 1 "Active" 0 "Inactive" ;
+VAL_ 1271 PNC_DFT 1 "Active" 0 "Inactive" ;
+VAL_ 1297 PN10_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN11_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN12_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN13_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN14_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN15_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN16_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN17_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN18_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN19_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN1_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN20_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN21_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN22_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN23_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN24_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN25_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN26_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN27_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN28_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN29_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN2_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN30_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN31_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN32_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN33_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN34_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN35_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN36_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN37_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN38_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN39_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN3_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN40_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN41_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN42_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN43_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN44_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN45_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN46_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN47_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN48_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN4_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN5_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN6_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN7_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN8_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 PN9_ZONE_LE 1 "Awake" 0 "Not awake" ;
+VAL_ 1297 RepMsgReq_ZONE_LE 1 "Repeat message request" 0 "No repeat message request" ;

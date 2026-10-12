@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- NIO NT3 UDS刷写上位机 系统变量定义
+     导入: CANoe -> Environment -> System Variables -> Import...
+     若导入失败, 请按下方定义手动新建同名命名空间与变量 -->
+<systemvariables version="4">
+  <namespace name="" comment="" interface="">
+    <namespace name="NIO_Flasher" comment="NIO NT3 UDS刷写上位机" interface="">
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="StartFlash" comment="置1启动刷写流程(自动清零)" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="AbortFlash" comment="置1中止刷写(自动清零)" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Status" comment="刷写状态: 0=空闲 1=运行中 2=完成 3=失败" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="%" name="Progress" comment="下载进度 0-100%" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="State" comment="主状态机状态号" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="CurrentStep" comment="当前步骤名称" bitcount="0" isSigned="true" encoding="65001" type="string" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="ErrorText" comment="错误信息" bitcount="0" isSigned="true" encoding="65001" type="string" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="PhysReqId" comment="物理请求CAN ID(十进制, 0x623=1571)" bitcount="32" isSigned="false" encoding="65001" type="int" startValue="1571" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="PhysRespId" comment="物理响应CAN ID(十进制, 0x6A3=1699)" bitcount="32" isSigned="false" encoding="65001" type="int" startValue="1699" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="FlashFile" comment="应用程序刷写文件路径" bitcount="0" isSigned="true" encoding="65001" type="string" startValue="" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="SignatureFile" comment="应用签名文件路径" bitcount="0" isSigned="true" encoding="65001" type="string" startValue="" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="DriverFile" comment="Flash驱动文件路径" bitcount="0" isSigned="true" encoding="65001" type="string" startValue="" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="DriverSigFile" comment="驱动签名文件路径" bitcount="0" isSigned="true" encoding="65001" type="string" startValue="" />
+    </namespace>
+  </namespace>
+</systemvariables>

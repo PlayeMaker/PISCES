@@ -1,0 +1,9 @@
+# clangd / clang-tidy 编译配置补丁
+# compile_commands.json 由构建生成，不含 makefile.defs 中按 PROJECT_CONFIG_DEF 下发的工程配置宏，
+# 导致 LLVM 工具解析时落到 #error 分支。此处统一补齐。
+# 切换工程配置时改前两行即可（0: HIGH_D, 1: HIGH_P, 2: LOW_D, 3: LOW_P），GIT_HASH 仅为占位。
+CompileFlags:
+  Add:
+    - -DHIGH_CONFIGURATION
+    - -DPISCES_MCM_D
+    - '-DGIT_HASH="ide"'

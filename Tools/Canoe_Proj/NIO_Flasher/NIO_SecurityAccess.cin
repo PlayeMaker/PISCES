@@ -1,0 +1,190 @@
+/*@!Encoding:936*/
+/*=============================================================================
+ * NIO_SecurityAccess.cin
+ * 安全访问 (0x27) - 刷写用 Level 4: RequestSeed 27 07 / SendKey 27 08
+ * (TS-0000005 6.2.4, TS-0000010 5.7, TS-0000019 V1.1 6.2.1/6.3/9)
+ *
+ * Seed&Key 算法: 已按 TS-0000019 V1.1 第6.2.1节(Req-UDS-SA-0008)及
+ * 第9章示例代码正式实现, 并用文档自带测试向量验证通过:
+ *   secret code = 0x1234 时:
+ *     seed FF FF FF FF -> key 64 F2 FC 77
+ *     seed A3 B2 18 75 -> key A5 BE CD 8C
+ * 算法要点: seed(4字节) + 安全算子(高低字节) 拼成6字节, 迭代计算
+ * crc1..crc7 (CRC8/SAE-J1850), 按规则取4字节作为密钥。
+ * 安全算子 (MCM项目, D/P相同): Level2=0x8764, Level4=0x452A(刷写用)。
+ *
+ * ECU侧失败处理要求 (TS-0000010, TS-0000019 第7章, 主状态机中实现):
+ *   - 连续3次SendKey失败 -> ECU锁定10s, 期间回 NRC 37
+ *   - NRC 35 invalidKey / NRC 36 exceededNumberOfAttempts -> 中止刷写
+ *===========================================================================*/
+
+variables
+{
+  /*-------------------------------------------------------------------------
+   * 安全访问算子 (用户提供, MCM项目; DIAG_REQ_MCM_D 与 DIAG_REQ_MCM_P 相同)
+   *   安全等级2 (27 03/04, EOL): 0x8764
+   *   安全等级4 (27 07/08, 刷写): 0x452A  <-- 本上位机刷写使用
+   *-----------------------------------------------------------------------*/
+  word  gSecConstL2 = 0x8764;   // DIAG_REQ_MCM 安全等级2算子
+  word  gSecConstL4 = 0x452A;   // DIAG_REQ_MCM 安全等级4算子 (刷写)
+
+  byte  gSecSeed[64];      // 收到的种子 (L4 固定4字节, Req-UDS-SA-0003)
+  dword gSecSeedLen;
+  byte  gSecKey[64];       // 计算出的密钥 (L4 固定4字节)
+  dword gSecKeyLen;
+}
+
+/*---------------------------------------------------------------------------
+ * Crc8_SaeJ1850: CRC8 (多项式0x1D, 初值0xFF, 结果异或0xFF, 无反射)
+ * 与 TS-0000019 V1.1 第9章示例代码 crc8() 完全一致
+ *-------------------------------------------------------------------------*/
+byte Crc8_SaeJ1850(byte data[], dword len)
+{
+  byte crc;
+  dword i;
+  byte b;
+  crc = 0xFF;
+  for (i = 0; i < len; i++)
+  {
+    crc ^= data[i];
+    for (b = 0; b < 8; b++)
+    {
+      if (crc & 0x80)
+        crc = (crc << 1) ^ 0x1D;
+      else
+        crc = crc << 1;
+    }
+  }
+  return crc ^ 0xFF;
+}
+
+/*---------------------------------------------------------------------------
+ * ComputeKey: 种子->密钥 算法 (TS-0000019 V1.1 6.2.1 Req-UDS-SA-0008 正式版)
+ *   seed[]/seedLen : ECU返回的种子 (67 07 之后的字节, L4固定4字节)
+ *   keyOut[]/keyLenOut: 输出, 将通过 27 08 发送 (L4固定4字节)
+ *
+ * 步骤 (与标准第9章 ASAP1A_CCP_ComputeKeyFromSeed 示例代码一致):
+ *   buf = [seed1, seed2, seed3, seed4, 算子高字节, 算子低字节]  (6字节)
+ *   crc1 = crc8(buf)
+ *   crc2 = crc8([crc1, s2, s3, s4, cH, cL])
+ *   crc3 = crc8([s1, crc2, s3, s4, cH, cL])
+ *   crc4 = crc8([s1, s2, crc3, s4, cH, cL])
+ *   crc5 = crc8([s1, s2, s3, crc4, cH, cL])
+ *   crc6 = crc8([s1, s2, s3, s4, crc5, cL])
+ *   crc7 = crc8([s1, s2, s3, s4, cH, crc6])
+ *   若 crc4==crc5==crc6==crc7==0 -> key = [crc2, crc3, crc4, crc5]
+ *   否则                         -> key = [crc4, crc5, crc6, crc7]
+ *
+ * 模拟ECU(NIO_Flash_SimECU.can)使用同一函数, 联调时不受影响。
+ *-------------------------------------------------------------------------*/
+ComputeKey(byte seed[], dword seedLen, byte keyOut[], dword keyLenOut)
+{
+  dword i;
+  byte  buf[6];
+  byte  crc[7];
+  word  secConst;
+
+  if (seedLen < 4)
+  {
+    write("ComputeKey: 种子长度%ld不足4字节, 密钥输出置0", seedLen);
+    for (i = 0; i < keyLenOut; i++) keyOut[i] = 0;
+    return;
+  }
+
+  secConst = gSecConstL4;             // 刷写固定用 Level 4 算子 0x452A
+
+  // buf = [seed1, seed2, seed3, seed4, 算子高字节, 算子低字节]
+  buf[0] = seed[0];
+  buf[1] = seed[1];
+  buf[2] = seed[2];
+  buf[3] = seed[3];
+  buf[4] = (byte)(secConst >> 8);
+  buf[5] = (byte)(secConst & 0xFF);
+
+  crc[0] = Crc8_SaeJ1850(buf, 6);                       // crc1
+
+  buf[0] = crc[0];
+  crc[1] = Crc8_SaeJ1850(buf, 6);                       // crc2
+
+  buf[0] = seed[0];
+  buf[1] = crc[1];
+  crc[2] = Crc8_SaeJ1850(buf, 6);                       // crc3
+
+  buf[1] = seed[1];
+  buf[2] = crc[2];
+  crc[3] = Crc8_SaeJ1850(buf, 6);                       // crc4
+
+  buf[2] = seed[2];
+  buf[3] = crc[3];
+  crc[4] = Crc8_SaeJ1850(buf, 6);                       // crc5
+
+  buf[3] = seed[3];
+  buf[4] = crc[4];
+  crc[5] = Crc8_SaeJ1850(buf, 6);                       // crc6
+
+  buf[4] = (byte)(secConst >> 8);
+  buf[5] = crc[5];
+  crc[6] = Crc8_SaeJ1850(buf, 6);                       // crc7
+
+  if (crc[3] == 0 && crc[4] == 0 && crc[5] == 0 && crc[6] == 0)
+  {
+    keyOut[0] = crc[1];
+    keyOut[1] = crc[2];
+    keyOut[2] = crc[3];
+    keyOut[3] = crc[4];
+  }
+  else
+  {
+    keyOut[0] = crc[3];
+    keyOut[1] = crc[4];
+    keyOut[2] = crc[5];
+    keyOut[3] = crc[6];
+  }
+}
+
+/*---------------------------------------------------------------------------
+ * SecAccessBuildSeedRequest / SecAccessParseSeed / SecAccessBuildKeyRequest
+ * 报文组包工具
+ *-------------------------------------------------------------------------*/
+dword SecAccessBuildSeedRequest(byte outBuf[])
+{
+  outBuf[0] = 0x27;
+  outBuf[1] = 0x07;   // RequestSeed, Security Level 4 (ECU Flash reprogramming)
+  return 2;
+}
+
+/*---------------------------------------------------------------------------
+ * SecAccessParseSeed: 解析 67 07 种子响应
+ *   返回 1 = 收到有效种子; 2 = 全0种子, 该安全等级已解锁(无需SendKey);
+ *        0 = 响应格式错误
+ *   (全0种子判定: TS-0000019 6.3, ISO 14229 全0种子表示已解锁)
+ *-------------------------------------------------------------------------*/
+dword SecAccessParseSeed(byte resp[], dword respLen)
+{
+  dword i;
+  dword allZero;
+  // 期望: 67 07 seed#1..seed#m
+  if (respLen < 3) return 0;
+  if (resp[0] != 0x67 || resp[1] != 0x07) return 0;
+  gSecSeedLen = respLen - 2;
+  if (gSecSeedLen > elCount(gSecSeed)) return 0;
+  allZero = 1;
+  for (i = 0; i < gSecSeedLen; i++)
+  {
+    gSecSeed[i] = resp[2 + i];
+    if (gSecSeed[i] != 0) allZero = 0;
+  }
+  if (allZero) return 2;
+  return 1;
+}
+
+dword SecAccessBuildKeyRequest(byte outBuf[])
+{
+  dword i;
+  ComputeKey(gSecSeed, gSecSeedLen, gSecKey, 4);
+  gSecKeyLen = 4;   // Req-UDS-SA-0003: L4 密钥固定4字节
+  outBuf[0] = 0x27;
+  outBuf[1] = 0x08;   // SendKey, Security Level 4
+  for (i = 0; i < gSecKeyLen; i++) outBuf[2 + i] = gSecKey[i];
+  return 2 + gSecKeyLen;
+}

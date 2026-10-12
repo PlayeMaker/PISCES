@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pisces 座椅控制 ECU 固件深度审核报告</title>
+<style>
+:root {
+  --bg: #f4f6f8;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --high: #dc2626;
+  --high-bg: #fef2f2;
+  --med: #d97706;
+  --med-bg: #fffbeb;
+  --low: #059669;
+  --low-bg: #ecfdf5;
+  --code-bg: #f3f4f6;
+  --accent: #1e3a5f;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+               Arial, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+  color: #fff;
+  padding: 40px 24px;
+  border-radius: 12px;
+  margin-bottom: 28px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+header h1 { margin: 0 0 10px; font-size: 28px; letter-spacing: 0.5px; }
+header .meta { opacity: 0.85; font-size: 14px; }
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.stat-card {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border-left: 5px solid var(--border);
+}
+.stat-card.high { border-left-color: var(--high); background: var(--high-bg); }
+.stat-card.med { border-left-color: var(--med); background: var(--med-bg); }
+.stat-card.low { border-left-color: var(--low); background: var(--low-bg); }
+.stat-card .num { font-size: 32px; font-weight: 700; color: var(--text); }
+.stat-card .label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+/* Freeze alert */
+.freeze-alert {
+  background: linear-gradient(90deg, #fef2f2, #fee2e2);
+  border: 2px solid var(--high);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  animation: pulse-border 2s infinite;
+}
+@keyframes pulse-border {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220,38,38,0.15); }
+  50% { box-shadow: 0 0 0 8px rgba(220,38,38,0); }
+}
+.freeze-alert-icon { font-size: 24px; flex-shrink: 0; }
+.freeze-alert-text { font-size: 15px; font-weight: 600; color: var(--high); }
+
+/* Section */
+.section {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+/* Headings */
+h2 {
+  font-size: 20px;
+  margin: 32px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+h3 { font-size: 16px; margin: 24px 0 10px; color: #1e3a5f; }
+
+/* Table */
+.risk-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+.risk-table th, .risk-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.risk-table th {
+  background: #f9fafb;
+  font-weight: 600;
+  color: #374151;
+  white-space: nowrap;
+}
+.risk-table tr:last-child td { border-bottom: none; }
+.risk-table tr:hover { background: #f9fafb; }
+
+/* Badge */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.badge-high { background: var(--high-bg); color: var(--high); border: 1px solid #fecaca; }
+.badge-med { background: var(--med-bg); color: var(--med); border: 1px solid #fde68a; }
+.badge-low { background: var(--low-bg); color: var(--low); border: 1px solid #a7f3d0; }
+
+/* File ref */
+.file-ref {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 12px;
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #0369a1;
+}
+
+/* Code blocks */
+pre {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 14px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-top: 8px;
+}
+code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; }
+
+/* Freeze tag inline */
+.freeze-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--high);
+  color: #fff;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* Lessons learnt */
+.lesson-category {
+  background: linear-gradient(90deg, #faf5ff, #ffffff);
+  border-left: 4px solid #7c3aed;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  border-radius: 0 8px 8px 0;
+}
+.lesson-category-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.lesson-category-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #7c3aed;
+}
+.lesson-id {
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  background: #7c3aed;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.lesson-history {
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 10px;
+  padding-left: 28px;
+}
+.lesson-history::before {
+  content: "📖 ";
+  font-style: normal;
+}
+.lesson-summary {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.lesson-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  background: #faf5ff;
+  color: #7c3aed;
+  border: 1px solid #e9d5ff;
+}
+.lesson-chip .chip-count { font-weight: 700; }
+.lesson-chip.pass { background: #ecfdf5; color: #059669; border-color: #a7f3d0; }
+.lesson-chip.fail { background: #fef2f2; color: #dc2626; border-color: #fecaca; }
+
+/* Priority grid */
+.priority-grid {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 12px 16px;
+  font-size: 14px;
+}
+.priority-grid .p-label { font-weight: 700; color: var(--high); }
+
+/* Footer */
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+  .risk-table { font-size: 13px; }
+  .risk-table th, .risk-table td { padding: 10px; }
+  header h1 { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>Pisces 座椅控制 ECU 固件深度审核报告</h1>
+  <div class="meta">审查日期：2026-10-08 &nbsp;|&nbsp; 审查范围：APP 全模块（Main/Task/System/Basic/Massage/Pump/Valve/Power/Stack/Security/Button/Lumbar/Memory/Version/Printf，约5870行）+ RTE 层（约841行）+ BSW Drivers 自研驱动层（约629行），不含 MCAL 自动生成代码与第三方协议栈 &nbsp;|&nbsp; 方法：静态代码分析 + 卡死风险专项分析（freeze-analysis）+ 24项历史经验教训强制检查（lessons-learnt）+ MISRA/CERT 合规审查</div>
+</header>
+<div class="freeze-alert">
+  <div class="freeze-alert-icon">🚨</div>
+  <div>
+    <div class="freeze-alert-text">检测到 10 个程序卡死风险 — 涉及类型：启动挂起、无限循环、看门狗绕过、饥饿</div>
+    <div style="font-size:12px;color:#991B1B;margin-top:2px;">这些问题可能导致系统死锁、无限等待或看门狗超时，建议优先修复。</div>
+  </div>
+</div>
+<div class="stats">
+  <div class="stat-card high">
+    <div class="num">13</div>
+    <div class="label">🔴 高风险问题（可能导致功能失效 / 死机 / 硬件损坏）</div>
+  </div>
+  <div class="stat-card med">
+    <div class="num">19</div>
+    <div class="label">🟡 中风险问题（可能导致异常行为 / 数据错误）</div>
+  </div>
+  <div class="stat-card low">
+    <div class="num">24</div>
+    <div class="label">🟢 低风险问题（代码质量 / 维护风险）</div>
+  </div>
+</div>
+<div class="section">
+  <h2>执行摘要</h2>
+  <p>本次审核覆盖 APP/RTE/BSW 自研代码约 <strong>7340 行</strong>，采用卡死风险优先的系统性审查方法，并对照 8 大类 24 项历史经验教训逐项核查。共发现 <strong>2 项严重、10 项高、19 项中、22 项低</strong>风险问题，其中 <strong>9 项带有程序卡死（FREEZE）风险标签</strong>，<strong>20 项违反历史经验教训</strong>。</p><p><strong>核心结论：</strong>代码整体结构清晰（表驱动状态机、X-macro 单数据源、分层调用一致），看门狗喂狗位置正确（仅在主循环 System 任务中），时间戳回绕处理已落实。但<strong>启动链路是整个系统最脆弱的环节</strong>：PLL 锁定无限等待 + 看门狗初始化过晚 + 初始化返回值全部丢弃 + 无复位原因管理，四点叠加导致上电阶段任何硬件故障都会使整机变砖且无法自恢复。其次是安全访问链路（随机数失败兜底为固定常量且返回值语义反转）和多处“先改状态后操作硬件”的历史事故同构模式。</p>
+</div>
+<h2>🔴 高风险问题（13 项）</h2>
+<table class="risk-table" id="high-table">
+<thead>
+<tr><th style="width:50px">#</th><th style="width:180px">文件/行号</th><th>问题描述</th><th style="width:90px">等级</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><span class="file-ref">BSW/Drivers/Mcu/src/Drv_Mcu.c:25 (Snf_Drv_Mcu_Init)</span></td>
+<td><strong><span class="freeze-tag">⚠ 启动挂起</span>PLL 锁定无限等待，且此时看门狗尚未初始化</strong>
+<br>while (MCU_PLL_LOCKED != Mcu_GetPllStatus()) 为无超时忙等。调用链 RTE_MCU_INIT()（Main.c:29）在 RTE_WDG_INIT()（Main.c:37）之前执行，晶振/PLL 硬件失效时系统上电即永久卡死，看门狗无法兜底。
+<br><em>风险：整机变砖，客户现场无法恢复——正是 LL-IN-02 的历史事故场景。</em>
+<pre>// 修复建议
+uint32_t timeout = PLL_LOCK_TIMEOUT;
+while (MCU_PLL_LOCKED != Mcu_GetPllStatus()) {
+    if (--timeout == 0U) {
+        Mcu_FallbackToFirc();  // 降级内部时钟
+        break;
+    }
+}</pre></td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>2</td>
+<td><span class="file-ref">APP/Power/src/Power_Sleep.c:70-73 (Snf_Power_Sleep_Get_State)</span></td>
+<td><strong>非 void 函数无 return 语句（未定义行为）</strong>
+<br>power_sleep_state_e Snf_Power_Sleep_Get_State(void) 函数体为空，无任何 return。函数已在 Power_Sleep.h:22 对外导出。
+<br><em>风险：调用者读到寄存器残留值（C 标准 UB），一旦被使用将驱动休眠逻辑误判。违反 MISRA 17.4。</em>
+<pre>// 修复建议
+power_sleep_state_e Snf_Power_Sleep_Get_State(void)
+{
+    return s_power_sleep_state;
+}</pre></td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>3</td>
+<td><span class="file-ref">APP/Main/src/Main.c:29-38 (_Snf_Board_Init)</span></td>
+<td><strong><span class="freeze-tag">⚠ 启动挂起</span>看门狗初始化排在全部外设初始化之后</strong>
+<br>RTE_WDG_INIT() 是 9 个初始化中的倒数第二位。此前任何外设初始化挂死（如 PLL 等待）都没有看门狗保护，而启动阶段恰是硬件故障最高发阶段。
+<br><em>风险：启动期任何阻塞型故障 → 永久卡死而非看门狗复位重启。</em></td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>4</td>
+<td><span class="file-ref">APP/Main/src/Main.c:29-38；根源 BSW/Drivers/*/src/*.c 各 Snf_Drv_*_Init</span></td>
+<td><strong>全部初始化函数返回值被丢弃</strong>
+<br>底层 MCAL（Mcu_InitClock、Wdg_Lld_Init、FLASH_DRV_Init 等）均有 Std_ReturnType 返回值，但所有驱动包装层声明为 void 并丢弃结果，Main 层从设计上无法感知任何初始化失败。
+<br><em>风险：时钟/看门狗/Flash 初始化失败被静默吞掉，故障推迟到运行期以 HardFault 形式爆发。</em></td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>5</td>
+<td><span class="file-ref">APP/Basic/src/Basic.c:23 (Basic_Cov_U8_Buf_To_U32_Data)</span></td>
+<td><strong>有符号左移溢出（未定义行为）</strong>
+<br>LSHIFT(buf[0], 24) 展开为 buf[0] &lt;&lt; 24，buf[0] 经整数提升为 int，buf[0] &gt;= 0x80 时左移进入符号位属 UB。该函数处理外部字节流，&gt;= 0x80 完全可达。
+<br><em>风险：高优化等级下编译器基于 UB 激进优化产生错误数据；违反 CERT INT34-C / MISRA。</em>
+<pre>// 修复建议
+result |= ((uint32_t)buf[0] &lt;&lt; 24);</pre></td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>6</td>
+<td><span class="file-ref">APP/Stack/src/Stack.c:54-90 (_Snf_Low_Voltage_Handle)</span></td>
+<td><strong>低压停发/恢复防抖计数器翻转后不清零</strong>
+<br>low_voltage_debounce_cnt 累到 100 触发状态翻转后保持 100 不清零。进入恢复分支后第一个合格采样即 cnt=101&gt;=100 立即恢复——恢复方向完全没有 1000ms 防抖；uint8_t 计数器持续累加还会回绕为 0，行为进一步混乱。
+<br><em>风险：电压在 6~6.5V 迟滞区间抖动时，CAN 通信在停发/恢复间高频震荡，总线与 ECU 状态机被反复冲击，防护失效。</em></td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>7</td>
+<td><span class="file-ref">APP/Power/src/Power_Load.c:252-258 (Snf_Power_Load_Get_State / Snf_Power_Set_Load_Status)</span></td>
+<td><strong>公开 API 数组索引无范围校验</strong>
+<br>两个公开 API 直接用入参 channel 索引 power_load_status[POWER_LOAD_CHANNEL_MAX]，无 &lt; MAX 校验。同文件 Snf_Power_Load_Set_Dsel():138 对同类索引做了钳位，这两个函数遗漏。
+<br><em>风险：传入 &gt;=2 的 channel 即越界读/写静态区，写路径可直接破坏紧邻的 load_detection 检测表。</em></td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>8</td>
+<td><span class="file-ref">BSW/Drivers/Crypto/src/Drv_Crypto.c:72-92 (Snf_Drv_Crypto_Get_Random_Data)</span></td>
+<td><strong>Crypto 随机数接口返回值语义反转 + 失败兜底固定常量</strong>
+<br>函数声明返回 bool，但 return ret 返回 Std_ReturnType（E_OK=0/E_NOT_OK=1），转 bool 后成功返回 false、失败返回 true，语义完全反转。且 Crypto_ProcessJob 失败时用固定常量 0x0C×4 填充输出，Data 指针未判空。
+<br><em>风险：未来任何 if (RTE_CRYPTO_GET_RANDOM_DATA(...)) 调用都会把 RNG 失败当成功；RNG 故障时安全种子完全可预测，可被预计算 key 攻破安全访问。</em></td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>9</td>
+<td><span class="file-ref">APP/Security/src/Security.c:124 (Snf_Security_Get_L2_Seed)</span></td>
+<td><strong>SecurityAccess 种子接口未检查随机数返回值</strong>
+<br>RTE_CRYPTO_GET_RANDOM_DATA(Data) 返回值被丢弃。底层失败时种子为固定常量 0x0C0C0C0C，上层不知情地照常发放给诊断仪。
+<br><em>风险：Crypto 硬件异常时安全访问种子可预测，非授权刷写工具可用预计算 key 通过校验；故障无任何日志/DTC。</em></td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>10</td>
+<td><span class="file-ref">BSW/Drivers/Uart/src/Drv_Uart.c:122,126-127 (Uart_Callbcak)</span></td>
+<td><strong>UART 回调 ISR 中 Channel 未校验直接作数组下标</strong>
+<br>MCAL 回调中的 Channel 未做 &lt; DRV_UART_MAX_CHANNEL 校验，直接索引 uart_rx_state[Channel] 写入（ISR 上下文）。
+<br><em>风险：配置错误或寄存器异常导致 Channel 越界时，ISR 中写越界全局数组，破坏相邻静态数据。</em></td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>11</td>
+<td><span class="file-ref">BSW/Drivers/Uart/src/Drv_Uart.c:9,57-59,102-108</span></td>
+<td><strong><span class="freeze-tag">⚠ 饥饿</span>ISR/主循环共享的 uart_rx_state 无 volatile 无临界区</strong>
+<br>uart_rx_state[]（remaining_len uint32 + state 枚举两字段）在 UART ISR 回调中写、主循环 Snf_Drv_Uart_Get_Receive_State 中读，未声明 volatile，也无临界区保护。
+<br><em>风险：编译器缓存 state 可致主循环永远看不到 RX 完成（永久等待）；两字段非原子更新，主循环可能读到撕裂组合。</em></td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>12</td>
+<td><span class="file-ref">APP/Printf/src/Printf.c:55-61 (Snf_Printf)</span></td>
+<td><strong>vsnprintf 返回值截断为 uint8_t，日志长度错乱</strong>
+<br>vsnprintf_() 返回尝试输出的总字符数（截断后仍递增），可超过缓冲区 256。赋给 uint8_t len 后按 mod 256 截断：恰好输出 256 字节时 len=0 整条日志丢失；输出 300 字节时 len=44 只发前 44 字节。
+<br><em>风险：全部模块的日志内容错乱/丢失，现场问题定位被误导。</em></td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>13</td>
+<td><span class="file-ref">APP/Lumbar/src/Lumbar.c:144-148 (_Snf_Lumbar_Action)</span></td>
+<td><strong>Lumbar 先改状态后操作硬件，四个 RTE 调用返回值全丢</strong>
+<br>config_ptr-&gt;mode = param-&gt;target_mode 在阀/泵/斜坡四个 Rte_Call_Sync_C_Lumbar_S_* 硬件操作之前赋值，且四个调用返回值全部丢弃。与历史教训&#x27;按摩功能先改状态再启泵&#x27;完全同构。
+<br><em>风险：任一硬件调用失败时软件状态已切换，下周期 mode == action 直接 return，硬件永远停留在错误阀/泵状态：充气模式泵未启动（功能失效）或保压模式阀未关（气袋慢泄），无诊断上报。</em></td>
+<td><span class="badge badge-high">高</span></td>
+</tr>
+</tbody>
+</table>
+<h2>🟡 中风险问题（19 项）</h2>
+<table class="risk-table" id="med-table">
+<thead>
+<tr><th style="width:50px">#</th><th style="width:180px">文件/行号</th><th>问题描述</th><th style="width:90px">等级</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><span class="file-ref">APP/Main/src/Main.c:47 (main)</span></td>
+<td><strong><span class="freeze-tag">⚠ 启动挂起</span>无复位原因检查，看门狗复位可导致无限重启循环</strong>
+<br>main() 上电后不做复位原因判断。RTE_MCU_GET_RESET_REASON 已定义且底层已实现，但全工程无调用点。持续性故障将导致无限看门狗复位循环，无计数/降级机制。
+<br><em>风险：看门狗复位风暴，设备反复重启无法进入安全态，现场表现为反复断电且无法诊断。</em></td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>2</td>
+<td><span class="file-ref">APP/Basic/inc/Basic_Config.h:25-38</span></td>
+<td><strong>调试打印总开关在生产头文件中无条件打开</strong>
+<br>#define DEBUG_PRINTF_ENABLE 硬编码在入库头文件，且一旦定义即打开全部 10 个模块的 printf，无与构建类型联动的条件编译。
+<br><em>风险：生产固件默认携带全部调试输出：占用 Printf 任务带宽、经 UART 泄露内部状态、printf 执行时间造成调度抖动。</em></td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>3</td>
+<td><span class="file-ref">APP/System/src/System.c:50-51；BSW/Drivers/Adc/src/Drv_Adc.c:44-55</span></td>
+<td><strong><span class="freeze-tag">⚠ 饥饿</span>ADC 阻塞转换超时静默退出，且拖垮高优先级周期任务</strong>
+<br>System 任务每 5ms 调用 RTE_ADC_CONVERSION()，内部忙等上限 0xFFFF 次空转（数 ms）。超时后仅 break 静默退出，无错误码/日志/DTC，调用方无法区分成功与超时，后续读到旧 ADC 值；ADC 异常时每周期阻塞数 ms，挤占 Valve(4ms)/Massage(5ms) 任务窗口。
+<br><em>风险：电池电压/温度/电流采样停留在陈旧值，过压/过热保护基于错误数据动作；实时控制节拍被打乱且无故障可观测性。</em></td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>4</td>
+<td><span class="file-ref">APP/Massage/src/Massage_Com.c:103 (Snf_Massage_Cmd_Rx_Notify)</span></td>
+<td><strong>跨上下文共享变量 massage_cmd_last_rx_ms 缺 volatile</strong>
+<br>massage_cmd_last_rx_ms 为普通 static uint32，在 COM 接收回调（CAN 中断/协议栈上下文）中写，在 5ms Massage 任务中读，未声明 volatile。
+<br><em>风险：编译器优化可能缓存旧值，丢帧超时判断偏差：报文已停发但任务认为仍在接收，泵阀无法按超时关停。</em></td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>5</td>
+<td><span class="file-ref">APP/Massage/src/Massage_Knead.c:411；Massage_Rap.c:266,303,554,587</span></td>
+<td><strong><span class="freeze-tag">⚠ 无限循环</span>按摩状态机多处 default 为空 break，非法状态卡死且泵阀不停</strong>
+<br>多处状态机 switch 的 default 分支为空 break，既不复位状态也不清 work_flag。状态变量若因 EMI/内存损坏变为非法值，状态机永久卡死且 work_flag 保持 true，_Snf_Massage_Pump_Valve_Control 因 any_working 恒真永不执行关泵路径。
+<br><em>风险：泵和阀无限期运行，属冻结类后果。</em></td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>6</td>
+<td><span class="file-ref">APP/Valve/src/Valve.c:140-146 (Snf_Valve_Set_Work_State)</span></td>
+<td><strong>电源故障紧急关阀不重置 ramp 状态与占空比</strong>
+<br>强制关阀只 RTE_GPIO_VALVE_DISABLE()，不重置 valve_ramp_group[] 各通道 ramp 状态、不清 PWM 占空比。恢复后 RAMP_UP_DONE 通道再充气时跳过缓升直接以旧占空比全开；中途通道从陈旧 step_index 继续，与物理状态脱节。Pump 模块有每周期强制 DUTY_MIN 的等价处理，Valve 没有。
+<br><em>风险：电源故障恢复后阀浪涌电流（绕过缓升设计意图）、气袋压力与指令不一致。</em></td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>7</td>
+<td><span class="file-ref">APP/Massage/src/Massage_Rap.c:451-455 (_Snf_Shoulder_Rap_Cyclic)</span></td>
+<td><strong>肩部叩击充气判据漏加放气时间（代码内已自认未修）</strong>
+<br>充气判据为 cyclic_time &lt; MASSAGE_TIME_MS(action_inflate_time)，缺少 deflate 偏移；对比 _Snf_Rap_Cyclic_Bag_Control:138 正确写法是 &lt; (deflate + inflate)。代码内 NOTE 已承认疑似漏加但未修复。
+<br><em>风险：肩部叩击节奏快于设计值、充气不充分，且与上报总线的 massage_output_time 不一致。</em></td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>8</td>
+<td><span class="file-ref">APP/Memory/src/Memory.c:34-41 (_Snf_NvM_Handle)</span></td>
+<td><strong><span class="freeze-tag">⚠ 饥饿</span>NvM 同步忙等自旋阻塞整个调度器</strong>
+<br>do-while 忙等最多自旋 200000 次，每次调 NvM/Fee/Fls 三个 MainFunction。该函数在 bare-metal 调度任务上下文中同步执行，自旋期间整个调度器阻塞，循环体内无喂狗；200000 为拍脑袋值而非按 Fls 最坏擦写时间推导。
+<br><em>风险：阻塞期间按键/腰托/喂狗全部饿死，可能触发看门狗复位或实时性违约。</em></td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>9</td>
+<td><span class="file-ref">APP/Memory/src/Memory.c:43-52 (_Snf_NvM_Handle)</span></td>
+<td><strong>NvM 超时日志分支永不可达，边界成功被误判失败</strong>
+<br>超时发生时 Result 必为 NVM_REQ_PENDING，进入第一个 if 仅置 false 不打印；else if (ReadAllTimeout &gt;= MAX) 超时日志分支永不可达。反之最后一次迭代恰好成功（Result==OK 且 Timeout==MAX）会被误判失败。
+<br><em>风险：超时故障无日志无法定位；边界时刻成功操作被误报失败，上层重试写 Flash 增加擦写磨损。</em></td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>10</td>
+<td><span class="file-ref">APP/Memory/src/Memory.c:66,88 (Snf_Memory_Sync_Read_Block / Sync_Write_Block)</span></td>
+<td><strong>NvM_ReadBlock/WriteBlock 返回值未检查</strong>
+<br>NvM_ReadBlock()/NvM_WriteBlock() 返回值未检查。请求未被接受（E_NOT_OK）时 _Snf_NvM_Handle 可能读到上一次操作残留的 NVM_REQ_OK，返回 true 假象成功。
+<br><em>风险：Version 模块序列号/生产日期读写拿到假成功，读到旧数据或写入静默丢失，量产追溯数据错误。</em></td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>11</td>
+<td><span class="file-ref">APP/Printf/src/Printf_Handle.c:735-736 (_vsnprintf case &#x27;s&#x27;)</span></td>
+<td><strong>printf %s 分支对 NULL 指针直接解引用</strong>
+<br>const char* p = va_arg(va, char*) 后未判空即 _strnlen_s(p, ...)（内部解引用）。APP 层 Snf_Printf 同样未校验 fmt==NULL。
+<br><em>风险：任何 Snf_Printf(&quot;%s&quot;, NULL)（错误路径日志常见）直接 HardFault。</em></td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>12</td>
+<td><span class="file-ref">APP/Security/src/Security.c:55-117 (ASAP1A_CCP_ComputeKeyFromSeed)</span></td>
+<td><strong>ComputeKeyFromSeed 忽略 sizeSeed/maxSizeKey 参数</strong>
+<br>函数签名接收 sizeSeed、maxSizeKey 但完全忽略：硬编码 seedlength=6，直接写 seed[4]/seed[5]，key[0..3] 固定写 4 字节。当前唯一调用点传 6 字节碰巧安全。
+<br><em>风险：任何按参数语义传 4 字节缓冲的调用者即栈越界写 2 字节，破坏相邻栈变量。</em></td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>13</td>
+<td><span class="file-ref">APP/Security/inc/Security_Types.h:13-17；Security.c:140-156</span></td>
+<td><strong>安全解锁标志取值 0 与内存零值重合，违背 fail-safe</strong>
+<br>SECURITY_STATUS_UNLOCKED = 0（枚举首值），flag[1]={0} 初值也是 0。NVM 内容为 0x00（默认值/被擦除/数据损坏清零）时即判定为解锁。
+<br><em>风险：NVM 数据损坏方向指向&#x27;解锁&#x27;而非&#x27;锁定&#x27;，违背 fail-safe 原则。</em></td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>14</td>
+<td><span class="file-ref">APP/Power/src/Power_Bat.c:127-136 (Snf_Power_Bat_Task)</span></td>
+<td><strong>电池保护先改状态后执行关阀/关泵回调，返回值未检查</strong>
+<br>先执行 power_bat_status = detection_ptr-&gt;status（:130），再调用回调（:134）。低/过压回调里的 Set_Work_States(...OFF...) 返回值均未检查。
+<br><em>风险：关闭阀/泵的 RTE 调用失败时，状态已宣称进入保护但负载实际仍在运行，欠压时电池继续被拉大电流，保护形同虚设。</em></td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>15</td>
+<td><span class="file-ref">BSW/Drivers/Uart/src/Drv_Uart.c:57-59 (Snf_Drv_Uart_Start_Receive)</span></td>
+<td><strong><span class="freeze-tag">⚠ 饥饿</span>UART 先置状态再调异步接收，错误事件无处理</strong>
+<br>先设置 state = DRV_UART_STATE_IDLE，再调 CddUart_AsyncReceive 且忽略返回值；Uart_Callbcak 未处理任何错误事件。
+<br><em>风险：异步接收请求失败或总线错误时状态永远停在 IDLE，上层轮询永远等不到 RX_END → 协议任务饿死。</em></td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>16</td>
+<td><span class="file-ref">BSW/Drivers/Uart/src/Drv_Uart.c:67-86 (Snf_Drv_Uart_Get_Send_State)</span></td>
+<td><strong>UART 发送状态接口语义混乱，TX_BUSY 从不返回</strong>
+<br>定义了 DRV_UART_STATE_TX_BUSY 但函数从不返回它；发送中与真正错误都返回 ERROR，bytes==0 &amp;&amp; NO_ERROR 即判 TX_END。
+<br><em>风险：调用方（Printf.c:26）无法区分忙与错误，错误恢复逻辑无法实现。</em></td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>17</td>
+<td><span class="file-ref">RTE/Fifo/src/Rte_Fifo.c:83 (Rte_Fifo_Create_Static)</span></td>
+<td><strong>FIFO 创建接口 size 参数 uint8_t 截断</strong>
+<br>size 参数为 uint8_t，但 allocated_bytes 是 uint16_t，printf FIFO 实际缓冲 1024 字节。经此 API 创建 &gt;255 字节缓冲会截断（1024→0 直接失败）；现有代码靠绕过 API 直接静态初始化才幸免。各入口均不校验 NULL。
+<br><em>风险：API 语义陷阱，后续使用者极易踩坑；NULL 指针 HardFault。</em></td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>18</td>
+<td><span class="file-ref">RTE/Swc/src/Rte_Swc_Com.c:56-79 (Rte_Swc_Fifo_Com_Handle)</span></td>
+<td><strong>FIFO 读取无目标缓冲区容量参数，溢出靠&#x27;恰好配对&#x27;避免</strong>
+<br>Rte_Fifo_Get 按 FIFO 内部存储长度向 data 写入 size+1 字节，无容量校验。当前侥幸安全（Power FIFO 32 ↔ power_rev_buf[32]，printf 255+1 ↔ printf_tx_buf[256]），无任何代码保证。
+<br><em>风险：任一侧缓冲/FIFO 容量配置改动即引入缓冲区溢出。</em></td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>19</td>
+<td><span class="file-ref">APP/Basic/inc/Basic_Types.h:21-28 (RSHIFT/LSHIFT/SNF_ABS_DIFF/SNF_SET_BIT)</span></td>
+<td><strong>移位/位操作宏参数未加括号，存在优先级陷阱</strong>
+<br>RSHIFT/LSHIFT 参数未加括号，LSHIFT(a + b, 4) 展开为 a + (b &lt;&lt; 4) 静默算错；SNF_ABS_DIFF 对参数双重求值；SNF_SET_BIT 用 1 &lt;&lt; bit，bit=31 时有符号溢出。
+<br><em>风险：调用方传入复合表达式时产生隐蔽计算错误。</em></td>
+<td><span class="badge badge-med">中</span></td>
+</tr>
+</tbody>
+</table>
+<h2>🟢 低风险问题（24 项）</h2>
+<table class="risk-table" id="low-table">
+<thead>
+<tr><th style="width:50px">#</th><th style="width:180px">文件/行号</th><th>问题描述</th><th style="width:90px">等级</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><span class="file-ref">BSW/Drivers/Os/src/Drv_Os.c:48 (Snf_Os_Is_Timeout)</span></td>
+<td><strong>tick 回绕处理存在 off-by-one（实现可简化）</strong>
+<br>回绕分支 DRV_OS_MAX_TICK - last_tick + current_tick 少加 1。影响仅回绕瞬间最多 1ms 偏差。项目已做回绕处理，符合 LL-NC-02 要求，仅余边界瑕疵。</td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>2</td>
+<td><span class="file-ref">APP/Basic/src/Basic.c:20,35,48,61</span></td>
+<td><strong>Basic 转换函数无 NULL 入参防御</strong>
+<br>四个 Basic_Cov_* 公共工具函数直接解引用 buf[0..3]，无 NULL 检查，契约仅靠口头约定。</td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>3</td>
+<td><span class="file-ref">APP/Massage/src/Massage_Press.c:386,403 (_Snf_Press_1_Point_Air_Bag_Control)</span></td>
+<td><strong><span class="freeze-tag">⚠ 无限循环</span>点按流程无符号减法存在回绕隐患</strong>
+<br>press_target_time - press_overlap_time 为无符号减法，当前标定不出错，但后续标定使 overlap &gt; target 时差值回绕为巨大 uint16，second/third_action_flag 永不置位，work_flag 永不清，泵持续运行。</td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>4</td>
+<td><span class="file-ref">APP/Massage/inc/Massage_Cfg.h:25-27</span></td>
+<td><strong>MASSAGE_VALVE_RAMP 宏丢弃阀操作返回值</strong>
+<br>Snf_Valve_Set_Config 返回 bool（阀电源关/异常/index 非法时 false），宏直接丢弃，所有充/泄气指令失败被静默吞掉。
+<br><em>风险：阀电源被 Power 强制关闭后软件继续推进时序并更新内部状态，与真实气袋压力脱节。</em></td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>5</td>
+<td><span class="file-ref">APP/Valve/src/Valve.c:27；Valve.h:17</span></td>
+<td><strong>阀 ramp 组把泵通道纳入数组且枚举 0 为进行中态</strong>
+<br>VALVE_RAMP_MEMBER_NUM = RTE_PWM_CHANNEL_NUM 把泵通道也纳入阀 ramp 数组；valve_state_e 中 RAMP_UP = 0，数组零初始化即&#x27;缓升进行中&#x27;，靠 Task_Init 先行纠正才安全。</td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>6</td>
+<td><span class="file-ref">APP/Massage/src/Massage_Com.c:304；BSW/Stack/EAS/Callout/Com_Callout.c:275,3048</span></td>
+<td><strong>丢帧超时仅挂在单个信号回调上（待确认）</strong>
+<br>报文丢失超时刷新只挂在 DrvKneadingMassgSkillsCmd5/PassKneadingMassgSkillsCmd5 信号回调上。若 6 个区域命令分散在不同报文，仅 Cmd5 所在报文存活时其他报文丢失不会被判定超时。</td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>7</td>
+<td><span class="file-ref">APP/Massage/inc/Massage_Cfg.h:40</span></td>
+<td><strong>MASSAGE_TIME_MS 宏参数未加括号</strong>
+<br>(tmp / MASSAGE_TASK_PERIOD_MS) 参数未加括号，MASSAGE_TIME_MS(a + b) 展开为 (a + b / 5)；整除截断使非 5ms 整数倍时间静默向下取整。</td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>8</td>
+<td><span class="file-ref">APP/Button/src/Button_Io_Det.c:87-91；Button_Ad_Det.c:89-93</span></td>
+<td><strong>按键有效计数器无饱和，粘连按键约 50 天后溢出</strong>
+<br>button_vaild_cnt（uint32）在按键持续按下期间无限递增，timeout = cnt * 5ms 在约 49.7 天后溢出回绕，回绕后重新越过 20ms 阈值时产生 STUCK→PRESS 虚假状态迁移。
+<br><em>风险：粘连按键（正是该模块要检测的场景）持续约 50 天产生一次误按下事件。</em></td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>9</td>
+<td><span class="file-ref">APP/Lumbar/src/Lumbar.c:158-176 (_Snf_Lumbar_Handle)</span></td>
+<td><strong>Lumbar 循环外 cmd_value 残留上一位置命令</strong>
+<br>cmd_value 在 for 循环外声明只初始化一次；若某 position 的 read_net_cmd_callback 为 NULL，cmd_value 保留上一位置命令值并作用于本位置。当前配置回调均非 NULL，属潜伏缺陷。</td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>10</td>
+<td><span class="file-ref">APP/Printf/src/Printf_Handle.c:655,662,670 (_vsnprintf)</span></td>
+<td><strong>printf 库 %d 打印 INT_MIN 为未定义行为</strong>
+<br>value &gt; 0 ? value : 0 - value 对 INT_MIN/LONG_MIN 取负为 UB（paland printf 4.0 已知缺陷）。</td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>11</td>
+<td><span class="file-ref">APP/Memory/src/Memory.c:17-19；Memory.h:17-19</span></td>
+<td><strong>Memory 模块三个全局缓冲区为死代码</strong>
+<br>serial_number[16]、manufacturing_date[3]、faa_flag[1] 全工程无任何读写方（Version 模块各自用内部 static 缓冲），且暴露全局可写符号。</td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>12</td>
+<td><span class="file-ref">APP/Button/src/Button_Io_Det.c:9-23；Button_Ad_Det.c:9-25；Lumbar.c:10-14；Version_Data.c:12-16</span></td>
+<td><strong>X-macro 头文件重复 include 冗余</strong>
+<br>同一对头文件重复 include 多达 8 次，超出 X-macro 实际需要的 PASS 遍数（2~3 遍），可读性差且误删一行报错晦涩。</td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>13</td>
+<td><span class="file-ref">APP/Power/src/Power_Sleep.c:48-64 (Snf_Power_Sleep_Task)</span></td>
+<td><strong>PNC 上下电日志文案写反</strong>
+<br>PNC 由 ACTIVE→INACTIVE（下电）时打印 &#x27;Power on form pnc&#x27;，反向时打印 &#x27;Power down form pnc&#x27;；且双信号不一致（一 ACTIVE 一 INACTIVE）时两个分支都不触发，无异常记录。
+<br><em>风险：误导现场问题定位；信号不一致场景静默跳过。</em></td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>14</td>
+<td><span class="file-ref">APP/Security/src/Security.c:128-138 (Snf_Security_Compare_L2_Key)</span></td>
+<td><strong>key 比较非常量时间，且无种子已发放守卫</strong>
+<br>memcmp 非常量时间存在理论时序侧信道；若 Get_L2_Seed 从未被调用，random_L2_seed 为全 0，key 完全可预测，比较路径无 seed_valid 守卫。</td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>15</td>
+<td><span class="file-ref">APP/Security/src/Security.c:158-165 (Snf_Security_Set_Faa_Flag)</span></td>
+<td><strong>解锁标志 NVM 写返回值未检查</strong>
+<br>Rte_Call_Sync_C_Security_S_Memory_Sync_Write_Block 返回值未检查，写失败静默丢失。</td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>16</td>
+<td><span class="file-ref">APP/Power/src/Power_Com.c:36-44 (Snf_Power_Message_Box_Handle)</span></td>
+<td><strong>Power 消息盒处理为半成品死代码</strong>
+<br>从 FIFO 读出数据后注释&#x27;处理接收到的数据&#x27;但实际什么都没做，power_rev_buf/power_rev_size 读后即弃。
+<br><em>风险：若上游依赖该通道下发命令（复位/休眠请求），命令被静默吞掉。</em></td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>17</td>
+<td><span class="file-ref">APP/Power/inc/Power_Load.h:26；Power_Com.h:22</span></td>
+<td><strong>Snf_Power_Load_Is_Locked 有声明无实现</strong>
+<br>函数在两个头文件中重复声明，全工程无实现，属僵尸 API，一旦调用即链接错误。</td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>18</td>
+<td><span class="file-ref">APP/Power/src/Power_Bat.c:104-110；Power_Bat_Def.h:6-8</span></td>
+<td><strong>电池电压检测表存在未文档化死区</strong>
+<br>区间匹配 min &lt; vol &amp;&amp; (max &gt; vol || max == vol) 存在死区：16001~17000 mV 不属于任何区间，等于 min 也不匹配；不匹配时状态保持旧值不切换。
+<br><em>风险：若死区非故意迟滞而是配置失误，真实低压/过压被静默漏检且无诊断。</em></td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>19</td>
+<td><span class="file-ref">RTE/Fifo/src/Rte_Fifo.c 全模块</span></td>
+<td><strong>FIFO 无临界区保护，ISR 上下文调用将产生撕裂（隐患）</strong>
+<br>stored_bytes 非 volatile，Put/Get 无临界区。当前 bare-metal 协同调度下 fifo 仅被主循环任务访问暂无实际竞态，但 Snf_Printf 是全局接口，一旦在 ISR 中调用即产生 read/write_offset 撕裂。</td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>20</td>
+<td><span class="file-ref">RTE/Os/src/Rte_Os.c:19-23</span></td>
+<td><strong><span class="freeze-tag">⚠ 看门狗绕过</span>Rte_Os_Hal_Delay 忙等期间不喂狗</strong>
+<br>纯忙等延时，期间不喂狗。Power_Com.c:57 用它等待 5V 电源稳定。若延时常数接近看门狗周期将触发复位。</td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>21</td>
+<td><span class="file-ref">BSW/Drivers/Os/src/Drv_Os.c:23 (Snf_Os_init)</span></td>
+<td><strong>SysTick_Config 返回值未检查，时钟频率硬编码</strong>
+<br>SysTick_Config() 返回值未检查；DRV_OS_SYSTEM_CORE_CLOCK 80000000U 硬编码，与 Mcu 实际时钟无一致性校验。
+<br><em>风险：时钟配置变更后 tick 时基静默错误，所有超时计时偏差。</em></td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>22</td>
+<td><span class="file-ref">RTE/Mcu/inc/Rte_Mcu.h:13</span></td>
+<td><strong>RTE_MCU_GET_RESET_REASON 宏强转贴在函数名上</strong>
+<br>#define RTE_MCU_GET_RESET_REASON (rte_mcu_reset_reason_e) Snf_Drv_Mcu_Get_Reset_Reason 能编译但冗余脆弱。</td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>23</td>
+<td><span class="file-ref">BSW/Drivers/Gpio/inc/Drv_Gpio.h:12-13</span></td>
+<td><strong>GPIO 端口/引脚编码宏公式不一致且其一未使用</strong>
+<br>PORT_PIN_TO_PORT_ID（port*32+pin）与 PORT_PIN_TO_DIO_ID（(port&lt;&lt;8)+pin）编码公式不一致，前者全工程未使用，存在误用风险。</td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>24</td>
+<td><span class="file-ref">APP/Basic/inc/Basic.h:27</span></td>
+<td><strong>Basic.h 头文件保护宏注释与实际宏名不一致</strong>
+<br>注释写 _BASIC_Type_H_ 而实际宏为 _BASIC_H_，琐碎但建议顺手修正。</td>
+<td><span class="badge badge-low">低</span></td>
+</tr>
+</tbody>
+</table>
+<div class="section">
+  <h2>📚 经验教训检查（Lessons Learnt）</h2>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:12px">
+    以下检查项来源于历史缺陷、量产事故和现场返修的真实教训。共检查 <strong>24</strong> 项，发现 <strong style="color:var(--high)">29</strong> 项违规。
+  </p>
+  <div class="lesson-summary">
+    <span class="lesson-chip fail">📚 LL-FZ-01 超时与看门狗类 <span class="chip-count">3 项违规</span></span><span class="lesson-chip pass">✅ LL-FZ-02 超时与看门狗类 <span class="chip-count">通过</span></span><span class="lesson-chip pass">✅ LL-FZ-03 超时与看门狗类 <span class="chip-count">通过</span></span><span class="lesson-chip pass">✅ LL-FZ-04 超时与看门狗类 <span class="chip-count">通过</span></span><span class="lesson-chip fail">📚 LL-SM-01 状态机类 <span class="chip-count">2 项违规</span></span><span class="lesson-chip fail">📚 LL-SM-02 状态机类 <span class="chip-count">4 项违规</span></span><span class="lesson-chip fail">📚 LL-SM-03 状态机类 <span class="chip-count">1 项违规</span></span><span class="lesson-chip fail">📚 LL-BO-01 边界与溢出类 <span class="chip-count">3 项违规</span></span><span class="lesson-chip fail">📚 LL-BO-02 边界与溢出类 <span class="chip-count">2 项违规</span></span><span class="lesson-chip fail">📚 LL-BO-03 边界与溢出类 <span class="chip-count">4 项违规</span></span><span class="lesson-chip pass">✅ LL-BO-04 边界与溢出类 <span class="chip-count">通过</span></span><span class="lesson-chip fail">📚 LL-IN-01 初始化与配置类 <span class="chip-count">4 项违规</span></span><span class="lesson-chip fail">📚 LL-IN-02 初始化与配置类 <span class="chip-count">1 项违规</span></span><span class="lesson-chip fail">📚 LL-IN-03 初始化与配置类 <span class="chip-count">1 项违规</span></span><span class="lesson-chip pass">✅ LL-RC-01 竞态与并发类 <span class="chip-count">通过</span></span><span class="lesson-chip fail">📚 LL-RC-02 竞态与并发类 <span class="chip-count">3 项违规</span></span><span class="lesson-chip pass">✅ LL-RC-03 竞态与并发类 <span class="chip-count">通过</span></span><span class="lesson-chip pass">✅ LL-NC-01 数值计算类 <span class="chip-count">通过</span></span><span class="lesson-chip pass">✅ LL-NC-02 数值计算类 <span class="chip-count">通过</span></span><span class="lesson-chip pass">✅ LL-NC-03 数值计算类 <span class="chip-count">通过</span></span><span class="lesson-chip pass">✅ LL-TE-01 测试与生产隔离类 <span class="chip-count">通过</span></span><span class="lesson-chip fail">📚 LL-TE-02 测试与生产隔离类 <span class="chip-count">1 项违规</span></span><span class="lesson-chip pass">✅ LL-MM-01 内存管理类 <span class="chip-count">通过</span></span><span class="lesson-chip pass">✅ LL-MM-02 内存管理类 <span class="chip-count">通过</span></span>
+  </div>
+  
+<div class="lesson-category">
+  <div class="lesson-category-header">
+    <span class="lesson-id">LL-FZ-01</span>
+    <span class="lesson-category-title">超时与看门狗类 — 所有硬件轮询必须有超时</span>
+  </div>
+  <div class="lesson-history">历史教训：多个项目 I2C/SPI/UART 总线挂死导致整机死机，客户现场无法恢复</div>
+  <table class="risk-table" style="margin-bottom:0">
+    <thead>
+      <tr><th style="width:50px">#</th><th style="width:180px">文件/行号</th><th>违规描述</th><th style="width:90px">等级</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td><span class="file-ref">BSW/Drivers/Mcu/src/Drv_Mcu.c:25</span></td>
+<td><strong>PLL 锁定等待完全无超时</strong><br>晶振失效即上电死机，看门狗此时未初始化</td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>2</td>
+<td><span class="file-ref">BSW/Drivers/Adc/src/Drv_Adc.c:44-55</span></td>
+<td><strong>ADC 转换有超时但静默退出</strong><br>超时无错误码/日志/DTC，调用方读旧值</td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>3</td>
+<td><span class="file-ref">APP/Memory/src/Memory.c:34-41</span></td>
+<td><strong>NvM 忙等超时值为拍脑袋的 200000</strong><br>未按 Fls 最坏擦写时间推导，自旋期间阻塞整个调度器</td>
+<td><span class="badge badge-med">中</span></td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="lesson-category">
+  <div class="lesson-category-header">
+    <span class="lesson-id">LL-SM-01</span>
+    <span class="lesson-category-title">状态机类 — switch-case 必须有 default 且进入安全状态</span>
+  </div>
+  <div class="lesson-history">历史教训：状态变量因内存损坏或 EMI 变为非法值，无 default 处理导致状态机卡死</div>
+  <table class="risk-table" style="margin-bottom:0">
+    <thead>
+      <tr><th style="width:50px">#</th><th style="width:180px">文件/行号</th><th>违规描述</th><th style="width:90px">等级</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td><span class="file-ref">APP/Massage/src/Massage_Knead.c:411 等 5 处</span></td>
+<td><strong>按摩状态机 default 为空 break</strong><br>非法状态卡死且 work_flag 不清，泵阀无限期运行</td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>2</td>
+<td><span class="file-ref">APP/Power/src/Power_Sleep.c:48-64</span></td>
+<td><strong>PNC 双信号不一致组合无处理</strong><br>一 ACTIVE 一 INACTIVE 时静默跳过，日志方向还写反</td>
+<td><span class="badge badge-low">低</span></td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="lesson-category">
+  <div class="lesson-category-header">
+    <span class="lesson-id">LL-SM-02</span>
+    <span class="lesson-category-title">状态机类 — 状态切换前确认硬件操作成功</span>
+  </div>
+  <div class="lesson-history">历史教训：按摩功能先改状态为 RUNNING 再启动气泵，气泵失败后状态仍为 RUNNING，调度器基于错误状态继续执行</div>
+  <table class="risk-table" style="margin-bottom:0">
+    <thead>
+      <tr><th style="width:50px">#</th><th style="width:180px">文件/行号</th><th>违规描述</th><th style="width:90px">等级</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td><span class="file-ref">APP/Lumbar/src/Lumbar.c:144-148</span></td>
+<td><strong>先改 mode 再驱动阀/泵，返回值全丢</strong><br>硬件失败后软件状态已切换，下周期直接 return，硬件永远停留在错误状态</td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>2</td>
+<td><span class="file-ref">APP/Power/src/Power_Bat.c:127-136</span></td>
+<td><strong>先置保护状态再执行关阀/关泵回调</strong><br>回调失败时保护形同虚设</td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>3</td>
+<td><span class="file-ref">BSW/Drivers/Uart/src/Drv_Uart.c:57-59</span></td>
+<td><strong>先置 IDLE 再调 AsyncReceive 且忽略返回值</strong><br>请求失败后上层永远等不到接收完成</td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>4</td>
+<td><span class="file-ref">APP/Valve/src/Valve.c:140-146</span></td>
+<td><strong>紧急关阀不重置 ramp 状态/占空比</strong><br>恢复后阀以旧占空比瞬间全开，绕过缓升</td>
+<td><span class="badge badge-med">中</span></td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="lesson-category">
+  <div class="lesson-category-header">
+    <span class="lesson-id">LL-SM-03</span>
+    <span class="lesson-category-title">状态机类 — 全局状态变量修改后考虑回滚</span>
+  </div>
+  <div class="lesson-history">历史教训：修改 current_group_index 后 start() 失败，索引未恢复导致越界</div>
+  <table class="risk-table" style="margin-bottom:0">
+    <thead>
+      <tr><th style="width:50px">#</th><th style="width:180px">文件/行号</th><th>违规描述</th><th style="width:90px">等级</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td><span class="file-ref">APP/Stack/src/Stack.c:54-90</span></td>
+<td><strong>低压防抖计数器翻转后不清零</strong><br>恢复方向完全失去 1000ms 防抖，电压抖动时 CAN 高频震荡</td>
+<td><span class="badge badge-high">高</span></td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="lesson-category">
+  <div class="lesson-category-header">
+    <span class="lesson-id">LL-BO-01</span>
+    <span class="lesson-category-title">边界与溢出类 — 数组索引必须范围校验</span>
+  </div>
+  <div class="lesson-history">历史教训：CAN instance 直接作为数组索引传入，非法值越界访问</div>
+  <table class="risk-table" style="margin-bottom:0">
+    <thead>
+      <tr><th style="width:50px">#</th><th style="width:180px">文件/行号</th><th>违规描述</th><th style="width:90px">等级</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td><span class="file-ref">APP/Power/src/Power_Load.c:252-258</span></td>
+<td><strong>channel 索引无校验</strong><br>越界写可破坏紧邻检测表</td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>2</td>
+<td><span class="file-ref">BSW/Drivers/Uart/src/Drv_Uart.c:122</span></td>
+<td><strong>ISR 中 Channel 直接作下标</strong><br>越界写发生在中断上下文</td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>3</td>
+<td><span class="file-ref">APP/Security/src/Security.c:55-117</span></td>
+<td><strong>ComputeKey 忽略 sizeSeed 硬编码 6</strong><br>按签名传 4 字节缓冲即栈越界写</td>
+<td><span class="badge badge-med">中</span></td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="lesson-category">
+  <div class="lesson-category-header">
+    <span class="lesson-id">LL-BO-02</span>
+    <span class="lesson-category-title">边界与溢出类 — memcpy 长度不得依赖外部输入</span>
+  </div>
+  <div class="lesson-history">历史教训：CAN FD dlc 未校验，memcpy 越界破坏接收缓冲区</div>
+  <table class="risk-table" style="margin-bottom:0">
+    <thead>
+      <tr><th style="width:50px">#</th><th style="width:180px">文件/行号</th><th>违规描述</th><th style="width:90px">等级</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td><span class="file-ref">RTE/Fifo/src/Rte_Fifo.c:83</span></td>
+<td><strong>size 参数 uint8_t 截断</strong><br>1024 字节缓冲创建被截断为 0</td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>2</td>
+<td><span class="file-ref">RTE/Swc/src/Rte_Swc_Com.c:56-79</span></td>
+<td><strong>FIFO 读取无容量参数</strong><br>溢出靠两侧缓冲恰好相等避免，无代码保证</td>
+<td><span class="badge badge-med">中</span></td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="lesson-category">
+  <div class="lesson-category-header">
+    <span class="lesson-id">LL-BO-03</span>
+    <span class="lesson-category-title">边界与溢出类 — 整数运算必须防溢出</span>
+  </div>
+  <div class="lesson-history">历史教训：气压传感器 ADC 乘法溢出 2000000*5*1000 &gt; INT32_MAX</div>
+  <table class="risk-table" style="margin-bottom:0">
+    <thead>
+      <tr><th style="width:50px">#</th><th style="width:180px">文件/行号</th><th>违规描述</th><th style="width:90px">等级</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td><span class="file-ref">APP/Basic/src/Basic.c:23</span></td>
+<td><strong>uint8 &lt;&lt; 24 有符号移位 UB</strong><br>buf[0]&gt;=0x80 时左移进符号位</td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>2</td>
+<td><span class="file-ref">APP/Printf/src/Printf.c:55-61</span></td>
+<td><strong>vsnprintf 返回值截断 uint8_t</strong><br>256 字节时 len=0 日志整条丢失</td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>3</td>
+<td><span class="file-ref">APP/Button/src/Button_Io_Det.c:87-91</span></td>
+<td><strong>消抖计数器无饱和</strong><br>粘连按键约 50 天溢出产生误事件</td>
+<td><span class="badge badge-low">低</span></td>
+</tr><tr>
+<td>4</td>
+<td><span class="file-ref">APP/Massage/src/Massage_Press.c:386</span></td>
+<td><strong>无符号减法回绕隐患</strong><br>标定改动后 work_flag 永不清</td>
+<td><span class="badge badge-low">低</span></td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="lesson-category">
+  <div class="lesson-category-header">
+    <span class="lesson-id">LL-IN-01</span>
+    <span class="lesson-category-title">初始化与配置类 — 所有初始化函数返回值必须检查</span>
+  </div>
+  <div class="lesson-history">历史教训：NvM_ReadAll() 挂起后系统初始化卡死；UART 初始化失败后继续发送导致 HardFault</div>
+  <table class="risk-table" style="margin-bottom:0">
+    <thead>
+      <tr><th style="width:50px">#</th><th style="width:180px">文件/行号</th><th>违规描述</th><th style="width:90px">等级</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td><span class="file-ref">APP/Main/src/Main.c:29-38</span></td>
+<td><strong>全部板级初始化返回值丢弃</strong><br>包装层全为 void，设计上无法感知失败</td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>2</td>
+<td><span class="file-ref">APP/Security/src/Security.c:124</span></td>
+<td><strong>随机数返回值丢弃</strong><br>固定常量种子被当正常种子发放</td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>3</td>
+<td><span class="file-ref">APP/Memory/src/Memory.c:66,88</span></td>
+<td><strong>NvM_ReadBlock/WriteBlock 返回值未检查</strong><br>残留 NVM_REQ_OK 造成假成功</td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>4</td>
+<td><span class="file-ref">BSW/Drivers/Os/src/Drv_Os.c:23</span></td>
+<td><strong>SysTick_Config 返回值未检查</strong><br>tick 时基静默错误</td>
+<td><span class="badge badge-low">低</span></td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="lesson-category">
+  <div class="lesson-category-header">
+    <span class="lesson-id">LL-IN-02</span>
+    <span class="lesson-category-title">初始化与配置类 — PLL/时钟等待必须有超时</span>
+  </div>
+  <div class="lesson-history">历史教训：晶振损坏后 while(!PLL_locked) 死循环，看门狗无限复位</div>
+  <table class="risk-table" style="margin-bottom:0">
+    <thead>
+      <tr><th style="width:50px">#</th><th style="width:180px">文件/行号</th><th>违规描述</th><th style="width:90px">等级</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td><span class="file-ref">BSW/Drivers/Mcu/src/Drv_Mcu.c:25</span></td>
+<td><strong>PLL 锁定等待无超时</strong><br>本项目更严重：看门狗尚未初始化，永久卡死而非复位</td>
+<td><span class="badge badge-high">高</span></td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="lesson-category">
+  <div class="lesson-category-header">
+    <span class="lesson-id">LL-IN-03</span>
+    <span class="lesson-category-title">初始化与配置类 — 异步 API 不得当作同步使用</span>
+  </div>
+  <div class="lesson-history">历史教训：Fee_Write() 返回 E_OK 仅表示请求入队，代码误以为写入完成读到旧数据</div>
+  <table class="risk-table" style="margin-bottom:0">
+    <thead>
+      <tr><th style="width:50px">#</th><th style="width:180px">文件/行号</th><th>违规描述</th><th style="width:90px">等级</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td><span class="file-ref">APP/Memory/src/Memory.c:66,88</span></td>
+<td><strong>NvM 异步请求入队结果未确认</strong><br>请求未入队时轮询读到残留状态造成假成功</td>
+<td><span class="badge badge-med">中</span></td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="lesson-category">
+  <div class="lesson-category-header">
+    <span class="lesson-id">LL-RC-02</span>
+    <span class="lesson-category-title">竞态与并发类 — 全局变量在 ISR/任务间共享必须保护</span>
+  </div>
+  <div class="lesson-history">历史教训：float 变量在中断中被修改，主循环读到部分更新值，PWM 输出异常</div>
+  <table class="risk-table" style="margin-bottom:0">
+    <thead>
+      <tr><th style="width:50px">#</th><th style="width:180px">文件/行号</th><th>违规描述</th><th style="width:90px">等级</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td><span class="file-ref">BSW/Drivers/Uart/src/Drv_Uart.c:9</span></td>
+<td><strong>uart_rx_state 无 volatile 无临界区</strong><br>主循环可能永远看不到 RX 完成或读到撕裂组合</td>
+<td><span class="badge badge-high">高</span></td>
+</tr><tr>
+<td>2</td>
+<td><span class="file-ref">APP/Massage/src/Massage_Com.c:103</span></td>
+<td><strong>massage_cmd_last_rx_ms 缺 volatile</strong><br>丢帧超时判断偏差，泵阀无法按超时关停</td>
+<td><span class="badge badge-med">中</span></td>
+</tr><tr>
+<td>3</td>
+<td><span class="file-ref">RTE/Fifo/src/Rte_Fifo.c</span></td>
+<td><strong>FIFO 无临界区（隐患）</strong><br>未来 ISR 中调用 Snf_Printf 即撕裂</td>
+<td><span class="badge badge-low">低</span></td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="lesson-category">
+  <div class="lesson-category-header">
+    <span class="lesson-id">LL-TE-02</span>
+    <span class="lesson-category-title">测试与生产隔离类 — 调试接口必须在生产关闭</span>
+  </div>
+  <div class="lesson-history">历史教训：JTAG/SWD 未禁用，现场被读取固件注入恶意代码</div>
+  <table class="risk-table" style="margin-bottom:0">
+    <thead>
+      <tr><th style="width:50px">#</th><th style="width:180px">文件/行号</th><th>违规描述</th><th style="width:90px">等级</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td><span class="file-ref">APP/Basic/inc/Basic_Config.h:25-38</span></td>
+<td><strong>DEBUG_PRINTF_ENABLE 生产默认打开</strong><br>全部 10 模块调试打印随生产固件发布，经 UART 泄露内部状态</td>
+<td><span class="badge badge-med">中</span></td>
+</tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<div class="section">
+  <h2>按模块风险统计</h2>
+  <table class="risk-table">
+    <thead>
+      <tr><th>模块</th><th style="color:var(--high)">🔴 高</th><th style="color:var(--med)">🟡 中</th><th style="color:var(--low)">🟢 低</th><th>核心风险类型</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td><strong>启动链路 Main/Mcu/Os</strong></td>
+<td style="color:var(--high);font-weight:700">3</td>
+<td style="color:var(--med);font-weight:700">1</td>
+<td style="color:var(--low);font-weight:700">3</td>
+<td>BOOT_HANG、初始化返回值、复位管理</td>
+</tr><tr>
+<td><strong>Basic/Printf</strong></td>
+<td style="color:var(--high);font-weight:700">2</td>
+<td style="color:var(--med);font-weight:700">2</td>
+<td style="color:var(--low);font-weight:700">3</td>
+<td>移位UB、日志截断、生产调试开关</td>
+</tr><tr>
+<td><strong>Massage/Pump/Valve</strong></td>
+<td style="color:var(--high);font-weight:700">0</td>
+<td style="color:var(--med);font-weight:700">4</td>
+<td style="color:var(--low);font-weight:700">5</td>
+<td>状态机default空、ramp状态脱节、时序偏差</td>
+</tr><tr>
+<td><strong>Lumbar</strong></td>
+<td style="color:var(--high);font-weight:700">1</td>
+<td style="color:var(--med);font-weight:700">0</td>
+<td style="color:var(--low);font-weight:700">1</td>
+<td>先改状态后操作硬件（LL-SM-02）</td>
+</tr><tr>
+<td><strong>Power/Stack/Security</strong></td>
+<td style="color:var(--high);font-weight:700">3</td>
+<td style="color:var(--med);font-weight:700">4</td>
+<td style="color:var(--low);font-weight:700">7</td>
+<td>空返回UB、防抖失效、安全种子可预测</td>
+</tr><tr>
+<td><strong>Memory</strong></td>
+<td style="color:var(--high);font-weight:700">0</td>
+<td style="color:var(--med);font-weight:700">3</td>
+<td style="color:var(--low);font-weight:700">1</td>
+<td>同步忙等阻塞调度、返回值丢弃</td>
+</tr><tr>
+<td><strong>Button</strong></td>
+<td style="color:var(--high);font-weight:700">0</td>
+<td style="color:var(--med);font-weight:700">0</td>
+<td style="color:var(--low);font-weight:700">2</td>
+<td>计数器饱和、冗余include</td>
+</tr><tr>
+<td><strong>UART/Crypto 驱动</strong></td>
+<td style="color:var(--high);font-weight:700">3</td>
+<td style="color:var(--med);font-weight:700">2</td>
+<td style="color:var(--low);font-weight:700">0</td>
+<td>ISR共享数据无保护、索引越界、返回值语义反转</td>
+</tr><tr>
+<td><strong>RTE Fifo/Swc</strong></td>
+<td style="color:var(--high);font-weight:700">0</td>
+<td style="color:var(--med);font-weight:700">2</td>
+<td style="color:var(--low);font-weight:700">2</td>
+<td>尺寸截断、容量无校验、临界区缺失隐患</td>
+</tr><tr>
+<td><strong>Version</strong></td>
+<td style="color:var(--high);font-weight:700">0</td>
+<td style="color:var(--med);font-weight:700">0</td>
+<td style="color:var(--low);font-weight:700">0</td>
+<td>质量最高，校验完备</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="section">
+  <h2>合规性矩阵</h2>
+  <table class="risk-table">
+    <thead><tr><th>标准</th><th>总规则数</th><th>违规数</th><th>合规率</th></tr></thead>
+    <tbody><tr>
+<td><strong>MISRA C:2012（适用子集）</strong></td>
+<td>40</td>
+<td><span style="color:#D97706;font-weight:700">6</span></td>
+<td><span style="display:inline-block;width:80px;height:8px;background:var(--code-bg);border-radius:4px;overflow:hidden;vertical-align:middle;margin-right:6px">
+<span style="display:inline-block;width:85%;height:100%;background:#D97706;border-radius:4px"></span></span>85%</td>
+</tr><tr>
+<td><strong>CERT C（INT34-C/PRE31-C/ARR38-C/INT33-C 等）</strong></td>
+<td>25</td>
+<td><span style="color:#D97706;font-weight:700">5</span></td>
+<td><span style="display:inline-block;width:80px;height:8px;background:var(--code-bg);border-radius:4px;overflow:hidden;vertical-align:middle;margin-right:6px">
+<span style="display:inline-block;width:80%;height:100%;background:#D97706;border-radius:4px"></span></span>80%</td>
+</tr><tr>
+<td><strong>历史经验教训清单（24 项）</strong></td>
+<td>24</td>
+<td><span style="color:#DC2626;font-weight:700">14</span></td>
+<td><span style="display:inline-block;width:80px;height:8px;background:var(--code-bg);border-radius:4px;overflow:hidden;vertical-align:middle;margin-right:6px">
+<span style="display:inline-block;width:58%;height:100%;background:#DC2626;border-radius:4px"></span></span>42%（10 项通过）</td>
+</tr><tr>
+<td><strong>防御式编程（NULL 检查/返回值/超时）</strong></td>
+<td>30</td>
+<td><span style="color:#DC2626;font-weight:700">12</span></td>
+<td><span style="display:inline-block;width:80px;height:8px;background:var(--code-bg);border-radius:4px;overflow:hidden;vertical-align:middle;margin-right:6px">
+<span style="display:inline-block;width:60%;height:100%;background:#DC2626;border-radius:4px"></span></span>60%</td>
+</tr></tbody>
+  </table>
+</div>
+<div class="section">
+  <h2>优先修复路线图</h2>
+  
+  <h3 style="color:var(--high)">🔴 第一优先级：本迭代必须修复（严重+高，12 项）</h3>
+  <ol>
+    <li>Drv_Mcu.c:25 — PLL 等待加超时 + fallback 内部时钟（预计 0.5 天，含测试）</li>
+    <li>Main.c — 看门狗初始化前移 + 复位原因检查与重启计数（0.5 天）</li>
+    <li>Power_Sleep.c:70 — 空返回函数实现或删除（0.5 小时）</li>
+    <li>Drv_Crypto.c — 返回值语义修正 + 删除固定常量兜底；Security.c:124 检查返回值（0.5 天）</li>
+    <li>Drv_Uart.c — Channel 校验 + uart_rx_state 加 volatile/临界区 + AsyncReceive 返回值检查（1 天）</li>
+    <li>Stack.c — 低压防抖计数器翻转后清零（0.5 小时）</li>
+    <li>Power_Load.c:252 — 两个 API 加索引校验（0.5 小时）</li>
+    <li>Printf.c:55 — vsnprintf 返回值截断修复（0.5 小时）</li>
+    <li>Lumbar.c:144 — 硬件操作成功后才更新 mode（0.5 天）</li>
+    <li>Basic.c:23 — 移位前显式转 uint32_t（0.5 小时）</li>
+    <li>初始化返回值传递链路改造（包装层 → Main 层）（1 天）</li>
+  </ol>
+  <h3 style="color:var(--med)">🟡 第二优先级：下次迭代修复（中，19 项）</h3>
+  <ol>
+    <li>按摩状态机 default 补安全态复位（Knead/Rap 共 5 处）</li>
+    <li>Valve 紧急关阀重置 ramp 状态与占空比</li>
+    <li>Memory NvM 改非阻塞状态机或限次自旋 + 超时分支顺序修正 + 返回值检查</li>
+    <li>ADC 超时错误传播与 DTC 上报</li>
+    <li>Basic_Config.h 调试开关改构建系统注入</li>
+    <li>FIFO API 尺寸/容量/NULL 防护加固</li>
+    <li>Security ComputeKey 参数校验 + 解锁魔数改 0xA5</li>
+  </ol>
+  <h3 style="color:var(--low)">🟢 第三优先级：有空处理（低，22 项）</h3>
+  <ol>
+    <li>Drv_Os.c tick 回绕简化为无符号减法惯用法</li>
+    <li>按键计数器饱和、Lumbar cmd_value 循环内重置</li>
+    <li>升级 paland printf 修复 %s NULL 与 INT_MIN 缺陷</li>
+    <li>清理死代码（Memory 全局缓冲、僵尸声明、冗余 include）</li>
+    <li>PNC 日志文案纠正、电池检测表死区文档化</li>
+  </ol>
+</div>
+<div class="section">
+  <h2>静态检查工具建议</h2>
+  <p>建议引入以下工具进行<strong>持续集成自动化检查</strong>：</p>
+  <table class="risk-table">
+    <thead>
+      <tr><th>工具</th><th>适用场景</th><th>推荐规则</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>PC-lint Plus / Coverity</strong></td><td>CI 静态分析：未定义行为（移位溢出、空返回）、未使用返回值</td><td>MISRA C:2012 全规则集</td></tr><tr><td><strong>Polyspace / Astrée</strong></td><td>运行时错误证明：除零、溢出、越界的形式化验证</td><td>RTE 全部分析</td></tr><tr><td><strong>stack 用量分析（gcc -fstack-usage）</strong></td><td>任务/ISR 栈高水位审计</td><td>配合 MPU 栈保护</td></tr><tr><td><strong>单元测试（Unity/CMock）+ 故障注入</strong></td><td>PLL 超时、NvM 失败、Crypto 失败等故障路径覆盖</td><td>本次发现的高危项全部对应测试用例</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="section">
+  <h2>审核结论</h2>
+  <p>本项目代码整体工程质量良好：分层架构清晰（APP→RTE→BSW），表驱动状态机与 X-macro 单数据源设计成熟，看门狗喂狗位置正确，时间戳回绕处理已落实，Version/Button 等模块防御性校验完备。但存在一条致命短板链——启动链路：PLL 无限等待（看门狗未启）+ 看门狗初始化过晚 + 初始化返回值全丢 + 无复位原因管理，四点叠加使上电阶段成为整机变砖的单点故障窗口，必须本迭代修复。安全访问链路（随机数失败兜底固定常量 + 返回值语义反转 + 上层不检查）是第二大风险，直接影响防盗/刷写安全。多处&#x27;先改状态后操作硬件&#x27;模式与历史量产事故（LL-SM-02）同构，建议作为团队专项整改。14/24 项历史教训存在违规，经验教训合规率仅 58%，建议将 lessons-learnt 清单纳入代码评审 checklist 与 CI 门禁。修复路线图上 12 项严重/高优先级问题预计总工作量约 4 人天，建议立即启动。</p>
+</div>
+<footer>
+  <p><strong>声明：</strong>本报告基于对源代码的静态分析和逻辑审查，未进行动态运行测试。部分风险需结合硬件在环测试（HIL）或单元测试进一步验证实际触发条件。</p>
+  <p>Pisces 座椅控制 ECU 固件深度审核报告 Code Risk Report — Generated 2026-10-08</p>
+</footer>
+</div>
+</body>
+</html>

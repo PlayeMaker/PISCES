@@ -1,0 +1,339 @@
+/*@!Encoding:936*/
+/*=============================================================================
+ * NIO_Flash_SimECU.can
+ * 模拟ECU节点 (Bootloader), 用于在无真实ECU时验证上位机流程
+ *
+ * 在CANoe中作为独立网络节点加载, 与 NIO_Flash_Main.can(Tester) 通过
+ * 虚拟CAN通道互联。模拟内容:
+ *   - 物理请求ID(gPhysReqId)接收, 物理响应ID(gPhysRespId)发送
+ *   - 10/11/22/27/2E/31/34/36/37 服务正响应
+ *   - 27 07/08 使用与上位机相同的Seed&Key算法 (ComputeKey, TS-0000019 6.2.1正式版)
+ *   - 31 FF 00(擦除)/31 FF 01(依赖检查) 先回 7F 31 78 再延时给最终响应
+ *   - 22 F1 10 返回11字节ASCII(多帧响应), 验证上位机多帧接收
+ *   - 支持多帧请求接收 (36大数据块 / 31 01 02 02+384字节签名)
+ *===========================================================================*/
+
+includes
+{
+  #include "NIO_Flash_Config.cin"
+  #include "NIO_SecurityAccess.cin"
+}
+
+variables
+{
+  // --- 接收状态 (Tester->ECU 多帧) ---
+  byte   sRxBuf[4200];
+  dword  sRxExpected;
+  dword  sRxOffset;
+  byte   sRxSn;
+  byte   sRxBusy;
+  // --- 发送状态 (ECU->Tester 多帧) ---
+  byte   sTxBuf[64];
+  dword  sTxLen;
+  dword  sTxOffset;
+  byte   sTxSn;
+  byte   sTxBusy;
+  // --- 延时最终响应 (NRC78之后) ---
+  byte   sPendBuf[8];
+  dword  sPendLen;
+  msTimer tSimTx;       // CF发送
+  msTimer tSimPend;     // 延时响应
+  byte   sSeed[4] = {0x12, 0x34, 0x56, 0x78};
+  byte   sDidF110[11] = {'N','I','O','H','W','0','0','1',' ','A','1'};  // F110示例数据
+}
+
+/*---------------------------------------------------------------------------
+ * 发送一帧到Tester (SF或CF, 8字节padding 0xAA)
+ *-------------------------------------------------------------------------*/
+SimSendSf(byte data[], dword len)
+{
+  message * m;
+  dword i;
+  m.id  = gPhysRespId;
+  m.dlc = 8;
+  m.byte(0) = (byte)(0x00 | len);
+  for (i = 0; i < 7; i++)
+    m.byte(i + 1) = (i < len) ? data[i] : gPadding;
+  output(m);
+}
+
+SimStartTx(byte data[], dword len)
+{
+  dword i;
+  message * m;
+  if (len <= 7)
+  {
+    SimSendSf(data, len);
+    return;
+  }
+  for (i = 0; i < len; i++) sTxBuf[i] = data[i];
+  sTxLen    = len;
+  sTxOffset = 6;
+  sTxSn     = 1;
+  sTxBusy   = 1;
+  m.id  = gPhysRespId;
+  m.dlc = 8;
+  m.byte(0) = 0x10 | (byte)((len >> 8) & 0x0F);
+  m.byte(1) = (byte)(len & 0xFF);
+  for (i = 0; i < 6; i++) m.byte(i + 2) = sTxBuf[i];
+  output(m);
+  // 等Tester的FC (在 on message 中继续)
+}
+
+SimSendCf()
+{
+  message * m;
+  dword i, chunk;
+  chunk = sTxLen - sTxOffset;
+  if (chunk > 7) chunk = 7;
+  m.id  = gPhysRespId;
+  m.dlc = 8;
+  m.byte(0) = 0x20 | (sTxSn & 0x0F);
+  for (i = 0; i < 7; i++)
+    m.byte(i + 1) = (i < chunk) ? sTxBuf[sTxOffset + i] : gPadding;
+  output(m);
+  sTxOffset += chunk;
+  sTxSn      = (sTxSn + 1) & 0x0F;
+  if (sTxOffset < sTxLen) setTimer(tSimTx, 5);
+  else                    sTxBusy = 0;
+}
+
+SimSendFc()
+{
+  message * m;
+  m.id  = gPhysRespId;
+  m.dlc = 8;
+  m.byte(0) = 0x30;   // FC.CTS
+  m.byte(1) = 0x00;   // BS=0
+  m.byte(2) = 0x00;   // STmin=0
+  m.byte(3) = gPadding; m.byte(4) = gPadding; m.byte(5) = gPadding;
+  m.byte(6) = gPadding; m.byte(7) = gPadding;
+  output(m);
+}
+
+/*---------------------------------------------------------------------------
+ * 组否定响应
+ *-------------------------------------------------------------------------*/
+SimSendNrc(byte sid, byte nrc)
+{
+  byte r[3];
+  r[0] = 0x7F; r[1] = sid; r[2] = nrc;
+  SimStartTx(r, 3);
+}
+
+/*---------------------------------------------------------------------------
+ * 延时最终响应 (擦除/依赖检查的pending模拟)
+ *-------------------------------------------------------------------------*/
+SimQueuePending(byte data[], dword len, dword delayMs)
+{
+  dword i;
+  for (i = 0; i < len; i++) sPendBuf[i] = data[i];
+  sPendLen = len;
+  setTimer(tSimPend, delayMs);
+}
+
+on timer tSimPend
+{
+  SimStartTx(sPendBuf, sPendLen);
+}
+
+on timer tSimTx
+{
+  if (sTxBusy) SimSendCf();
+}
+
+/*---------------------------------------------------------------------------
+ * 处理一条完整UDS请求
+ *-------------------------------------------------------------------------*/
+SimProcess(byte req[], dword len)
+{
+  byte r[20];
+  byte expectKey[8];
+  dword i;
+
+  if (len < 1) return;
+
+  switch (req[0])
+  {
+  case 0x10:   // DiagnosticSessionControl
+    if (len < 2) { SimSendNrc(0x10, 0x13); return; }
+    r[0] = 0x50; r[1] = req[1];
+    r[2] = 0x00; r[3] = 0x32;   // P2Server = 50ms
+    r[4] = 0x01; r[5] = 0xF4;   // P2*Server = 500*10ms = 5000ms? (示例值)
+    SimStartTx(r, 6);
+    break;
+
+  case 0x11:   // EcuReset
+    r[0] = 0x51; r[1] = req[1];
+    SimStartTx(r, 2);
+    break;
+
+  case 0x22:   // ReadDataByIdentifier
+    if (len < 3) { SimSendNrc(0x22, 0x13); return; }
+    if (req[1] == 0xF1 && req[2] == 0x10)
+    {
+      // F110 硬件零件号: 11字节ASCII -> 多帧响应
+      r[0] = 0x62; r[1] = 0xF1; r[2] = 0x10;
+      for (i = 0; i < 11; i++) r[3 + i] = sDidF110[i];
+      SimStartTx(r, 14);
+      return;
+    }
+    r[0] = 0x62; r[1] = req[1]; r[2] = req[2];
+    r[3] = 0x30; r[4] = 0x31;   // 示例数据 "01"
+    SimStartTx(r, 5);
+    break;
+
+  case 0x27:   // SecurityAccess
+    if (len < 2) { SimSendNrc(0x27, 0x13); return; }
+    if (req[1] == 0x07)
+    {
+      r[0] = 0x67; r[1] = 0x07;
+      for (i = 0; i < 4; i++) r[2 + i] = sSeed[i];
+      SimStartTx(r, 6);
+      return;
+    }
+    if (req[1] == 0x08)
+    {
+      // 用同一占位算法验Key
+      ComputeKey(sSeed, 4, expectKey, 4);
+      for (i = 0; i < 4; i++)
+      {
+        if (len < 6 || req[2 + i] != expectKey[i])
+        {
+          SimSendNrc(0x27, 0x35);   // invalidKey
+          return;
+        }
+      }
+      r[0] = 0x67; r[1] = 0x08;
+      SimStartTx(r, 2);
+      return;
+    }
+    SimSendNrc(0x27, 0x12);
+    break;
+
+  case 0x2E:   // WriteDataByIdentifier (指纹)
+    if (len < 3) { SimSendNrc(0x2E, 0x13); return; }
+    r[0] = 0x6E; r[1] = req[1]; r[2] = req[2];
+    SimStartTx(r, 3);
+    break;
+
+  case 0x31:   // RoutineControl
+    if (len < 4) { SimSendNrc(0x31, 0x13); return; }
+    if (req[2] == 0x02 && req[3] == 0x03)        // CheckProgrammingPrecondition
+    {
+      r[0] = 0x71; r[1] = req[1]; r[2] = 0x02; r[3] = 0x03; r[4] = 0x00;
+      SimStartTx(r, 5);
+      return;
+    }
+    if (req[2] == 0xFF && req[3] == 0x00)        // EraseMemory: 先pending再成功
+    {
+      SimSendNrc(0x31, 0x78);
+      r[0] = 0x71; r[1] = req[1]; r[2] = 0xFF; r[3] = 0x00; r[4] = 0x00;
+      SimQueuePending(r, 5, 300);
+      return;
+    }
+    if (req[2] == 0x02 && req[3] == 0x02)        // CheckMemory
+    {
+      r[0] = 0x71; r[1] = req[1]; r[2] = 0x02; r[3] = 0x02; r[4] = 0x00;
+      SimStartTx(r, 5);
+      return;
+    }
+    if (req[2] == 0xFF && req[3] == 0x01)        // CheckProgrammingDependencies: pending后成功
+    {
+      SimSendNrc(0x31, 0x78);
+      r[0] = 0x71; r[1] = req[1]; r[2] = 0xFF; r[3] = 0x01; r[4] = 0x00;
+      SimQueuePending(r, 5, 400);
+      return;
+    }
+    SimSendNrc(0x31, 0x31);
+    break;
+
+  case 0x34:   // RequestDownload -> MaxNumberOfBlockLength = 1024
+    r[0] = 0x74; r[1] = 0x20; r[2] = 0x04; r[3] = 0x00;
+    SimStartTx(r, 4);
+    break;
+
+  case 0x36:   // TransferData -> 回声BSC
+    if (len < 2) { SimSendNrc(0x36, 0x13); return; }
+    r[0] = 0x76; r[1] = req[1];
+    SimStartTx(r, 2);
+    break;
+
+  case 0x37:   // RequestTransferExit
+    r[0] = 0x77;
+    SimStartTx(r, 1);
+    break;
+
+  default:
+    SimSendNrc(req[0], 0x11);
+    break;
+  }
+}
+
+/*---------------------------------------------------------------------------
+ * 报文接收: 物理请求ID上的 SF/FF/CF 与 Tester发来的FC
+ *-------------------------------------------------------------------------*/
+on message *
+{
+  byte pci, pciType;
+  dword i, chunk, sfLen;
+
+  if (this.id != gPhysReqId) return;
+
+  pci     = this.byte(0);
+  pciType = pci & 0xF0;
+
+  // Tester发来的FC (我们作为发送方)
+  if (pciType == 0x30)
+  {
+    if (sTxBusy && (pci & 0x0F) == 0x00) setTimer(tSimTx, 2);
+    return;
+  }
+
+  // 单帧
+  if (pciType == 0x00)
+  {
+    sfLen = pci & 0x0F;
+    if (sfLen == 0 || sfLen > 7) return;
+    for (i = 0; i < sfLen; i++) sRxBuf[i] = this.byte(i + 1);
+    SimProcess(sRxBuf, sfLen);
+    return;
+  }
+
+  // 首帧
+  if (pciType == 0x10)
+  {
+    sRxExpected = ((dword)(pci & 0x0F) << 8) | this.byte(1);
+    if (sRxExpected > elCount(sRxBuf)) return;
+    for (i = 0; i < 6; i++) sRxBuf[i] = this.byte(i + 2);
+    sRxOffset = 6;
+    sRxSn     = 1;
+    sRxBusy   = 1;
+    SimSendFc();
+    return;
+  }
+
+  // 连续帧
+  if (pciType == 0x20)
+  {
+    if (!sRxBusy) return;
+    if ((pci & 0x0F) != sRxSn) { sRxBusy = 0; return; }
+    chunk = sRxExpected - sRxOffset;
+    if (chunk > 7) chunk = 7;
+    for (i = 0; i < chunk; i++) sRxBuf[sRxOffset + i] = this.byte(i + 1);
+    sRxOffset += chunk;
+    sRxSn      = (sRxSn + 1) & 0x0F;
+    if (sRxOffset >= sRxExpected)
+    {
+      sRxBusy = 0;
+      SimProcess(sRxBuf, sRxExpected);
+    }
+    return;
+  }
+}
+
+on start
+{
+  CfgLoadFromPanel();   // 与Tester使用同一套面板配置(诊断ID)
+  write("SimECU就绪: 物理请求ID 0x%03X, 响应ID 0x%03X", gPhysReqId, gPhysRespId);
+}

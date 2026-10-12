@@ -1,0 +1,150 @@
+/*@!Encoding:936*/
+/*=============================================================================
+ * NIO_UDS_Services.cin
+ * UDS 服务事务层 (ISO 14229-1 / NIO-TS-0000010)
+ *
+ * 事务模型:
+ *   UdsSendRequest(data, len)  -> 物理寻址发请求, 置 gUdsStatus=UDS_ST_BUSY
+ *   UdsPoll()                  -> 由主循环周期调用, 处理响应/超时/NRC78
+ *   结果: gUdsStatus = UDS_ST_DONE (肯定响应, 数据在gUdsRespBuf/gUdsRespLen)
+ *                    UDS_ST_NRC  (否定响应, gUdsNrc/gUdsNrcSid)
+ *                    UDS_ST_ERROR(传输错误/超时)
+ *
+ *   UdsSendFunctional(data,len)-> 功能寻址单帧(0x601), 不等待响应
+ *                                 (TS-0000005: 预/后编程步骤不检查响应)
+ *
+ * 定时依据 TS-0000010 表4-4/4-5:
+ *   P2Client=150ms, 收到 7F xx 78 后切换 P2*Client=5000ms
+ *===========================================================================*/
+
+/*---------------------------------------------------------------------------
+ * UdsSendRequest: 物理寻址发送UDS请求, 异步等待响应
+ * 返回 1=已发送, 0=发送失败
+ *-------------------------------------------------------------------------*/
+dword UdsSendRequest(byte data[], dword len)
+{
+  gUdsStatus   = UDS_ST_BUSY;
+  gUdsNrc      = 0;
+  gUdsNrcSid   = 0;
+  gUdsRespLen  = 0;
+  gNrc78Count  = 0;
+  gTpRxComplete = 0;
+  gTpRxFailed   = 0;
+
+  if (!TpSend(gPhysReqId, data, len))
+  {
+    gUdsStatus = UDS_ST_ERROR;
+    return 0;
+  }
+  setTimer(tP2, gP2ClientMs);
+  return 1;
+}
+
+/*---------------------------------------------------------------------------
+ * UdsSendFunctional: 功能寻址发送(恒为单帧, suppressPosRspMsgIndicationBit
+ * 由调用方在子功能字节中置位), 不检查响应
+ *-------------------------------------------------------------------------*/
+dword UdsSendFunctional(byte data[], dword len)
+{
+  if (len > 7) return 0;   // 功能寻址请求永远是单帧 (TS-0000010)
+  return TpSend(gFuncReqId, data, len);
+}
+
+/*---------------------------------------------------------------------------
+ * UdsPoll: 主循环周期调用。处理TP事件并解释UDS响应。
+ *-------------------------------------------------------------------------*/
+UdsPoll()
+{
+  dword i;
+
+  if (gUdsStatus != UDS_ST_BUSY) return;
+
+  // 发送/接收传输错误
+  if (gTpTxError || gTpRxFailed)
+  {
+    cancelTimer(tP2);
+    gUdsStatus = UDS_ST_ERROR;
+    return;
+  }
+
+  // 发送还未完成(多帧请求), 继续等
+  if (gTpTxBusy) return;
+
+  if (!gTpRxComplete) return;
+  gTpRxComplete = 0;
+
+  if (gTpRxLen < 1) { gUdsStatus = UDS_ST_ERROR; return; }
+
+  // 否定响应 7F SID NRC
+  if (gTpRxBuf[0] == 0x7F)
+  {
+    if (gTpRxLen < 3) { gUdsStatus = UDS_ST_ERROR; return; }
+    gUdsNrcSid = gTpRxBuf[1];
+    gUdsNrc    = gTpRxBuf[2];
+    if (gUdsNrc == 0x78)
+    {
+      // requestCorrectlyReceived-ResponsePending: 切换P2*计时
+      gNrc78Count++;
+      if (gNrc78Count > gMaxNrc78Count)
+      {
+        cancelTimer(tP2);
+        gUdsStatus = UDS_ST_ERROR;   // 防死循环
+        return;
+      }
+      cancelTimer(tP2);
+      setTimer(tP2, gP2StarClientMs);
+      return;
+    }
+    cancelTimer(tP2);
+    for (i = 0; i < gTpRxLen; i++) gUdsRespBuf[i] = gTpRxBuf[i];
+    gUdsRespLen = gTpRxLen;
+    gUdsStatus  = UDS_ST_NRC;
+    return;
+  }
+
+  // 肯定响应
+  cancelTimer(tP2);
+  for (i = 0; i < gTpRxLen; i++) gUdsRespBuf[i] = gTpRxBuf[i];
+  gUdsRespLen = gTpRxLen;
+  gUdsStatus  = UDS_ST_DONE;
+}
+
+/*---------------------------------------------------------------------------
+ * P2 / P2* 响应超时
+ *-------------------------------------------------------------------------*/
+on timer tP2
+{
+  if (gUdsStatus == UDS_ST_BUSY) gUdsStatus = UDS_ST_ERROR;
+}
+
+/*---------------------------------------------------------------------------
+ * TesterPresent 保活: 3E 80 功能寻址, 周期 S3Client=2000ms
+ * (TS-0000010: 推荐功能寻址+suppress, 不打断进行中的服务)
+ *-------------------------------------------------------------------------*/
+on timer tTesterPresent
+{
+  byte tp[2];
+  tp[0] = 0x3E;
+  tp[1] = 0x80;
+  UdsSendFunctional(tp, 2);
+}
+
+TesterPresentStart()
+{
+  setTimerCyclic(tTesterPresent, gS3ClientMs);
+}
+
+TesterPresentStop()
+{
+  cancelTimer(tTesterPresent);
+}
+
+/*---------------------------------------------------------------------------
+ * UdsExpectSid: 校验肯定响应SID (请求SID+0x40), 1=匹配
+ *-------------------------------------------------------------------------*/
+dword UdsExpectSid(byte reqSid)
+{
+  if (gUdsStatus != UDS_ST_DONE) return 0;
+  if (gUdsRespLen < 1) return 0;
+  return (gUdsRespBuf[0] == (byte)(reqSid + 0x40));
+}

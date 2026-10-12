@@ -1,0 +1,26 @@
+# ... 这里可以添加任何标准的 Makefile 语法 ...
+
+# 假设你需要传递一个自定义宏
+# CFLAGS += -DMY_MACRO
+
+
+# 默认值（如果外部没有定义，则使用这里）
+# 0: MCM_D, 1: MCM_P
+PROJECT_CONFIG_DEF ?= 0
+
+# 根据变量值添加宏
+# CFLAGS += -DMY_MACRO=$(MY_MACRO_VALUE)
+
+ifeq ($(PROJECT_CONFIG_DEF),0)
+    CFLAGS += -DHIGH_CONFIGURATION
+    CFLAGS += -DPISCES_MCM_D
+else ifeq ($(PROJECT_CONFIG_DEF),1)
+    CFLAGS += -DHIGH_CONFIGURATION
+    CFLAGS += -DPISCES_MCM_P
+else ifeq ($(PROJECT_CONFIG_DEF),2)
+    CFLAGS += -DLOW_CONFIGURATION
+    CFLAGS += -DPISCES_MCM_D
+else ifeq ($(PROJECT_CONFIG_DEF),3)
+    CFLAGS += -DLOW_CONFIGURATION
+    CFLAGS += -DPISCES_MCM_P
+endif

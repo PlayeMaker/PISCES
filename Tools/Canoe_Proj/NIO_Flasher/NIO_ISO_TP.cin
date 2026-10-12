@@ -1,0 +1,291 @@
+/*@!Encoding:936*/
+/*=============================================================================
+ * NIO_ISO_TP.cin
+ * ISO 15765-2 传输层 (标准CAN, TX_DL=8, Normal Addressing)
+ *
+ * 参数依据 NIO-TS-0000010 表4-2/4-3:
+ *   BS(Tester)=0, STmin(Tester按ECU FC中的值), N_WFTmax=0(不接受Wait帧)
+ *   N_Bs=1000ms, N_Cr=1000ms, 填充0xAA, FF_DL<=4095
+ *
+ * 接口:
+ *   TpSend(id, data[], len)   发送一段UDS数据(自动分SF/FF+CF)
+ *   完成后置 gTpTxDone=1, 失败置 gTpTxError=1
+ *   接收完成置 gTpRxComplete=1, 数据在 gTpRxBuf/gTpRxLen
+ *===========================================================================*/
+
+variables
+{
+  // --- 发送内部状态 ---
+  byte   gTpTxBuf[4096];
+  dword  gTpTxLen;
+  dword  gTpTxId;
+  dword  gTpTxOffset;     // 已发送的数据字节数
+  byte   gTpTxSn;         // CF 序列号 0..15
+  byte   gTpTxBsCount;    // 当前FC块内已发CF数
+  byte   gTpTxBs;         // ECU FC给出的 Block Size
+  dword  gTpTxStminMs;    // ECU FC给出的 STmin (ms)
+  // --- 接收内部状态 ---
+  dword  gTpRxExpected;   // FF中声明的总长度
+  dword  gTpRxOffset;     // 已接收字节数
+  byte   gTpRxSn;         // 期望的下一个CF序列号
+}
+
+/*---------------------------------------------------------------------------
+ * TpSendFrame: 组一帧CAN报文并发出 (8字节, 不足补0xAA)
+ *-------------------------------------------------------------------------*/
+TpSendFrame(dword id, byte pci, byte data[], dword dataOfs, dword dataLen)
+{
+  message * m;
+  dword i;
+  m.id  = id;
+  m.dlc = 8;
+  m.byte(0) = pci;
+  for (i = 0; i < 7; i++)
+  {
+    if (i < dataLen)
+      m.byte(i + 1) = data[dataOfs + i];
+    else
+      m.byte(i + 1) = gPadding;
+  }
+  output(m);
+}
+
+/*---------------------------------------------------------------------------
+ * TpSendCf: 发送一帧连续帧 (CF)
+ *-------------------------------------------------------------------------*/
+TpSendCf()
+{
+  dword remain, chunk, i;
+  message * m;
+
+  remain = gTpTxLen - gTpTxOffset;
+  chunk  = (remain > 7) ? 7 : remain;
+
+  m.id  = gTpTxId;
+  m.dlc = 8;
+  m.byte(0) = 0x20 | (gTpTxSn & 0x0F);
+  for (i = 0; i < 7; i++)
+  {
+    if (i < chunk)
+      m.byte(i + 1) = gTpTxBuf[gTpTxOffset + i];
+    else
+      m.byte(i + 1) = gPadding;
+  }
+  output(m);
+
+  gTpTxOffset += chunk;
+  gTpTxSn      = (gTpTxSn + 1) & 0x0F;
+  gTpTxBsCount++;
+
+  if (gTpTxOffset >= gTpTxLen)
+  {
+    // 全部数据发完
+    gTpTxBusy = 0;
+    gTpTxDone = 1;
+    return;
+  }
+  if ((gTpTxBs != 0) && (gTpTxBsCount >= gTpTxBs))
+  {
+    // 到达块边界, 等待下一个FC
+    gTpTxBsCount = 0;
+    setTimer(tTpNBs, gNBsMs);
+    return;
+  }
+  // 按STmin调度下一帧
+  setTimer(tTpStmin, gTpTxStminMs);
+}
+
+/*---------------------------------------------------------------------------
+ * TpSend: 发送UDS数据。 id=物理/功能请求ID
+ * 返回: 1=已开始发送(异步完成), 0=参数/状态错误
+ *-------------------------------------------------------------------------*/
+dword TpSend(dword id, byte data[], dword len)
+{
+  dword i;
+  message * m;
+
+  if (gTpTxBusy) return 0;
+  if (len == 0 || len > gMaxTpLen) return 0;
+
+  gTpTxDone  = 0;
+  gTpTxError = 0;
+
+  if (len <= 7)
+  {
+    // 单帧 SF
+    TpSendFrame(id, (byte)(0x00 | len), data, 0, len);
+    gTpTxDone = 1;
+    return 1;
+  }
+
+  // 多帧: 首帧 FF (携带前6字节)
+  for (i = 0; i < len; i++) gTpTxBuf[i] = data[i];
+  gTpTxId      = id;
+  gTpTxLen     = len;
+  gTpTxOffset  = 6;
+  gTpTxSn      = 1;
+  gTpTxBsCount = 0;
+  gTpTxBusy    = 1;
+
+  m.id  = id;
+  m.dlc = 8;
+  m.byte(0) = 0x10 | (byte)((len >> 8) & 0x0F);
+  m.byte(1) = (byte)(len & 0xFF);
+  for (i = 0; i < 6; i++) m.byte(i + 2) = gTpTxBuf[i];
+  output(m);
+  setTimer(tTpNBs, gNBsMs);   // 等待ECU的FC
+  return 1;
+}
+
+/*---------------------------------------------------------------------------
+ * TpSendFlowControl: 作为接收方发送流控帧 (CTS, BS=0, STmin=0)
+ *-------------------------------------------------------------------------*/
+TpSendFlowControl()
+{
+  message * m;
+  m.id  = gPhysReqId;
+  m.dlc = 8;
+  m.byte(0) = 0x30;          // FC.CTS
+  m.byte(1) = 0x00;          // BS = 0
+  m.byte(2) = 0x00;          // STmin = 0
+  m.byte(3) = gPadding;
+  m.byte(4) = gPadding;
+  m.byte(5) = gPadding;
+  m.byte(6) = gPadding;
+  m.byte(7) = gPadding;
+  output(m);
+}
+
+/*---------------------------------------------------------------------------
+ * STmin 解析: FC字节3, 0x00-0x7F=ms, 0xF1-0xF9=100-900us (CAPL定时器为ms,
+ * us级按1ms处理)
+ *-------------------------------------------------------------------------*/
+dword TpParseStmin(byte stminByte)
+{
+  dword ms;
+  if (stminByte <= 0x7F) ms = stminByte;
+  else if (stminByte >= 0xF1 && stminByte <= 0xF9) ms = 1;
+  else ms = 0;
+  // 0ms定时器在同一仿真时刻重复触发会被CANoe判定为递归(Potential recursion)
+  // 并停止仿真, 因此最小按1ms处理
+  if (ms == 0) ms = 1;
+  return ms;
+}
+
+/*---------------------------------------------------------------------------
+ * 报文接收: 物理响应ID上的 FC / SF / FF / CF
+ * (用 on message * 以支持可配置ID)
+ *-------------------------------------------------------------------------*/
+on message *
+{
+  byte pci, pciType;
+  dword i, chunk, sfLen;
+
+  if (this.id != gPhysRespId) return;
+  if (this.dlc < 1) return;
+
+  pci     = this.byte(0);
+  pciType = pci & 0xF0;
+
+  //------ 流控帧 FC (我们作为发送方时收到) ------
+  if (pciType == 0x30)
+  {
+    if (!gTpTxBusy) return;
+    if ((pci & 0x0F) != 0x00)
+    {
+      // FS: 1=Wait(N_WFTmax=0, 不允许), 2=Overflow => 错误
+      gTpTxBusy  = 0;
+      gTpTxError = 1;
+      cancelTimer(tTpNBs);
+      cancelTimer(tTpStmin);
+      return;
+    }
+    cancelTimer(tTpNBs);
+    gTpTxBs       = this.byte(1);
+    gTpTxStminMs  = TpParseStmin(this.byte(2));
+    gTpTxBsCount  = 0;
+    setTimer(tTpStmin, gTpTxStminMs);   // 开始发CF
+    return;
+  }
+
+  //------ 单帧 SF ------
+  if (pciType == 0x00)
+  {
+    sfLen = pci & 0x0F;
+    if (sfLen == 0 || sfLen > 7) return;
+    for (i = 0; i < sfLen; i++) gTpRxBuf[i] = this.byte(i + 1);
+    gTpRxLen      = sfLen;
+    gTpRxBusy     = 0;
+    gTpRxComplete = 1;
+    gTpRxFailed   = 0;
+    return;
+  }
+
+  //------ 首帧 FF ------
+  if (pciType == 0x10)
+  {
+    gTpRxExpected = ((dword)(pci & 0x0F) << 8) | this.byte(1);
+    if (gTpRxExpected > gMaxTpLen) { gTpRxFailed = 1; return; }
+    for (i = 0; i < 6; i++) gTpRxBuf[i] = this.byte(i + 2);
+    gTpRxOffset   = 6;
+    gTpRxSn       = 1;
+    gTpRxBusy     = 1;
+    gTpRxComplete = 0;
+    gTpRxFailed   = 0;
+    TpSendFlowControl();
+    setTimer(tTpNCr, gNCrMs);
+    return;
+  }
+
+  //------ 连续帧 CF ------
+  if (pciType == 0x20)
+  {
+    if (!gTpRxBusy) return;
+    cancelTimer(tTpNCr);
+    if ((pci & 0x0F) != gTpRxSn)
+    {
+      // 序列号错误: 按ISO可丢弃本次传输
+      gTpRxBusy   = 0;
+      gTpRxFailed = 1;
+      return;
+    }
+    chunk = gTpRxExpected - gTpRxOffset;
+    if (chunk > 7) chunk = 7;
+    for (i = 0; i < chunk; i++) gTpRxBuf[gTpRxOffset + i] = this.byte(i + 1);
+    gTpRxOffset += chunk;
+    gTpRxSn      = (gTpRxSn + 1) & 0x0F;
+    if (gTpRxOffset >= gTpRxExpected)
+    {
+      gTpRxLen      = gTpRxExpected;
+      gTpRxBusy     = 0;
+      gTpRxComplete = 1;
+    }
+    else
+    {
+      setTimer(tTpNCr, gNCrMs);
+    }
+    return;
+  }
+}
+
+/*---------------------------------------------------------------------------
+ * 定时器处理
+ *-------------------------------------------------------------------------*/
+on timer tTpStmin
+{
+  if (gTpTxBusy) TpSendCf();
+}
+
+on timer tTpNBs
+{
+  // 等待FC超时
+  gTpTxBusy  = 0;
+  gTpTxError = 1;
+}
+
+on timer tTpNCr
+{
+  // 等待CF超时
+  gTpRxBusy   = 0;
+  gTpRxFailed = 1;
+}

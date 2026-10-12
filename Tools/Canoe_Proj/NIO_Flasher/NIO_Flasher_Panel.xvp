@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=19.0.155.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Panel1" ControlName="NIO_Flasher">
+    <Object Type="Vector.CANalyzer.Panels.Design.PathControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xc742f19de707ce4b2ce857fe8e12622d5bd6" ControlName="Path Dialog 1">
+      <Property Name="Name">Xc742f19de707ce4b2ce857fe8e12622d5bd6</Property>
+      <Property Name="Size">126, 23</Property>
+      <Property Name="Location">533, 475</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="SymbolConfiguration"></Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextTitle" ControlName="StaticTextTitle">
+      <Property Name="Name">StaticTextTitle</Property>
+      <Property Name="Size">400, 20</Property>
+      <Property Name="Location">10, 8</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="Text">NIO NT3 UDS 刷写上位机 (Tester)</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="GroupBoxOps" ControlName="GroupBoxOps">
+      <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="ButtonStart" ControlName="ButtonStart">
+        <Property Name="Name">ButtonStart</Property>
+        <Property Name="Size">120, 35</Property>
+        <Property Name="Location">20, 28</Property>
+        <Property Name="TransparentColor">Transparent</Property>
+        <Property Name="UseTransparentColor">False</Property>
+        <Property Name="TabIndex">1</Property>
+        <Property Name="Text">启动刷写</Property>
+        <Property Name="SymbolConfiguration">8;16;NIO_Flasher;;;StartFlash;0;;;-1;;;Value;;;0</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="ButtonAbort" ControlName="ButtonAbort">
+        <Property Name="Name">ButtonAbort</Property>
+        <Property Name="Size">120, 35</Property>
+        <Property Name="Location">160, 28</Property>
+        <Property Name="TransparentColor">Transparent</Property>
+        <Property Name="UseTransparentColor">False</Property>
+        <Property Name="TabIndex">2</Property>
+        <Property Name="Text">中止刷写</Property>
+        <Property Name="SymbolConfiguration">8;16;NIO_Flasher;;;AbortFlash;0;;;-1;;;Value;;;0</Property>
+      </Object>
+      <Property Name="Name">GroupBoxOps</Property>
+      <Property Name="Size">530, 75</Property>
+      <Property Name="Location">10, 35</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="Text">操作</Property>
+      <Property Name="TabIndex">10</Property>
+      <Property Name="UseWindowsStyle">False</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="GroupBoxStatus" ControlName="GroupBoxStatus">
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextProgress" ControlName="StaticTextProgress">
+        <Property Name="Name">StaticTextProgress</Property>
+        <Property Name="Size">60, 15</Property>
+        <Property Name="Location">15, 33</Property>
+        <Property Name="BackColor">Window</Property>
+        <Property Name="Text">下载进度:</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.ProgressBarControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="ProgressBarFlash" ControlName="ProgressBarFlash">
+        <Property Name="Name">ProgressBarFlash</Property>
+        <Property Name="Size">430, 25</Property>
+        <Property Name="Location">85, 28</Property>
+        <Property Name="UseWindowsStyle">False</Property>
+        <Property Name="WithFrame">False</Property>
+        <Property Name="BarForeColor">Green</Property>
+        <Property Name="ValueBackColor">255, 231, 231, 231</Property>
+        <Property Name="ValueSize">40, 12</Property>
+        <Property Name="OriginValue">0</Property>
+        <Property Name="SymbolConfiguration">8;16;NIO_Flasher;;;Progress;0;;;-1;;;Value;;;0</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextStatus" ControlName="StaticTextStatus">
+        <Property Name="Name">StaticTextStatus</Property>
+        <Property Name="Size">60, 15</Property>
+        <Property Name="Location">15, 73</Property>
+        <Property Name="BackColor">Window</Property>
+        <Property Name="Text">状态:</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.TextBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="TextBoxStatus" ControlName="TextBoxStatus">
+        <Property Name="Name">TextBoxStatus</Property>
+        <Property Name="Size">50, 21</Property>
+        <Property Name="Location">85, 68</Property>
+        <Property Name="AlarmGeneralSettings">1;0;0;100</Property>
+        <Property Name="AlarmLowerBkgColor">Salmon</Property>
+        <Property Name="AlarmLowerTextColor">Black</Property>
+        <Property Name="AlarmUpperBkgColor">IndianRed</Property>
+        <Property Name="AlarmUpperTextColor">Black</Property>
+        <Property Name="BoxBorderStyle">FixedSingle</Property>
+        <Property Name="DisplayLabel">Left</Property>
+        <Property Name="TabIndex">3</Property>
+        <Property Name="DescriptionText"></Property>
+        <Property Name="ValueDecimalPlaces">0</Property>
+        <Property Name="ValueDisplay">Decimal</Property>
+        <Property Name="UsedValueTable">PhysicalValue</Property>
+        <Property Name="DescriptionSize">5, 21</Property>
+        <Property Name="SymbolConfiguration">8;16;NIO_Flasher;;;Status;0;;;-1;;;Value;;;0</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextStatusHint" ControlName="StaticTextStatusHint">
+        <Property Name="Name">StaticTextStatusHint</Property>
+        <Property Name="Size">260, 15</Property>
+        <Property Name="Location">145, 73</Property>
+        <Property Name="BackColor">Window</Property>
+        <Property Name="Text">(0=空闲 1=运行中 2=完成 3=失败)</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextStep" ControlName="StaticTextStep">
+        <Property Name="Name">StaticTextStep</Property>
+        <Property Name="Size">60, 15</Property>
+        <Property Name="Location">15, 108</Property>
+        <Property Name="BackColor">Window</Property>
+        <Property Name="Text">当前步骤:</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.TextBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="TextBoxStep" ControlName="TextBoxStep">
+        <Property Name="Name">TextBoxStep</Property>
+        <Property Name="Size">430, 21</Property>
+        <Property Name="Location">85, 103</Property>
+        <Property Name="AlarmGeneralSettings">1;0;0;100</Property>
+        <Property Name="AlarmLowerBkgColor">Salmon</Property>
+        <Property Name="AlarmLowerTextColor">Black</Property>
+        <Property Name="AlarmUpperBkgColor">IndianRed</Property>
+        <Property Name="AlarmUpperTextColor">Black</Property>
+        <Property Name="BoxBorderStyle">FixedSingle</Property>
+        <Property Name="DisplayLabel">Left</Property>
+        <Property Name="TabIndex">4</Property>
+        <Property Name="DescriptionText"></Property>
+        <Property Name="ValueDecimalPlaces">0</Property>
+        <Property Name="ValueDisplay">Text</Property>
+        <Property Name="UsedValueTable">PhysicalValue</Property>
+        <Property Name="DescriptionSize">5, 21</Property>
+        <Property Name="SymbolConfiguration">8;16;NIO_Flasher;;;CurrentStep;0;;;-1;;;Value;;;0</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextError" ControlName="StaticTextError">
+        <Property Name="Name">StaticTextError</Property>
+        <Property Name="Size">60, 15</Property>
+        <Property Name="Location">15, 143</Property>
+        <Property Name="BackColor">Window</Property>
+        <Property Name="Text">错误信息:</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.TextBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="TextBoxError" ControlName="TextBoxError">
+        <Property Name="Name">TextBoxError</Property>
+        <Property Name="Size">430, 21</Property>
+        <Property Name="Location">85, 137</Property>
+        <Property Name="AlarmGeneralSettings">1;0;0;100</Property>
+        <Property Name="AlarmLowerBkgColor">Salmon</Property>
+        <Property Name="AlarmLowerTextColor">Black</Property>
+        <Property Name="AlarmUpperBkgColor">IndianRed</Property>
+        <Property Name="AlarmUpperTextColor">Black</Property>
+        <Property Name="BoxBorderStyle">FixedSingle</Property>
+        <Property Name="DisplayLabel">Left</Property>
+        <Property Name="TabIndex">5</Property>
+        <Property Name="DescriptionText"></Property>
+        <Property Name="ValueDecimalPlaces">0</Property>
+        <Property Name="ValueDisplay">Text</Property>
+        <Property Name="UsedValueTable">PhysicalValue</Property>
+        <Property Name="DescriptionSize">5, 21</Property>
+        <Property Name="SymbolConfiguration">8;16;NIO_Flasher;;;ErrorText;0;;;-1;;;Value;;;0</Property>
+      </Object>
+      <Property Name="Name">GroupBoxStatus</Property>
+      <Property Name="Size">530, 170</Property>
+      <Property Name="Location">10, 120</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="Text">刷写状态</Property>
+      <Property Name="TabIndex">11</Property>
+      <Property Name="UseWindowsStyle">False</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="GroupBoxCfg" ControlName="GroupBoxCfg">
+      <Object Type="Vector.CANalyzer.Panels.Design.PathControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X47da0627e2875e4e74ea20de0e5d8060e05e" ControlName="TextBoxDrvSig">
+        <Property Name="Name">X47da0627e2875e4e74ea20de0e5d8060e05e</Property>
+        <Property Name="Size">430, 23</Property>
+        <Property Name="Location">85, 172</Property>
+        <Property Name="TabIndex">15</Property>
+        <Property Name="SymbolConfiguration">8;16;NIO_Flasher;;;DriverSigFile;4;;;-1;;;Value;;;0</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PathControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xd98a9175e0f39e4b2aeb060e5841290b5478" ControlName="TextBoxDrvFile">
+        <Property Name="Name">Xd98a9175e0f39e4b2aeb060e5841290b5478</Property>
+        <Property Name="Size">430, 23</Property>
+        <Property Name="Location">85, 138</Property>
+        <Property Name="TabIndex">14</Property>
+        <Property Name="SymbolConfiguration">8;16;NIO_Flasher;;;DriverFile;4;;;-1;;;Value;;;0</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PathControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xa0278a94e760de45c6e9359edd9fc1a46f56" ControlName="TextBoxSigFile">
+        <Property Name="Name">Xa0278a94e760de45c6e9359edd9fc1a46f56</Property>
+        <Property Name="Size">430, 23</Property>
+        <Property Name="Location">85, 104</Property>
+        <Property Name="TabIndex">13</Property>
+        <Property Name="SymbolConfiguration">8;16;NIO_Flasher;;;SignatureFile;4;;;-1;;;Value;;;0</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PathControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X03ea75aaee59fe45e3e9c29e1fe8a1c03eaf" ControlName="TextBoxFlashFile">
+        <Property Name="Name">X03ea75aaee59fe45e3e9c29e1fe8a1c03eaf</Property>
+        <Property Name="Size">430, 23</Property>
+        <Property Name="Location">85, 69</Property>
+        <Property Name="TabIndex">12</Property>
+        <Property Name="SymbolConfiguration">8;16;NIO_Flasher;;;FlashFile;4;;;-1;;;Value;;;0</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextReqId" ControlName="StaticTextReqId">
+        <Property Name="Name">StaticTextReqId</Property>
+        <Property Name="Size">95, 15</Property>
+        <Property Name="Location">15, 33</Property>
+        <Property Name="BackColor">Window</Property>
+        <Property Name="Text">物理请求ID(Hex):</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.TextBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="TextBoxReqId" ControlName="TextBoxReqId">
+        <Property Name="Name">TextBoxReqId</Property>
+        <Property Name="Size">70, 21</Property>
+        <Property Name="Location">115, 28</Property>
+        <Property Name="AlarmGeneralSettings">1;0;0;100</Property>
+        <Property Name="AlarmLowerBkgColor">Salmon</Property>
+        <Property Name="AlarmLowerTextColor">Black</Property>
+        <Property Name="AlarmUpperBkgColor">IndianRed</Property>
+        <Property Name="AlarmUpperTextColor">Black</Property>
+        <Property Name="BoxBorderStyle">FixedSingle</Property>
+        <Property Name="DisplayLabel">Left</Property>
+        <Property Name="TabIndex">6</Property>
+        <Property Name="DescriptionText"></Property>
+        <Property Name="ValueDecimalPlaces">0</Property>
+        <Property Name="ValueDisplay">Hexadecimal</Property>
+        <Property Name="UsedValueTable">PhysicalValue</Property>
+        <Property Name="DescriptionSize">5, 21</Property>
+        <Property Name="SymbolConfiguration">8;16;NIO_Flasher;;;PhysReqId;0;;;-1;;;Value;;;0</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextRespId" ControlName="StaticTextRespId">
+        <Property Name="Name">StaticTextRespId</Property>
+        <Property Name="Size">95, 15</Property>
+        <Property Name="Location">205, 33</Property>
+        <Property Name="BackColor">Window</Property>
+        <Property Name="Text">物理响应ID(Hex):</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.TextBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="TextBoxRespId" ControlName="TextBoxRespId">
+        <Property Name="Name">TextBoxRespId</Property>
+        <Property Name="Size">70, 21</Property>
+        <Property Name="Location">305, 28</Property>
+        <Property Name="AlarmGeneralSettings">1;0;0;100</Property>
+        <Property Name="AlarmLowerBkgColor">Salmon</Property>
+        <Property Name="AlarmLowerTextColor">Black</Property>
+        <Property Name="AlarmUpperBkgColor">IndianRed</Property>
+        <Property Name="AlarmUpperTextColor">Black</Property>
+        <Property Name="BoxBorderStyle">FixedSingle</Property>
+        <Property Name="DisplayLabel">Left</Property>
+        <Property Name="TabIndex">7</Property>
+        <Property Name="DescriptionText"></Property>
+        <Property Name="ValueDecimalPlaces">0</Property>
+        <Property Name="ValueDisplay">Hexadecimal</Property>
+        <Property Name="UsedValueTable">PhysicalValue</Property>
+        <Property Name="DescriptionSize">5, 21</Property>
+        <Property Name="SymbolConfiguration">8;16;NIO_Flasher;;;PhysRespId;0;;;-1;;;Value;;;0</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextFlashFile" ControlName="StaticTextFlashFile">
+        <Property Name="Name">StaticTextFlashFile</Property>
+        <Property Name="Size">60, 15</Property>
+        <Property Name="Location">15, 77</Property>
+        <Property Name="BackColor">Window</Property>
+        <Property Name="Text">刷写文件:</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextSigFile" ControlName="StaticTextSigFile">
+        <Property Name="Name">StaticTextSigFile</Property>
+        <Property Name="Size">60, 15</Property>
+        <Property Name="Location">15, 111</Property>
+        <Property Name="BackColor">Window</Property>
+        <Property Name="Text">签名文件:</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextDrvFile" ControlName="StaticTextDrvFile">
+        <Property Name="Name">StaticTextDrvFile</Property>
+        <Property Name="Size">60, 15</Property>
+        <Property Name="Location">15, 146</Property>
+        <Property Name="BackColor">Window</Property>
+        <Property Name="Text">驱动文件:</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextDrvSig" ControlName="StaticTextDrvSig">
+        <Property Name="Name">StaticTextDrvSig</Property>
+        <Property Name="Size">60, 15</Property>
+        <Property Name="Location">15, 175</Property>
+        <Property Name="BackColor">Window</Property>
+        <Property Name="Text">驱动签名:</Property>
+      </Object>
+      <Property Name="Name">GroupBoxCfg</Property>
+      <Property Name="Size">530, 200</Property>
+      <Property Name="Location">10, 300</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="Text">配置 (启动刷写时生效)</Property>
+      <Property Name="TabIndex">12</Property>
+      <Property Name="UseWindowsStyle">False</Property>
+    </Object>
+    <Property Name="Name">Panel1</Property>
+    <Property Name="Size">550, 510</Property>
+    <Property Name="Location">0, 0</Property>
+    <Property Name="BackColor">Window</Property>
+  </Object>
+</Panel>

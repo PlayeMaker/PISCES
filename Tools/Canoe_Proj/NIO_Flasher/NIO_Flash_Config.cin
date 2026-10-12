@@ -1,0 +1,152 @@
+/*@!Encoding:936*/
+/*=============================================================================
+ * NIO_Flash_Config.cin
+ * NIO NT3 UDS 刷写上位机 - 全局配置参数
+ *
+ * 依据:
+ *   NIO-TS-0000005  NT3_Flash_Programming_Specification (流程, 图6-3)
+ *   NIO-TS-0000010  NT3_General_UDS_Diagnostic_Specification (寻址/定时/服务)
+ *   NIO-TS-0000004  NT3_UDS_Standardized_Diagnostic_Data_Specification (DID/Routine)
+ *
+ * 说明: 所有需要按具体ECU修改的参数都集中在本文件。
+ *===========================================================================*/
+
+/*---------------------------------------------------------------------------
+ * 1. 诊断寻址 (TS-0000010 4.2/4.3: 11bit Normal Addressing, 固定CAN ID)
+ *    !!! 必须按目标ECU的网络规范修改以下两个物理ID !!!
+ *-------------------------------------------------------------------------*/
+variables
+{
+  dword gPhysReqId   = 0x6A0;   // 物理寻址 请求 CAN ID (Tester -> ECU), TODO: 按ECU修改
+  dword gPhysRespId  = 0x6A8;   // 物理寻址 响应 CAN ID (ECU -> Tester), TODO: 按ECU修改
+  dword gFuncReqId   = 0x601;   // 功能寻址 请求 CAN ID, NIO NT3固定0x601, 不可改
+
+  /*-------------------------------------------------------------------------
+   * 2. ISO 15765-2 传输层参数 (TS-0000010 表4-2/4-3, 标准CAN TX_DL=8)
+   *-----------------------------------------------------------------------*/
+  byte  gPadding     = 0xAA;    // 填充字节, 规范推荐0xAA
+  dword gNBsMs       = 1000;    // 发送方等待流控帧 FC 超时 (N_Bs)
+  dword gNCrMs       = 1000;    // 接收方等待连续帧 CF 超时 (N_Cr)
+  dword gSTminDefMs  = 0;       // Tester作为发送方时默认STmin (实际取ECU FC中的值)
+  dword gMaxTpLen    = 4095;    // FF_DL 上限
+
+  /*-------------------------------------------------------------------------
+   * 3. 会话层定时参数 (TS-0000010 表4-4/4-5)
+   *-----------------------------------------------------------------------*/
+  dword gP2ClientMs      = 150;   // P2Client  普通响应超时
+  dword gP2StarClientMs  = 5000;  // P2*Client 收到NRC 78后的扩展响应超时
+  dword gS3ClientMs      = 2000;  // TesterPresent(3E 80 功能寻址)发送周期
+  dword gMaxNrc78Count   = 200;   // 单请求允许的连续NRC 78最大次数(防死循环)
+  dword gP2TransferMs      = 2000;  // 36传输数据专用响应超时(写Flash耗时, 部分ECU不回NRC78)
+
+  /*-------------------------------------------------------------------------
+   * 4. 刷写流程时序 (TS-0000005 6.1, 图6-3)
+   *-----------------------------------------------------------------------*/
+  dword gDelayAfterProgSessionMs = 500;   // 10 02 正响应后延时
+  dword gDelayAfterResetMs       = 1000;  // 11 01 硬复位后延时
+  dword gDelayAfterRespMs        = 300;   // 复位/会话切换后ECU可接收下一请求的时间裕量
+  dword gMaxRetry                = 3;     // 单步失败最大重试次数(安全访问除外)
+  dword gDelayBeforeRetry36Ms      = 500;   // 36超时后重发前的等待(等ECU写完Flash)
+  dword gMaxChunkSize              = 0;     // 0=用ECU给的MaxNumberOfBlockLength; >0=强制限制36单块数据字节数(调试用)
+
+  /*-------------------------------------------------------------------------
+   * 5. 刷写文件与签名 (TS-0000005 6.1.2 / 6.4.2)
+   *-----------------------------------------------------------------------*/
+  char  gFlashFile[256]     = "P0440960 AC APP.hex";   // 待刷文件: S19 或 Intel HEX (相对CANoe工程目录, 失败请改绝对路径)
+  char  gSignatureFile[256] = "P0440960 AC APP.sig";   // RSA签名文件(文本"0xXX, ..."或纯二进制均可)
+  dword gSignatureLen       = 384;               // NT3 = SHA256+RSA3072 => 384字节
+  byte  gDownloadFlashDriver = 1;                // 1=先下载Flash驱动(含驱动文件), 0=跳过
+  char  gFlashDriverFile[256]   = "P0440960 AC DRIVER.hex";
+  char  gFlashDriverSigFile[256]= "P0440960 AC DRIVER.sig";
+
+  /*-------------------------------------------------------------------------
+   * 6. 指纹数据 DID F15A (TS-0000004: 3字节BCD日期 + 9字节Hex维修站码)
+   *-----------------------------------------------------------------------*/
+  byte  gFpYear  = 0x26;      // 编程日期-年, BCD (0x26 = 2026年), TODO: 刷写时改为当天
+  byte  gFpMonth = 0x08;      // 编程日期-月, BCD
+  byte  gFpDay   = 0x06;      // 编程日期-日, BCD
+  byte  gRepairShopCode[9] = {0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48, 0x49}; // 维修站代码, TODO: 按NIO测试流程定义修改
+
+  /*-------------------------------------------------------------------------
+   * 7. 刷写前需读取的DID列表 (TS-0000004, 记录到日志, 用于追溯)
+   *    NT3平台: F110硬件零件号 / F111硬件基线 / F118软件零件号 / F119软件基线
+   *             F150 Bootloader版本 / F18C ECU序列号 / F18B生产日期
+   *-----------------------------------------------------------------------*/
+  word  gReadDidList[7] = {0xF110, 0xF111, 0xF118, 0xF119, 0xF150, 0xF18C, 0xF18B};
+  dword gReadDidCount   = 7;
+
+  /*-------------------------------------------------------------------------
+   * 8. 内部状态变量 (请勿修改)
+   *-----------------------------------------------------------------------*/
+  // ISO-TP 发送状态
+  byte   gTpTxBusy;        // 1=多帧发送进行中
+  byte   gTpTxDone;        // 1=发送完成
+  byte   gTpTxError;       // 1=发送失败(超时等)
+  // ISO-TP 接收状态
+  byte   gTpRxBusy;        // 1=多帧接收进行中
+  byte   gTpRxComplete;    // 1=一帧完整响应已就绪
+  byte   gTpRxFailed;      // 1=接收失败(N_Cr超时等)
+  byte   gTpRxBuf[4096];   // 接收缓冲区
+  dword  gTpRxLen;         // 接收到的有效数据长度
+  // UDS 事务状态
+  byte   gUdsStatus;       // 见 UDS_ST_xxx
+  byte   gUdsRespBuf[4096];// 最后一个完整响应
+  dword  gUdsRespLen;
+  byte   gUdsNrc;          // 否定响应码 (0=肯定响应)
+  byte   gUdsNrcSid;       // 否定响应对应的服务ID
+  dword  gNrc78Count;
+  // 流程状态
+  dword  gFlashState;      // 主状态机状态
+  dword  gRetryCount;
+  dword  gProgress;        // 0..100
+  char   gLastError[256];
+
+  msTimer tPoll;           // 主循环调度
+  msTimer tP2;             // P2 / P2* 响应超时
+  msTimer tTesterPresent;  // S3 保活
+  msTimer tDelay;          // 通用延时 (500ms / 1s)
+  msTimer tTpStmin;        // CF发送间隔
+  msTimer tTpNBs;          // 等待FC超时
+  msTimer tTpNCr;          // 等待CF超时
+
+  /* UDS 事务状态 */
+  const dword UDS_ST_IDLE  = 0;
+  const dword UDS_ST_BUSY  = 1;   // 请求已发, 等待响应
+  const dword UDS_ST_DONE  = 2;   // 收到肯定响应
+  const dword UDS_ST_NRC   = 3;   // 收到否定响应(非78)
+  const dword UDS_ST_ERROR = 4;   // 超时/传输错误
+}
+
+/*---------------------------------------------------------------------------
+ * CfgLoadFromPanel: 从系统变量(面板)读取运行时配置, 覆盖上方默认值
+ *   - 物理诊断ID: PhysReqId / PhysRespId (面板十进制或十六进制输入)
+ *   - 文件路径:   FlashFile / SignatureFile / DriverFile / DriverSigFile
+ *   系统变量为空或非法时保留本文件中的默认值。
+ *   Tester 在每次启动刷写时调用; SimECU 在 on start 调用。
+ *-------------------------------------------------------------------------*/
+CfgLoadFromPanel()
+{
+  dword v;
+  char  buf[256];
+
+  v = (dword)sysGetVariableInt("NIO_Flasher", "PhysReqId");
+  if (v > 0 && v <= 0x7FF) gPhysReqId = v;
+  v = (dword)sysGetVariableInt("NIO_Flasher", "PhysRespId");
+  if (v > 0 && v <= 0x7FF) gPhysRespId = v;
+
+  buf[0] = 0;
+  sysGetVariableString("NIO_Flasher", "FlashFile", buf, elCount(buf));
+  if (strlen(buf) > 0) strncpy(gFlashFile, buf, elCount(gFlashFile));
+
+  buf[0] = 0;
+  sysGetVariableString("NIO_Flasher", "SignatureFile", buf, elCount(buf));
+  if (strlen(buf) > 0) strncpy(gSignatureFile, buf, elCount(gSignatureFile));
+
+  buf[0] = 0;
+  sysGetVariableString("NIO_Flasher", "DriverFile", buf, elCount(buf));
+  if (strlen(buf) > 0) strncpy(gFlashDriverFile, buf, elCount(gFlashDriverFile));
+
+  buf[0] = 0;
+  sysGetVariableString("NIO_Flasher", "DriverSigFile", buf, elCount(buf));
+  if (strlen(buf) > 0) strncpy(gFlashDriverSigFile, buf, elCount(gFlashDriverSigFile));
+}

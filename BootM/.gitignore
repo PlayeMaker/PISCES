@@ -1,0 +1,10 @@
+.cache
+.vscode
+compile_commands.json
+.settings
+/Debug/**
+!/Debug/**/
+!/Debug/makefile
+!/Debug/*.mk
+!/Debug/**/subdir.mk
+/Debug/

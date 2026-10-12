@@ -1,0 +1,27 @@
+# ... 这里可以添加任何标准的 Makefile 语法 ...
+
+# 假设你需要传递一个自定义宏
+# CFLAGS += -DMY_MACRO
+GIT_VERSION := $(shell git rev-parse --short=8 HEAD)
+CFLAGS += -DGIT_HASH="\"$(GIT_VERSION)\""
+
+# 默认值（如果外部没有定义，则使用这里）
+# 0: HIGH_D, 1: HIGH_P, 2: LOW_D, 3: LOW_P
+PROJECT_CONFIG_DEF ?= 0
+
+# 根据变量值添加宏
+# CFLAGS += -DMY_MACRO=$(MY_MACRO_VALUE)
+
+ifeq ($(PROJECT_CONFIG_DEF),0)
+    CFLAGS += -DHIGH_CONFIGURATION
+    CFLAGS += -DPISCES_MCM_D
+else ifeq ($(PROJECT_CONFIG_DEF),1)
+    CFLAGS += -DHIGH_CONFIGURATION
+    CFLAGS += -DPISCES_MCM_P
+else ifeq ($(PROJECT_CONFIG_DEF),2)
+    CFLAGS += -DLOW_CONFIGURATION
+    CFLAGS += -DPISCES_MCM_D
+else ifeq ($(PROJECT_CONFIG_DEF),3)
+    CFLAGS += -DLOW_CONFIGURATION
+    CFLAGS += -DPISCES_MCM_P
+endif
